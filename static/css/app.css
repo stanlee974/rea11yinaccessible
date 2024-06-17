@@ -1,0 +1,5 @@
+:global(p) {
+	font-size: 2em;
+	text-justify: inter-word;
+	text-align: justify;
+}
