@@ -1,12 +1,14 @@
 <Header>
+    <title>{"really inaccessible | " + title}</title>
     <div style:width="100%" style:max-width="250px" style:margin-right="1rem">
         <a href="{base}/">
-        <ImageLoader
-                src="{base}/logo.png" alt="logo of really inaccessible" fadeIn={true}
-        />
+            <ImageLoader
+                    src="{base}/logo.png" alt="logo of really inaccessible" fadeIn={true}
+            />
         </a>
     </div>
     <HeaderNav>
+        <HeaderNavItem href="https://www.deque.com/axe/" text="Axe-core - test accessibilité"/>
         <HeaderNavMenu text="Réferentiel">
             <HeaderNavItem href="https://www.w3.org/WAI/WCAG22/Understanding/" text="WCAG"/>
             <HeaderNavItem href="https://accessibilite.numerique.gouv.fr/W3C" text="RGAA"/>
@@ -16,10 +18,22 @@
             <HeaderNavItem href="https://orange-opensource.github.io/uuv/" text="Documentation"/>
             <HeaderNavItem href="https://github.com/e2e-test-quest/kata-e2e-uuv" text="Kata (exercism)"/>
         </HeaderNavMenu>
-        <HeaderNavItem href="https://www.deque.com/axe/" text="Axe-core - test accessibilité"/>
+        <HeaderNavItem href="https://github.com/stanlee974/rea11yinaccessible" text="Source Code"/>
     </HeaderNav>
-<!--    <span style="font-size: 3rem; color: goldenrod">{$time}</span>-->
+    <!--    <span style="font-size: 3rem; color: goldenrod">{$time}</span>-->
 </Header>
+<Tile style="position: sticky; top: 3rem">
+    <Slider
+            labelText="Song Volume"
+            min={0}
+            max={100}
+            hideTextInput
+            maxLabel="100"
+            value={volume}
+            step={1}
+            on:change={(value) => {volumeStore.set(value.detail)}}
+    />
+</Tile>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import {
@@ -28,10 +42,16 @@
     HeaderNavItem,
     HeaderNavMenu,
     ImageLoader,
+    Slider,
+    Tile,
   } from "carbon-components-svelte";
-  import { writable } from "svelte/store";
-  import { onMount } from "svelte";
   import { base } from '$app/paths';
+  import { writable } from "svelte/store";
+  import { volumeStore } from "$lib/Store";
+
+  export let title = ""
+  export let volume = 10
+
   // let animationRef: any;
   // let latestStartTime: any;
   //

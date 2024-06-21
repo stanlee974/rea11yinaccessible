@@ -1,4 +1,5 @@
-<Header/>
+<Header title="Surdité"/>
+<SongComponent src="/ost/step8.mp3" autoplay={true} pause={songPause} volume={0.3}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
@@ -7,7 +8,7 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal size="lg" passiveModal bind:open={showTransitionModal} modalHeading="" on:open
+    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showTransitionModal} modalHeading="" on:open
            on:close={() => {showScenario = false}}>
         <div style="display: flex; flex-direction: row">
             <Grid>
@@ -39,7 +40,7 @@
             de bobines de films et de cassettes audio tapissent les murs. Des bancs poussiéreux sont disposés devant les
             écrans, invitant les étrangers à s'asseoir et à écouter.</p>
     </TypewriterComponent>
-    <Modal size="lg" passiveModal bind:open={showEnigm} modalHeading=""
+    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showEnigm} modalHeading=""
            on:open
            on:close={() => disableGoal = false}>
         <Grid>
@@ -58,11 +59,20 @@
         </Grid>
     </Modal>
     <br/>
-    <Typewriter disabled={disableGoal} mode="cascade" on:done={() => {setTimeout(() => {showForm = true}, 2000)}}>
+    <Typewriter disabled={disableGoal} mode="cascade" on:done={() => {showContinueButton = true}}>
         <h2><u><i>Objectif</i></u></h2>
         <p>Chaque poste d'écoute est associé à une bande sonore de niveaux sonores différents. Le but est de découvrir
             le mot clé et de le saisir sur une borne numérique.</p>
     </Typewriter>
+    {#if showContinueButton}
+        <Button kind="secondary" aria-label={"Continuer"}
+                style="left: 46%; padding-right: 2.5rem; padding-left: 2.5rem;"
+                on:click={() => {
+            showForm = true
+            songPause = true
+        }}>Continuer
+        </Button>
+    {/if}
     {#if showForm}
         <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
             <Grid padding>
@@ -101,7 +111,7 @@
             <FluidForm>
                 <TextInput aria-label="keyword"
                            labelText="Mot clé" placeholder="Entrer le mot clé"
-                           required invalid={invalidResult} invalidText="le mot clé est erroné"
+                           required invalid={validResult} invalidText="le mot clé est erroné"
                            bind:value={result}/>
             </FluidForm>
             <Button kind="secondary" on:click={() => validateForm()}>Valider</Button>
@@ -129,20 +139,24 @@
   import Header from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
+  import SongComponent from "$lib/SongComponent.svelte";
 
   let showTransitionModal = true;
   let showScenario = true;
   let showEnigm = false;
   let showForm = false;
   let isWaiting = false;
+  let songPause = false;
   let disableGoal = true;
   let result = ""
-
+  let showContinueButton = false
   let showAudioLow2 = false
   let showAudioMedium = false
 
-  $: invalidResult = !/^surdité$/i.test(result);
+  const validResult = /^surdité|surdite$/i.test(result)
+  $: !/^surdité$/i.test(result)
   const validateForm = () => {
+    if (validResult)
     isWaiting = true
     goto(base + "/surface/laboratory/sanctuary");
   }

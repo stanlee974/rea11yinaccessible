@@ -1,19 +1,21 @@
-<Header/>
+<Header title="daltonisme"/>
+<SongComponent src="/ost/step1.mp3" autoplay={true} pause={song}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
             <h1 class="neon">L'abri</h1>
-            <h2 class="flux">"Salle des lunettes"</h2>
+            <h2 class="flux">Salle des lunettes</h2>
         </div>
     </Typewriter>
-    <br/>    <ModalComponent
+    <br/>
+    <ModalComponent
             parentDoneAction={() => hideScenario = false}>
         <Grid>
             <Row>
                 <Column>
                     <div class="glitch">
                         <ImageLoader
-                                src="{base}/abri/enter.jpg" alt="Tu rentres dans l'abri" fadeIn={true}/>
+                                src="{base}/abri/entrance/enter.jpg" alt="Tu rentres dans l'abri" fadeIn={true}/>
                     </div>
                 </Column>
                 <Column>
@@ -29,18 +31,26 @@
         </Grid>
     </ModalComponent>
     <br/>
-    <TypewriterComponent disabled={hideScenario} delay={3000} parentDoneAction={() => {showGoal = false}}>
+    <TypewriterComponent disabled={hideScenario} delay={3000} parentDoneAction={() => {hideGoal = false}}>
         <h2><u><i>Scénario</i></u></h2>
         <p>Tu te trouves dans une salle obscure avec des équipements médicaux abandonnés et des armoires de rangement.
             Sur une table, se trouve une paire de lunettes étranges qui attire ton attention.</p>
         <p>Une note sur la table indiquant que les lunettes simulent différentes formes de daltonisme.</p>
         <p>Dans un coin de la salle, il y a un panneau de contrôle avec quatre boutons de couleurs différentes (vert,
-            marron clair, orange, saumon).</p>
+            jaune, orange, saumon).</p>
         <p>Un document déchiré mentionnant que la séquence correcte est liée aux perceptions des couleurs affectées par
-            le daltonisme.</p>
+            le daltonisme, avec la bande de couleurs suivante.</p>
     </TypewriterComponent>
+    {#if !hideGoal}
+        <br/>
+        <div style="width: 300px; height: 20px; position: absolute; left: 42%;">
+            <ImageLoader src="{base}/abri/entrance/indice.png" alt="Panel de couleur dans l'ordre attendu"
+                         fadeIn={true}></ImageLoader>
+        </div>
+        <br/>
+    {/if}
     <br/>
-    <TypewriterComponent disabled={showGoal} parentDoneAction={() => showButtons = true}>
+    <TypewriterComponent disabled={hideGoal} parentDoneAction={() => showButtons = true}>
         <h2><u><i>Objectif</i></u></h2>
         <p>Tu dois trouver la bonne combinaison sans attendre.</p>
     </TypewriterComponent>
@@ -74,35 +84,37 @@
             </Button>
             <Button kind="secondary"
                     style="margin-right: 2rem;"
-                    on:click={() => validOrder(3)}>Marron clair
+                    on:click={() => validOrder(3)}>Jaune
             </Button>
         </div>
         {#if isWaiting}
-            <Loading/>
+            <LoadingComponent onclose={() => song = true}/>
         {/if}
     {/if}
 </Content>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
-  import { Button, Content, Column, Grid, Header, ImageLoader, Loading, Row, ToastNotification } from "carbon-components-svelte";
+  import { Button, Column, Content, Grid, Header, ImageLoader, Row, ToastNotification } from "carbon-components-svelte";
   import { goto } from "$app/navigation";
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
   import ModalComponent from "$lib/ModalComponent.svelte";
   import Typewriter from "svelte-typewriter";
+  import SongComponent from "$lib/SongComponent.svelte";
+  import LoadingComponent from "$lib/LoadingComponent.svelte";
 
   const goodOrder = [3, 2, 0, 1];
   let orderTyped: number[] = [];
   let showError = false;
   let hideScenario = true;
-  let showGoal = true;
+  let hideGoal = true;
   let showButtons = false;
   let isWaiting = false;
-
+  let song = false;
   const timeout: number = 4000;
   const validOrder = (id: number) => {
     orderTyped.push(id);
-    if (orderTyped.length === 4) {
+    if (orderTyped.length >= 4) {
       if (JSON.stringify(orderTyped) == JSON.stringify(goodOrder)) {
         isWaiting = true;
         goto(base + "/abri/computer")

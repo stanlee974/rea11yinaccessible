@@ -1,5 +1,6 @@
-<Header/>
-
+<Header title="Trouble visuelle"/>
+<SongComponent src="/ost/trap.mp3" autoplay={true} pause={trapPause} volume={0.2}></SongComponent>
+<SongComponent src="/ost/step9.mp3" play={sanctuaryPlay} pause={sanctuaryPause} volume={0.2}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
@@ -8,8 +9,8 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal size="lg" passiveModal bind:open={showTransitionModal} modalHeading="" on:open
-           on:close={() => {showScenario = false}}>
+    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showTransitionModal} modalHeading="" on:open
+           on:close={() => {showScenario = false;}}>
         <div style="display: flex; flex-direction: row">
             <Grid>
                 <Row>
@@ -57,10 +58,12 @@
                 on:click={() => {
             showEnigm = true
             showContinueButton = false
+            trapPause = true
+            sanctuaryPlay = true
         }}>Continuer
         </Button>
     {/if}
-    <Modal size="lg" passiveModal bind:open={showEnigm} modalHeading=""
+    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showEnigm} modalHeading=""
            on:open
            on:close={() => disableGoal = false}>
         <Grid>
@@ -99,12 +102,12 @@
     {#if showForm}
         <FluidForm style="width: 5000px; height: 5000px">
             <div style="width: 5000px; position: absolute; left: 2500px; top: 3400px; font-size: 300rem">
-                <label id="nom">Nom de l'intervenant</label>
+                <label id="nom">Nom du biologiste</label>
                 <input aria-labelledby="nom" required
                        bind:value={nom}>
             </div>
             <div style="width: 100px; position: absolute; left: 5000px; top: 1000px; font-size: 0.3rem">
-                <label id="prenom">prénom de l'intervenant</label>
+                <label id="prenom">prénom du biologiste</label>
                 <input aria-labelledby="prenom" required
                        bind:value={prenom}>
             </div>
@@ -135,12 +138,16 @@
   import { goto } from "$app/navigation";
   import Header from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
+  import SongComponent from "$lib/SongComponent.svelte";
 
   let showTransitionModal = true;
   let showScenario = true;
   let showEnigm = false;
+  let sanctuaryPlay = false;
+  let sanctuaryPause = false;
   let isWaiting = false;
   let showContinueButton = false;
+  let trapPause = false;
   let showForm = true;
   let disableGoal = true;
   let nom = ""
@@ -148,6 +155,7 @@
   let error = ""
   $: invalidMajin = /^Molah$/i.test(nom) && /^Majin/i.test(prenom);
   $: invalidDiva = /^Tchoungui/i.test(nom) && /^Diva/i.test(prenom);
+
   const validateForm = () => {
     if (invalidDiva
       || invalidMajin) {

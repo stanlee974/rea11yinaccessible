@@ -1,4 +1,6 @@
-<Header/>
+<Header title="Epilogue"/>
+<SongComponent src="/ost/stress.mp3" autoplay={true} pause={pauseStressSong} volume={0.2}></SongComponent>
+<SongComponent src="/ost/step10.mp3" play={playEpilogueSong} pause={pauseEpilogueSong} volume={0.2}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
@@ -7,8 +9,12 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal size="lg" passiveModal bind:open={showTransitionModal} modalHeading="" on:open
-           on:close={() => {showScenario = false}}>
+    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open={showTransitionModal} modalHeading="" on:open
+           on:close={() => {
+               pauseStressSong = true
+               playEpilogueSong = true
+               showTrapModal = true
+           }}>
         <div style="display: flex; flex-direction: row">
             <Grid>
                 <Row>
@@ -36,18 +42,14 @@
                                 manuscrits anciens qui se trouvent dans le sanctuaire pour comprendre ce qui ne va pas.
                                 Une des notes cachées dans un coin ombragé du sanctuaire révèle enfin la vérité : la
                                 seringue contenait un placebo.</p>
-                            <ImageLoader
-                                    src="{base}/final/guard.jpg"
-                                    alt="Garde regardant avec un air dédaigneux"
-                                    fadeIn={true}/>
                         </div>
                     </Column>
                     <Column>
                         <span>1</span>
                         <p style:font-size="1.3rem">Au centre du sanctuaire, l'orbe scintille, illuminée par les
                             cristaux luminescents. Elle repose sur un piédestal doré, entourée de gravures anciennes et
-                            d'inscriptions mystiques. Tu t'approches avec un mélange d'excitation et de crainte</p>
-                        <p style:font-size="1.3rem">Le mécanisme s'ouvre lentement et tu t'empares de l'orbe.</p>
+                            d'inscriptions mystiques. Tu t'approches avec un mélange d'excitation et de crainte.
+                        Le mécanisme s'ouvre lentement et tu t'empares de l'orbe.</p>
                         <ImageLoader
                                 src="{base}/final/broken_orb.jpg"
                                 alt="L'orbe brisée contient l'injection"
@@ -62,7 +64,27 @@
                                 src="{base}/final/man_reading_letter.jpg"
                                 alt="Tu lis la lettre révélant la vérité"
                                 fadeIn={true}/>
-                        <span>5</span>
+                    </Column>
+                </Row>
+            </Grid>
+        </div>
+    </Modal>
+    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showTrapModal} modalHeading="" on:open
+           on:close={() => {
+               showScenario = false;
+           }}>
+        <div style="display: flex; flex-direction: row">
+            <Grid>
+                <Row>
+                    <Column>
+                        <div class="glitch">
+                            <ImageLoader
+                                    src="{base}/final/guard.jpg"
+                                    alt="Garde regardant avec un air dédaigneux"
+                                    fadeIn={true}/>
+                        </div>
+                    </Column>
+                    <Column>
                         <p style:font-size="1.3rem">Des bruits de pas lourds et des voix en colère retentissent dans le
                             couloir, se rapprochant rapidement. Les traqueurs, alertés par la lumière intense émise par
                             la rupture de l'orbe, ont trouvé leur chemin jusqu'au sanctuaire</p>
@@ -106,11 +128,16 @@
   import Header from "$lib/HeaderComponent.svelte";
   import { base } from "$app/paths";
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
+  import { onMount } from "svelte";
+  import SongComponent from "$lib/SongComponent.svelte";
 
   let showTransitionModal = true;
+  let showTrapModal = false;
   let showScenario = true;
   let disabledFin = true;
-
+  let playEpilogueSong = false;
+  let pauseStressSong = false;
+  let pauseEpilogueSong = false;
 </script>
 
 <style lang="css">

@@ -1,4 +1,5 @@
-<Header/>
+<Header title="Dyslexie"/>
+<SongComponent src="/ost/step3.mp3" autoplay={true} pause={pauseSong}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
@@ -7,7 +8,7 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal size="lg" passiveModal bind:open modalHeading="" on:open
+    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open modalHeading="" on:open
            on:close={() => showScenario = false}>
         <div style="display: flex; flex-direction: row">
             <Grid>
@@ -15,7 +16,7 @@
                     <Column>
                         <div class="glitch">
                             <ImageLoader
-                                    src="{base}/abri/enter.jpg" alt="Tu rentres dans la salle médicale" fadeIn={true}/>
+                                    src="{base}/abri/entrance/enter.jpg" alt="Tu rentres dans la salle médicale" fadeIn={true}/>
                         </div>
                     </Column>
                     <Column><p style="font-size: 1.3rem">Après une minutieuse vérification et quelques ajustements, tu appuies sur le bouton
@@ -40,7 +41,7 @@
             texte
             indéchiffrable.</p>
     </Typewriter>
-    <Modal size="lg" passiveModal bind:open={showBookAndPills}
+    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open={showBookAndPills}
            modalHeading="Livre indéchiffrable et table contenant les pillules"
            on:open
            on:close={() => showNotice = false}>
@@ -56,7 +57,7 @@
         <p>Un manuel de médecine ouvert sur une page décrivant le médicament Dysclecsus, expliquant qu'il induit
             temporairement une forme de dyslexie réversible, permettant de lire des textes cachés.</p>
     </Typewriter>
-    <Modal size="lg" passiveModal bind:open={showManEating} modalHeading="tu avales une pillule" on:open
+    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open={showManEating} modalHeading="tu avales une pillule" on:open
            on:close={() => showGoal = false}>
         <ImageLoader
                 src="{base}/abri/medical/man_eating.jpg" alt="Tu avales une pillule" fadeIn={true}/>
@@ -105,6 +106,7 @@
   import { goto } from "$app/navigation";
   import Header from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
+  import SongComponent from "$lib/SongComponent.svelte";
 
   let open = true;
   let showScenario = true;
@@ -112,6 +114,7 @@
   let showNotice = true;
   let showManEating = false;
   let showForm = false;
+  let pauseSong = false;
   let showGoal = true;
   let isWaiting = false;
 
@@ -124,10 +127,12 @@
     hint = dyslexia(hint)
 
   }
-  setInterval(dyslexifyContent, 500)
+  const interval = setInterval(dyslexifyContent, 500)
   const validateForm = (): void => {
     if ("byslexie" === result.trim().toLowerCase()) {
+      clearInterval(interval)
       isWaiting = true
+      pauseSong = true
       goto(base + "/abri/searchcenter");
     }
   }

@@ -2,6 +2,7 @@
             disabled={disabled}
             delay={delay}
             on:done={doneAction}>
+    <div style="width:1px; height: 1px;"> bind:this={keyboardSound}</div>
     <slot></slot>
 </Typewriter>
 {#if waitReading}
@@ -15,7 +16,8 @@
 
   import { onDestroy, onMount } from "svelte";
   import Typewriter from "svelte-typewriter";
-  import { Button } from "carbon-components-svelte";
+  import { Button, Content } from "carbon-components-svelte";
+  import { base } from "$app/paths";
 
   export let disabled = false;
   export let mode: string = "cascade"
@@ -23,6 +25,8 @@
   export let waitReading: boolean = false
   export let parentDoneAction: Function | undefined = undefined
   export let continueButtonAction: Function | undefined = undefined
+
+  let keyboardSound: HTMLAudioElement
 
   let interval: any
   let isWriting = false;
@@ -36,14 +40,19 @@
   const doneAction = () => {
     isWriting = false
     notWrote = false
+    keyboardSound.pause()
     if (parentDoneAction !== undefined) {
       parentDoneAction()
     }
   }
   onMount(() => {
+      keyboardSound = new Audio(base + "/sound/keyboard.mp3")
+    keyboardSound.volume = 0.7
+    keyboardSound.loop = true
     interval = setInterval(() => {
       if (!disabled && notWrote) {
         isWriting = true;
+        keyboardSound.play()
       }
       if (isWriting) {
         window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"})

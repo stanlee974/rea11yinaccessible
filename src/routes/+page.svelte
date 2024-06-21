@@ -1,76 +1,44 @@
-<Header/>
-<Content id="glitch-body" style="height: 90vh">
-    <div id="glitch" class="glitch" style:width="100%" style:margin-top="12rem" style:margin-bottom="10rem"
-         style:padding-top="3px">
-        <ImageLoader
-                src="{base}/logo_alt.png" alt="logo of really inaccessible" fadeIn={true}
-        />
-    </div>
+<Header title="Introduction"/>
+<SongComponent src="/ost/intro.mp3" autoplay={true} pause={openingPause} volume={get(volumeStore) / 100}></SongComponent>
+<Content id="scenario" style="background-color: #161616;">
+    <h1 lang="en">Really Inaccessible</h1>
+    <br/>
+    <br/>
+    <h2>Contexte</h2>
+    <p style="font-size: 1.6rem">Bienvenue dans "Rea11y Inaccessible", un escape game unique en son genre où vous serez confronté aux défis de
+        l'accessibilité. </p>
+    <p style="font-size: 1.6rem">Aujourd'hui, vous allez vivre une aventure immersive qui vous plongera dans la peau de personnes vivant avec
+        divers handicaps. Votre mission : résoudre des énigmes et franchir des obstacles pour sortir victorieux.</p>
+    <br/>
+    <br/>
+    <h2>Thématiques abordées</h2>
+    <p style="font-size: 1.6rem">
+        Handicap Visuel : Par moments, votre vision sera restreinte ou entièrement obscurcie. Vous devrez compter sur
+        vos autres sens et sur vos coéquipiers pour avancer.</p>
+    <p style="font-size: 1.6rem">
+        Handicap Auditif : Parfois, le son sera faible.</p>
+    <p style="font-size: 1.6rem">
+        Handicap Moteur : Certains puzzles nécessiteront de la patience avec une mobilité
+        réduite.
+    </p>
 </Content>
-<Button kind="secondary" aria-label={"Commencer"}
-        style="position: layout; left: 46%; padding-right: 2.5rem; padding-left: 2.5rem;"
+<Button kind="secondary"
+        style="left: 46%; padding-right: 2.5rem; padding-left: 2.5rem; margin-top: 2rem;"
         on:click={() => {
-            disableWriter = false
-        }}><img src="{base}/arrow-down.svg" aria-hidden="true"/></Button>
-<Content id="scenario" style="background-color: #161616; margin-top: 0">
-    <Grid>
-        <Row>
-            <Column>
-                <TypewriterComponent mode="scramble" disabled={disableWriter}>
-                    <h1>Bienvenu(e) à toi !</h1>
-                </TypewriterComponent>
-                <TypewriterComponent disabled={disableWriter} delay={3000} parentDoneAction={() => showButton = true}>
-                    <h2><u><i>Scénario</i></u></h2>
-                    <p>Le monde tel que nous le connaissions a disparu. Une pandémie inconnue a balayé la planète,
-                        laissant 99,99% de la population avec des handicaps divers tels que la perte de la vue, de
-                        l'ouïe, des tremblements des mains, du daltonisme, etc. Dans cette nouvelle société, ces
-                        handicaps sont considérés comme normaux, et ceux qui sont exempts de tout handicap sont vus
-                        comme des hérétiques. Ils sont traqués et éliminés sans pitié par les autorités.</p>
-                    <p>Vous incarnez donc un survivant « hérétique » qui a découvert l'existence d'une
-                        injection nommée CaM-RuN-a11Y. Cette injection permet de développer un handicap aléatoire,
-                        ce
-                        qui vous permettra de vous fondre dans la population et d'échapper à la traque.
-                    </p>
-                    <h2><u><i>Objectif</i></u></h2>
-                    <p>Trouver et administrer l'injection CaM-RuN-a11Y avant que les traqueurs ne vous trouvent.
-                        Vous
-                        disposez de 60 minutes pour vous l'injecter.</p>
-                    <p>Click <a style:text-decoration="none" style:color="#F4F4F4" href="/abri/entrance" on:click={() => isWaiting = true}>ici</a>
-                        pour
-                        entrer dans l'abri.
-                    </p>
-                </TypewriterComponent>
-                <br/>
-                <ButtonComponent onclick={() => {}} enabled={showButton}>
-                    <div slot="message" style="position: absolute; left: 53%; padding-right: 2rem; padding-left: 2rem;">
-                        <img src="{base}/troll.gif"/>
-                        <ToastNotification
-                                lowContrast
-                                fullWidth
-                                kind="error"
-                                title="Erreur"
-                                subtitle="Ce n'est pas ici"
-                        />
-                    </div>
-                    <span slot="content">Continuer</span>
-                </ButtonComponent>
-            </Column>
-        </Row>
-    </Grid>
-</Content>
+            openingPause = true
+            goto("/waitingroom")
+        }}>Débuter la partie
+</Button>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
-  import { Button, Column, Content, Grid, ImageLoader, Row, ToastNotification } from "carbon-components-svelte";
+  import { Button, Content } from "carbon-components-svelte";
   import Header from "$lib/HeaderComponent.svelte";
-  import TypewriterComponent from "$lib/TypewriterComponent.svelte";
-  import { base } from "$app/paths";
-  import ButtonComponent from "$lib/ButtonComponent.svelte";
+  import SongComponent from "$lib/SongComponent.svelte";
+  import { goto } from "$app/navigation";
+  import { volumeStore } from "$lib/Store";
+  import { get } from 'svelte/store';
 
-  let disableWriter = true
-  let isWaiting = false
-  let showButton = false
+  let openingPause = false
+  let volume: number
+
 </script>
-<style lang="css">
-    @import url(static/css/app.css);
-    @import url(static/css/neon.css);
-</style>

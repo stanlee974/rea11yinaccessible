@@ -40,6 +40,7 @@ You can preview the production build with `npm run preview`.
 
 ### tree
 #### /
+#### /waitingroom
 #### /abri/entrance
 #### /abri/computer
 #### /abri/medical
