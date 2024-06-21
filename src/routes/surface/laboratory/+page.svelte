@@ -1,4 +1,5 @@
-<Header/>
+<Header title="Tremblement clavier"/>
+<SongComponent src="/ost/step7.mp3" autoplay={true} pause={songPause} volume={0.3}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
@@ -7,7 +8,7 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal size="lg" passiveModal bind:open={showTransitionModal} modalHeading="" on:open
+    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showTransitionModal} modalHeading="" on:open
            on:close={() => {showScenario = false}}>
         <div style="display: flex; flex-direction: row">
             <Grid>
@@ -37,7 +38,7 @@
         <p>Le froid est intense, et des cristaux de glace couvrent les murs et le sol. Derrière une armoire, il y a un
             grand terminal avec un clavier encastré et un écran légèrement fissuré.</p>
     </TypewriterComponent>
-    <Modal size="lg" passiveModal bind:open={showEnigm} modalHeading=""
+    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showEnigm} modalHeading=""
            on:open
            on:close={() => disableGoal = false}>
         <Grid>
@@ -110,22 +111,28 @@
   import Header from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
+  import SongComponent from "$lib/SongComponent.svelte";
 
   let showTransitionModal = true;
   let showScenario = true;
   let showEnigm = false;
   let isWaiting = false;
   let showForm = false;
+  let songPause = false;
   let disableGoal = true;
   let result = ""
   let container: HTMLDivElement
   let lastPressedKey = ""
   const {createZoomImage} = useZoomImageWheel()
 
+  const validResult = !/^tremors$/i.test(result)
   $: invalidResult = !/^tremors$/i.test(result);
   const validateForm = () => {
-    isWaiting = true
-    goto(base + "/surface/laboratory/audiovisualroom");
+    if (!validResult) {
+      isWaiting = true
+      songPause = true
+      goto(base + "/surface/laboratory/audiovisualroom");
+    }
   }
 
   const adaptPressedKey = (event: any) => {

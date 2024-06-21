@@ -1,4 +1,4 @@
-<Modal size="lg" passiveModal modalHeading={modalHeading} bind:open={opened}
+<Modal size="lg" preventCloseOnClickOutside passiveModal modalHeading={modalHeading} bind:open={opened}
        on:close={() => onClose()}>
     <div style="display: flex; flex-direction: row">
         <slot></slot>

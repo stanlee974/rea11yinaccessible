@@ -1,4 +1,5 @@
-<Header/>
+<Header title="Stress visuelle"/>
+<SongComponent src="/ost/step4.mp3" autoplay={true} pause={pauseSong}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
@@ -7,7 +8,7 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal size="lg" passiveModal bind:open modalHeading=""
+    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open modalHeading=""
            on:close={() => {showScenario = false; showOverlay()}}>
         <div style="display: flex; flex-direction: row">
             <Grid>
@@ -35,7 +36,7 @@
         <p>Cette salle est une grande pièce circulaire, légèrement éclairée par un puit de lumière central. Au centre,
             il y a un podium avec trois piédestaux, chacun contenant une énigme.</p>
     </TypewriterComponent>
-    <Modal size="lg" passiveModal bind:open={showEnigm} modalHeading="3 fiches à énigmes"
+    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open={showEnigm} modalHeading="3 fiches à énigmes"
            on:open
            on:close={() => disableGoal = false}>
         <Tabs>
@@ -47,7 +48,7 @@
                     <p>Dès que l'on me nomme, on me brise. Qui suis-je?</p>
                 </TabContent>
                 <TabContent>
-                    <p>{dyslexia("Je commence par un E, je termine par une E, je ne contiens aucune lettre, mais je ne suis pas la lettre E. Qui suis-je?", {scrambleChance: 20})}</p>
+                    <p>{dyslexia("Je commence par un E, je termine par une E, je ne contiens qu'une seule lettre, mais je ne suis pas la lettre E. Qui suis-je?", {scrambleChance: 20})}</p>
                 </TabContent>
                 <TabContent>
                     <p>Je transforme une plante en une planète. Qui suis-je ?</p>
@@ -66,15 +67,15 @@
             <FluidForm>
                 <TextInput aria-label="enigm1"
                            labelText="Réponse énigme 1" placeholder="Saisir une réponse"
-                           required invalid={invalidEnigm1} invalidText="la réponse est erroné. Ne mets pas l'article."
+                           required invalid={invalidEnigm1} invalidText="la réponse est erroné. Un seul mot est attendu."
                            autofocus bind:value={enigm1}/>
                 <TextInput aria-label="enigm1"
                            labelText="Réponse énigme 2" placeholder="Saisir une réponse"
-                           required invalid={invalidEnigm2} invalidText="la réponse est erroné. Ne mets pas l'article."
+                           required invalid={invalidEnigm2} invalidText="la réponse est erroné. Un seul mot est attendu."
                            bind:value={enigm2}/>
                 <TextInput aria-label="enigm3"
                            labelText="Réponse énigme 3" placeholder="Saisir une réponse"
-                           required invalid={invalidEnigm3} invalidText="la réponse est erroné. Ne mets pas l'article."
+                           required invalid={invalidEnigm3} invalidText="la réponse est erroné. Ne mets pas plusieurs mots."
                            bind:value={enigm3}/>
             </FluidForm>
             <Row style="margin-top: 1rem">
@@ -113,6 +114,7 @@
   import Header from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
+  import SongComponent from "$lib/SongComponent.svelte";
 
   let open = true;
   let showScenario = true;
@@ -120,6 +122,7 @@
   let disableGoal = true;
   let showForm = false;
   let isWaiting = false;
+  let pauseSong = false;
   let enigm1 = ""
   let enigm2 = ""
   let enigm3 = ""
@@ -170,6 +173,7 @@
       && "enveloppe" === enigm2.trim().toLowerCase()
       && "è" === enigm3.trim().toLowerCase()) {
       isWaiting = true;
+      pauseSong = true
       goto(base + "/surface/entrance");
     }
   }

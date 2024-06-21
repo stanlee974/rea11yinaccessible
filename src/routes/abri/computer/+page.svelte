@@ -1,4 +1,5 @@
-<Header/>
+<Header title="Aveugle"/>
+<SongComponent src="/ost/step2.mp3" autoplay={true} pause={pauseSong}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
@@ -39,6 +40,7 @@
         <p>Une page déchirée laisse paraître le nom d'un inventeur</p>
     </TypewriterComponent>
     <Modal
+            preventCloseOnClickOutside
             size="lg" passiveModal
             bind:open
             on:close={() => {showGoal = false; open=false;}}
@@ -129,6 +131,7 @@
   import { base } from '$app/paths';
   import ModalComponent from "$lib/ModalComponent.svelte";
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
+  import SongComponent from "$lib/SongComponent.svelte";
 
   let open = false;
   let openTransition = true;
@@ -136,6 +139,7 @@
   let hideScenario = true;
   let showForm = false;
   let showGoal = true;
+  let pauseSong: boolean = false;
   let formLabel: HTMLElement;
 
   let nom = "";
@@ -170,6 +174,7 @@
     )
     if (isValid) {
       isWaiting = true
+      pauseSong = true
       goto(base + "/abri/medical");
     }
     return isValid;
