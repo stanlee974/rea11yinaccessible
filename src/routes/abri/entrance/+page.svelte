@@ -1,4 +1,4 @@
-<Header title="daltonisme"/>
+<HeaderComponent title="daltonisme"/>
 <SongComponent src="/ost/step1.mp3" autoplay={true} pause={song}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
@@ -33,17 +33,18 @@
     <br/>
     <TypewriterComponent disabled={hideScenario} delay={3000} parentDoneAction={() => {hideGoal = false}}>
         <h2><u><i>Scénario</i></u></h2>
-        <p>Tu te trouves dans une salle obscure avec des équipements médicaux abandonnés et des armoires de rangement.
-            Sur une table, se trouve une paire de lunettes étranges qui attire ton attention.</p>
-        <p>Une note sur la table indiquant que les lunettes simulent différentes formes de daltonisme.</p>
-        <p>Dans un coin de la salle, il y a un panneau de contrôle avec quatre boutons de couleurs différentes (vert,
-            jaune, orange, saumon).</p>
-        <p>Un document déchiré mentionnant que la séquence correcte est liée aux perceptions des couleurs affectées par
+        <p>Tu te trouves dans une salle obscure avec des équipements médicaux abandonnés et des armoires de rangement.</p>
+        <p>Une note sur la table contient le message suivant : </p>
+        <p style="font-style: italic;">"Blanc pur sur blanc pur, rien ne semble changer,
+            Mais ajoute une ombre, et les couleurs se mettent à danser.
+            Quand la lumière se fait douce ou se fait forte,
+            Les nuances cachées frappent à notre porte."</p>
+        <p>Dans un coin de la salle, se trouve un panneau de contrôle avec quatre boutons et un document déchiré mentionnant que la séquence correcte est liée aux perceptions des couleurs affectées par
             le daltonisme, avec la bande de couleurs suivante.</p>
     </TypewriterComponent>
     {#if !hideGoal}
         <br/>
-        <div style="width: 300px; height: 20px; position: absolute; left: 42%;">
+        <div style="width: 300px; height: 20px; position: absolute; left: 42%; filter: contrast({contrast}%) brightness({brightness}%);">
             <ImageLoader src="{base}/abri/entrance/indice.png" alt="Panel de couleur dans l'ordre attendu"
                          fadeIn={true}></ImageLoader>
         </div>
@@ -54,22 +55,18 @@
         <h2><u><i>Objectif</i></u></h2>
         <p>Tu dois trouver la bonne combinaison sans attendre.</p>
     </TypewriterComponent>
-    {#if showError}
-        <ToastNotification
-                lowContrast
-                fullWidth
-                kind="error"
-                title="Erreur"
-                subtitle="L'ordre d'activation des boutons n'est pas bon"
-                caption="Essaie encore"
-                {timeout}
-                on:close={(e) => {
-                showError = false;
-              }}
-        />
-    {/if}
     {#if showButtons}
         <div style="display: flex; margin-top: 2rem; align-items: center; justify-content: center;">
+            <Slider
+                    labelText="Contraste"
+                    min={0}
+                    max={100}
+                    hideTextInput
+                    maxLabel="100"
+                    value={contrast}
+                    step={1}
+                    on:change={(value) => {{contrast = value.detail}}}
+            />
             <Button kind="secondary"
                     style="margin-right: 2rem;"
                     on:click={() => validOrder(0)}>Vert
@@ -86,15 +83,39 @@
                     style="margin-right: 2rem;"
                     on:click={() => validOrder(3)}>Jaune
             </Button>
+            <Slider
+                    labelText="Luminosité"
+                    min={0}
+                    max={100}
+                    hideTextInput
+                    maxLabel="100"
+                    value={brightness}
+                    step={1}
+                    on:change={(value) => {{brightness = value.detail}}}
+            />
         </div>
         {#if isWaiting}
             <LoadingComponent onclose={() => song = true}/>
         {/if}
     {/if}
+    {#if showError}
+        <ToastNotification
+                lowContrast
+                fullWidth
+                kind="error"
+                title="Erreur"
+                subtitle="L'ordre d'activation des boutons n'est pas bon"
+                caption="Essaie encore"
+                {timeout}
+                on:close={(e) => {
+                showError = false;
+              }}
+        />
+    {/if}
 </Content>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
-  import { Button, Column, Content, Grid, Header, ImageLoader, Row, ToastNotification } from "carbon-components-svelte";
+  import { Button, Column, Content, Grid, ImageLoader, Row, Slider, ToastNotification } from "carbon-components-svelte";
   import { goto } from "$app/navigation";
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
@@ -102,6 +123,8 @@
   import Typewriter from "svelte-typewriter";
   import SongComponent from "$lib/SongComponent.svelte";
   import LoadingComponent from "$lib/LoadingComponent.svelte";
+  import HeaderComponent from "$lib/HeaderComponent.svelte";
+  import { setVolume } from "$lib/store/VolumeStore";
 
   const goodOrder = [3, 2, 0, 1];
   let orderTyped: number[] = [];
@@ -111,6 +134,9 @@
   let showButtons = false;
   let isWaiting = false;
   let song = false;
+  let contrast = 0;
+  let brightness = 0;
+  let hint: HTMLElement;
   const timeout: number = 4000;
   const validOrder = (id: number) => {
     orderTyped.push(id);

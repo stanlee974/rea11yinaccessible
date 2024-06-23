@@ -1,4 +1,4 @@
-<Header title="Surdité"/>
+<HeaderComponent title="Surdité"/>
 <SongComponent src="/ost/step8.mp3" autoplay={true} pause={songPause} volume={0.3}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
@@ -129,14 +129,15 @@
     Content,
     FluidForm,
     Grid,
-    ImageLoader, Loading,
+    ImageLoader,
+    Loading,
     Modal,
     Row,
     TextInput,
   } from "carbon-components-svelte";
   import Typewriter from 'svelte-typewriter'
   import { goto } from "$app/navigation";
-  import Header from "$lib/HeaderComponent.svelte";
+  import HeaderComponent from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
   import SongComponent from "$lib/SongComponent.svelte";

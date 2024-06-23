@@ -1,4 +1,4 @@
-<Header>
+<Header style="margin-bottom: 3rem">
     <title>{"really inaccessible | " + title}</title>
     <div style:width="100%" style:max-width="250px" style:margin-right="1rem">
         <a href="{base}/">
@@ -22,35 +22,54 @@
     </HeaderNav>
     <!--    <span style="font-size: 3rem; color: goldenrod">{$time}</span>-->
 </Header>
-<Tile style="position: sticky; top: 3rem">
-    <Slider
-            labelText="Song Volume"
-            min={0}
-            max={100}
-            hideTextInput
-            maxLabel="100"
-            value={volume}
-            step={1}
-            on:change={(value) => {volumeStore.set(value.detail)}}
-    />
+<Tile style="position: sticky; top: 3rem; position: flex; flex-direction: row; z-index: 2000">
+    <HeaderUtilities>
+        <HeaderGlobalAction
+                iconDescription="you want help?"
+                tooltipAlignment="end"
+                tooltipPosition="bottom"
+                icon={Idea}
+        />
+        <Slider
+                labelText="Song Volume"
+                min={0}
+                max={100}
+                hideTextInput
+                maxLabel="100"
+                value={volume}
+                step={1}
+                on:change={(value) => {{setVolume(value.detail)}}}
+        />
+    </HeaderUtilities>
 </Tile>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import {
     Header,
+    HeaderGlobalAction,
     HeaderNav,
     HeaderNavItem,
     HeaderNavMenu,
+    HeaderUtilities,
     ImageLoader,
     Slider,
     Tile,
   } from "carbon-components-svelte";
   import { base } from '$app/paths';
-  import { writable } from "svelte/store";
-  import { volumeStore } from "$lib/Store";
+  import { checkVolume, getVolume, initVolumeStore, setVolume } from "$lib/store/VolumeStore";
+  import { onMount } from "svelte";
+  import { Idea } from "carbon-icons-svelte";
 
   export let title = ""
-  export let volume = 10
+  export let volume: number = 10
+
+  onMount(() => {
+    if (!checkVolume()) {
+      let INITIAL_VOLUME = "10";
+      initVolumeStore(INITIAL_VOLUME)
+    }
+    volume = getVolume() * 100
+  })
 
   // let animationRef: any;
   // let latestStartTime: any;
