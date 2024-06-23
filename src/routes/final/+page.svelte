@@ -1,4 +1,4 @@
-<Header title="Epilogue"/>
+<HeaderComponent title="Epilogue"/>
 <SongComponent src="/ost/stress.mp3" autoplay={true} pause={pauseStressSong} volume={0.2}></SongComponent>
 <SongComponent src="/ost/step10.mp3" play={playEpilogueSong} pause={pauseEpilogueSong} volume={0.2}></SongComponent>
 <Content>
@@ -125,10 +125,9 @@
   import "carbon-components-svelte/css/g90.css";
   import { Column, Content, Grid, ImageLoader, Modal, Row, } from "carbon-components-svelte";
   import Typewriter from 'svelte-typewriter'
-  import Header from "$lib/HeaderComponent.svelte";
+  import HeaderComponent from "$lib/HeaderComponent.svelte";
   import { base } from "$app/paths";
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
-  import { onMount } from "svelte";
   import SongComponent from "$lib/SongComponent.svelte";
 
   let showTransitionModal = true;

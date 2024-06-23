@@ -1,4 +1,4 @@
-<Header title="Tremblement clavier"/>
+<HeaderComponent title="Tremblement clavier"/>
 <SongComponent src="/ost/step7.mp3" autoplay={true} pause={songPause} volume={0.3}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
@@ -100,7 +100,8 @@
     Content,
     FluidForm,
     Grid,
-    ImageLoader, Loading,
+    ImageLoader,
+    Loading,
     Modal,
     Row,
     TextInput,
@@ -108,7 +109,7 @@
   import Typewriter from 'svelte-typewriter'
   import { goto } from "$app/navigation";
   import { useZoomImageWheel } from "@zoom-image/svelte";
-  import Header from "$lib/HeaderComponent.svelte";
+  import HeaderComponent from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
   import SongComponent from "$lib/SongComponent.svelte";

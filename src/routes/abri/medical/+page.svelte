@@ -1,4 +1,4 @@
-<Header title="Dyslexie"/>
+<HeaderComponent title="Dyslexie"/>
 <SongComponent src="/ost/step3.mp3" autoplay={true} pause={pauseSong}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
@@ -96,7 +96,8 @@
     Content,
     FluidForm,
     Grid,
-    ImageLoader, Loading,
+    ImageLoader,
+    Loading,
     Modal,
     Row,
     TextInput,
@@ -104,9 +105,9 @@
   import Typewriter from 'svelte-typewriter'
   import dyslexia from "dyslexia";
   import { goto } from "$app/navigation";
-  import Header from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import SongComponent from "$lib/SongComponent.svelte";
+  import HeaderComponent from "$lib/HeaderComponent.svelte";
 
   let open = true;
   let showScenario = true;

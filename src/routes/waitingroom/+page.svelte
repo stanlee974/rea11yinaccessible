@@ -1,4 +1,4 @@
-<Header title="Ouverture"/>
+<HeaderComponent title="Ouverture"/>
 <SongComponent src="/ost/opening.mp3" autoplay={true} pause={openingPause}></SongComponent>
 <Content id="glitch-body" style="height: 90vh">
     <div id="glitch" class="glitch" style:width="100%" style:margin-top="12rem" style:margin-bottom="10rem"
@@ -69,7 +69,7 @@
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import { Button, Column, Content, Grid, ImageLoader, Row, ToastNotification } from "carbon-components-svelte";
-  import Header from "$lib/HeaderComponent.svelte";
+  import HeaderComponent from "$lib/HeaderComponent.svelte";
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
   import { base } from "$app/paths";
   import ButtonComponent from "$lib/ButtonComponent.svelte";

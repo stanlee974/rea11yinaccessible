@@ -1,4 +1,4 @@
-<Header title="Aveugle"/>
+<HeaderComponent title="Aveugle"/>
 <SongComponent src="/ost/step2.mp3" autoplay={true} pause={pauseSong}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
@@ -117,7 +117,9 @@
     Content,
     FluidForm,
     Grid,
-    ImageLoader, Loading, Modal,
+    ImageLoader,
+    Loading,
+    Modal,
     Row,
     Tab,
     TabContent,
@@ -127,7 +129,7 @@
   } from "carbon-components-svelte";
   import Typewriter from 'svelte-typewriter'
   import { goto } from "$app/navigation";
-  import Header from "$lib/HeaderComponent.svelte";
+  import HeaderComponent from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import ModalComponent from "$lib/ModalComponent.svelte";
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";

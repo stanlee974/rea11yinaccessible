@@ -1,4 +1,4 @@
-<Header title="Trouble visuelle"/>
+<HeaderComponent title="Trouble visuelle"/>
 <SongComponent src="/ost/trap.mp3" autoplay={true} pause={trapPause} volume={0.2}></SongComponent>
 <SongComponent src="/ost/step9.mp3" play={sanctuaryPlay} pause={sanctuaryPause} volume={0.2}></SongComponent>
 <Content>
@@ -136,7 +136,7 @@
   } from "carbon-components-svelte";
   import Typewriter from 'svelte-typewriter'
   import { goto } from "$app/navigation";
-  import Header from "$lib/HeaderComponent.svelte";
+  import HeaderComponent from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import SongComponent from "$lib/SongComponent.svelte";
 

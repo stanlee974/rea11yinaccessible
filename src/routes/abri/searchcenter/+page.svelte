@@ -1,4 +1,4 @@
-<Header title="Stress visuelle"/>
+<HeaderComponent title="Troubles cognitifs | image intrusives"/>
 <SongComponent src="/ost/step4.mp3" autoplay={true} pause={pauseSong}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
@@ -100,7 +100,8 @@
     Content,
     FluidForm,
     Grid,
-    ImageLoader, Loading,
+    ImageLoader,
+    Loading,
     Modal,
     Row,
     Tab,
@@ -111,7 +112,7 @@
   import Typewriter from 'svelte-typewriter'
   import dyslexia from "dyslexia";
   import { goto } from "$app/navigation";
-  import Header from "$lib/HeaderComponent.svelte";
+  import HeaderComponent from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
   import SongComponent from "$lib/SongComponent.svelte";

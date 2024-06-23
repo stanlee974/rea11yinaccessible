@@ -1,4 +1,4 @@
-<Header title="Tremblement souris"/>
+<HeaderComponent title="Tremblement souris"/>
 <SongComponent src="/ost/step6.mp3" autoplay={true} pause={songPause}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
@@ -102,7 +102,7 @@
   import Typewriter from 'svelte-typewriter'
   import { goto } from "$app/navigation";
   import { onMount } from "svelte";
-  import Header from "$lib/HeaderComponent.svelte";
+  import HeaderComponent from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
   import SongComponent from "$lib/SongComponent.svelte";

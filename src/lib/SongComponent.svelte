@@ -4,13 +4,11 @@
   import "carbon-components-svelte/css/g90.css";
   import { base } from "$app/paths";
   import { onMount } from "svelte";
-  import { get } from "svelte/store";
-  import { volumeStore } from "$lib/Store";
+  import { getVolume } from "$lib/store/VolumeStore";
 
   let audio: HTMLAudioElement;
   export let src: string = ""
   export let volume: number = 0.1
-  export let updatedVolume: number = 0.1
   export let fadeOutVolume: number = 0
   export let onpause: Function | undefined = undefined
   export let pause: boolean = false
@@ -23,7 +21,7 @@
     audio.loop = true
     audio.autoplay = autoplay
     const interval = setInterval(() => {
-    audio.volume = get(volumeStore) / 100
+    audio.volume = getVolume()
       if (play && !autoplay) {
         audio.play()
       }
