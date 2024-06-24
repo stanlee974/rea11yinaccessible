@@ -1,19 +1,16 @@
-<HeaderComponent title="Ouverture"/>
+<HeaderComponent title={Step.WAITING_ROOM}/>
 <SongComponent src="/ost/opening.mp3" autoplay={true} pause={openingPause}></SongComponent>
-<Content id="glitch-body" style="height: 90vh">
-    <div id="glitch" class="glitch" style:width="100%" style:margin-top="12rem" style:margin-bottom="10rem"
-         style:padding-top="3px">
+<div id="glitch-body">
+    <div id="glitch" class="glitch" style="margin: 5rem 3rem 5rem;">
         <ImageLoader
                 src="{base}/logo_alt.png" alt="logo of really inaccessible" fadeIn={true}
         />
     </div>
-</Content>
-<Button kind="secondary" aria-label={"Commencer"}
-        style="position: layout; left: 46%; padding-right: 2.5rem; padding-left: 2.5rem;"
-        on:click={() => {
-            disableWriter = false
-            clickSound.play()
-        }}><img src="{base}/arrow-down.svg" aria-hidden="true"/></Button>
+</div>
+<ButtonComponent onclick={() => {disableWriter = false}} enabled={startButton}><img slot="content"
+                                                                                    src="{base}/arrow-down.svg"
+                                                                                    aria-label="Commencer"/>
+</ButtonComponent>
 <Content id="scenario" style="background-color: #161616; margin-top: 0">
     <Grid>
         <Row>
@@ -25,18 +22,23 @@
                     <h2><u><i>Scénario</i></u></h2>
                     <p>Le monde tel que nous le connaissions a disparu. Une pandémie inconnue a balayé la planète,
                         laissant 99,99% de la population avec des handicaps divers tels que la perte de la vue, de
-                        l'ouïe, des tremblements des mains, du daltonisme, etc. Dans cette nouvelle société, ces
-                        handicaps sont considérés comme normaux, et ceux qui sont exempts de tout handicap sont vus
-                        comme des hérétiques. Ils sont traqués et éliminés sans pitié par les autorités.</p>
-                    <p>Vous incarnez donc un survivant « hérétique » qui a découvert l'existence d'une
+                        l'ouïe, des tremblements des mains, du daltonisme, etc. Dans ce monde
+                        futuriste, les handicaps visuels, moteurs et auditifs sont la norme. Ceux qui sont exempts de
+                        toute limitation sont considérés comme des hérétiques et traités avec suspicion. Ils sont
+                        traqués et éliminés sans pitié par les autorités.</p>
+                    <p>Tu incarnes donc un survivant « hérétique » qui a découvert l'existence d'une
                         injection nommée CaM-RuN-a11Y. Cette injection permet de développer un handicap aléatoire,
                         ce
-                        qui vous permettra de vous fondre dans la population et d'échapper à la traque.
+                        qui te permettra de te fondre dans la population et d'échapper à la traque.
                     </p>
                     <h2><u><i>Objectif</i></u></h2>
-                    <p>Trouver et administrer l'injection CaM-RuN-a11Y avant que les traqueurs ne vous trouvent.
-                        Vous
-                        disposez de 60 minutes pour vous l'injecter.</p>
+                    <p>Ton objectif est de te fondre dans la population, résoudre les énigmes et
+                        surmonter les obstacles qui se dressent sur ta route. Chaque défi te rapprochera de ta survie,
+                        mais nécessitera une adaptation rapide et une ingéniosité sans faille.
+                        La traque est lancée, et chaque instant compte. Utilise tes nouvelles capacités pour tromper les
+                        autorités, découvre les secrets de cette société étrange, et trouve un moyen de survivre dans ce
+                        monde où la norme est inversée.</p>
+                    <p> Bonne chance, survivant. Que l'injection CaM-RuN-a11Y te guide vers la liberté</p>
                     <p>Click <a style:text-decoration="none" style:color="#F4F4F4" href="/abri/entrance" on:click={() => {
                         loading();
                         openingPause = true
@@ -46,8 +48,24 @@
                     </p>
                 </TypewriterComponent>
                 <br/>
-                <ButtonComponent onclick={() => {errorSound.play()}} enabled={showButton}>
-                    <div slot="message" style="position: absolute; left: 53%; padding-right: 2rem; padding-left: 2rem;">
+                {#if showButton}
+                    <Button kind="secondary"
+                            style="
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            cursor: pointer;
+            "
+                            on:click={() => {errorSound.play(); showError = true}}
+                            autofocus>
+                        Continuer
+                    </Button>
+                {/if}
+                {#if showError}
+                    <div
+                            style="position: absolute; left: 53%; padding-right: 2rem; padding-left: 2rem;">
                         <img src="{base}/troll.gif" aria-hidden="true"/>
                         <ToastNotification
                                 lowContrast
@@ -57,8 +75,7 @@
                                 subtitle="Ce n'est pas ici"
                         />
                     </div>
-                    <span slot="content">Continuer</span>
-                </ButtonComponent>
+                {/if}
             </Column>
         </Row>
     </Grid>
@@ -76,25 +93,26 @@
   import { onMount } from "svelte";
   import SongComponent from "$lib/SongComponent.svelte";
   import LoadingComponent from "$lib/LoadingComponent.svelte";
+  import { Step } from "$lib";
 
   let disableWriter = true
   let isWaiting = false
   let showButton = false
+  let showError = false
+  let startButton = true
   let openingPause: boolean = false;
-  let clickSound: HTMLAudioElement;
   let errorSound: HTMLAudioElement;
   const loading = () => {
     isWaiting = true
   }
   onMount(() => {
-    clickSound = new Audio(base + "/sound/click.mp3")
-    clickSound.volume = 0.2
     errorSound = new Audio(base + "/sound/error.mp3")
     errorSound.volume = 0.5
   })
 
 </script>
 <style lang="css">
-    @import url(static/css/app.css);
-    @import url(static/css/neon.css);
+    @import url(/css/app.css);
+    @import url(/css/neon.css);
+    @import url(/css/glitch.css);
 </style>

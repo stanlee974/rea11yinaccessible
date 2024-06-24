@@ -1,5 +1,6 @@
-<div style="text-indent: -9999px;"> bind:this={audio}</div>
-
+{#if !audio}
+    <div style="text-indent: -9999px;"> bind:this={audio}</div>
+{/if}
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import { base } from "$app/paths";
@@ -8,7 +9,6 @@
 
   let audio: HTMLAudioElement;
   export let src: string = ""
-  export let volume: number = 0.1
   export let fadeOutVolume: number = 0
   export let onpause: Function | undefined = undefined
   export let pause: boolean = false
@@ -17,11 +17,10 @@
 
   onMount(() => {
     audio = new Audio(base + src)
-    audio.volume = volume
     audio.loop = true
     audio.autoplay = autoplay
     const interval = setInterval(() => {
-    audio.volume = getVolume()
+      audio.volume = getVolume()
       if (play && !autoplay) {
         audio.play()
       }

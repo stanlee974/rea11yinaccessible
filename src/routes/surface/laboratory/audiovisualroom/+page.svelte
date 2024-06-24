@@ -1,5 +1,5 @@
-<HeaderComponent title="Surdité"/>
-<SongComponent src="/ost/step8.mp3" autoplay={true} pause={songPause} volume={0.3}></SongComponent>
+<HeaderComponent title={Step.SURFACE_LABORATORY_AUDIOVISUALROOM}/>
+<SongComponent src="/ost/step8.mp3" autoplay={true} pause={songPause}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
@@ -14,11 +14,9 @@
             <Grid>
                 <Row>
                     <Column>
-                        <div class="glitch">
                             <ImageLoader
                                     src="{base}/surface/laboratory/audiovisual_room/spiral_staircase.jpg"
                                     alt="Tu montes les escaliers en colimaçon" fadeIn={true}/>
-                        </div>
                     </Column>
                     <Column><p style="font-size: 1.5rem">Une petite trappe s'ouvre et tu y glisses ta main. Rien à
                         l'intérieur... </p>
@@ -46,11 +44,9 @@
         <Grid>
             <Row>
                 <Column>
-                    <div class="glitch">
                         <ImageLoader
                                 src="{base}/surface/laboratory/audiovisual_room/audioroom.jpg"
                                 alt="Salle technique audiovisuelle" fadeIn={true}/>
-                    </div>
                 </Column>
                 <Column><p>Des notes éparses expliquent que cette salle servait autrefois de centre de documentation
                     pour les expériences scientifiques menées dans le laboratoire</p>
@@ -59,20 +55,15 @@
         </Grid>
     </Modal>
     <br/>
-    <Typewriter disabled={disableGoal} mode="cascade" on:done={() => {showContinueButton = true}}>
+    <TypewriterComponent disabled={disableGoal} waitReading continueButtonAction={() => {
+            showForm = true
+            savedVolume = getVolume() * 100
+            setVolume(0)
+    }}>
         <h2><u><i>Objectif</i></u></h2>
         <p>Chaque poste d'écoute est associé à une bande sonore de niveaux sonores différents. Le but est de découvrir
             le mot clé et de le saisir sur une borne numérique.</p>
-    </Typewriter>
-    {#if showContinueButton}
-        <Button kind="secondary" aria-label={"Continuer"}
-                style="left: 46%; padding-right: 2.5rem; padding-left: 2.5rem;"
-                on:click={() => {
-            showForm = true
-            songPause = true
-        }}>Continuer
-        </Button>
-    {/if}
+    </TypewriterComponent>
     {#if showForm}
         <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
             <Grid padding>
@@ -111,7 +102,7 @@
             <FluidForm>
                 <TextInput aria-label="keyword"
                            labelText="Mot clé" placeholder="Entrer le mot clé"
-                           required invalid={validResult} invalidText="le mot clé est erroné"
+                           required invalid={invalidResult} invalidText="le mot clé est erroné"
                            bind:value={result}/>
             </FluidForm>
             <Button kind="secondary" on:click={() => validateForm()}>Valider</Button>
@@ -141,6 +132,8 @@
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
   import SongComponent from "$lib/SongComponent.svelte";
+  import { Step } from "$lib";
+  import { getVolume, setVolume } from "$lib/store/VolumeStore";
 
   let showTransitionModal = true;
   let showScenario = true;
@@ -150,23 +143,24 @@
   let songPause = false;
   let disableGoal = true;
   let result = ""
-  let showContinueButton = false
   let showAudioLow2 = false
   let showAudioMedium = false
+  let savedVolume = 0
 
-  const validResult = /^surdité|surdite$/i.test(result)
-  $: !/^surdité$/i.test(result)
+  $: invalidResult = !/surdité$|surdite$/i.test(result)
   const validateForm = () => {
-    if (validResult)
-    isWaiting = true
-    goto(base + "/surface/laboratory/sanctuary");
+    if (/surdité$|surdite$/i.test(result)) {
+      isWaiting = true
+      setVolume(savedVolume)
+      goto(base + "/surface/laboratory/sanctuary");
+    }
   }
 
 </script>
 
 <style lang="css">
-    @import url(static/css/app.css);
-    @import url(static/css/neon.css);
+    @import url(/css/app.css);
+    @import url(/css/neon.css);
 
     label {
         font-size: 1.3em;

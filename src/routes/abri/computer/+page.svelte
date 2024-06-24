@@ -1,5 +1,12 @@
-<HeaderComponent title="Aveugle"/>
-<SongComponent src="/ost/step2.mp3" autoplay={true} pause={pauseSong}></SongComponent>
+<HeaderComponent title={Step.ABRI_COMPUTER}/>
+<SongComponent src="/ost/step3.mp3" autoplay={true} pause={pauseSong}></SongComponent>
+<SoundEffectComponent src="/sound/accessibleName/fr/nom.mp3" play={playLastName}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/fr/prenom.mp3" play={playFirstName}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/fr/naissance.mp3" play={playBirth}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/fr/deces.mp3" play={playDeath}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/fr/soumettre.mp3" play={playSubmit}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/error.mp3" play={playError}></SoundEffectComponent>
+
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
@@ -31,19 +38,24 @@
             </Grid>
         </div>
     </ModalComponent>
-    <TypewriterComponent disabled={hideScenario} parentDoneAction={() => setTimeout(() => open = true, 2000)}>
+    <TypewriterComponent disabled={hideScenario} parentDoneAction={() => showGoal = false}>
         <h2><u><i>Scénario</i></u></h2>
-        <p>Plusieurs pages de manuel technique dispersées autour du terminal expliquant comment utiliser le clavier pour
+        <p>Plusieurs pages de manuel technique dispersées autour du terminal expliquent comment utiliser le clavier pour
             naviguer à l'aveugle.</p>
         <p>Une note indiquant que les commandes du terminal sont prédéfinies et que le code pour continuer se trouve
             dans le système.</p>
-        <p>Une page déchirée laisse paraître le nom d'un inventeur</p>
+        <p>Une page déchirée laisse paraître une photo d'un inventeur et d'informations qui lui sont liées</p>
+    </TypewriterComponent>
+    <br/>
+    <TypewriterComponent disabled={showGoal} continueButtonAction={() => {open = true;}} waitReading>
+        <h2><u><i>Objectif</i></u></h2>
+        <p>Tu dois saisir les informations de cet inventeur et appuyer sur entrer pour soumettre.</p>
     </TypewriterComponent>
     <Modal
             preventCloseOnClickOutside
             size="lg" passiveModal
             bind:open
-            on:close={() => {showGoal = false; open=false;}}
+            on:close={() => {showForm = true; open=false;}}
             modalHeading="Indices trouvés sur la table">
         <Tabs>
             <Tab label="Inventeur"/>
@@ -59,51 +71,46 @@
                 <TabContent>
                     <p>La touche Tab du clavier, permet de passer au champ de saisie suivant.</p>
                     <p>La touche Shift+Tab du clavier, permet de retourner au champ de saisie précédent.</p>
-                    <p>La touche Entrée du clavier, permet de cliquer sur les boutons.</p>
+                    <p>La touche Entrée du clavier, permet de cliquer sur les boutons par exemple pour soumettre un
+                        formulaire.</p>
                     <p>Le format des dates est jj/mm/aaaa</p>
                 </TabContent>
             </svelte:fragment>
         </Tabs>
     </Modal>
-    <br/>
-    <TypewriterComponent disabled={showGoal} parentDoneAction={() => showForm = true}>
-        <h2><u><i>Objectif</i></u></h2>
-        <p>Tu dois saisir les informations de cet inventeur et appuyer sur entrer.</p>
-    </TypewriterComponent>
     {#if showForm}
         <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
             <Content id="computer" style="opacity: 0; pointer-events: none;">
-                <FluidForm style="width: 1px; height: 1px">
-                    <TextInput style="background-color: black; color: black" on:focus={displayLabel} aria-label="nom"
+                <FluidForm autofocus style="width: 1px; height: 1px">
+                    <TextInput style="background-color: black; color: black" on:focus={readLabel} aria-label="nom"
                                labelText="Nom" placeholder="Entrer un nom..."
                                required invalid={invalidNom} invalidText="le nom est invalide"
-                               autofocus bind:value={nom}/>
-                    <TextInput style="background-color: black; color: black" on:focus={displayLabel} aria-label="prenom"
+                               bind:value={nom}/>
+                    <TextInput style="background-color: black; color: black" on:focus={readLabel} aria-label="prenom"
                                labelText="Prénom"
                                placeholder="Entrer un prénom..." required
                                invalid={invalidPrenom} invalidText="le prénom est invalide"
                                bind:value={prenom}/>
-                    <TextInput style="background-color: black; color: black" on:focus={displayLabel}
+                    <TextInput style="background-color: black; color: black" on:focus={readLabel}
                                aria-label="naissance" labelText="Date de naissance"
                                placeholder="Entrer une date..."
                                required
                                bind:value={naissance} invalid={invalidNaissance}
                                invalidText="La date de naissance n'est pas au format attendu : dd/mm/aaaa"
                     />
-                    <TextInput style="background-color: black; color: black" on:focus={displayLabel} aria-label="deces"
+                    <TextInput style="background-color: black; color: black" on:focus={readLabel} aria-label="deces"
                                labelText="Date de décès"
                                placeholder="Entrer une date..."
                                required bind:value={deces}
                                invalid={invalidDeces}
                                invalidText="La date de décès n'est pas au format attendu : dd/mm/aaaa"/>
                 </FluidForm>
-                <Button kind="secondary" aria-label="soumettre" on:click={() => validateForm()} on:focus={displayLabel}>
+                <Button kind="secondary" aria-label="soumettre" on:click={() => validateForm()} on:focus={readLabel}>
                     Soumettre la saisie
                 </Button>
             </Content>
-            <Tile><span bind:this={formLabel}>nom</span></Tile>
             <img src="{base}/abri/computer/computer.jpg" alt="ordinateur sur lequel se trouve le formulaire"/>
-            <Button kind="secondary" on:click={() => open = true}>Indices</Button>
+            <Button kind="secondary" on:click={() => open = true}>Consulter les notes</Button>
         </div>
         {#if isWaiting}
             <Loading/>
@@ -124,8 +131,7 @@
     Tab,
     TabContent,
     Tabs,
-    TextInput,
-    Tile
+    TextInput
   } from "carbon-components-svelte";
   import Typewriter from 'svelte-typewriter'
   import { goto } from "$app/navigation";
@@ -134,6 +140,8 @@
   import ModalComponent from "$lib/ModalComponent.svelte";
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
   import SongComponent from "$lib/SongComponent.svelte";
+  import { Step } from "$lib";
+  import SoundEffectComponent from "$lib/SoundEffectComponent.svelte";
 
   let open = false;
   let openTransition = true;
@@ -142,7 +150,13 @@
   let showForm = false;
   let showGoal = true;
   let pauseSong: boolean = false;
-  let formLabel: HTMLElement;
+
+  let playLastName: Function | undefined = undefined
+  let playFirstName: Function | undefined = undefined
+  let playBirth: Function | undefined = undefined
+  let playDeath: Function | undefined = undefined
+  let playSubmit: Function | undefined = undefined
+  let playError: Function | undefined = undefined
 
   let nom = "";
   let prenom = "";
@@ -168,7 +182,7 @@
     if ("06/01/1852" !== deces.trim().toLowerCase()) {
       isValid = false;
     }
-    console.log(
+    console.debug(
       nom.trim().toLowerCase(),
       prenom.trim().toLowerCase(),
       naissance.trim().toLowerCase(),
@@ -178,19 +192,34 @@
       isWaiting = true
       pauseSong = true
       goto(base + "/abri/medical");
+    } else {
+      playError = () => playError = undefined
     }
     return isValid;
   }
 
-  const displayLabel = (event: any) => {
+  const readLabel = (event: any) => {
     const target = event.target;
-    if (formLabel) {
-      formLabel.textContent = target.getAttribute("aria-label");
+    console.debug("libellé", target.getAttribute("aria-label"))
+    if (target.getAttribute("aria-label") === "nom") {
+      playLastName = () => playLastName = undefined
+    }
+    if (target.getAttribute("aria-label") === "prenom") {
+      playFirstName = () => playFirstName = undefined;
+    }
+    if (target.getAttribute("aria-label") === "naissance") {
+      playBirth = () => playBirth = undefined
+    }
+    if (target.getAttribute("aria-label") === "deces") {
+      playDeath = () => playDeath = undefined
+    }
+    if (target.getAttribute("aria-label") === "soumettre") {
+      playSubmit = () => playSubmit = undefined
     }
   }
 </script>
 <style>
-    @import url(static/css/app.css);
-    @import url(static/css/neon.css);
-    @import url(static/css/glitch.css);
+    @import url(/css/app.css);
+    @import url(/css/neon.css);
+    @import url(/css/glitch.css);
 </style>

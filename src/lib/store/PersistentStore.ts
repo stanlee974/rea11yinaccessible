@@ -1,7 +1,6 @@
 import { type Writable, writable } from "svelte/store";
 
 function persist(key: string, value: string) {
-  console.log(key, value);
   sessionStorage.setItem(key, JSON.stringify(value));
 }
 
@@ -20,5 +19,9 @@ export function writableSession(key: string, initialValue: string) {
   }
   store.subscribe(value => persist(key, value));
   return store;
+}
+
+export function resetSession(key: string, value: string) {
+  sessionStorage.setItem(key, value);
 }
 

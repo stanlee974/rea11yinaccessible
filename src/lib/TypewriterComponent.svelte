@@ -5,19 +5,15 @@
     <div style="width:1px; height: 1px;"> bind:this={keyboardSound}</div>
     <slot></slot>
 </Typewriter>
-{#if waitReading}
-    <Button kind="secondary"
-            style="position: layout; left: 46%; padding-right: 2.5rem; padding-left: 2.5rem;"
-            autofocus
-            on:click={buttonAction}>Continuer la suite
-    </Button>
+{#if waitReading && !hasNotStartedWriting && !continuePressed}
+    <ButtonComponent autofocus onclick={buttonAction}><span slot="content">Continuer la suite</span></ButtonComponent>
 {/if}
 <script lang="ts">
 
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
   import Typewriter from "svelte-typewriter";
-  import { Button, Content } from "carbon-components-svelte";
   import { base } from "$app/paths";
+  import ButtonComponent from "$lib/ButtonComponent.svelte";
 
   export let disabled = false;
   export let mode: string = "cascade"
@@ -26,39 +22,43 @@
   export let parentDoneAction: Function | undefined = undefined
   export let continueButtonAction: Function | undefined = undefined
 
+  let continuePressed: boolean = false
+
   let keyboardSound: HTMLAudioElement
 
   let interval: any
   let isWriting = false;
-  let notWrote = true;
+  let hasNotStartedWriting = true;
 
   const buttonAction = () => {
     if (continueButtonAction !== undefined) {
       continueButtonAction()
+      continuePressed = true
     }
   }
   const doneAction = () => {
     isWriting = false
-    notWrote = false
+    hasNotStartedWriting = false
     keyboardSound.pause()
     if (parentDoneAction !== undefined) {
       parentDoneAction()
     }
   }
   onMount(() => {
-      keyboardSound = new Audio(base + "/sound/keyboard.mp3")
-    keyboardSound.volume = 0.7
+    keyboardSound = new Audio(base + "/sound/keyboard.mp3")
     keyboardSound.loop = true
+    keyboardSound.volume = 0.5
     interval = setInterval(() => {
-      if (!disabled && notWrote) {
+      if (!disabled && hasNotStartedWriting) {
         isWriting = true;
         keyboardSound.play()
       }
       if (isWriting) {
         window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"})
       }
+      if (!isWriting && !hasNotStartedWriting) {
+        clearInterval(interval)
+      }
     }, 1000);
   })
-
-  onDestroy(() => {() => clearInterval(interval)})
 </script>
