@@ -1,6 +1,6 @@
-<HeaderComponent title="Trouble visuelle"/>
-<SongComponent src="/ost/trap.mp3" autoplay={true} pause={trapPause} volume={0.2}></SongComponent>
-<SongComponent src="/ost/step9.mp3" play={sanctuaryPlay} pause={sanctuaryPause} volume={0.2}></SongComponent>
+<HeaderComponent title={Step.SURFACE_LABORATORY_SANCTUARY}/>
+<SongComponent src="/ost/trap.mp3" autoplay={true} pause={trapPause}></SongComponent>
+<SongComponent src="/ost/step9.mp3" play={sanctuaryPlay} pause={sanctuaryPause}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
@@ -15,12 +15,10 @@
             <Grid>
                 <Row>
                     <Column>
-                        <div class="glitch">
                             <ImageLoader
                                     src="{base}/surface/laboratory/sanctuary/direction_to_sanctuary.jpg"
                                     alt="Tu te diriges à toute allures dans la dernière aile du bâtiment"
                                     fadeIn={true}/>
-                        </div>
                     </Column>
                     <Column><p style="font-size: 1.3rem">La borne électronique émet un bip satisfaisant alors qu'une carte magnétique s'éjecte de
                         son compartiment.</p>
@@ -69,7 +67,7 @@
         <Grid>
             <Row>
                 <Column>
-                    <div class="glitch">
+                    <div>
                         <ImageLoader
                                 src="{base}/surface/laboratory/sanctuary/door.jpg"
                                 alt="Porte majestueuse ornée de ferrures complexes" fadeIn={true}/>
@@ -139,6 +137,7 @@
   import HeaderComponent from "$lib/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import SongComponent from "$lib/SongComponent.svelte";
+  import { Step } from "$lib";
 
   let showTransitionModal = true;
   let showScenario = true;
@@ -153,12 +152,12 @@
   let nom = ""
   let prenom = ""
   let error = ""
-  $: invalidMajin = /^Molah$/i.test(nom) && /^Majin/i.test(prenom);
-  $: invalidDiva = /^Tchoungui/i.test(nom) && /^Diva/i.test(prenom);
+  $: validMajin = /^Molah$/i.test(nom) && /^Majin/i.test(prenom);
+  $: validDiva = /^Tchoungui/i.test(nom) && /^Diva/i.test(prenom);
 
   const validateForm = () => {
-    if (invalidDiva
-      || invalidMajin) {
+    if (validDiva
+      || validMajin) {
       isWaiting = true
       goto(base + "/final");
     } else {
@@ -169,8 +168,8 @@
 </script>
 
 <style lang="css">
-    @import url(static/css/app.css);
-    @import url(static/css/neon.css);
+    @import url(/css/app.css);
+    @import url(/css/neon.css);
 
     label {
         font-size: 1.3em;

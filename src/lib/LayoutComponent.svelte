@@ -19,8 +19,8 @@
   export let subtitle = "";
 </script>
 <style global>
-    @import url(../../static/css/app.css);
-    @import url(../../static/css/neon.css);
-    @import url(../../static/css/glitch.css);
+    @import url(/css/app.css);
+    @import url(/css/neon.css);
+    @import url(/css/glitch.css);
 </style>
 

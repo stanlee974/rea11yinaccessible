@@ -1,27 +1,29 @@
-<div style="text-indent: -9999px;"> bind:this={audio}</div>
-
+{#if !audio}
+    <div style="text-indent: -9999px;"> bind:this={audio}</div>
+{/if}
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import { base } from "$app/paths";
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
+  import { getVolume } from "$lib/store/SoundVolumeStore";
 
   let audio: HTMLAudioElement;
   export let src: string = ""
-  export let volume: number = 0.1
-  export let fire: Function | undefined = undefined
-  export let destroy: boolean = false
-
+  export let play: Function | undefined = undefined
+  export let loop: boolean = false
+  let interval: number;
   onMount(() => {
     audio = new Audio(base + src)
-    audio.volume = volume
-    const interval = setInterval(() => {
-      if (fire) {
+    audio.loop = loop
+    interval = setInterval(() => {
+      audio.volume = getVolume()
+      if (play) {
         audio.play()
+        play()
       }
-      if (destroy) {
-        clearInterval(interval)
-      }
-    }, 10)
+    }, 1000)
   })
+
+  onDestroy(() => clearInterval(interval))
 </script>
 

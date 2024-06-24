@@ -1,5 +1,5 @@
 <Header style="margin-bottom: 3rem">
-    <title>{"really inaccessible | " + title}</title>
+    <title>{"really inaccessible | " + title.toString()}</title>
     <div style:width="100%" style:max-width="250px" style:margin-right="1rem">
         <a href="{base}/">
             <ImageLoader
@@ -24,27 +24,70 @@
 </Header>
 <Tile style="position: sticky; top: 3rem; position: flex; flex-direction: row; z-index: 2000">
     <HeaderUtilities>
-        <HeaderGlobalAction
-                iconDescription="you want help?"
-                tooltipAlignment="end"
-                tooltipPosition="bottom"
-                icon={Idea}
-        />
         <Slider
-                labelText="Song Volume"
+                labelText="Song volume"
                 min={0}
-                max={100}
+                max={10}
                 hideTextInput
-                maxLabel="100"
-                value={volume}
-                step={1}
+                maxLabel="10"
+                value={songVolume}
+                step={0.1}
                 on:change={(value) => {{setVolume(value.detail)}}}
         />
+        <Slider
+                labelText="Sound effect volume"
+                min={0}
+                max={10}
+                hideTextInput
+                maxLabel="10"
+                value={soundVolume}
+                step={0.1}
+                on:change={(value) => {{setSoundVolume(value.detail)}}}
+        />
+        <HeaderGlobalAction on:click={() => isOpenHint = true}
+                            iconDescription="you want help?"
+                            tooltipAlignment="end"
+                            tooltipPosition="bottom"
+                            icon={Idea}
+        />
+        <!-- FIXME à déplacer dans un layout commun -->
+        <ModalComponent opened={isOpenHint} parentDoneAction={() => isOpenHint = false}>
+            <div style="display: flex; flex-direction: row">
+                <Grid>
+                    <Row>
+                        <Column>
+                            {#each Object.entries(hints) as [level, hint]}
+                                {#if Number(level) <= Number(hintLevel)}
+                                    <h2>Hint #{level}</h2>
+                                    <p style="font-size: 1.3rem">{hint}</p>
+                                {/if}
+                            {/each}
+                            {#if !hints[1] }
+                                <p style="font-size: 1.3rem">Pas d'aide disponible sur cette épreuve</p>
+                            {/if}
+                            {#if hints["1"] && Number(hintLevel) <= 1}
+                                <Button kind="secondary" on:click={() => increaseHintLevel()} style="margin-top: 2rem">
+                                    Affiche une aide
+                                </Button>
+                            {/if}
+                            {#if hints["1"] && Number(hintLevel) === 2}
+                                <Button on:click={() => increaseHintLevel()} style="margin-top: 2rem">
+                                    Affiche la solution
+                                </Button>
+                            {/if}
+                        </Column>
+                    </Row>
+                </Grid>
+            </div>
+        </ModalComponent>
     </HeaderUtilities>
 </Tile>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import {
+    Button,
+    Column,
+    Grid,
     Header,
     HeaderGlobalAction,
     HeaderNav,
@@ -52,25 +95,59 @@
     HeaderNavMenu,
     HeaderUtilities,
     ImageLoader,
+    Row,
     Slider,
     Tile,
   } from "carbon-components-svelte";
   import { base } from '$app/paths';
   import { checkVolume, getVolume, initVolumeStore, setVolume } from "$lib/store/VolumeStore";
+  import {
+    checkVolume as checkSoundVolume,
+    getVolume as getSoundVolume,
+    initVolumeStore as initSoundVolumeStore,
+    setVolume as setSoundVolume
+  } from "$lib/store/SoundVolumeStore";
   import { onMount } from "svelte";
   import { Idea } from "carbon-icons-svelte";
+  import { hintsByStep, Step } from "$lib/index";
+  import ModalComponent from "$lib/ModalComponent.svelte";
+  import { getHintLevel, increaseHintLevel, resetLevelStore } from "$lib/store/HintLevelStore";
 
-  export let title = ""
-  export let volume: number = 10
+  export let title: Step = Step.INTRODUCTION
+  export let songVolume: number = 0
+  export let soundVolume: number = 30
 
+  let isOpenHint: boolean = false
+
+  let hints: { "1": string; "2": string, "3": string } = {"1": "", "2": "", "3": ""}
+
+  let hintLevel: string = "2"
   onMount(() => {
     if (!checkVolume()) {
-      let INITIAL_VOLUME = "10";
+      let INITIAL_VOLUME = "2";
       initVolumeStore(INITIAL_VOLUME)
     }
-    volume = getVolume() * 100
+    if (!checkSoundVolume()) {
+      let INITIAL_VOLUME = "5";
+      initSoundVolumeStore(INITIAL_VOLUME)
+    }
+    songVolume = getVolume() * 100
+    soundVolume = getSoundVolume() * 100
+    resetLevelStore()
+
+    setInterval(() => {
+      hintLevel = getHintLevel()
+    }, 200)
+    hints = getHint(title);
   })
 
+  const getHint = (title: string) => {
+    const hints = hintsByStep.find(value => value?.step?.toString() === title)
+    if (hints) {
+      return hints?.hints
+    }
+    return {"1": "", "2": "", "3": ""}
+  }
   // let animationRef: any;
   // let latestStartTime: any;
   //

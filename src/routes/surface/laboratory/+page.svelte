@@ -1,5 +1,5 @@
-<HeaderComponent title="Tremblement clavier"/>
-<SongComponent src="/ost/step7.mp3" autoplay={true} pause={songPause} volume={0.3}></SongComponent>
+<HeaderComponent title={Step.SURFACE_LABORATORY}/>
+<SongComponent src="/ost/step7.mp3" autoplay={true} pause={songPause}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
@@ -14,11 +14,9 @@
             <Grid>
                 <Row>
                     <Column>
-                        <div class="glitch">
                             <ImageLoader
                                     src="{base}/surface/laboratory/man_walking.jpg"
                                     alt="Tu marches dans le corridor du laboratoire" fadeIn={true}/>
-                        </div>
                     </Column>
                     <Column><p style="font-size: 1.3rem">Tu arrives correctement à activer le bouton et un mécanisme
                         interne se met en marche.
@@ -44,11 +42,9 @@
         <Grid>
             <Row>
                 <Column>
-                    <div class="glitch">
                         <ImageLoader
                                 src="{base}/surface/laboratory/frozen_room.jpg"
                                 alt="Chambre frigorifiée contenant le terminal" fadeIn={true}/>
-                    </div>
                 </Column>
                 <Column><p>Une note manuscrite dans un coin de la salle mentionne les effets du
                     froid intense sur le corps humain.</p>
@@ -70,7 +66,7 @@
     </TypewriterComponent>
     {#if showForm}
         <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
-            <span style="font-size: 1.3em; margin-bottom: 1rem;">Tu peux zoomer avec la molette de la souris</span>
+            <span style="font-size: 1.3em; margin-bottom: 1rem;">Si tu positionnes le curseur dans la zone de la carte, tu pourras zoomer avec la molette de la souris ou avec 2 doigts sur un trackpad</span>
             <div style="width:600px; cursor:crosshair; border: white 0.2em solid;">
                 <div bind:this={container} class="imageContainer">
                     <img
@@ -113,6 +109,7 @@
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
   import SongComponent from "$lib/SongComponent.svelte";
+  import { Step } from "$lib";
 
   let showTransitionModal = true;
   let showScenario = true;
@@ -126,10 +123,9 @@
   let lastPressedKey = ""
   const {createZoomImage} = useZoomImageWheel()
 
-  const validResult = !/^tremors$/i.test(result)
-  $: invalidResult = !/^tremors$/i.test(result);
+  $: invalidResult = !/tremors$/i.test(result);
   const validateForm = () => {
-    if (!validResult) {
+    if (/tremors$/i.test(result)) {
       isWaiting = true
       songPause = true
       goto(base + "/surface/laboratory/audiovisualroom");
@@ -179,7 +175,8 @@
       }
       if (neighbors) {
         const randomIndex = Math.floor(Math.random() * neighbors.length);
-        result += neighbors[randomIndex];
+        let neighbor = neighbors[randomIndex];
+        result += neighbor;
         event.preventDefault();
       } else {
         result += originalKey
@@ -199,8 +196,8 @@
 </script>
 
 <style lang="css">
-    @import url(static/css/app.css);
-    @import url(static/css/neon.css);
+    @import url(/css/app.css);
+    @import url(/css/neon.css);
 
     .imageContainer {
         width: var(--imageContainerWidth);

@@ -1,4 +1,4 @@
-<HeaderComponent title="Tremblement souris"/>
+<HeaderComponent title={Step.SURFACE_ENTRANCE}/>
 <SongComponent src="/ost/step6.mp3" autoplay={true} pause={songPause}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
@@ -14,11 +14,9 @@
             <Grid>
                 <Row>
                     <Column>
-                        <div class="glitch">
                             <ImageLoader
                                     src="{base}/surface/entrance/man_stair.jpg"
                                     alt="Tu montes les escaliers et te rends à la surface" fadeIn={true}/>
-                        </div>
                     </Column>
                     <Column><p style="font-size: 1.3rem">En réussissant à résoudre les énigmes malgré les hallucinations
                         perturbantes, tu as su montrer ta capacité à rester concentré et déterminé.</p>
@@ -31,7 +29,7 @@
             </Grid>
         </div>
     </Modal>
-    <TypewriterComponent disabled={showScenario} parentDoneAction={() => setTimeout(() => showEntrance = true, 2000)}>
+    <TypewriterComponent disabled={showScenario} waitReading continueButtonAction={() => showEntrance = true}>
         <h2><u><i>Scénario</i></u></h2>
         <p>Près de la sortie, une note indiquant que ce laboratoire secondaire est également un refuge sûr, équipé de
             ressources et de technologies nécessaires pour échapper aux traqueurs.</p>
@@ -43,11 +41,9 @@
         <Grid>
             <Row>
                 <Column>
-                    <div class="glitch">
                         <ImageLoader
                                 src="{base}/surface/entrance/man_laboratory.jpg"
                                 alt="Tu te retrouves devant la porte du laboratoire" fadeIn={true}/>
-                    </div>
                 </Column>
                 <Column><p>L'entrée du laboratoire secondaire est un grand bâtiment industriel
                     délabré, partiellement envahi par la végétation.</p>
@@ -60,7 +56,7 @@
         </Grid>
     </Modal>
     <br/>
-    <TypewriterComponent disabled={disableGoal} parentDoneAction={() => setTimeout(() => showTrialModal = true, 2000)}>
+    <TypewriterComponent disabled={disableGoal} waitReading continueButtonAction={() => showTrialModal = true}>
         <p>Une plaque gravée à côté de la porte mentionne que la porte s'ouvre en cliquant sur la croix depuis
             l'interface de commande.</p>
         <p>Le signal est très faible et la communication entre la souris et terminal est défectueux.</p>
@@ -70,13 +66,15 @@
     <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
         <Modal preventCloseOnClickOutside bind:open={showTrialModal} passiveModal modalHeading="Tableau de contrôle"
                on:close={() => reopenTrialModal = true}>
-            <div bind:this={xElement} class="glitch" style="position: relative;cursor: none;"
+            <div bind:this={xElement} style="position: relative;cursor: none;"
                  on:mousemove={movingMouseTremors}>
                 <ImageLoader
                         src="{base}/surface/entrance/open_door.jpg"
                         alt="Tu dois cliquer sur la croix pour ouvrir la porte" fadeIn={true}/>
-                <div style="position: absolute; top: 78.8%; left: 23.7%; color:#7F0000; font-size: 1.3rem; font-weight: bold"
-                     on:click={() => validateClick()}>X
+                <div tabindex="0"
+                     style="position: absolute; top: 78.8%; left: 23.7%; color:#7F0000; font-size: 1.3rem; font-weight: bold"
+                     on:click={() => validateClick()}
+                     on:keydown={(event) => {if (event.key === "Enter") {validateClick()}}}>X
                 </div>
                 <div style="position: absolute; top: 79.8%; left: 27.7%; color:#7F0000; font-size: 1; font-weight: bold;">
                     Click to open the door
@@ -89,7 +87,9 @@
             </div>
         </Modal>
         {#if reopenTrialModal}
-            <Button kind="secondary" on:click={() => {showTrialModal = true; reopenTrialModal= true}}>Ouvrir le terminal</Button>
+            <Button kind="secondary" on:click={() => {showTrialModal = true; reopenTrialModal= true}}>Ouvrir le
+                terminal
+            </Button>
         {/if}
     </div>
     {#if isWaiting}
@@ -107,6 +107,7 @@
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
   import SongComponent from "$lib/SongComponent.svelte";
   import LoadingComponent from "$lib/LoadingComponent.svelte";
+  import { Step } from "$lib";
 
   let songPause = false;
   let showTransitionModal = true;
@@ -159,6 +160,6 @@
 </script>
 
 <style lang="css">
-    @import url(static/css/app.css);
-    @import url(static/css/neon.css);
+    @import url(/css/app.css);
+    @import url(/css/neon.css);
 </style>

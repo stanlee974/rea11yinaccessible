@@ -1,6 +1,6 @@
-<HeaderComponent title="Epilogue"/>
-<SongComponent src="/ost/stress.mp3" autoplay={true} pause={pauseStressSong} volume={0.2}></SongComponent>
-<SongComponent src="/ost/step10.mp3" play={playEpilogueSong} pause={pauseEpilogueSong} volume={0.2}></SongComponent>
+<HeaderComponent title={Step.FINAL}/>
+<SongComponent src="/ost/stress.mp3" autoplay={true} pause={pauseStressSong}></SongComponent>
+<SongComponent src="/ost/step10.mp3" play={playEpilogueSong} pause={pauseEpilogueSong}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
         <div class="container">
@@ -19,7 +19,7 @@
             <Grid>
                 <Row>
                     <Column>
-                        <div class="glitch">
+                        <div>
                             <ImageLoader
                                     src="{base}/final/orbe.jpg"
                                     alt="Tu regardes l'orbe"
@@ -129,6 +129,7 @@
   import { base } from "$app/paths";
   import TypewriterComponent from "$lib/TypewriterComponent.svelte";
   import SongComponent from "$lib/SongComponent.svelte";
+  import { Step } from "$lib";
 
   let showTransitionModal = true;
   let showTrapModal = false;
@@ -140,9 +141,8 @@
 </script>
 
 <style lang="css">
-    @import url(static/css/app.css);
-    @import url(static/css/neon.css);
-
+    @import url(/css/app.css);
+    @import url(/css/neon.css);
     span {
         border:white 1px solid;
         padding: 0.3em;

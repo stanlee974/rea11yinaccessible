@@ -2,7 +2,7 @@
 	"name": "rea11yinaccessible",
 	"version": "0.0.1",
 	"author": "Louis Fredice NJAKO MOLOM (https://github.com/luifr10) & Stanley SERVICAL (https://github.com/stanlee974)",
-	"description": "A dystopian escape game on digital accessibility",
+	"description": "A dystopian escape game on digital accessibility. it's inspired by https://github.com/damiengomez/EscapeGameA11y",
 	"license": "GPL-3.0",
 	"repository": {
 		"type": "git",

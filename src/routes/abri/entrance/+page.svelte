@@ -1,4 +1,4 @@
-<HeaderComponent title="daltonisme"/>
+<HeaderComponent title={Step.ABRI_ENTRANCE}/>
 <SongComponent src="/ost/step1.mp3" autoplay={true} pause={song}></SongComponent>
 <Content>
     <Typewriter mode="scramble">
@@ -13,10 +13,8 @@
         <Grid>
             <Row>
                 <Column>
-                    <div class="glitch">
                         <ImageLoader
                                 src="{base}/abri/entrance/enter.jpg" alt="Tu rentres dans l'abri" fadeIn={true}/>
-                    </div>
                 </Column>
                 <Column>
                     <p>
@@ -33,13 +31,15 @@
     <br/>
     <TypewriterComponent disabled={hideScenario} delay={3000} parentDoneAction={() => {hideGoal = false}}>
         <h2><u><i>Scénario</i></u></h2>
-        <p>Tu te trouves dans une salle obscure avec des équipements médicaux abandonnés et des armoires de rangement.</p>
+        <p>Tu te trouves dans une salle obscure avec des équipements médicaux abandonnés et des armoires de
+            rangement.</p>
         <p>Une note sur la table contient le message suivant : </p>
         <p style="font-style: italic;">"Blanc pur sur blanc pur, rien ne semble changer,
             Mais ajoute une ombre, et les couleurs se mettent à danser.
             Quand la lumière se fait douce ou se fait forte,
             Les nuances cachées frappent à notre porte."</p>
-        <p>Dans un coin de la salle, se trouve un panneau de contrôle avec quatre boutons et un document déchiré mentionnant que la séquence correcte est liée aux perceptions des couleurs affectées par
+        <p>Dans un coin de la salle, se trouve un panneau de contrôle avec quatre boutons et un document déchiré
+            mentionnant que la séquence correcte est liée aux perceptions des couleurs affectées par
             le daltonisme, avec la bande de couleurs suivante.</p>
     </TypewriterComponent>
     {#if !hideGoal}
@@ -53,44 +53,49 @@
     <br/>
     <TypewriterComponent disabled={hideGoal} parentDoneAction={() => showButtons = true}>
         <h2><u><i>Objectif</i></u></h2>
-        <p>Tu dois trouver la bonne combinaison sans attendre.</p>
+        <p>Tu dois trouver la bonne combinaison de 4 éléments sans attendre. Il n'y a pas 2 fois la même couleur dans la
+            combinaison.</p>
     </TypewriterComponent>
     {#if showButtons}
-        <div style="display: flex; margin-top: 2rem; align-items: center; justify-content: center;">
+        <div style="display: flex; margin-top: 2rem; align-items: center; justify-content: space-between;">
             <Slider
                     labelText="Contraste"
                     min={0}
                     max={100}
-                    hideTextInput
                     maxLabel="100"
                     value={contrast}
                     step={1}
+                    style="align-items: normal; margin-right: 2em"
                     on:change={(value) => {{contrast = value.detail}}}
             />
             <Button kind="secondary"
                     style="margin-right: 2rem;"
+                    aria-label="Ce bouton Vert n'est pas le second"
                     on:click={() => validOrder(0)}>Vert
             </Button>
             <Button kind="secondary"
                     style="margin-right: 2rem;"
+                    aria-label="Ce bouton Orange vient après le bouton Vert"
                     on:click={() => validOrder(1)}>Orange
             </Button>
             <Button kind="secondary"
                     style="margin-right: 2rem;"
+                    aria-label="Ce bouton Saumon n'est jamais le premier ni le dernier"
                     on:click={() => validOrder(2)}>Saumon
             </Button>
             <Button kind="secondary"
                     style="margin-right: 2rem;"
+                    aria-label="Ce bouton Jaune est immédiatement suivi par le bouton Saumon"
                     on:click={() => validOrder(3)}>Jaune
             </Button>
             <Slider
                     labelText="Luminosité"
                     min={0}
                     max={100}
-                    hideTextInput
                     maxLabel="100"
                     value={brightness}
                     step={1}
+                    style="align-items: normal"
                     on:change={(value) => {{brightness = value.detail}}}
             />
         </div>
@@ -125,6 +130,7 @@
   import LoadingComponent from "$lib/LoadingComponent.svelte";
   import HeaderComponent from "$lib/HeaderComponent.svelte";
   import { setVolume } from "$lib/store/VolumeStore";
+  import { Step } from "$lib";
 
   const goodOrder = [3, 2, 0, 1];
   let orderTyped: number[] = [];
@@ -153,7 +159,6 @@
 
 </script>
 <style>
-    @import url(static/css/app.css);
-    @import url(static/css/neon.css);
-    @import url(static/css/glitch.css);
+    @import url(/css/app.css);
+    @import url(/css/neon.css);
 </style>
