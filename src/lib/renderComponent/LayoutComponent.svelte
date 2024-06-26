@@ -11,7 +11,7 @@
 </Content>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
-  import Header from "$lib/HeaderComponent.svelte";
+  import Header from "$lib/renderComponent/HeaderComponent.svelte";
   import {Content} from "carbon-components-svelte";
   import Typewriter from "svelte-typewriter";
 

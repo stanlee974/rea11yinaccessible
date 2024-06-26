@@ -1,3 +1,5 @@
+import { t } from "$lib/translations"
+export {t}
 export const enum Step {
   INTRODUCTION = "Introduction",
   WAITING_ROOM = "Ouverture",

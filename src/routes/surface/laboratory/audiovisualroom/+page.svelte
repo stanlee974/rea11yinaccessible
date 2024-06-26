@@ -128,10 +128,10 @@
   } from "carbon-components-svelte";
   import Typewriter from 'svelte-typewriter'
   import { goto } from "$app/navigation";
-  import HeaderComponent from "$lib/HeaderComponent.svelte";
+  import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
   import { base } from '$app/paths';
-  import TypewriterComponent from "$lib/TypewriterComponent.svelte";
-  import SongComponent from "$lib/SongComponent.svelte";
+  import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
+  import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import { Step } from "$lib";
   import { getVolume, setVolume } from "$lib/store/VolumeStore";
 

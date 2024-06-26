@@ -1,5 +1,5 @@
 <div style="text-indent: -9999px;"> bind:this={audio}</div>
-<Loading></Loading>
+<Loading style="zindex: 10000"></Loading>
 
 <script lang="ts">
   import { base } from "$app/paths";

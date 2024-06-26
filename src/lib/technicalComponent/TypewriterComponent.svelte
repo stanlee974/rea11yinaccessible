@@ -6,14 +6,15 @@
     <slot></slot>
 </Typewriter>
 {#if waitReading && !hasNotStartedWriting && !continuePressed}
-    <ButtonComponent autofocus onclick={buttonAction}><span slot="content">Continuer la suite</span></ButtonComponent>
+    <ButtonComponent autofocus onclick={buttonAction}><span slot="content">{$t('common.button.waiting')}</span></ButtonComponent>
 {/if}
 <script lang="ts">
 
   import { onMount } from "svelte";
   import Typewriter from "svelte-typewriter";
   import { base } from "$app/paths";
-  import ButtonComponent from "$lib/ButtonComponent.svelte";
+  import ButtonComponent from "$lib/technicalComponent/ButtonComponent.svelte";
+  import { t } from "$lib";
 
   export let disabled = false;
   export let mode: string = "cascade"

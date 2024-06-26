@@ -134,9 +134,9 @@
   } from "carbon-components-svelte";
   import Typewriter from 'svelte-typewriter'
   import { goto } from "$app/navigation";
-  import HeaderComponent from "$lib/HeaderComponent.svelte";
+  import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
   import { base } from '$app/paths';
-  import SongComponent from "$lib/SongComponent.svelte";
+  import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import { Step } from "$lib";
 
   let showTransitionModal = true;
