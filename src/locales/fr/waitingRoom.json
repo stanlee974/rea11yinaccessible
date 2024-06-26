@@ -17,7 +17,7 @@
   "test": {
     "clickLink": "click",
     "here": "ici",
-    "enter": "pour entrer dans l'abri",
+    "enter": "pour entrer dans l'abri.",
     "startButton": "Continuer",
     "error": {
       "title": "Erreur",

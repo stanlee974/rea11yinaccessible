@@ -16,7 +16,7 @@
     <p style="font-size: 1.3rem">{$t('intro.context.explanation')}</p>
     <br/>
     <br/>
-    <h2>{$t('intro.context.theme')}</h2>
+    <h2>{$t('intro.theme.title')}</h2>
     <p style="font-size: 1.3rem">{$t('intro.theme.disabilities.visual')}</p>
     <p style="font-size: 1.3rem">{$t('intro.theme.disabilities.hearing')}</p>
     <p style="font-size: 1.3rem">{$t('intro.theme.disabilities.cognitive')}</p>

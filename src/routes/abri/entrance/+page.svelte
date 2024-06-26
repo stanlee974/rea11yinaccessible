@@ -4,7 +4,7 @@
     <Typewriter mode="scramble">
         <div class="container">
             <h1 class="neon">L'abri</h1>
-            <h2 class="flux">Salle des lunettes</h2>
+            <h2 class="flux">Salle des altérations</h2>
         </div>
     </Typewriter>
     <br/>

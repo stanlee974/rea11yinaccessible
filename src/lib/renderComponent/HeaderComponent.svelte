@@ -9,17 +9,17 @@
             </a>
         </div>
         <HeaderNav>
-            <HeaderNavItem href="https://www.deque.com/axe/" text="Axe-core - test accessibilité"/>
+            <HeaderNavItem href="https://www.deque.com/axe/" text="Axe-core - test accessibilité" target="_blank"/>
             <HeaderNavMenu text="Réferentiel">
-                <HeaderNavItem href="https://www.w3.org/WAI/WCAG22/Understanding/" text="WCAG"/>
-                <HeaderNavItem href="https://accessibilite.numerique.gouv.fr/W3C" text="RGAA"/>
+                <HeaderNavItem href="https://www.w3.org/WAI/WCAG22/Understanding/" text="WCAG" target="_blank"/>
+                <HeaderNavItem href="https://accessibilite.numerique.gouv.fr/W3C" text="RGAA" target="_blank"/>
             </HeaderNavMenu>
             <HeaderNavMenu text="UUV - test E2E accessibilité">
-                <HeaderNavItem href="https://github.com/Orange-OpenSource/uuv" text="Github"/>
-                <HeaderNavItem href="https://orange-opensource.github.io/uuv/" text="Documentation"/>
-                <HeaderNavItem href="https://github.com/e2e-test-quest/kata-e2e-uuv" text="Kata (exercism)"/>
+                <HeaderNavItem href="https://github.com/Orange-OpenSource/uuv" text="Github" target="_blank"/>
+                <HeaderNavItem href="https://orange-opensource.github.io/uuv/" text="Documentation" target="_blank"/>
+                <HeaderNavItem href="https://github.com/e2e-test-quest/kata-e2e-uuv" text="Kata (exercism)" target="_blank"/>
             </HeaderNavMenu>
-            <HeaderNavItem href="https://github.com/stanlee974/rea11yinaccessible" text="Source Code"/>
+            <HeaderNavItem href="https://github.com/stanlee974/rea11yinaccessible" text="Source Code" target="_blank"/>
         </HeaderNav>
     </Row>
     <ContentSwitcher selectedIndex={0} size="sm" style="width: 10rem; margin-right: 1rem;">
