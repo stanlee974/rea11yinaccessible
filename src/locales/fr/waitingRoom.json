@@ -1,0 +1,27 @@
+{
+  "welcome": "Bienvenu(e) à toi !",
+  "scenario": {
+    "title": "Scénario",
+    "row": {
+      "1": "Le monde tel que nous le connaissions a disparu. Une pandémie inconnue a balayé la planète, laissant 99,99% de la population avec des handicaps divers tels que la perte de la vue, de l'ouïe, des tremblements des mains, du daltonisme, etc. Dans ce monde futuriste, les handicaps visuels, moteurs et auditifs sont la norme. Ceux qui sont exempts de toute limitation sont considérés comme des hérétiques et traités avec suspicion. Ils sont traqués et éliminés sans pitié par les autorités.",
+      "2": "Tu incarnes donc un survivant « hérétique » qui a découvert l'existence d'une injection nommée CaM-RuN-a11Y. Cette injection permet de développer un handicap aléatoire, ce qui te permettra de te fondre dans la population et d'échapper à la traque."
+    }
+  },
+  "goal": {
+    "title": "Objectif",
+    "row": {
+      "1": "Ton objectif est de te fondre dans la population, résoudre les énigmes et surmonter les obstacles qui se dressent sur ta route. Chaque défi te rapprochera de ta survie, mais nécessitera une adaptation rapide et une ingéniosité sans faille. La traque est lancée, et chaque instant compte. Utilise tes nouvelles capacités pour tromper les autorités, découvre les secrets de cette société étrange, et trouve un moyen de survivre dans ce monde où la norme est inversée.",
+      "2": "Bonne chance, survivant. Que l'injection CaM-RuN-a11Y te guide vers la liberté"
+    }
+  },
+  "test": {
+    "clickLink": "click",
+    "here": "ici",
+    "enter": "pour entrer dans l'abri",
+    "startButton": "Continuer",
+    "error": {
+      "title": "Erreur",
+      "content": "Ce n'est pas ici"
+    }
+  }
+}

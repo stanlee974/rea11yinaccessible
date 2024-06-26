@@ -19,7 +19,7 @@
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import { Button } from "carbon-components-svelte";
-  import SoundEffectComponent from "$lib/SoundEffectComponent.svelte";
+  import SoundEffectComponent from "$lib/technicalComponent/SoundEffectComponent.svelte";
 
 
   export let onclick: Function | undefined = undefined

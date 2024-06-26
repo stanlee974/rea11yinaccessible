@@ -1,31 +1,38 @@
 <Header style="margin-bottom: 3rem">
     <title>{"really inaccessible | " + title.toString()}</title>
-    <div style:width="100%" style:max-width="250px" style:margin-right="1rem">
-        <a href="{base}/">
-            <ImageLoader
-                    src="{base}/logo.png" alt="logo of really inaccessible" fadeIn={true}
-            />
-        </a>
-    </div>
-    <HeaderNav>
-        <HeaderNavItem href="https://www.deque.com/axe/" text="Axe-core - test accessibilité"/>
-        <HeaderNavMenu text="Réferentiel">
-            <HeaderNavItem href="https://www.w3.org/WAI/WCAG22/Understanding/" text="WCAG"/>
-            <HeaderNavItem href="https://accessibilite.numerique.gouv.fr/W3C" text="RGAA"/>
-        </HeaderNavMenu>
-        <HeaderNavMenu text="UUV - test E2E accessibilité">
-            <HeaderNavItem href="https://github.com/Orange-OpenSource/uuv" text="Github"/>
-            <HeaderNavItem href="https://orange-opensource.github.io/uuv/" text="Documentation"/>
-            <HeaderNavItem href="https://github.com/e2e-test-quest/kata-e2e-uuv" text="Kata (exercism)"/>
-        </HeaderNavMenu>
-        <HeaderNavItem href="https://github.com/stanlee974/rea11yinaccessible" text="Source Code"/>
-    </HeaderNav>
+    <Row style="flex: content; flex-direction: row; align-items: center;">
+        <div style:width="100%" style:max-width="250px" style:margin-right="1rem">
+            <a href="{base}/">
+                <ImageLoader
+                        src="{base}/logo.png" alt="logo of really inaccessible" fadeIn={true}
+                />
+            </a>
+        </div>
+        <HeaderNav>
+            <HeaderNavItem href="https://www.deque.com/axe/" text="Axe-core - test accessibilité"/>
+            <HeaderNavMenu text="Réferentiel">
+                <HeaderNavItem href="https://www.w3.org/WAI/WCAG22/Understanding/" text="WCAG"/>
+                <HeaderNavItem href="https://accessibilite.numerique.gouv.fr/W3C" text="RGAA"/>
+            </HeaderNavMenu>
+            <HeaderNavMenu text="UUV - test E2E accessibilité">
+                <HeaderNavItem href="https://github.com/Orange-OpenSource/uuv" text="Github"/>
+                <HeaderNavItem href="https://orange-opensource.github.io/uuv/" text="Documentation"/>
+                <HeaderNavItem href="https://github.com/e2e-test-quest/kata-e2e-uuv" text="Kata (exercism)"/>
+            </HeaderNavMenu>
+            <HeaderNavItem href="https://github.com/stanlee974/rea11yinaccessible" text="Source Code"/>
+        </HeaderNav>
+    </Row>
+    <ContentSwitcher selectedIndex={0} size="sm" style="width: 10rem; margin-right: 1rem;">
+        <!--{#each availableLocales as local}-->
+        <!--    <Switch text={local} on:click={updateLocal(event)}/>-->
+        <!--{/each}-->
+    </ContentSwitcher>
     <!--    <span style="font-size: 3rem; color: goldenrod">{$time}</span>-->
 </Header>
 <Tile style="position: sticky; top: 3rem; position: flex; flex-direction: row; z-index: 2000">
     <HeaderUtilities>
         <Slider
-                labelText="Song volume"
+                labelText={$t('common.header.volume.song')}
                 min={0}
                 max={10}
                 hideTextInput
@@ -35,7 +42,7 @@
                 on:change={(value) => {{setVolume(value.detail)}}}
         />
         <Slider
-                labelText="Sound effect volume"
+                labelText={$t('common.header.volume.soundEffect')}
                 min={0}
                 max={10}
                 hideTextInput
@@ -45,7 +52,7 @@
                 on:change={(value) => {{setSoundVolume(value.detail)}}}
         />
         <HeaderGlobalAction on:click={() => isOpenHint = true}
-                            iconDescription="you want help?"
+                            iconDescription={$t("common.header.hint.tooltip")}
                             tooltipAlignment="end"
                             tooltipPosition="bottom"
                             icon={Idea}
@@ -58,21 +65,21 @@
                         <Column>
                             {#each Object.entries(hints) as [level, hint]}
                                 {#if Number(level) <= Number(hintLevel)}
-                                    <h2>Hint #{level}</h2>
+                                    <h2>{$t('common.header.hint.message.title')}{level}</h2>
                                     <p style="font-size: 1.3rem">{hint}</p>
                                 {/if}
                             {/each}
                             {#if !hints[1] }
-                                <p style="font-size: 1.3rem">Pas d'aide disponible sur cette épreuve</p>
+                                <p style="font-size: 1.3rem">{$t('common.header.hint.message.nothing')}</p>
                             {/if}
                             {#if hints["1"] && Number(hintLevel) <= 1}
                                 <Button kind="secondary" on:click={() => increaseHintLevel()} style="margin-top: 2rem">
-                                    Affiche une aide
+                                    {$t('common.header.hint.help')}
                                 </Button>
                             {/if}
                             {#if hints["1"] && Number(hintLevel) === 2}
                                 <Button on:click={() => increaseHintLevel()} style="margin-top: 2rem">
-                                    Affiche la solution
+                                    {$t('common.header.hint.solution')}
                                 </Button>
                             {/if}
                         </Column>
@@ -87,6 +94,7 @@
   import {
     Button,
     Column,
+    ContentSwitcher,
     Grid,
     Header,
     HeaderGlobalAction,
@@ -110,8 +118,9 @@
   import { onMount } from "svelte";
   import { Idea } from "carbon-icons-svelte";
   import { hintsByStep, Step } from "$lib/index";
-  import ModalComponent from "$lib/ModalComponent.svelte";
+  import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import { getHintLevel, increaseHintLevel, resetLevelStore } from "$lib/store/HintLevelStore";
+  import { t } from "$lib"
 
   export let title: Step = Step.INTRODUCTION
   export let songVolume: number = 0

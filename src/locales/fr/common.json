@@ -1,0 +1,23 @@
+{
+  "commons": {
+    "title": "Really Inaccessible",
+    "button": {
+      "waiting": "Continuer la suite"
+    }
+  },
+  "header": {
+    "hint": {
+      "message": {
+        "title": "Astuce #",
+        "nothing": "Pas d'aide disponible sur cette épreuve"
+      },
+      "help": "Affiche une aide",
+      "solution": "Affiche la solution",
+      "tooltip": "Tu veux de l'aide?"
+    },
+    "volume": {
+      "song": "Volume de la musique",
+      "soundEffect": "Volume des effets audios"
+    }
+  }
+}

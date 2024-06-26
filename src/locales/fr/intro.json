@@ -1,0 +1,27 @@
+{
+  "advice": {
+    "title": "Conseil",
+    "immersive": "Pour plus d'immersion :",
+    "sound": "Monter le son de votre ordinateur ou tablette à 100% et paramétrer le volume audio avec la barre de volume de la musique",
+    "fullScreen": "Cliquer sur F11 pour mettre en plein écran",
+    "blocked": "Si vous êtes bloqués :",
+    "hints": "Vous disposez de 2 indices en haut à droite. Si ce n'est pas suffisant, un 3ème indice sera disponible et s'apparentera à la solution."
+  },
+  "context": {
+    "title": "Contexte",
+    "welcome": "Bienvenue dans \"Rea11y Inaccessible\", un escape game inédit dans lequel vous serez confronté aux défis de l'accessibilité. Escape game où vous plongerez dans une société où la norme est bien différente de celle que vous connaissez.",
+    "explanation": "Aujourd'hui, vous allez vivre une aventure immersive qui vous plongera dans la peau de personnes vivant avec divers handicaps."
+  },
+  "theme": {
+    "title": "Thématiques abordées",
+    "disabilities": {
+      "visual": "Handicap Visuel : Par moments, votre vision sera restreinte ou entièrement obscurcie. Vous devrez compter sur vos autres sens pour avancer.",
+      "hearing": "Handicap Auditif : Parfois, le son sera presque inaudible.",
+      "cognitive": "Handicap Cognitif : Attention a bien rester concentré.",
+      "motor": "Handicap Moteur : Certains puzzles nécessiteront de la patience avec une mobilité réduite."
+    }
+  },
+  "button": {
+    "start": "Débuter la partie"
+  }
+}

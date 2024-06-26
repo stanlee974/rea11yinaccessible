@@ -123,12 +123,12 @@
   import { Button, Column, Content, Grid, ImageLoader, Row, Slider, ToastNotification } from "carbon-components-svelte";
   import { goto } from "$app/navigation";
   import { base } from '$app/paths';
-  import TypewriterComponent from "$lib/TypewriterComponent.svelte";
-  import ModalComponent from "$lib/ModalComponent.svelte";
+  import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
+  import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import Typewriter from "svelte-typewriter";
-  import SongComponent from "$lib/SongComponent.svelte";
-  import LoadingComponent from "$lib/LoadingComponent.svelte";
-  import HeaderComponent from "$lib/HeaderComponent.svelte";
+  import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
+  import LoadingComponent from "$lib/technicalComponent/LoadingComponent.svelte";
+  import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
   import { setVolume } from "$lib/store/VolumeStore";
   import { Step } from "$lib";
 

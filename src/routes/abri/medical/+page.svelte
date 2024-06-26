@@ -111,10 +111,10 @@
   import dyslexia from "dyslexia";
   import { goto } from "$app/navigation";
   import { base } from '$app/paths';
-  import SongComponent from "$lib/SongComponent.svelte";
-  import HeaderComponent from "$lib/HeaderComponent.svelte";
+  import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
+  import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
   import { Step } from "$lib";
-  import TypewriterComponent from "$lib/TypewriterComponent.svelte";
+  import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
 
   let open = true;
   let showScenario = true;
