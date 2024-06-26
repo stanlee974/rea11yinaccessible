@@ -36,7 +36,12 @@ const config = {
         {
             locale: 'fr',
             key: 'waitingRoom',
-            loader: async () => (await import('../locales/fr/waitingroom.json')).default
+            loader: async () => (await import('../locales/fr/waitingRoom.json')).default
+        },
+        {
+            locale: 'fr',
+            key: 'outro',
+            loader: async () => (await import('../locales/fr/outro.json')).default
         }
     ]
 };

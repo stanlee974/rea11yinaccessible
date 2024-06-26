@@ -1,9 +1,7 @@
 {
-  "commons": {
-    "title": "Really Inaccessible",
-    "button": {
-      "waiting": "Continuer la suite"
-    }
+  "title": "Really Inaccessible",
+  "button": {
+    "waiting": "Continuer la suite"
   },
   "header": {
     "hint": {

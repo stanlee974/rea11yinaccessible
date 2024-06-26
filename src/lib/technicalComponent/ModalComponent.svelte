@@ -1,6 +1,6 @@
 <Modal size="lg" preventCloseOnClickOutside passiveModal modalHeading={modalHeading} bind:open={opened}
        on:close={() => onClose()}>
-    <div style="display: flex; flex-direction: row">
+    <div style="display: flex; flex-direction: {direction}">
         <slot></slot>
     </div>
 </Modal>
@@ -10,6 +10,7 @@
   export let opened = true
   export let parentDoneAction: Function | undefined = undefined
   export let modalHeading: string = ""
+  export let direction: string = "row"
 
   const onClose = () => {
     if (parentDoneAction !== undefined) {

@@ -1,12 +1,13 @@
+<div style="text-indent: -9999px;"> bind:this={keyboardSound}</div>
+
 <Typewriter mode={mode}
             disabled={disabled}
             delay={delay}
             on:done={doneAction}>
-    <div style="width:1px; height: 1px;"> bind:this={keyboardSound}</div>
     <slot></slot>
 </Typewriter>
 {#if waitReading && !hasNotStartedWriting && !continuePressed}
-    <ButtonComponent autofocus onclick={buttonAction}><span slot="content">{$t('common.button.waiting')}</span></ButtonComponent>
+    <ButtonComponent autofocus onclick={buttonAction}><span slot="content">{buttonLabel}</span></ButtonComponent>
 {/if}
 <script lang="ts">
 
@@ -22,6 +23,8 @@
   export let waitReading: boolean = false
   export let parentDoneAction: Function | undefined = undefined
   export let continueButtonAction: Function | undefined = undefined
+
+  export let buttonLabel: string = $t('common.button.waiting')
 
   let continuePressed: boolean = false
 
@@ -48,7 +51,7 @@
   onMount(() => {
     keyboardSound = new Audio(base + "/sound/keyboard.mp3")
     keyboardSound.loop = true
-    keyboardSound.volume = 0.5
+    keyboardSound.volume = 0.3
     interval = setInterval(() => {
       if (!disabled && hasNotStartedWriting) {
         isWriting = true;

@@ -1,26 +1,24 @@
-<Header/>
-<Content>
-    <Typewriter mode="scramble">
+<HeaderComponent title={title}/>
+<Content style="margin-left: 5rem; margin-right: 5rem">
+    <TypewriterComponent mode="scramble">
         <div class="container">
-            <h1 class="neon">{title}</h1>
-            <h2 class="flux">{subtitle}</h2>
+            <h1 class="neon">{place}</h1>
+            <h2 class="flux">{location}</h2>
         </div>
-    </Typewriter>
+    </TypewriterComponent>
     <br/>
     <slot></slot>
 </Content>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
-  import Header from "$lib/renderComponent/HeaderComponent.svelte";
-  import {Content} from "carbon-components-svelte";
-  import Typewriter from "svelte-typewriter";
+  import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
+  import { Content } from "carbon-components-svelte";
+  import { Step } from "$lib";
+  import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
 
-  export let title = "";
-  export let subtitle = "";
+  export let place = "";
+  export let title: Step;
+  export let location = "";
+
 </script>
-<style global>
-    @import url(/css/app.css);
-    @import url(/css/neon.css);
-    @import url(/css/glitch.css);
-</style>
 

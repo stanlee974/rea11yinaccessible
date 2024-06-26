@@ -11,10 +11,10 @@
     <br/>
     <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open={showTransitionModal} modalHeading="" on:open
            on:close={() => {
-               pauseStressSong = true
-               playEpilogueSong = true
-               showTrapModal = true
-           }}>
+                   pauseStressSong = true
+                   playEpilogueSong = true
+                   showTrapModal = true
+               }}>
         <div style="display: flex; flex-direction: row">
             <Grid>
                 <Row>
@@ -24,7 +24,7 @@
                                     src="{base}/final/orbe.jpg"
                                     alt="Tu regardes l'orbe"
                                     fadeIn={true}/>
-                            <span>2</span>
+                            <span class="number">2</span>
                             <p style:font-size="1.3rem">Tu la secoues et te rends compte qu'il n'est pas
                                 vide. Tu utilises un pic métallique au pied du piédestal qui semble prévu à cet effet.
                                 Lorsqu'elle se brise, une
@@ -34,7 +34,7 @@
                                     src="{base}/final/man_with_syringe.jpg"
                                     alt="Tu t'injectes la substance"
                                     fadeIn={true}/>
-                            <span>4</span>
+                            <span class="number">4</span>
                             <p style:font-size="1.3rem">Après l'injection, tu attends anxieusement que les effets se
                                 manifestent. Cependant, au lieu de ressentir des changements physiques, tu commences à
                                 te sentir étrangement normal.</p>
@@ -45,16 +45,16 @@
                         </div>
                     </Column>
                     <Column>
-                        <span>1</span>
+                        <span class="number">1</span>
                         <p style:font-size="1.3rem">Au centre du sanctuaire, l'orbe scintille, illuminée par les
                             cristaux luminescents. Elle repose sur un piédestal doré, entourée de gravures anciennes et
                             d'inscriptions mystiques. Tu t'approches avec un mélange d'excitation et de crainte.
-                        Le mécanisme s'ouvre lentement et tu t'empares de l'orbe.</p>
+                            Le mécanisme s'ouvre lentement et tu t'empares de l'orbe.</p>
                         <ImageLoader
                                 src="{base}/final/broken_orb.jpg"
                                 alt="L'orbe brisée contient l'injection"
                                 fadeIn={true}/>
-                        <span>3</span>
+                        <span class="number">3</span>
                         <p style:font-size="1.3rem">Tu te prépares à t'injecter le contenu de la seringue. Tu prends une
                             profonde inspiration, espérant que cette injection t'accorderas le handicap nécessaire pour
                             échapper aux traqueurs.
@@ -71,8 +71,8 @@
     </Modal>
     <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showTrapModal} modalHeading="" on:open
            on:close={() => {
-               showScenario = false;
-           }}>
+                   showScenario = false;
+               }}>
         <div style="display: flex; flex-direction: row">
             <Grid>
                 <Row>
@@ -117,19 +117,130 @@
             jusqu'au bout. Ton histoire, bien que tragique, est un testament de courage et de résilience dans un monde
             post-apocalyptique impitoyable, dans lequel, la différence est encore une hérésie.</p>
     </TypewriterComponent>
-    <TypewriterComponent disabled={disabledFin}>
-        <p>Fin</p>
+    <TypewriterComponent disabled={disabledFin} waitReading continueButtonAction={() => showSummary = true} buttonLabel={$t('outro.button.summary')}>
+        <span class="fin">Fin de l'aventure</span>
     </TypewriterComponent>
+    {#if showSummary}
+        <br/>
+        <br/>
+        <br/>
+        <ExpandableTile tileExpandedLabel={$t('outro.viewLess')} tileCollapsedLabel={$t('outro.viewMore')}>
+            <div slot="above">
+                <h2>{$t('outro.visual.title')}</h2>
+            </div>
+            <div slot="below">
+                <h3>{$t('outro.visual.1.title')}</h3>
+                <p class="tab"><u
+                        class="italic">{$t('outro.problem')}</u> {$t('outro.visual.1.disabilities.1.problem')}</p>
+                <p class="tab"><u
+                        class="italic">{$t('outro.advice')}</u> {$t('outro.visual.1.disabilities.1.advice')}</p>
+                <br/>
+                <h3>{$t('outro.visual.2.title')} {$t('outro.visual.2.disabilities.1.title')}</h3>
+                <p class="tab"><u
+                        class="italic">{$t('outro.problem')}</u> <b>{$t('outro.visual.2.disabilities.1.problem')}</b>
+                </p>
+                <p class="tab"><u
+                        class="italic">{$t('outro.advice')}</u> {$t('outro.visual.2.disabilities.1.advice')}
+                </p>
+                <br/>
+                <h3>{$t('outro.visual.3.title')} {$t('outro.visual.3.disabilities.1.title')}</h3>
+                <p class="tab"><u
+                        class="italic">{$t('outro.problem')}</u> <b>{$t('outro.visual.3.disabilities.1.problem')}</b>
+                </p>
+                <p class="tab"><u
+                        class="italic">{$t('outro.advice')}</u>
+                    {$t('outro.visual.3.disabilities.1.cta.1.above')}
+                    <a href={$t('outro.visual.3.disabilities.1.cta.1.link')} target="_blank"
+                       on:click|stopPropagation={() => console.debug("go to link")}
+                    >
+                        {$t('outro.visual.3.disabilities.1.cta.1.label')}
+                    </a>
+                    .
+                </p>
+                <p class="tab">{$t('outro.visual.3.disabilities.1.advice')}</p>
+                <br/>
+                <h3>{$t('outro.visual.4.title')} {$t('outro.visual.4.disabilities.1.title')}</h3>
+                <p class="tab"><u
+                        class="italic">{$t('outro.problem')}</u> <b>{$t('outro.visual.4.disabilities.1.problem')}</b>
+                </p>
+                <p class="tab"><u
+                        class="italic">{$t('outro.advice')}</u> {$t('outro.visual.4.disabilities.1.advice')}
+                </p>
+            </div>
+        </ExpandableTile>
+        <br/>
+        <ExpandableTile tileExpandedLabel={$t('outro.viewLess')} tileCollapsedLabel={$t('outro.viewMore')}>
+            <div slot="above">
+                <h2>{$t('outro.cognitive.title')}</h2>
+            </div>
+            <div slot="below">
+                <h3>{$t('outro.cognitive.1.title')} {$t('outro.cognitive.1.disabilities.1.title')}</h3>
+                <p class="tab"><u
+                        class="italic">{$t('outro.problem')}</u> {$t('outro.cognitive.1.disabilities.1.problem')}</p>
+                <p class="tab"><u
+                        class="italic">{$t('outro.advice')}</u> {$t('outro.cognitive.1.disabilities.1.advice')}</p>
+                <br/>
+                <h3>{$t('outro.cognitive.2.title')} {$t('outro.cognitive.2.disabilities.1.title')}</h3>
+                <p class="tab"><u
+                        class="italic">{$t('outro.problem')}</u> <b>{$t('outro.cognitive.2.disabilities.1.problem')}</b>
+                </p>
+                <p class="tab"><u
+                        class="italic">{$t('outro.advice')}</u> {$t('outro.cognitive.2.disabilities.1.advice')}
+                </p>
+            </div>
+        </ExpandableTile>
+        <br/>
+        <ExpandableTile tileExpandedLabel={$t('outro.viewLess')} tileCollapsedLabel={$t('outro.viewMore')}>
+            <div slot="above">
+                <h2>{$t('outro.motor.title')}</h2>
+            </div>
+            <div slot="below">
+                <h3>{$t('outro.motor.1.title')} {$t('outro.motor.1.disabilities.1.title')}</h3>
+                <p class="tab"><u
+                        class="italic">{$t('outro.problem')}</u> {$t('outro.motor.1.disabilities.1.problem')}</p>
+                <p class="tab"><u
+                        class="italic">{$t('outro.advice')}</u>
+                    {$t('outro.motor.1.disabilities.1.cta.1.above')}
+                    <a href={$t('outro.motor.1.disabilities.1.cta.1.link')} target="_blank"
+                       on:click|stopPropagation={() => console.debug("go to link")}
+                    >
+                        {$t('outro.motor.1.disabilities.1.cta.1.label')}
+                    </a>
+                    .
+                </p>
+                <p class="tab">{$t('outro.motor.2.disabilities.1.advice')}</p>
+                <br/>
+                <h3>{$t('outro.motor.2.title')} {$t('outro.motor.2.disabilities.1.title')}</h3>
+                <p class="tab"><u
+                        class="italic">{$t('outro.problem')}</u> {$t('outro.motor.2.disabilities.1.problem')}</p>
+                <p class="tab"><u
+                        class="italic">{$t('outro.advice')}</u> {$t('outro.motor.1.disabilities.1.advice')}</p>
+            </div>
+        </ExpandableTile>
+        <br/>
+        <ExpandableTile tileExpandedLabel={$t('outro.viewLess')} tileCollapsedLabel={$t('outro.viewMore')}>
+            <div slot="above">
+                <h2>{$t('outro.hearing.title')}</h2>
+            </div>
+            <div slot="below">
+                <h3>{$t('outro.hearing.1.title')} {$t('outro.hearing.1.disabilities.1.title')}</h3>
+                <p class="tab"><u
+                        class="italic">{$t('outro.problem')}</u> {$t('outro.hearing.1.disabilities.1.problem')}</p>
+                <p class="tab"><u
+                        class="italic">{$t('outro.advice')}</u> {$t('outro.hearing.1.disabilities.1.advice')}</p>
+            </div>
+        </ExpandableTile>
+    {/if}
 </Content>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
-  import { Column, Content, Grid, ImageLoader, Modal, Row, } from "carbon-components-svelte";
-  import Typewriter from 'svelte-typewriter'
+  import { Column, Content, ExpandableTile, Grid, ImageLoader, Modal, Row, } from "carbon-components-svelte";
   import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
-  import { base } from "$app/paths";
-  import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
   import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
-  import { Step } from "$lib";
+  import { base } from "$app/paths";
+  import { Step, t } from "$lib";
+  import Typewriter from "svelte-typewriter";
+  import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
 
   let showTransitionModal = true;
   let showTrapModal = false;
@@ -138,13 +249,90 @@
   let playEpilogueSong = false;
   let pauseStressSong = false;
   let pauseEpilogueSong = false;
+  let showSummary = false;
 </script>
 
 <style lang="css">
     @import url(/css/app.css);
     @import url(/css/neon.css);
-    span {
-        border:white 1px solid;
+
+    .number {
+        border: white 1px solid;
         padding: 0.3em;
+    }
+
+    h3 {
+        margin-left: 2rem;
+        font-size: 1.6rem;
+    }
+
+    .tab {
+        margin-left: 4rem;
+        font-size: 1.3rem;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    @keyframes lights {
+        0% {
+            color: hsl(230, 40%, 80%);
+            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+            0 0 0.125em hsla(320, 100%, 60%, 0.3),
+            -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+            1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+        }
+
+        30% {
+            color: hsl(230, 80%, 90%);
+            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 60%, 0.5),
+            -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+            0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+        }
+
+        40% {
+            color: hsl(230, 100%, 95%);
+            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 90%, 0.5),
+            -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+            0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+        }
+
+        70% {
+            color: hsl(230, 80%, 90%);
+            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 60%, 0.5),
+            0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+            -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+        }
+
+        100% {
+            color: hsl(230, 40%, 80%);
+            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+            0 0 0.125em hsla(320, 100%, 60%, 0.3),
+            1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+            -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+        }
+
+    }
+
+    body {
+        margin: 0;
+        font: 100% / 1.5 Raleway, sans-serif;
+        color: hsl(230, 100%, 95%);
+        background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));
+        height: 100vh;
+        display: flex;
+    }
+
+    .fin {
+        margin: auto;
+        font-size: 3.5rem;
+        font-weight: 300;
+        animation: lights 5s 750ms linear infinite;
+        left: 38%;
+        position: relative;
     }
 </style>
