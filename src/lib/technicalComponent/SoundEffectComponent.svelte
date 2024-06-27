@@ -9,7 +9,7 @@
 
   let audio: HTMLAudioElement;
   export let src: string = ""
-  export let play: Function | undefined = undefined
+  export let postPlay: Function | undefined = undefined
   export let loop: boolean = false
   let interval: number;
   onMount(() => {
@@ -17,13 +17,19 @@
     audio.loop = loop
     interval = setInterval(() => {
       audio.volume = getVolume()
-      if (play) {
+      if (postPlay) {
         audio.play()
-        play()
+        postPlay()
+      } else {
+        audio.pause()
       }
-    }, 1000)
+    }, 1200)
   })
 
-  onDestroy(() => clearInterval(interval))
+  onDestroy(() => {
+    if (audio) {
+      audio.pause()
+    }
+    clearInterval(interval)})
 </script>
 

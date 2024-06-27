@@ -4,7 +4,7 @@
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import { base } from "$app/paths";
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import { getVolume } from "$lib/store/VolumeStore";
 
   let audio: HTMLAudioElement;
@@ -15,11 +15,12 @@
   export let autoplay: boolean = false
   export let play: boolean = false
 
-  onMount(() => {
+  let interval: number;
+    onMount(() => {
     audio = new Audio(base + src)
     audio.loop = true
     audio.autoplay = autoplay
-    const interval = setInterval(() => {
+    interval = setInterval(() => {
       audio.volume = getVolume()
       if (play && !autoplay) {
         audio.play()
@@ -29,9 +30,15 @@
         if (onpause) {
           onpause();
         }
-        clearInterval(interval)
       }
     }, 100)
+  })
+
+  onDestroy(() => {
+    if (audio) {
+      audio.pause()
+    }
+    clearInterval(interval)
   })
 
   async function adjustVolume(

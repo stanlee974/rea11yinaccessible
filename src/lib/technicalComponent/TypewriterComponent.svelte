@@ -6,6 +6,7 @@
             on:done={doneAction}>
     <slot></slot>
 </Typewriter>
+
 {#if waitReading && !hasNotStartedWriting && !continuePressed}
     <ButtonComponent autofocus onclick={buttonAction}><span slot="content">{buttonLabel}</span></ButtonComponent>
 {/if}
@@ -24,7 +25,7 @@
   export let parentDoneAction: Function | undefined = undefined
   export let continueButtonAction: Function | undefined = undefined
 
-  export let buttonLabel: string = $t('common.button.waiting')
+  export let buttonLabel: string = $t('common.button.waiting') ?? "Continuer la suite"
 
   let continuePressed: boolean = false
 

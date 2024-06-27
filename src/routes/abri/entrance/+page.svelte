@@ -4,7 +4,7 @@
     <Typewriter mode="scramble">
         <div class="container">
             <h1 class="neon">L'abri</h1>
-            <h2 class="flux">Salle des altérations</h2>
+            <h2 class="flux">Salle des alterations</h2>
         </div>
     </Typewriter>
     <br/>
@@ -13,8 +13,8 @@
         <Grid>
             <Row>
                 <Column>
-                        <ImageLoader
-                                src="{base}/abri/entrance/enter.jpg" alt="Tu rentres dans l'abri" fadeIn={true}/>
+                    <ImageLoader
+                            src="{base}/abri/entrance/enter.jpg" alt="Tu rentres dans l'abri" fadeIn={true}/>
                 </Column>
                 <Column>
                     <p>
@@ -125,12 +125,12 @@
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
-  import Typewriter from "svelte-typewriter";
   import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import LoadingComponent from "$lib/technicalComponent/LoadingComponent.svelte";
-  import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
-  import { setVolume } from "$lib/store/VolumeStore";
   import { Step } from "$lib";
+  import LayoutComponent from "$lib/renderComponent/LayoutComponent.svelte";
+  import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
+  import Typewriter from "svelte-typewriter";
 
   const goodOrder = [3, 2, 0, 1];
   let orderTyped: number[] = [];
@@ -142,7 +142,6 @@
   let song = false;
   let contrast = 0;
   let brightness = 0;
-  let hint: HTMLElement;
   const timeout: number = 4000;
   const validOrder = (id: number) => {
     orderTyped.push(id);
@@ -158,7 +157,8 @@
   }
 
 </script>
-<style>
+<style lang="css">
     @import url(/css/app.css);
     @import url(/css/neon.css);
+    @import url(/css/glitch.css);
 </style>

@@ -1,11 +1,11 @@
 <HeaderComponent title={Step.ABRI_COMPUTER}/>
 <SongComponent src="/ost/step3.mp3" autoplay={true} pause={pauseSong}></SongComponent>
-<SoundEffectComponent src="/sound/accessibleName/fr/nom.mp3" play={playLastName}></SoundEffectComponent>
-<SoundEffectComponent src="/sound/accessibleName/fr/prenom.mp3" play={playFirstName}></SoundEffectComponent>
-<SoundEffectComponent src="/sound/accessibleName/fr/naissance.mp3" play={playBirth}></SoundEffectComponent>
-<SoundEffectComponent src="/sound/accessibleName/fr/deces.mp3" play={playDeath}></SoundEffectComponent>
-<SoundEffectComponent src="/sound/accessibleName/fr/soumettre.mp3" play={playSubmit}></SoundEffectComponent>
-<SoundEffectComponent src="/sound/error.mp3" play={playError}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/fr/nom.mp3" postPlay={playLastName}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/fr/prenom.mp3" postPlay={playFirstName}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/fr/naissance.mp3" postPlay={playBirth}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/fr/deces.mp3" postPlay={playDeath}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/fr/soumettre.mp3" postPlay={playSubmit}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/error.mp3" postPlay={playError}></SoundEffectComponent>
 
 <Content>
     <Typewriter mode="scramble">
@@ -47,7 +47,7 @@
         <p>Une page déchirée laisse paraître une photo d'un inventeur et d'informations qui lui sont liées</p>
     </TypewriterComponent>
     <br/>
-    <TypewriterComponent disabled={showGoal} continueButtonAction={() => {open = true;}} waitReading>
+<TypewriterComponent disabled={showGoal} continueButtonAction={() => {open = true;}} waitReading>
         <h2><u><i>Objectif</i></u></h2>
         <p>Tu dois saisir les informations de cet inventeur et appuyer sur entrer pour soumettre.</p>
     </TypewriterComponent>

@@ -2,7 +2,7 @@
     <slot name="message"></slot>
 {/if}
 {#if enabled}
-    <SoundEffectComponent src="/sound/click.mp3" play={playSong} onpause={pause}></SoundEffectComponent>
+    <SoundEffectComponent src="/sound/click.mp3" postPlay={playSong}></SoundEffectComponent>
     <Button kind="secondary"
             style="
             position: fixed;
@@ -26,15 +26,14 @@
   export let enabled: boolean = true
   export let autofocus: boolean = false
   let showMessage: boolean = false
-  let playSong: boolean = false
-  let pause: Function |undefined = undefined
+  let playSong: Function | undefined = undefined
 
   const onClick = () => {
     if (onclick) {
-      playSong = true
+      playSong = () => playSong = undefined
       showMessage = true
       setTimeout(() => {
-        pause = () => playSong = false
+        playSong = undefined
         onclick()
         enabled = false
       }, 500)

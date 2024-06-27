@@ -10,7 +10,7 @@ function createLocaleLoader(localeCode) {
     };
 }
 
-export const availableLocales = Object.keys(lang);
+const availableLocales = Object.keys(lang);
 const translations = {};
 for (let i = 0; i < availableLocales.length; i++) {
     translations[availableLocales[i]] = { lang };
