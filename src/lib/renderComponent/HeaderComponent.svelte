@@ -157,25 +157,7 @@
       hintLevel = getHintLevel()
     }, 200)
     hints = getHint(title);
-  })
 
-  const getHint = (title: string) => {
-    const hints = hintsByStep.find(value => value?.step?.toString() === title)
-    if (hints) {
-      return hints?.hints
-    }
-    return {"1": "", "2": "", "3": ""}
-  }
-  let animationRef: any;
-  let latestStartTime: any;
-
-  const COUNTDOWN_FROM = 35999999;
-
-  let storedTime: number | null;
-  let remainingTime: number | null;
-
-  let time: any;
-  onMount(() => {
     time = initCountdownStore(COUNTDOWN_FROM)
     storedTime = getCountdown();
     if (storedTime && storedTime !== 0) {
@@ -190,6 +172,23 @@
       setCountdown((hours * 60) + minutes);
     });
   })
+
+  const getHint = (title: string) => {
+    const hints = hintsByStep.find(value => value?.step?.toString() === title)
+    if (hints) {
+      return hints?.hints
+    }
+    return {"1": "", "2": "", "3": ""}
+  }
+  let animationRef: any;
+  let latestStartTime: any;
+
+  const COUNTDOWN_FROM = 3599999;
+
+  let storedTime: number | null;
+  let remainingTime: number | null;
+
+  let time: any;
   const animate = (timestamp: any) => {
     if (!latestStartTime) {
       latestStartTime = timestamp + remainingTime;

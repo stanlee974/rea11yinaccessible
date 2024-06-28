@@ -38,18 +38,11 @@
             Mais ajoute une ombre, et les couleurs se mettent à danser.
             Quand la lumière se fait douce ou se fait forte,
             Les nuances cachées frappent à notre porte."</p>
-        <p>Dans un coin de la salle, se trouve un panneau de contrôle avec quatre boutons et un document déchiré
-            mentionnant que la séquence correcte est liée aux perceptions des couleurs affectées par
-            le daltonisme, avec la bande de couleurs suivante.</p>
+        <p>Dans un coin de la salle, il y a un panneau de contrôle avec quatre boutons et un document déchiré indiquant
+            que la séquence correcte est Jaune, Saumon, Vert et Orange. Malheureusement, les boutons n'ont pas
+            d'étiquettes et les perceptions des couleurs peuvent être altérées par le daltonisme.
+        </p>
     </TypewriterComponent>
-    {#if !hideGoal}
-        <br/>
-        <div style="width: 300px; height: 20px; position: absolute; left: 42%; filter: contrast({contrast}%) brightness({brightness}%);">
-            <ImageLoader src="{base}/abri/entrance/indice.png" alt="Panel de couleur dans l'ordre attendu"
-                         fadeIn={true}></ImageLoader>
-        </div>
-        <br/>
-    {/if}
     <br/>
     <TypewriterComponent disabled={hideGoal} parentDoneAction={() => showButtons = true}>
         <h2><u><i>Objectif</i></u></h2>
@@ -66,27 +59,26 @@
                     value={contrast}
                     step={1}
                     style="align-items: normal; margin-right: 2em"
-                    on:change={(value) => {{contrast = value.detail}}}
+                    on:input={(value) => {{contrast = value.detail}}}
             />
-            <Button kind="secondary"
-                    style="margin-right: 2rem;"
+            <Button
+                    style="background-color:#090B08; margin-right: 2rem; filter: contrast({contrast}%) brightness({brightness}%);"
                     aria-label="Ce bouton Vert n'est pas le second"
-                    on:click={() => validOrder(0)}>Vert
-            </Button>
-            <Button kind="secondary"
-                    style="margin-right: 2rem;"
+                    on:click={() => validOrder(0)}></Button>
+            <Button
+                    style="background-color:#0A0907; margin-right: 2rem;filter: contrast({contrast}%) brightness({brightness}%);"
                     aria-label="Ce bouton Orange vient après le bouton Vert"
-                    on:click={() => validOrder(1)}>Orange
+                    on:click={() => validOrder(1)}>
             </Button>
-            <Button kind="secondary"
-                    style="margin-right: 2rem;"
+            <Button
+                    style="background-color:#0B090A; margin-right: 2rem;filter: contrast({contrast}%) brightness({brightness}%);"
                     aria-label="Ce bouton Saumon n'est jamais le premier ni le dernier"
-                    on:click={() => validOrder(2)}>Saumon
+                    on:click={() => validOrder(2)}>
             </Button>
-            <Button kind="secondary"
-                    style="margin-right: 2rem;"
+            <Button
+                    style="background-color:#0B0A06; margin-right: 2rem;filter: contrast({contrast}%) brightness({brightness}%);"
                     aria-label="Ce bouton Jaune est immédiatement suivi par le bouton Saumon"
-                    on:click={() => validOrder(3)}>Jaune
+                    on:click={() => validOrder(3)}>
             </Button>
             <Slider
                     labelText="Luminosité"
@@ -96,7 +88,7 @@
                     value={brightness}
                     step={1}
                     style="align-items: normal"
-                    on:change={(value) => {{brightness = value.detail}}}
+                    on:input={(value) => {{brightness = value.detail}}}
             />
         </div>
         {#if isWaiting}

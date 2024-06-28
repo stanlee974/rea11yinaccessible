@@ -22,7 +22,7 @@
       "disabilities": {
         "1": {
           "title": "le daltonisme",
-          "problem": "Les boutons avaient tous la même couleur. Le daltonisme est déficience visuelle qui affecte la perception des couleurs",
+          "problem": "Les boutons avaient tous la même couleur au départ. En altérant le contraste et la luminosité, les vraies couleurs se dévoilent. Le daltonisme est une déficience visuelle qui affecte la perception des couleurs",
           "advice": "Le choix des couleurs est important dans une application. Utiliser des contrastes élevés et ne pas restituer les informations uniquement par la couleur. Tester son application avec des simulateurs de daltonisme."
         }
       }

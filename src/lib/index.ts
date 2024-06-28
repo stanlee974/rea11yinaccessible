@@ -33,8 +33,8 @@ export const hintsByStep = [
     step: Step.ABRI_ENTRANCE,
     hints: {
       "1": "La note sur la table peut t'aider à trouver la combinaison, si tu ne veux pas tester toutes les combinaisons. Utilise le contraste et la luminosité",
-      "2": "Positionne le contraste à 65 et la luminosité à 71",
-      "3": "La réponse est Jaune, Saumon, Vert et Orange"
+      "2": "Positionne le contraste à 74 et la luminosité à 100",
+      "3": "Le bon ordre est le quatrième, le troisième, le premier et le deuxième"
     }
   }, {
     step: Step.ABRI_SEARCHCENTER,
