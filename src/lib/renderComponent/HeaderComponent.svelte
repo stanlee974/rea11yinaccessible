@@ -19,7 +19,8 @@
             <HeaderNavMenu text="UUV - test E2E accessibilité">
                 <HeaderNavItem href="https://github.com/Orange-OpenSource/uuv" text="Github" target="_blank"/>
                 <HeaderNavItem href="https://orange-opensource.github.io/uuv/" text="Documentation" target="_blank"/>
-                <HeaderNavItem href="https://github.com/e2e-test-quest/kata-e2e-uuv" text="Kata (exercism)" target="_blank"/>
+                <HeaderNavItem href="https://github.com/e2e-test-quest/kata-e2e-uuv" text="Kata (exercism)"
+                               target="_blank"/>
             </HeaderNavMenu>
             <HeaderNavItem href="https://github.com/stanlee974/rea11yinaccessible" text="Source Code" target="_blank"/>
         </HeaderNav>
@@ -94,6 +95,36 @@
         </ModalComponent>
     </HeaderUtilities>
 </Tile>
+{#if title !== Step.INTRODUCTION && title !== Step.WAITING_ROOM}
+    <ProgressIndicator
+            spaceEqually
+            preventChangeOnClick
+            currentIndex="{currentStep}"
+            style="background-color: rgb(22,22,22); position: sticky; top: 8rem; position: flex; flex-direction: row; z-index: 2000; padding-bottom: 0.5rem;">
+        {#each steps as step, index}
+            {#if index < currentStep}
+                <ProgressStep
+                        complete
+                        label={step}
+                        description="étapes réussies"
+                />
+            {/if}
+            {#if currentStep === index}
+                <ProgressStep
+                        label={step}
+                        description="étape en cours"
+                />
+            {/if}
+            {#if index > currentStep}
+                <ProgressStep
+                        disabled
+                        label="?"
+                        description="étapes à venir"
+                />
+            {/if}
+        {/each}
+    </ProgressIndicator>
+{/if}
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import {
@@ -108,6 +139,8 @@
     HeaderNavMenu,
     HeaderUtilities,
     ImageLoader,
+    ProgressIndicator,
+    ProgressStep,
     Row,
     Slider,
     Tile,
@@ -122,11 +155,12 @@
   } from "$lib/store/SoundVolumeStore";
   import { onMount } from "svelte";
   import { Idea } from "carbon-icons-svelte";
-  import { hintsByStep, Step, t } from "$lib";
+  import { hintsByStep, Step, StepRoom, t } from "$lib";
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import { getHintLevel, increaseHintLevel, resetLevelStore } from "$lib/store/HintLevelStore";
   import { getCountdown, getFormatedCountdown, initCountdownStore, setCountdown } from "$lib/store/CountdownStore";
   import SoundEffectComponent from "$lib/technicalComponent/SoundEffectComponent.svelte";
+  import { checkStepStore, getStepIndex, initStepStore, setStepIndex } from "$lib/store/StepStore";
 
   export let title: Step = Step.INTRODUCTION
   export let songVolume: number = 0
@@ -135,6 +169,8 @@
   let playHeartBeat: Function | undefined = undefined
   let playHeartBeatFast: Function | undefined = undefined
 
+  let steps = [StepRoom.ABRI_ENTRANCE, StepRoom.ABRI_COMPUTER, StepRoom.ABRI_MEDICAL, StepRoom.ABRI_SEARCHCENTER, StepRoom.SURFACE_ENTRANCE, StepRoom.SURFACE_LABORATORY, StepRoom.SURFACE_LABORATORY_AUDIOVISUALROOM, StepRoom.SURFACE_LABORATORY_SANCTUARY, StepRoom.FINAL]
+  let currentStep: number = 0
   let isOpenHint: boolean = false
 
   let hints: { "1": string; "2": string, "3": string } = {"1": "", "2": "", "3": ""}
@@ -145,12 +181,48 @@
       let INITIAL_VOLUME = "2";
       initVolumeStore(INITIAL_VOLUME)
     }
+    if (!checkStepStore()) {
+      initStepStore("0")
+    }
     if (!checkSoundVolume()) {
       let INITIAL_VOLUME = "5";
       initSoundVolumeStore(INITIAL_VOLUME)
     }
     songVolume = getVolume() * 100
     soundVolume = getSoundVolume() * 100
+    switch (title) {
+      case Step.ABRI_ENTRANCE:
+        setStepIndex(0)
+        break
+      case Step.ABRI_COMPUTER:
+        setStepIndex(1)
+        break
+      case Step.ABRI_MEDICAL:
+        setStepIndex(2)
+        break
+      case Step.ABRI_SEARCHCENTER:
+        setStepIndex(3)
+        break
+      case Step.SURFACE_ENTRANCE:
+        setStepIndex(4)
+        break
+      case Step.SURFACE_LABORATORY:
+        setStepIndex(5)
+        break
+      case Step.SURFACE_LABORATORY_AUDIOVISUALROOM:
+        setStepIndex(6)
+        break
+      case Step.SURFACE_LABORATORY_SANCTUARY:
+        setStepIndex(7)
+        break
+      case Step.FINAL:
+        setStepIndex(8)
+        break
+      default:
+        break
+    }
+    currentStep = getStepIndex()
+
     resetLevelStore()
 
     setInterval(() => {

@@ -8,8 +8,8 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showTransitionModal} modalHeading="" on:open
-           on:close={() => {showScenario = false}}>
+    <ModalComponent opened={showTransitionModal}
+           parentDoneAction={() => {showScenario = false}}>
         <div style="display: flex; flex-direction: row">
             <Grid>
                 <Row>
@@ -31,16 +31,15 @@
                 </Row>
             </Grid>
         </div>
-    </Modal>
+    </ModalComponent>
     <TypewriterComponent disabled={showScenario} parentDoneAction={() => setTimeout(() => {showEnigm = true}, 2000)}>
         <h2><u><i>Scénario</i></u></h2>
         <p>La salle est équipée de plusieurs écrans vidéo et de postes d'écoute avec des casques. Des rayonnages remplis
             de bobines de films et de cassettes audio tapissent les murs. Des bancs poussiéreux sont disposés devant les
             écrans, invitant les étrangers à s'asseoir et à écouter.</p>
     </TypewriterComponent>
-    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showEnigm} modalHeading=""
-           on:open
-           on:close={() => disableGoal = false}>
+    <ModalComponent opened={showEnigm}
+           parentDoneAction={() => disableGoal = false}>
         <Grid>
             <Row>
                 <Column>
@@ -53,7 +52,7 @@
                 </Column>
             </Row>
         </Grid>
-    </Modal>
+    </ModalComponent>
     <br/>
     <TypewriterComponent disabled={disableGoal} waitReading continueButtonAction={() => {
             showForm = true
@@ -122,7 +121,6 @@
     Grid,
     ImageLoader,
     Loading,
-    Modal,
     Row,
     TextInput,
   } from "carbon-components-svelte";
@@ -134,6 +132,7 @@
   import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import { Step } from "$lib";
   import { getVolume, setVolume } from "$lib/store/VolumeStore";
+  import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
 
   let showTransitionModal = true;
   let showScenario = true;

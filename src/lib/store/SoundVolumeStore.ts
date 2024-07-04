@@ -1,5 +1,5 @@
 import { get, type Writable } from "svelte/store";
-import { writableSession } from "./PersistentStore";
+import { writableSession } from "./technical/PersistentStore";
 
 
 let soundVolumeStore: Writable<string> | undefined = undefined

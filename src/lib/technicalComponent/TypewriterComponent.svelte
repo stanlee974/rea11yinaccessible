@@ -25,7 +25,7 @@
   export let parentDoneAction: Function | undefined = undefined
   export let continueButtonAction: Function | undefined = undefined
 
-  export let buttonLabel: string = $t('common.button.waiting') ?? "Continuer la suite"
+  export let buttonLabel: string | undefined = undefined
 
   let continuePressed: boolean = false
 
@@ -57,6 +57,7 @@
       if (!disabled && hasNotStartedWriting) {
         isWriting = true;
         keyboardSound.play()
+        buttonLabel = $t('common.button.waiting')
       }
       if (isWriting) {
         window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"})

@@ -27,6 +27,5 @@
 <style global>
     @import url(/css/app.css);
     @import url(/css/neon.css);
-    @import url(/css/glitch.css);
 </style>
 

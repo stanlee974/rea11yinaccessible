@@ -8,8 +8,8 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open modalHeading="" on:open
-           on:close={() => showScenario = false}>
+    <ModalComponent opened={open}
+           parentDoneAction={() => showScenario = false}>
         <div style="display: flex; flex-direction: row">
             <Grid>
                 <Row>
@@ -27,14 +27,14 @@
                         </p>
                         <p style="font-size: 1.3rem">Avec un léger grincement, une porte secondaire s'ouvre sur le côté
                             de la console, révélant un
-                            passage étroit. Vous entrez prudemment, l'atmosphère changeant immédiatement. Une odeur de
-                            moisi et de terre humide envahit vos narines, et la lumière se fait plus rare. Le passage
-                            vous conduit à une nouvelle salle, encore plus lugubre que les précédentes.</p>
+                            passage étroit. Tu entres prudemment, l'atmosphère changeant immédiatement. Une odeur de
+                            moisi et de terre humide envahit tes narines, et la lumière se fait plus rare. Le passage
+                            te conduit à une nouvelle salle, encore plus lugubre que les précédentes.</p>
                     </Column>
                 </Row>
             </Grid>
         </div>
-    </Modal>
+    </ModalComponent>
     <TypewriterComponent disabled={showScenario} waitReading continueButtonAction={() => showBookAndPills = true}>
         <h2><u><i>Scénario</i></u></h2>
         <p>La salle est faiblement éclairée, avec des étagères remplies de vieux livres et documents. Au
@@ -43,15 +43,14 @@
             texte
             indéchiffrable.</p>
     </TypewriterComponent>
-    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open={showBookAndPills}
+    <ModalComponent opened={showBookAndPills}
            modalHeading="Livre indéchiffrable et table contenant les pilules"
-           on:open
-           on:close={() => showNotice = false}>
+           parentDoneAction={() => showNotice = false}>
         <ImageLoader
                 src="{base}/abri/medical/pills.jpg" alt="table contenant une boîte avec des pillules" fadeIn={true}/>
         <ImageLoader
                 src="{base}/abri/medical/book.jpg" alt="vieux livre indéchiffrable" fadeIn={true}/>
-    </Modal>
+    </ModalComponent>
     <br/>
     <TypewriterComponent disabled={showNotice} waitReading continueButtonAction={() => showManEating = true}>
         <p>Une note griffonnée sur le bord de la table disant :</p>
@@ -60,12 +59,12 @@
         <p>Un manuel de médecine ouvert sur une page décrivant le médicament Dysclecsus, expliquant qu'il induit
             temporairement une forme de dyslexie réversible, permettant de lire des textes cachés.</p>
     </TypewriterComponent>
-    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open={showManEating}
-           modalHeading="tu avales une pilule" on:open
-           on:close={() => showGoal = false}>
+    <ModalComponent opened={showManEating}
+           modalHeading="tu avales une pilule"
+           parentDoneAction={() => showGoal = false}>
         <ImageLoader
                 src="{base}/abri/medical/man_eating.jpg" alt="Tu avales une pilule" fadeIn={true}/>
-    </Modal>
+    </ModalComponent>
     <br/>
     <TypewriterComponent disabled={showGoal} parentDoneAction={() => showForm = true}>
         <p>Tu avales la pilule et attends quelques instants. Après la prise, tu ressens une légère altération de ta
@@ -115,6 +114,7 @@
   import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
   import { Step } from "$lib";
   import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
+  import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
 
   let open = true;
   let showScenario = true;

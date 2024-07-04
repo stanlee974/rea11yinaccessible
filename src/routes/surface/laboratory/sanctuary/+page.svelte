@@ -9,8 +9,8 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showTransitionModal} modalHeading="" on:open
-           on:close={() => {showScenario = false;}}>
+    <ModalComponent opened={showTransitionModal}
+           parentDoneAction={() => {showScenario = false;}}>
         <div style="display: flex; flex-direction: row">
             <Grid>
                 <Row>
@@ -31,7 +31,7 @@
                 </Row>
             </Grid>
         </div>
-    </Modal>
+    </ModalComponent>
     <Typewriter disabled={showScenario} mode="cascade"
                          on:done={() => setTimeout(() => showContinueButton = true, 2000)}>
         <h2><u><i>Scénario</i></u></h2>
@@ -61,9 +61,8 @@
         }}>Continuer
         </Button>
     {/if}
-    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showEnigm} modalHeading=""
-           on:open
-           on:close={() => disableGoal = false}>
+    <ModalComponent opened={showEnigm}
+           parentDoneAction={() => disableGoal = false}>
         <Grid>
             <Row>
                 <Column>
@@ -89,7 +88,7 @@
                 </Column>
             </Row>
         </Grid>
-    </Modal>
+    </ModalComponent>
     <br/>
     <Typewriter mode="cascade" disabled={disableGoal} on:done={() => setTimeout(() => showForm = true, 2000)}>
         <h2><u><i>Objectif</i></u></h2>
@@ -121,23 +120,14 @@
 </Content>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
-  import {
-    Button,
-    Column,
-    Content,
-    FluidForm,
-    Grid,
-    ImageLoader,
-    Loading,
-    Modal,
-    Row,
-  } from "carbon-components-svelte";
+  import { Button, Column, Content, FluidForm, Grid, ImageLoader, Loading, Row, } from "carbon-components-svelte";
   import Typewriter from 'svelte-typewriter'
   import { goto } from "$app/navigation";
   import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import { Step } from "$lib";
+  import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
 
   let showTransitionModal = true;
   let showScenario = true;

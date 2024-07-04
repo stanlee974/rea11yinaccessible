@@ -22,11 +22,9 @@
             <Grid>
                 <Row>
                     <Column>
-                        <div class="glitch">
                             <ImageLoader
                                     src="{base}/abri/computer/man_walking.jpg" alt="Tu avances vers la nouvelle salle"
                                     fadeIn={true}/>
-                        </div>
                     </Column>
                     <Column><p>Un mécanisme se déclenche et la porte s'ouvre, te laissant passer dans la salle
                         suivante.</p>
@@ -51,11 +49,9 @@
         <h2><u><i>Objectif</i></u></h2>
         <p>Tu dois saisir les informations de cet inventeur et appuyer sur entrer pour soumettre.</p>
     </TypewriterComponent>
-    <Modal
-            preventCloseOnClickOutside
-            size="lg" passiveModal
-            bind:open
-            on:close={() => {showForm = true; open=false;}}
+    <ModalComponent
+            opened="{open}"
+            parentDoneAction={() => {showForm = true; open=false;}}
             modalHeading="Indices trouvés sur la table">
         <Tabs>
             <Tab label="Inventeur"/>
@@ -77,7 +73,7 @@
                 </TabContent>
             </svelte:fragment>
         </Tabs>
-    </Modal>
+    </ModalComponent>
     {#if showForm}
         <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
             <Content id="computer" style="opacity: 0; pointer-events: none;">
@@ -126,7 +122,6 @@
     Grid,
     ImageLoader,
     Loading,
-    Modal,
     Row,
     Tab,
     TabContent,
@@ -221,5 +216,4 @@
 <style>
     @import url(/css/app.css);
     @import url(/css/neon.css);
-    @import url(/css/glitch.css);
 </style>

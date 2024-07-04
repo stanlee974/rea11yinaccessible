@@ -9,8 +9,8 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open={showTransitionModal} modalHeading="" on:open
-           on:close={() => {
+    <ModalComponent opened={showTransitionModal}  on:open
+           parentDoneAction={() => {
                    pauseStressSong = true
                    playEpilogueSong = true
                    showTrapModal = true
@@ -68,9 +68,9 @@
                 </Row>
             </Grid>
         </div>
-    </Modal>
-    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showTrapModal} modalHeading="" on:open
-           on:close={() => {
+    </ModalComponent>
+    <ModalComponent opened={showTrapModal}  on:open
+           parentDoneAction={() => {
                    showScenario = false;
                }}>
         <div style="display: flex; flex-direction: row">
@@ -98,7 +98,7 @@
                 </Row>
             </Grid>
         </div>
-    </Modal>
+    </ModalComponent>
     <TypewriterComponent disabled={showScenario} parentDoneAction={() => disabledFin = false}>
         <h2><u><i>Epilogue</i></u></h2>
         <p>Les traqueurs te mènent hors du sanctuaire, à travers les
@@ -234,13 +234,14 @@
 </Content>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
-  import { Column, Content, ExpandableTile, Grid, ImageLoader, Modal, Row, } from "carbon-components-svelte";
+  import { Column, Content, ExpandableTile, Grid, ImageLoader, Row, } from "carbon-components-svelte";
   import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
   import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import { base } from "$app/paths";
   import { Step, t } from "$lib";
   import Typewriter from "svelte-typewriter";
   import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
+  import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
 
   let showTransitionModal = true;
   let showTrapModal = false;

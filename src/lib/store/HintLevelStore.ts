@@ -1,5 +1,5 @@
 import { get, type Writable } from "svelte/store";
-import { resetSession, writableSession } from "./PersistentStore";
+import { resetSession, writableSession } from "./technical/PersistentStore";
 
 
 let hintLevelStore: Writable<string> | undefined = undefined

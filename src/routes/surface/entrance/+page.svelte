@@ -8,8 +8,8 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open={showTransitionModal} modalHeading=""
-           on:close={() => {showScenario = false}}>
+    <ModalComponent opened={showTransitionModal}
+           parentDoneAction={() => {showScenario = false}}>
         <div style="display: flex; flex-direction: row">
             <Grid>
                 <Row>
@@ -28,7 +28,7 @@
                 </Row>
             </Grid>
         </div>
-    </Modal>
+    </ModalComponent>
     <TypewriterComponent disabled={showScenario} waitReading continueButtonAction={() => showEntrance = true}>
         <h2><u><i>Scénario</i></u></h2>
         <p>Près de la sortie, une note indiquant que ce laboratoire secondaire est également un refuge sûr, équipé de
@@ -36,8 +36,8 @@
         <p>Cet extrait de journal de bord explique que le complexe souterrain est devenu de plus en plus instable en
             raison des dégradations structurelles.</p>
     </TypewriterComponent>
-    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showEntrance} modalHeading=""
-           on:close={() => disableGoal = false}>
+    <ModalComponent opened={showEntrance}
+           parentDoneAction={() => disableGoal = false}>
         <Grid>
             <Row>
                 <Column>
@@ -54,7 +54,7 @@
                 </Column>
             </Row>
         </Grid>
-    </Modal>
+    </ModalComponent>
     <br/>
     <TypewriterComponent disabled={disableGoal} waitReading continueButtonAction={() => showTrialModal = true}>
         <p>Une plaque gravée à côté de la porte mentionne que la porte s'ouvre en cliquant sur la croix depuis
@@ -64,8 +64,9 @@
         <p>Cliquer sur la croix permettant d'ouvrir la porte</p>
     </TypewriterComponent>
     <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
-        <Modal preventCloseOnClickOutside bind:open={showTrialModal} passiveModal modalHeading="Tableau de contrôle"
-               on:close={() => reopenTrialModal = true}>
+        <ModalComponent opened={showTrialModal} modalHeading="Tableau de contrôle"
+                        hasPrimaryButton="{false}"
+                        parentDoneAction={() => {reopenTrialModal = true; showTrialModal = false}}>
             <div bind:this={xElement} style="position: relative;cursor: none;"
                  on:mousemove={movingMouseTremors}>
                 <ImageLoader
@@ -85,7 +86,7 @@
                             alt="mouse" style="position: absolute; left:{mouseX}px; top:{mouseY}px; z-index: 15000"/>
                 </div>
             </div>
-        </Modal>
+        </ModalComponent>
         {#if reopenTrialModal}
             <Button kind="secondary" on:click={() => {showTrialModal = true; reopenTrialModal= true}}>Ouvrir le
                 terminal
@@ -98,7 +99,7 @@
 </Content>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
-  import { Button, Column, Content, Grid, ImageLoader, Modal, Row, } from "carbon-components-svelte";
+  import { Button, Column, Content, Grid, ImageLoader, Row, } from "carbon-components-svelte";
   import Typewriter from 'svelte-typewriter'
   import { goto } from "$app/navigation";
   import { onMount } from "svelte";
@@ -108,6 +109,7 @@
   import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import LoadingComponent from "$lib/technicalComponent/LoadingComponent.svelte";
   import { Step } from "$lib";
+  import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
 
   let songPause = false;
   let showTransitionModal = true;

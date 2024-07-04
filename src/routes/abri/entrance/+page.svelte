@@ -39,7 +39,7 @@
             Quand la lumière se fait douce ou se fait forte,
             Les nuances cachées frappent à notre porte."</p>
         <p>Dans un coin de la salle, il y a un panneau de contrôle avec quatre boutons et un document déchiré indiquant
-            que la séquence correcte est Jaune, Saumon, Vert et Orange. Malheureusement, les boutons n'ont pas
+            que la séquence correcte est Jaune, Rose, Vert et Orange. Malheureusement, les boutons n'ont pas
             d'étiquettes et les perceptions des couleurs peuvent être altérées par le daltonisme.
         </p>
     </TypewriterComponent>
@@ -62,22 +62,22 @@
                     on:input={(value) => {{contrast = value.detail}}}
             />
             <Button
-                    style="background-color:#090B08; margin-right: 2rem; filter: contrast({contrast}%) brightness({brightness}%);"
+                    style="background-color:#0E160F; margin-right: 2rem; filter: contrast({contrast}%) brightness({brightness}%);"
                     aria-label="Ce bouton Vert n'est pas le second"
                     on:click={() => validOrder(0)}></Button>
             <Button
-                    style="background-color:#0A0907; margin-right: 2rem;filter: contrast({contrast}%) brightness({brightness}%);"
+                    style="background-color:#16110E; margin-right: 2rem;filter: contrast({contrast}%) brightness({brightness}%);"
                     aria-label="Ce bouton Orange vient après le bouton Vert"
                     on:click={() => validOrder(1)}>
             </Button>
             <Button
-                    style="background-color:#0B090A; margin-right: 2rem;filter: contrast({contrast}%) brightness({brightness}%);"
-                    aria-label="Ce bouton Saumon n'est jamais le premier ni le dernier"
+                    style="background-color:#161113; margin-right: 2rem;filter: contrast({contrast}%) brightness({brightness}%);"
+                    aria-label="Ce bouton Rose n'est jamais le premier ni le dernier"
                     on:click={() => validOrder(2)}>
             </Button>
             <Button
-                    style="background-color:#0B0A06; margin-right: 2rem;filter: contrast({contrast}%) brightness({brightness}%);"
-                    aria-label="Ce bouton Jaune est immédiatement suivi par le bouton Saumon"
+                    style="background-color:#16150E; margin-right: 2rem;filter: contrast({contrast}%) brightness({brightness}%);"
+                    aria-label="Ce bouton Jaune est immédiatement suivi par le bouton Rose"
                     on:click={() => validOrder(3)}>
             </Button>
             <Slider
@@ -152,5 +152,4 @@
 <style lang="css">
     @import url(/css/app.css);
     @import url(/css/neon.css);
-    @import url(/css/glitch.css);
 </style>

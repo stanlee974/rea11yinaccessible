@@ -14,6 +14,18 @@ export const enum Step {
   FINAL = "Epilogue",
 }
 
+export const enum StepRoom {
+  ABRI_ENTRANCE = "Salle des altérations",
+  ABRI_MEDICAL = "Salle médicale",
+  ABRI_COMPUTER = "Salle de contrôle",
+  ABRI_SEARCHCENTER = "Salle des énigmes",
+  SURFACE_ENTRANCE = "Entrée du laboratoire",
+  SURFACE_LABORATORY = "Le laboratoire",
+  SURFACE_LABORATORY_AUDIOVISUALROOM = "Salle audiovisuelle",
+  SURFACE_LABORATORY_SANCTUARY = "Le sanctuaire",
+  FINAL = "Epilogue",
+}
+
 export const hintsByStep = [
   {
     step: Step.WAITING_ROOM,
@@ -40,7 +52,7 @@ export const hintsByStep = [
     step: Step.ABRI_SEARCHCENTER,
     hints: {
       "1": "Enigme 1 : Chut !, Enigme 2 : Certains mots ont plusieurs sens, Enigme 3 : la différence peut être minime",
-      "2": "Enigme 1 : Quand on parle on le brise, Enigme 2 : la lettre a un double sens, Enigme 3 : on attend une lettre",
+      "2": "Enigme 1 : La parole est d'argent et lui est d'or, Enigme 2 : le mot lettre a un double sens, Enigme 3 : Regardez bien les 2 mots l'un à côté de l'autre",
       "3": "Enigme 1 : silence, Enigme 2 : enveloppe, Enigme 3 : è"
     }
   }, {
@@ -60,8 +72,8 @@ export const hintsByStep = [
   }, {
     step: Step.SURFACE_LABORATORY,
     hints: {
-      "1": "Zoome en bas à droite, tu verras quelque chose d'intéressant. La transposition est ailleurs sur la carte",
-      "2": "La transcription en bas à gauche représente les touches de ton clavier",
+      "1": "Zoome en bas à gauche, tu verras quelque chose d'intéressant. La transposition est ailleurs sur la carte",
+      "2": "La transcription en bas à droite représente les touches de ton clavier français",
       "3": "tape le mot de passe : tremors. Attention, il faut que tu appuies plusieurs fois sur la même touche jusqu'à ce que la bonne lettre s'affiche"
     }
   }, {

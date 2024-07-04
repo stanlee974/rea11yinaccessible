@@ -8,8 +8,8 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showTransitionModal} modalHeading="" on:open
-           on:close={() => {showScenario = false}}>
+    <ModalComponent opened={showTransitionModal}
+           parentDoneAction={() => {showScenario = false}}>
         <div style="display: flex; flex-direction: row">
             <Grid>
                 <Row>
@@ -28,7 +28,7 @@
                 </Row>
             </Grid>
         </div>
-    </Modal>
+    </ModalComponent>
     <TypewriterComponent disabled={showScenario} parentDoneAction={() => {setTimeout(() => showEnigm = true, 2000)}}>
         <h2><u><i>Scénario</i></u></h2>
         <p>Cet air glacé émane d'une grande chambre frigorifique abandonnée autrefois utilisée pour stocker des
@@ -36,9 +36,8 @@
         <p>Le froid est intense, et des cristaux de glace couvrent les murs et le sol. Derrière une armoire, il y a un
             grand terminal avec un clavier encastré et un écran légèrement fissuré.</p>
     </TypewriterComponent>
-    <Modal preventCloseOnClickOutside size="lg" passiveModal bind:open={showEnigm} modalHeading=""
-           on:open
-           on:close={() => disableGoal = false}>
+    <ModalComponent opened={showEnigm}
+           parentDoneAction={() => disableGoal = false}>
         <Grid>
             <Row>
                 <Column>
@@ -55,7 +54,7 @@
                 </Column>
             </Row>
         </Grid>
-    </Modal>
+    </ModalComponent>
     <br/>
     <TypewriterComponent disabled={disableGoal} parentDoneAction={() => {setTimeout(() => {showForm = true; activateZoom()}, 2000)}}>
         <h2><u><i>Objectif</i></u></h2>
@@ -98,7 +97,6 @@
     Grid,
     ImageLoader,
     Loading,
-    Modal,
     Row,
     TextInput,
   } from "carbon-components-svelte";
@@ -110,6 +108,7 @@
   import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
   import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import { Step } from "$lib";
+  import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
 
   let showTransitionModal = true;
   let showScenario = true;

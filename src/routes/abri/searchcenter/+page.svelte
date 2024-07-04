@@ -8,8 +8,8 @@
         </div>
     </Typewriter>
     <br/>
-    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open modalHeading=""
-           on:close={() => {showScenario = false; showOverlay()}}>
+    <ModalComponent
+            parentDoneAction={() => {showScenario = false; showOverlay()}}>
         <div style="display: flex; flex-direction: row">
             <Grid>
                 <Row>
@@ -26,13 +26,13 @@
                 </Row>
             </Grid>
         </div>
-    </Modal>
+    </ModalComponent>
     <TypewriterComponent disabled={showScenario} parentDoneAction={() => disableGoal = false}>
         <h2><u><i>Scénario</i></u></h2>
         <p>Les effets de la pilule Dysclecsus commencent à se dissiper, mais tu ressens maintenant des effets
             secondaires imprévus sous forme d'hallucinations visuelles et auditives.</p>
-        <p>Cette salle est une grande pièce circulaire, légèrement éclairée par un puit de lumière central. Au centre,
-            il y a un podium avec trois piédestaux, chacun contenant une énigme.</p>
+        <p>{dyslexia("Cette salle est une grande pièce circulaire, légèrement éclairée par un puit de lumière central. Au centre,\n" +
+            "            il y a un podium avec trois piédestaux, chacun contenant une énigme.", {scrambleChance: 90})}</p>
     </TypewriterComponent>
     <br/>
     <TypewriterComponent disabled={disableGoal} continueButtonAction={() => showEnigm = true} waitReading>
@@ -40,48 +40,47 @@
         <p>Tu dois faire abstraction des hallucinations sonores et visuelles perturbantes pour ne pas te laisser induire
             en erreur. Reste donc concentré malgré les hallucinations et trouve les 3 réponses.</p>
     </TypewriterComponent>
-    <Modal size="lg" preventCloseOnClickOutside passiveModal bind:open={showEnigm} modalHeading="3 fiches à énigmes"
-           on:open
-           on:close={() => {disableGoal = false; showForm = true}}>
-        <Tabs>
-            <Tab label="Enigme 1"/>
-            <Tab label="Enigme 2"/>
-            <Tab label="Enigme 3"/>
-            <svelte:fragment slot="content">
-                <TabContent>
-                    <p>Dès que l'on me nomme, on me brise. Qui suis-je?</p>
-                </TabContent>
-                <TabContent>
-                    <p>{dyslexia("Je commence par un E, je termine par une E, je ne contiens qu'une seule lettre, mais je ne suis pas la lettre E. Qui suis-je?", {scrambleChance: 20})}</p>
-                </TabContent>
-                <TabContent>
-                    <p>Je transforme une plante en une planète. Qui suis-je ?</p>
-                </TabContent>
-            </svelte:fragment>
-        </Tabs>
-    </Modal>
+    <ModalComponent opened={showEnigm} modalHeading="3 fiches à énigmes"
+                    parentDoneAction={() => {disableGoal = false; showForm = true; showEnigm = false}}>
+        <div style="display: flex; flex-direction: row">
+            <Grid>
+                <Row>
+                    <Column>
+                        <p>Enigme 1 : Dès que l'on me nomme, on me brise. Qui suis-je?</p>
+                    </Column>
+                    <Column><p>Enigme 2 : Je commence par un E, je termine par une E, je peux contenir qu'une seule
+                        lettre, mais je ne suis
+                        pas la lettre E. Qui suis-je?</p>
+                    </Column>
+                    <Column><p>Enigme 3 : Je transforme une plante en une planète. Qui suis-je ?</p>
+
+                    </Column>
+                </Row>
+            </Grid>
+        </div>
+    </ModalComponent>
     {#if showForm}
         <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
             <FluidForm>
                 <TextInput aria-label="enigm1"
                            labelText="Réponse énigme 1" placeholder="Saisir une réponse"
                            required invalid={invalidEnigm1}
-                           invalidText="la réponse est erroné."
+                           invalidText="la réponse est erronée."
                            autofocus bind:value={enigm1}/>
                 <TextInput aria-label="enigm1"
                            labelText="Réponse énigme 2" placeholder="Saisir une réponse"
                            required invalid={invalidEnigm2}
-                           invalidText="la réponse est erroné."
+                           invalidText="la réponse est erronée."
                            bind:value={enigm2}/>
                 <TextInput aria-label="enigm3"
                            labelText="Réponse énigme 3" placeholder="Saisir une réponse"
                            required invalid={invalidEnigm3}
-                           invalidText="la réponse est erroné."
+                           invalidText="la réponse est erronée."
                            bind:value={enigm3}/>
             </FluidForm>
             <Row style="margin-top: 1rem">
-                <Button kind="secondary" on:click={() => validateForm()} style="margin-right: 1rem">Valider</Button>
-                <Button kind="secondary" on:click={() => showEnigm = true}>Consulter les énigmes</Button>
+                <Button kind="secondary" on:click={() => showEnigm = true} style="margin-right: 1rem">Consulter les énigmes</Button>
+                <Button kind="secondary" on:click={() => validateForm()}>Valider</Button>
             </Row>
         </div>
         {#if isWaiting}
@@ -103,7 +102,6 @@
     Grid,
     ImageLoader,
     Loading,
-    Modal,
     Row,
     Tab,
     TabContent,
@@ -118,6 +116,7 @@
   import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
   import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import { Step } from "$lib";
+  import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
 
   let open = true;
   let showScenario = true;
