@@ -1,8 +1,8 @@
-import { get, type Writable } from "svelte/store";
+import { get, writable, type Writable } from "svelte/store";
 import { writableSession } from "./technical/PersistentStore";
 
 
-let countdownStore: Writable<string> | undefined = undefined
+let countdownStore: Writable<string> = writable("")
 const formatter = new Intl.DateTimeFormat("en", {
   hour12: false,
   minute: "2-digit",
@@ -16,6 +16,8 @@ export const getCountdown = () => {
   return 0
 }
 
+export const getCountdownStore = () => { return countdownStore}
+
 export const getFormatedCountdown = (time: number) => {
   if (countdownStore) {
     return formatter.format(Number(get(countdownStore)))
@@ -25,7 +27,7 @@ export const getFormatedCountdown = (time: number) => {
 
 export const setCountdown = (value: number) => {
   if (countdownStore && value) {
-    return countdownStore.set(value.toString())
+    return countdownStore.set(Math.ceil(value).toString())
   }
   return undefined
 }

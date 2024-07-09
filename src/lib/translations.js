@@ -18,9 +18,9 @@ for (let i = 0; i < availableLocales.length; i++) {
 
 availableLocales.map(createLocaleLoader);
 
-const config = {
+const config = ({
     initLocale: 'fr',
-    fallbackLocale: 'fr',
+    fallbackLocale: 'en',
     translations: translations,
     loaders: [
         {
@@ -44,6 +44,6 @@ const config = {
             loader: async () => (await import('../locales/fr/outro.json')).default
         }
     ]
-};
+});
 
 export const { t, loading, locales, locale, loadTranslations, setLocale } = new i18n(config);

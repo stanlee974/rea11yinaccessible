@@ -14,6 +14,10 @@ export const getVolume = () => {
   return 0
 }
 
+export const getVolumeStore = () => {
+  return volumeStore
+}
+
 export const setVolume = (value: number) => {
   if (volumeStore) {
     return volumeStore.set(String(value))

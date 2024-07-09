@@ -1,5 +1,3 @@
-<Header title={Step.INTRODUCTION}/>
-<SongComponent src="/ost/intro.mp3" autoplay={true} pause={openingPause}></SongComponent>
 <Content id="scenario" style="background-color: #161616;">
     <h1 lang="en">{$t('common.title')}</h1>
     <br/>
@@ -25,18 +23,23 @@
 <Button kind="secondary"
         style="left: 46%; padding-right: 2.5rem; padding-left: 2.5rem; margin-top: 2rem; margin-bottom: 2rem"
         on:click={() => {
-            openingPause = true
+            makePause()
             goto("/waitingroom")
         }}>{$t('intro.button.start')}
 </Button>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import { Button, Content } from "carbon-components-svelte";
-  import Header from "$lib/renderComponent/HeaderComponent.svelte";
-  import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import { goto } from "$app/navigation";
-  import { Step, t } from "$lib";
-  import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
-  let openingPause = false
-  injectSpeedInsights();
+  import { t } from "$lib";
+  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
+  import { base } from "$app/paths";
+  import { onMount } from "svelte";
+
+onMount(() => {
+  let audio = new Audio(base + "/ost/intro.mp3");
+  audio.loop = true
+  audioStore.set(audio)
+})
+
 </script>

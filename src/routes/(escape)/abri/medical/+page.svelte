@@ -1,13 +1,3 @@
-<HeaderComponent title={Step.ABRI_MEDICAL}/>
-<SongComponent src="/ost/step3.mp3" autoplay={true} pause={pauseSong}></SongComponent>
-<Content>
-    <Typewriter mode="scramble">
-        <div class="container">
-            <h1 class="neon">L'abri</h1>
-            <h2 class="flux">Salle medicale</h2>
-        </div>
-    </Typewriter>
-    <br/>
     <ModalComponent opened={open}
            parentDoneAction={() => showScenario = false}>
         <div style="display: flex; flex-direction: row">
@@ -91,7 +81,6 @@
             <Loading/>
         {/if}
     {/if}
-</Content>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import {
@@ -102,19 +91,18 @@
     Grid,
     ImageLoader,
     Loading,
-    Modal,
     Row,
     TextInput,
   } from "carbon-components-svelte";
-  import Typewriter from 'svelte-typewriter'
   import dyslexia from "dyslexia";
   import { goto } from "$app/navigation";
   import { base } from '$app/paths';
-  import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
-  import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
   import { Step } from "$lib";
   import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
+  import { onMount } from "svelte";
+  import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
+  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
 
   let open = true;
   let showScenario = true;
@@ -122,13 +110,20 @@
   let showNotice = true;
   let showManEating = false;
   let showForm = false;
-  let pauseSong = false;
   let showGoal = true;
   let isWaiting = false;
 
   let result = ""
 
   let hint = "Dans un monde où les mots dansent et se transforment, la dyslexie transforme la lecture en une aventure constante. Les lettres se mêlent et se confondent, offrant une perspective unique et souvent méconnue sur la réalité écrite. Tu trouveras le mot de passe à la douzième position de ce texte. Attention, il faut remplacer la lettre d par la lettre b."
+
+
+  onMount(() => {
+    let audio = new Audio(base + "/ost/step3.mp3");
+    audio.loop = true
+    audioStore.set(audio)
+    renderStore.set(new RenderData(Step.ABRI_MEDICAL, "L'abri", "Salle medicale"));
+  })
 
   $: invalidResult = !/byslexie$/i.test(result);
   const dyslexifyContent = () => {
@@ -140,7 +135,7 @@
     if (/byslexie$/i.test(result)) {
       clearInterval(interval)
       isWaiting = true
-      pauseSong = true
+      makePause()
       goto(base + "/abri/searchcenter");
     }
   }
