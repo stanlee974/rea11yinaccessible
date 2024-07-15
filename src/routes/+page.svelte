@@ -36,6 +36,7 @@
   import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import { goto } from "$app/navigation";
   import { Step, t } from "$lib";
+  import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
   let openingPause = false
-
+  injectSpeedInsights();
 </script>
