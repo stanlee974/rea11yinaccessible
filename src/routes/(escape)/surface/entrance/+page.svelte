@@ -1,13 +1,3 @@
-<HeaderComponent title={Step.SURFACE_ENTRANCE}/>
-<SongComponent src="/ost/step6.mp3" autoplay={true} pause={songPause}></SongComponent>
-<Content>
-    <Typewriter mode="scramble">
-        <div class="container">
-            <h1 class="neon">Surface</h1>
-            <h2 class="flux">Entree du labo</h2>
-        </div>
-    </Typewriter>
-    <br/>
     <ModalComponent opened={showTransitionModal}
            parentDoneAction={() => {showScenario = false}}>
         <div style="display: flex; flex-direction: row">
@@ -96,22 +86,26 @@
     {#if isWaiting}
         <LoadingComponent/>
     {/if}
-</Content>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
-  import { Button, Column, Content, Grid, ImageLoader, Row, } from "carbon-components-svelte";
-  import Typewriter from 'svelte-typewriter'
+  import { Button, Column, Grid, ImageLoader, Row, } from "carbon-components-svelte";
   import { goto } from "$app/navigation";
   import { onMount } from "svelte";
-  import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
-  import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import LoadingComponent from "$lib/technicalComponent/LoadingComponent.svelte";
   import { Step } from "$lib";
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
+  import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
+  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
 
-  let songPause = false;
+  onMount(() => {
+    let audio = new Audio(base + "/ost/step6.mp3");
+    audio.loop = true
+    audioStore.set(audio)
+    renderStore.set(new RenderData(Step.SURFACE_ENTRANCE, "La surface", "Entree du labo"));
+  })
+
   let showTransitionModal = true;
   let showScenario = true;
   let showEntrance = false;
@@ -150,7 +144,7 @@
 
   const validateClick = () => {
     isWaiting = true
-    songPause = true
+    makePause()
     goto(base + "/surface/laboratory");
   }
 

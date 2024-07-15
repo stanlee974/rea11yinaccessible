@@ -1,5 +1,3 @@
-<HeaderComponent title={Step.WAITING_ROOM}/>
-<SongComponent src="/ost/opening.mp3" autoplay={true} pause={openingPause}></SongComponent>
 <div id="glitch-body">
     <div id="glitch" class="glitch" style="margin: 5rem 3rem 5rem;">
         <ImageLoader
@@ -22,13 +20,14 @@
                     <h2><u><i>{$t('waitingRoom.scenario.title')}</i></u></h2>
                     <p>{$t('waitingRoom.scenario.row.1')}</p>
                     <p>{$t('waitingRoom.scenario.row.2')}</p>
+                    <p>{$t('waitingRoom.scenario.row.3')}</p>
                     <h2><u><i>{$t('waitingRoom.goal.title')}</i></u></h2>
                     <p>{$t('waitingRoom.goal.row.1')}</p>
                     <p>{$t('waitingRoom.goal.row.2')}</p>
                     <p>{$t('waitingRoom.test.clickLink')} <a style:text-decoration="none" style:color="#F4F4F4"
                                                              href="/abri/entrance" on:click={() => {
                         loading();
-                        openingPause = true
+                        makePause();
                     }}>{$t('waitingRoom.test.here')}</a>
                         {$t('waitingRoom.test.enter')}
                     </p>
@@ -72,21 +71,19 @@
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import { Button, Column, Content, Grid, ImageLoader, Row, ToastNotification } from "carbon-components-svelte";
-  import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
   import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
   import { base } from "$app/paths";
   import ButtonComponent from "$lib/technicalComponent/ButtonComponent.svelte";
   import { onMount } from "svelte";
-  import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import LoadingComponent from "$lib/technicalComponent/LoadingComponent.svelte";
-  import { Step, t } from "$lib";
+  import { t } from "$lib";
+  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
 
   let disableWriter = true
   let isWaiting = false
   let showButton = false
   let showError = false
   let startButton = true
-  let openingPause: boolean = false;
   let errorSound: HTMLAudioElement;
   const loading = () => {
     isWaiting = true
@@ -94,6 +91,9 @@
   onMount(() => {
     errorSound = new Audio(base + "/sound/error.mp3")
     errorSound.volume = 0.5
+    let audio = new Audio(base + "/ost/opening.mp3");
+    audio.loop = true
+    audioStore.set(audio)
   })
 
 </script>

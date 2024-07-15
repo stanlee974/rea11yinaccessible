@@ -1,7 +1,5 @@
 <Header style="margin-bottom: 3rem">
     <title>{"really inaccessible | " + title.toString()}</title>
-    <SoundEffectComponent src="{base}/sound/heart_beat.mp3" loop postPlay={playHeartBeat}/>
-    <SoundEffectComponent src="{base}/sound/heart_beat_fast.mp3" loop postPlay={playHeartBeatFast}/>
     <Row style="flex: content; flex-direction: row; align-items: center;">
         <div style:width="100%" style:max-width="250px" style:margin-right="1rem">
             <a href="{base}/">
@@ -18,11 +16,13 @@
             </HeaderNavMenu>
             <HeaderNavMenu text="UUV - test E2E accessibilité">
                 <HeaderNavItem href="https://github.com/Orange-OpenSource/uuv" text="Github" target="_blank"/>
-                <HeaderNavItem href="https://orange-opensource.github.io/uuv/" text="Documentation" target="_blank"/>
+                <HeaderNavItem href="https://orange-opensource.github.io/uuv/" text="Documentation"
+                               target="_blank"/>
                 <HeaderNavItem href="https://github.com/e2e-test-quest/kata-e2e-uuv" text="Kata (exercism)"
                                target="_blank"/>
             </HeaderNavMenu>
-            <HeaderNavItem href="https://github.com/stanlee974/rea11yinaccessible" text="Source Code" target="_blank"/>
+            <HeaderNavItem href="https://github.com/stanlee974/rea11yinaccessible" text="Source Code"
+                           target="_blank"/>
         </HeaderNav>
     </Row>
     <ContentSwitcher selectedIndex={0} size="sm" style="width: 10rem; margin-right: 1rem;">
@@ -42,7 +42,7 @@
                 value={songVolume}
                 step={0.1}
                 style="margin-left: 2rem"
-                on:change={(value) => {{setVolume(value.detail)}}}
+                on:input={(value) => {{setVolume(value.detail)}}}
         />
         <Slider
                 labelText={$t('common.header.volume.soundEffect')}
@@ -52,9 +52,43 @@
                 maxLabel="10"
                 value={soundVolume}
                 step={0.1}
-                on:change={(value) => {{setSoundVolume(value.detail)}}}
+                on:input={(value) => {{setSoundVolume(value.detail)}}}
         />
-        <span style="font-size: 3rem; color: goldenrod; margin-left: 3rem; margin-right: 3rem">{getFormatedCountdown($time)}</span>
+        <div class="gauge">
+            <div class="gauge__progress" {style}>Oxygen</div>
+            <div class="gauge__tick" style="left: 0%;">
+                <div class="gauge__label">0</div>
+            </div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 5%;"></div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 10%;"></div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 15%;"></div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 20%;"></div>
+            <div class="gauge__tick" style="left: 25%;">
+                <div class="gauge__label">25</div>
+            </div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 30%;"></div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 35%;"></div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 40%;"></div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 45%;"></div>
+            <div class="gauge__tick" style="left: 50%;">
+                <div class="gauge__label">50</div>
+            </div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 55%;"></div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 60%;"></div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 65%;"></div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 70%;"></div>
+            <div class="gauge__tick" style="left: 75%;">
+                <div class="gauge__label">75</div>
+            </div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 80%;"></div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 85%;"></div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 90%;"></div>
+            <div class="gauge__tick gauge__tick--minor" style="left: 95%;"></div>
+            <div class="gauge__tick" style="left: 100%;">
+                <div class="gauge__label">100</div>
+            </div>
+        </div>
+        <!--        <span style="font-size: 3rem; color: goldenrod; margin-left: 3rem; margin-right: 3rem">{getFormatedCountdown($time)}</span>-->
 
         <HeaderGlobalAction on:click={() => isOpenHint = true}
                             iconDescription={$t("common.header.hint.tooltip")}
@@ -63,7 +97,6 @@
                             icon={Idea}
                             style="margin-right: 3rem"
         />
-        <!-- FIXME à déplacer dans un layout commun -->
         <ModalComponent opened={isOpenHint} parentDoneAction={() => isOpenHint = false}>
             <div style="display: flex; flex-direction: row">
                 <Grid>
@@ -79,7 +112,8 @@
                                 <p style="font-size: 1.3rem">{$t('common.header.hint.message.nothing')}</p>
                             {/if}
                             {#if hints["1"] && Number(hintLevel) <= 1}
-                                <Button kind="secondary" on:click={() => increaseHintLevel()} style="margin-top: 2rem">
+                                <Button kind="secondary" on:click={() => increaseHintLevel()}
+                                        style="margin-top: 2rem">
                                     {$t('common.header.hint.help')}
                                 </Button>
                             {/if}
@@ -95,36 +129,10 @@
         </ModalComponent>
     </HeaderUtilities>
 </Tile>
-{#if title !== Step.INTRODUCTION && title !== Step.WAITING_ROOM}
-    <ProgressIndicator
-            spaceEqually
-            preventChangeOnClick
-            currentIndex="{currentStep}"
-            style="background-color: rgb(22,22,22); position: sticky; top: 8rem; position: flex; flex-direction: row; z-index: 2000; padding-bottom: 0.5rem;">
-        {#each steps as step, index}
-            {#if index < currentStep}
-                <ProgressStep
-                        complete
-                        label={step}
-                        description="étapes réussies"
-                />
-            {/if}
-            {#if currentStep === index}
-                <ProgressStep
-                        label={step}
-                        description="étape en cours"
-                />
-            {/if}
-            {#if index > currentStep}
-                <ProgressStep
-                        disabled
-                        label="?"
-                        description="étapes à venir"
-                />
-            {/if}
-        {/each}
-    </ProgressIndicator>
-{/if}
+<SongComponent/>
+<SoundEffectComponent src="{base}/sound/heart_beat.mp3" loop postPlay={playHeartBeat}/>
+<SoundEffectComponent src="{base}/sound/heart_beat_fast.mp3" loop postPlay={playHeartBeatFast}/>
+<slot/>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import {
@@ -139,14 +147,12 @@
     HeaderNavMenu,
     HeaderUtilities,
     ImageLoader,
-    ProgressIndicator,
-    ProgressStep,
     Row,
     Slider,
     Tile,
   } from "carbon-components-svelte";
   import { base } from '$app/paths';
-  import { checkVolume, getVolume, initVolumeStore, setVolume } from "$lib/store/VolumeStore";
+  import { getVolume, setVolume } from "$lib/store/VolumeStore";
   import {
     checkVolume as checkSoundVolume,
     getVolume as getSoundVolume,
@@ -155,73 +161,40 @@
   } from "$lib/store/SoundVolumeStore";
   import { onMount } from "svelte";
   import { Idea } from "carbon-icons-svelte";
-  import { hintsByStep, Step, StepRoom, t } from "$lib";
+  import { hintsByStep, Step, t } from "$lib";
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import { getHintLevel, increaseHintLevel, resetLevelStore } from "$lib/store/HintLevelStore";
-  import { getCountdown, getFormatedCountdown, initCountdownStore, setCountdown } from "$lib/store/CountdownStore";
+  import { getCountdown, initCountdownStore, setCountdown } from "$lib/store/CountdownStore";
   import SoundEffectComponent from "$lib/technicalComponent/SoundEffectComponent.svelte";
-  import { checkStepStore, getStepIndex, initStepStore, setStepIndex } from "$lib/store/StepStore";
+  import { renderStore } from "$lib/store/inMemoryStore/RenderStore";
+  import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
 
   export let title: Step = Step.INTRODUCTION
   export let songVolume: number = 0
   export let soundVolume: number = 30
 
+  renderStore.subscribe((value) => {
+    title = value.title
+  })
+
   let playHeartBeat: Function | undefined = undefined
   let playHeartBeatFast: Function | undefined = undefined
 
-  let steps = [StepRoom.ABRI_ENTRANCE, StepRoom.ABRI_COMPUTER, StepRoom.ABRI_MEDICAL, StepRoom.ABRI_SEARCHCENTER, StepRoom.SURFACE_ENTRANCE, StepRoom.SURFACE_LABORATORY, StepRoom.SURFACE_LABORATORY_AUDIOVISUALROOM, StepRoom.SURFACE_LABORATORY_SANCTUARY, StepRoom.FINAL]
-  let currentStep: number = 0
   let isOpenHint: boolean = false
 
   let hints: { "1": string; "2": string, "3": string } = {"1": "", "2": "", "3": ""}
 
   let hintLevel: string = "2"
+  let oxygen: number = 100
+  let style = ""
+
   onMount(() => {
-    if (!checkVolume()) {
-      let INITIAL_VOLUME = "2";
-      initVolumeStore(INITIAL_VOLUME)
-    }
-    if (!checkStepStore()) {
-      initStepStore("0")
-    }
     if (!checkSoundVolume()) {
       let INITIAL_VOLUME = "5";
       initSoundVolumeStore(INITIAL_VOLUME)
     }
     songVolume = getVolume() * 100
     soundVolume = getSoundVolume() * 100
-    switch (title) {
-      case Step.ABRI_ENTRANCE:
-        setStepIndex(0)
-        break
-      case Step.ABRI_COMPUTER:
-        setStepIndex(1)
-        break
-      case Step.ABRI_MEDICAL:
-        setStepIndex(2)
-        break
-      case Step.ABRI_SEARCHCENTER:
-        setStepIndex(3)
-        break
-      case Step.SURFACE_ENTRANCE:
-        setStepIndex(4)
-        break
-      case Step.SURFACE_LABORATORY:
-        setStepIndex(5)
-        break
-      case Step.SURFACE_LABORATORY_AUDIOVISUALROOM:
-        setStepIndex(6)
-        break
-      case Step.SURFACE_LABORATORY_SANCTUARY:
-        setStepIndex(7)
-        break
-      case Step.FINAL:
-        setStepIndex(8)
-        break
-      default:
-        break
-    }
-    currentStep = getStepIndex()
 
     resetLevelStore()
 
@@ -238,11 +211,11 @@
       remainingTime = COUNTDOWN_FROM;
     }
     time.subscribe((value: string) => {
-      const [hoursStr, minutesStr] = value.split(':');
-      const hours = parseInt(hoursStr, 10);
-      const minutes = parseInt(minutesStr, 10);
-      setCountdown((hours * 60) + minutes);
+      setCountdown(Number(value));
+      oxygen = Number(value) * 100 / COUNTDOWN_FROM
+      style = `width: ${oxygen}%;color: black;`
     });
+    animationRef = requestAnimationFrame(animate)
   })
 
   const getHint = (title: string) => {
@@ -286,7 +259,41 @@
     animationRef = requestAnimationFrame(animate);
   };
 
-  onMount(() => animationRef = requestAnimationFrame(animate));
-
 </script>
 
+<style lang="css">
+    .gauge {
+        position: relative;
+        width: 16rem;
+        height: 1rem;
+        background: rgb(203 213 225);
+        margin-top: 1rem;
+        margin-right: 4rem;
+    }
+
+    .gauge__progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: #74ccf4;
+    }
+
+    .gauge__tick {
+        position: absolute;
+        top: 100%;
+        height: 0.5rem;
+        width: 1px;
+        background: rgb(203 213 225);
+    }
+
+    .gauge__tick--minor {
+        height: 0.25rem;
+    }
+
+    .gauge__label {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0.5rem);
+    }
+</style>

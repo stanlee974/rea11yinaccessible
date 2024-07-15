@@ -1,6 +1,7 @@
 <div style="text-indent: -9999px;"> bind:this={keyboardSound}</div>
 
-<Typewriter mode={mode}
+<Typewriter
+                mode={mode}
             disabled={disabled}
             delay={delay}
             on:done={doneAction}>

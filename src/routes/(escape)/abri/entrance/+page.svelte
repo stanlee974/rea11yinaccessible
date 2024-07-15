@@ -1,13 +1,3 @@
-<HeaderComponent title={Step.ABRI_ENTRANCE}/>
-<SongComponent src="/ost/step1.mp3" autoplay={true} pause={song}></SongComponent>
-<Content>
-    <Typewriter mode="scramble">
-        <div class="container">
-            <h1 class="neon">L'abri</h1>
-            <h2 class="flux">Salle des alterations</h2>
-        </div>
-    </Typewriter>
-    <br/>
     <ModalComponent
             parentDoneAction={() => hideScenario = false}>
         <Grid>
@@ -92,7 +82,7 @@
             />
         </div>
         {#if isWaiting}
-            <LoadingComponent onclose={() => song = true}/>
+            <LoadingComponent onclose={() => makePause()}/>
         {/if}
     {/if}
     {#if showError}
@@ -109,20 +99,25 @@
               }}
         />
     {/if}
-</Content>
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
-  import { Button, Column, Content, Grid, ImageLoader, Row, Slider, ToastNotification } from "carbon-components-svelte";
+  import { Button, Column, Grid, ImageLoader, Row, Slider, ToastNotification } from "carbon-components-svelte";
   import { goto } from "$app/navigation";
   import { base } from '$app/paths';
   import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
-  import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import LoadingComponent from "$lib/technicalComponent/LoadingComponent.svelte";
   import { Step } from "$lib";
-  import LayoutComponent from "$lib/renderComponent/LayoutComponent.svelte";
-  import HeaderComponent from "$lib/renderComponent/HeaderComponent.svelte";
-  import Typewriter from "svelte-typewriter";
+  import { onMount } from "svelte";
+  import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
+  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
+
+  onMount(() => {
+    let audio = new Audio(base + "/ost/step1.mp3");
+    audio.loop = true
+    audioStore.set(audio)
+    renderStore.set(new RenderData(Step.ABRI_ENTRANCE, "L'abri", "Salle des alterations"));
+  })
 
   const goodOrder = [3, 2, 0, 1];
   let orderTyped: number[] = [];
@@ -131,7 +126,6 @@
   let hideGoal = true;
   let showButtons = false;
   let isWaiting = false;
-  let song = false;
   let contrast = 0;
   let brightness = 0;
   const timeout: number = 4000;

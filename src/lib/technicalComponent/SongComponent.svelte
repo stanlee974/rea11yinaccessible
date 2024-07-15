@@ -3,86 +3,34 @@
 {/if}
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
-  import { base } from "$app/paths";
   import { onDestroy, onMount } from "svelte";
-  import { getVolume } from "$lib/store/VolumeStore";
+  import { checkVolume, getVolumeStore, initVolumeStore } from "$lib/store/VolumeStore";
+  import { type Unsubscriber } from "svelte/store";
+  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
 
   let audio: HTMLAudioElement;
-  export let src: string = ""
-  export let fadeOutVolume: number = 0
-  export let onpause: Function | undefined = undefined
-  export let pause: boolean = false
-  export let autoplay: boolean = false
-  export let play: boolean = false
 
-  let interval: number;
-    onMount(() => {
-    audio = new Audio(base + src)
-    audio.loop = true
-    audio.autoplay = autoplay
-    interval = setInterval(() => {
-      audio.volume = getVolume()
-      if (play && !autoplay) {
-        audio.play()
+  let audioUnsubscriber: Unsubscriber = () => {};
+  onMount(() => {
+    if (!checkVolume()) {
+      let INITIAL_VOLUME = "2";
+      initVolumeStore(INITIAL_VOLUME)
+    }
+    audioUnsubscriber = audioStore.subscribe((value) => {
+      if (value) {
+        value.play()
+        getVolumeStore()?.subscribe((volume) => {
+          value.volume = Number(volume) / 100
+        })
       }
-      if (pause) {
-        adjustVolume(audio, fadeOutVolume)
-        if (onpause) {
-          onpause();
-        }
-      }
-    }, 100)
+    })
   })
 
   onDestroy(() => {
-    if (audio) {
-      audio.pause()
+    if ($audioStore) {
+      makePause()
     }
-    clearInterval(interval)
   })
-
-  async function adjustVolume(
-    element: HTMLMediaElement,
-    newVolume: number,
-    {
-      duration = 1000,
-      easing = swing,
-      interval = 13,
-    }: {
-      duration?: number,
-      easing?: typeof swing,
-      interval?: number,
-    } = {},
-  ): Promise<void> {
-    const originalVolume = element.volume;
-    const delta = newVolume - originalVolume;
-
-    if (!delta || !duration || !easing || !interval) {
-      element.volume = newVolume;
-      return Promise.resolve();
-    }
-
-    const ticks = Math.floor(duration / interval);
-    let tick = 1;
-
-    return new Promise(resolve => {
-      const timer = setInterval(() => {
-        element.volume = originalVolume + (
-          easing(tick / ticks) * delta
-        );
-
-        if (++tick === ticks + 1) {
-          clearInterval(timer);
-          element.pause()
-          element.currentTime = 0;
-          resolve();
-        }
-      }, interval);
-    });
-  }
-
-  function swing(p: number) {
-    return 0.5 - Math.cos(p * Math.PI) / 2;
-  }
+  onDestroy(audioUnsubscriber)
 </script>
 
