@@ -45,7 +45,7 @@
         </Row>
     </Grid>
 </ModalComponent>
-<br/>
+<br aria-hidden="true"/>
 <TypewriterComponent disabled={disableGoal}
                      parentDoneAction={() => {setTimeout(() => {showForm = true; activateZoom()}, 2000)}}>
     <h2><u><i>Objectif</i></u></h2>

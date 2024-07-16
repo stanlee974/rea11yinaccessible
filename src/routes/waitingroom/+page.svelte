@@ -31,7 +31,7 @@
                         {$t('waitingRoom.test.enter')}
                     </p>
                 </TypewriterComponent>
-                <br/>
+                <br aria-hidden="true"/>
                 {#if showButton}
                     <Button kind="secondary"
                             style="

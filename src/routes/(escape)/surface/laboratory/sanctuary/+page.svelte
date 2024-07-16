@@ -81,7 +81,7 @@
         </Row>
     </Grid>
 </ModalComponent>
-<br/>
+<br aria-hidden="true"/>
 <Typewriter mode="cascade" disabled={disableGoal} on:done={() => setTimeout(() => showForm = true, 2000)}>
     <h2><u><i>Objectif</i></u></h2>
     <p>En se rapprochant du mécanisme, un petit écran affiche un formulaire de saisie. La résolution de l'écran est

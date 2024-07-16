@@ -41,7 +41,7 @@
         <ImageLoader
                 src="{base}/abri/medical/book.jpg" alt="vieux livre indéchiffrable" fadeIn={true}/>
     </ModalComponent>
-    <br/>
+    <br aria-hidden="true"/>
     <TypewriterComponent disabled={showNotice} waitReading continueButtonAction={() => showManEating = true}>
         <p>Une note griffonnée sur le bord de la table disant :</p>
         <p style="font-style: italic;">"Pour voir les mots tels qu'ils sont, prenez une pilule
@@ -55,7 +55,7 @@
         <ImageLoader
                 src="{base}/abri/medical/man_eating.jpg" alt="Tu avales une pilule" fadeIn={true}/>
     </ModalComponent>
-    <br/>
+    <br aria-hidden="true"/>
     <TypewriterComponent disabled={showGoal} parentDoneAction={() => showForm = true}>
         <p>Tu avales la pilule et attends quelques instants. Après la prise, tu ressens une légère altération de ta
             perception, et le texte sur la feuille commence à s'organiser de manière compréhensible.</p>

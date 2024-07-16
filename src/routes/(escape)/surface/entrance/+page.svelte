@@ -45,7 +45,7 @@
             </Row>
         </Grid>
     </ModalComponent>
-    <br/>
+    <br aria-hidden="true"/>
     <TypewriterComponent disabled={disableGoal} waitReading continueButtonAction={() => showTrialModal = true}>
         <p>Une plaque gravée à côté de la porte mentionne que la porte s'ouvre en cliquant sur la croix depuis
             l'interface de commande.</p>

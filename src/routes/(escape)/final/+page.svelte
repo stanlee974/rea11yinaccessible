@@ -110,9 +110,9 @@
     <span class="fin">Fin de l'aventure</span>
 </TypewriterComponent>
 {#if showSummary}
-    <br/>
-    <br/>
-    <br/>
+    <br aria-hidden="true"/>
+    <br aria-hidden="true"/>
+    <br aria-hidden="true"/>
     <ExpandableTile tileExpandedLabel={$t('outro.viewLess')} tileCollapsedLabel={$t('outro.viewMore')}>
         <div slot="above">
             <h2>{$t('outro.visual.title')}</h2>
@@ -123,7 +123,7 @@
                     class="italic">{$t('outro.problem')}</u> {$t('outro.visual.1.disabilities.1.problem')}</p>
             <p class="tab"><u
                     class="italic">{$t('outro.advice')}</u> {$t('outro.visual.1.disabilities.1.advice')}</p>
-            <br/>
+            <br aria-hidden="true"/>
             <h3>{$t('outro.visual.2.title')} {$t('outro.visual.2.disabilities.1.title')}</h3>
             <p class="tab"><u
                     class="italic">{$t('outro.problem')}</u> <b>{$t('outro.visual.2.disabilities.1.problem')}</b>
@@ -131,7 +131,7 @@
             <p class="tab"><u
                     class="italic">{$t('outro.advice')}</u> {$t('outro.visual.2.disabilities.1.advice')}
             </p>
-            <br/>
+            <br aria-hidden="true"/>
             <h3>{$t('outro.visual.3.title')} {$t('outro.visual.3.disabilities.1.title')}</h3>
             <p class="tab"><u
                     class="italic">{$t('outro.problem')}</u> <b>{$t('outro.visual.3.disabilities.1.problem')}</b>
@@ -147,7 +147,7 @@
                 .
             </p>
             <p class="tab">{$t('outro.visual.3.disabilities.1.advice')}</p>
-            <br/>
+            <br aria-hidden="true"/>
             <h3>{$t('outro.visual.4.title')} {$t('outro.visual.4.disabilities.1.title')}</h3>
             <p class="tab"><u
                     class="italic">{$t('outro.problem')}</u> <b>{$t('outro.visual.4.disabilities.1.problem')}</b>
@@ -157,7 +157,7 @@
             </p>
         </div>
     </ExpandableTile>
-    <br/>
+    <br aria-hidden="true"/>
     <ExpandableTile tileExpandedLabel={$t('outro.viewLess')} tileCollapsedLabel={$t('outro.viewMore')}>
         <div slot="above">
             <h2>{$t('outro.cognitive.title')}</h2>
@@ -168,7 +168,7 @@
                     class="italic">{$t('outro.problem')}</u> {$t('outro.cognitive.1.disabilities.1.problem')}</p>
             <p class="tab"><u
                     class="italic">{$t('outro.advice')}</u> {$t('outro.cognitive.1.disabilities.1.advice')}</p>
-            <br/>
+            <br aria-hidden="true"/>
             <h3>{$t('outro.cognitive.2.title')} {$t('outro.cognitive.2.disabilities.1.title')}</h3>
             <p class="tab"><u
                     class="italic">{$t('outro.problem')}</u> <b>{$t('outro.cognitive.2.disabilities.1.problem')}</b>
@@ -178,7 +178,7 @@
             </p>
         </div>
     </ExpandableTile>
-    <br/>
+    <br aria-hidden="true"/>
     <ExpandableTile tileExpandedLabel={$t('outro.viewLess')} tileCollapsedLabel={$t('outro.viewMore')}>
         <div slot="above">
             <h2>{$t('outro.motor.title')}</h2>
@@ -198,7 +198,7 @@
                 .
             </p>
             <p class="tab">{$t('outro.motor.2.disabilities.1.advice')}</p>
-            <br/>
+            <br aria-hidden="true"/>
             <h3>{$t('outro.motor.2.title')} {$t('outro.motor.2.disabilities.1.title')}</h3>
             <p class="tab"><u
                     class="italic">{$t('outro.problem')}</u> {$t('outro.motor.2.disabilities.1.problem')}</p>
@@ -206,7 +206,7 @@
                     class="italic">{$t('outro.advice')}</u> {$t('outro.motor.1.disabilities.1.advice')}</p>
         </div>
     </ExpandableTile>
-    <br/>
+    <br aria-hidden="true"/>
     <ExpandableTile tileExpandedLabel={$t('outro.viewLess')} tileCollapsedLabel={$t('outro.viewMore')}>
         <div slot="above">
             <h2>{$t('outro.hearing.title')}</h2>
