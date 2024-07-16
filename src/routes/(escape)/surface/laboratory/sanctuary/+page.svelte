@@ -48,10 +48,7 @@
             on:click={() => {
             showEnigm = true
             showContinueButton = false
-            makePause()
-            let audio = new Audio(base + "/ost/step9.mp3");
-            audio.loop = true
-            audioStore.set(audio)
+            changeSource("/ost/step9.mp3")
         }}>Continuer
     </Button>
 {/if}
@@ -122,12 +119,10 @@
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import { onMount } from "svelte";
   import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
-  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
+  import { changeSource, makePause } from "$lib/store/inMemoryStore/AudioStore";
 
   onMount(() => {
-    let audio = new Audio(base + "/ost/trap.mp3");
-    audio.loop = true
-    audioStore.set(audio)
+    changeSource("/ost/trap.mp3")
     renderStore.set(new RenderData(Step.SURFACE_LABORATORY_SANCTUARY, "La surface", "Le sanctuaire"));
   })
 
@@ -148,7 +143,6 @@
     if (validDiva
       || validMajin) {
       isWaiting = true
-      makePause()
       goto(base + "/final");
     } else {
       error = "le nom ou le prénom n'est pas correct. Quel est le biologiste qui fera l'intervention?"

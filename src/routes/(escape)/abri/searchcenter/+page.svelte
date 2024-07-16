@@ -94,7 +94,7 @@
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
   import { onMount } from "svelte";
-  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
+  import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
 
   let showScenario = true;
   let showEnigm = false;
@@ -109,9 +109,7 @@
   let content: HTMLElement;
 
   onMount(() => {
-    let audio = new Audio(base + "/ost/step4.mp3");
-    audio.loop = true
-    audioStore.set(audio)
+    changeSource("/ost/step4.mp3")
     renderStore.set(new RenderData(Step.ABRI_SEARCHCENTER, "L'abri", "Salle des enigmes"));
   })
 
@@ -158,7 +156,6 @@
       && /enveloppe$/i.test(enigm2)
       && /^è$|^lettre è$/i.test(enigm3)) {
       isWaiting = true;
-      makePause()
       goto(base + "/surface/entrance");
     }
   }

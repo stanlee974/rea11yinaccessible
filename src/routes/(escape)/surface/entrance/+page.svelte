@@ -97,12 +97,10 @@
   import { Step } from "$lib";
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
-  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
+  import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
 
   onMount(() => {
-    let audio = new Audio(base + "/ost/step6.mp3");
-    audio.loop = true
-    audioStore.set(audio)
+    changeSource("/ost/step6.mp3")
     renderStore.set(new RenderData(Step.SURFACE_ENTRANCE, "La surface", "Entree du labo"));
   })
 
@@ -144,7 +142,6 @@
 
   const validateClick = () => {
     isWaiting = true
-    makePause()
     goto(base + "/surface/laboratory");
   }
 

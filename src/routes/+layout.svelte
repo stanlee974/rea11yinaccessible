@@ -33,6 +33,7 @@
 </Header>
 <Tile style="position: sticky; top: 3rem; position: flex; flex-direction: row; z-index: 2000">
     <HeaderUtilities>
+        <SongComponent/>
         <Slider
                 labelText={$t('common.header.volume.song')}
                 min={0}
@@ -129,7 +130,6 @@
         </ModalComponent>
     </HeaderUtilities>
 </Tile>
-<SongComponent/>
 <SoundEffectComponent src="{base}/sound/heart_beat.mp3" loop postPlay={playHeartBeat}/>
 <SoundEffectComponent src="{base}/sound/heart_beat_fast.mp3" loop postPlay={playHeartBeatFast}/>
 <slot/>

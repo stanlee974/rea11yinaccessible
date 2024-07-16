@@ -118,17 +118,14 @@
   import { base } from '$app/paths';
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
-  import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import { Step } from "$lib";
   import SoundEffectComponent from "$lib/technicalComponent/SoundEffectComponent.svelte";
   import { onMount } from "svelte";
   import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
-  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
+  import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
 
   onMount(() => {
-    let audio = new Audio(base + "/ost/step2.mp3");
-    audio.loop = true
-    audioStore.set(audio)
+    changeSource("/ost/step2.mp3")
     renderStore.set(new RenderData(Step.ABRI_COMPUTER, "L'abri", "Salle de controle"));
   })
 
@@ -178,7 +175,6 @@
     )
     if (isValid) {
       isWaiting = true
-      makePause()
       goto(base + "/abri/medical");
     } else {
       playError = () => playError = undefined

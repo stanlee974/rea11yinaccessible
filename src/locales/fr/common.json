@@ -16,6 +16,10 @@
     "volume": {
       "song": "Volume de la musique",
       "soundEffect": "Volume des effets audios"
+    },
+    "audio": {
+      "play": "Active la musique de fond",
+      "stop": "Arrête la musique de fond"
     }
   }
 }

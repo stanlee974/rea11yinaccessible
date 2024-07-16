@@ -47,7 +47,6 @@
 <TypewriterComponent disabled={disableGoal} waitReading continueButtonAction={() => {
             showForm = true
             savedVolume = getVolume() * 100
-            makePause()
     }}>
     <h2><u><i>Objectif</i></u></h2>
     <p>Chaque poste d'écoute est associé à une bande sonore de niveaux sonores différents. Le but est de découvrir
@@ -111,12 +110,10 @@
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import { onMount } from "svelte";
   import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
-  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
+  import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
 
   onMount(() => {
-    let audio = new Audio(base + "/ost/step8.mp3");
-    audio.loop = true
-    audioStore.set(audio)
+    changeSource("/ost/step8.mp3")
     renderStore.set(new RenderData(Step.SURFACE_LABORATORY_AUDIOVISUALROOM, "La surface", "La salle audiovisuelle"));
   })
 

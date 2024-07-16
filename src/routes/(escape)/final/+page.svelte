@@ -1,9 +1,6 @@
 <ModalComponent opened={showTransitionModal} on:open
                 parentDoneAction={() => {
-                   makePause()
-                   let audio = new Audio(base + "/ost/step10.mp3");
-                    audio.loop = true
-                    audioStore.set(audio)
+                    changeSource("/ost/step10.mp3")
                    showTrapModal = true
                }}>
     <div style="display: flex; flex-direction: row">
@@ -232,7 +229,7 @@
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
   import { onMount } from "svelte";
-  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
+  import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
 
   let showTransitionModal = true;
   let showTrapModal = false;
@@ -241,9 +238,7 @@
   let showSummary = false;
 
   onMount(() => {
-    let audio = new Audio(base + "/ost/stress.mp3");
-    audio.loop = true
-    audioStore.set(audio)
+    changeSource("/ost/stress.mp3")
     renderStore.set(new RenderData(Step.FINAL, "La verite", "revelee"));
   })
 </script>
