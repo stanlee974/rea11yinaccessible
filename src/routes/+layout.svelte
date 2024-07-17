@@ -169,7 +169,9 @@
   import { renderStore } from "$lib/store/inMemoryStore/RenderStore";
   import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
   import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
+  import { inject } from '@vercel/analytics'
   injectSpeedInsights()
+  inject()
 
   export let title: Step = Step.INTRODUCTION
   export let songVolume: number = 0
