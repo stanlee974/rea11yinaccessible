@@ -43,7 +43,7 @@
         </Row>
     </Grid>
 </ModalComponent>
-<br/>
+<br aria-hidden="true"/>
 <TypewriterComponent disabled={disableGoal} waitReading continueButtonAction={() => {
             showForm = true
             savedVolume = getVolume() * 100

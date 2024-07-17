@@ -1,19 +1,19 @@
 <Content id="scenario" style="background-color: #161616;">
     <h1 lang="en">{$t('common.title')}</h1>
-    <br/>
-    <br/>
+    <br aria-hidden="true"/>
+    <br aria-hidden="true"/>
     <h2>{$t('intro.advice.title')}</h2>
     <p style="font-size: 1.6rem">{$t('intro.advice.immersive')}</p>
     <p style="font-size: 1.3rem">{$t('intro.advice.sound')}</p>
     <p style="font-size: 1.3rem">{$t('intro.advice.fullScreen')}</p>
     <p style="font-size: 1.6rem">{$t('intro.advice.blocked')}</p>
     <p style="font-size: 1.3rem">{$t('intro.advice.hints')}</p>
-    <br/>
+    <br aria-hidden="true"/>
     <h2>{$t('intro.context.title')}</h2>
     <p style="font-size: 1.3rem">{$t('intro.context.welcome')}</p>
     <p style="font-size: 1.3rem">{$t('intro.context.explanation')}</p>
-    <br/>
-    <br/>
+    <br aria-hidden="true"/>
+    <br aria-hidden="true"/>
     <h2>{$t('intro.theme.title')}</h2>
     <p style="font-size: 1.3rem">{$t('intro.theme.disabilities.visual')}</p>
     <p style="font-size: 1.3rem">{$t('intro.theme.disabilities.hearing')}</p>

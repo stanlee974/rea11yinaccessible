@@ -18,7 +18,7 @@
             </Row>
         </Grid>
     </ModalComponent>
-    <br/>
+    <br aria-hidden="true"/>
     <TypewriterComponent disabled={hideScenario} delay={3000} parentDoneAction={() => {hideGoal = false}}>
         <h2><u><i>Scénario</i></u></h2>
         <p>Tu te trouves dans une salle obscure avec des équipements médicaux abandonnés et des armoires de
@@ -33,7 +33,7 @@
             d'étiquettes et les perceptions des couleurs peuvent être altérées par le daltonisme.
         </p>
     </TypewriterComponent>
-    <br/>
+    <br aria-hidden="true"/>
     <TypewriterComponent disabled={hideGoal} parentDoneAction={() => showButtons = true}>
         <h2><u><i>Objectif</i></u></h2>
         <p>Tu dois trouver la bonne combinaison de 4 éléments sans attendre. Il n'y a pas 2 fois la même couleur dans la

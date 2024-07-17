@@ -31,7 +31,7 @@
         dans le système.</p>
     <p>Une page déchirée laisse paraître une photo d'un inventeur et d'informations qui lui sont liées</p>
 </TypewriterComponent>
-<br/>
+<br aria-hidden="true"/>
 <TypewriterComponent disabled={showGoal} continueButtonAction={() => {open = true;}} waitReading>
     <h2><u><i>Objectif</i></u></h2>
     <p>Tu dois saisir les informations de cet inventeur et appuyer sur entrer pour soumettre.</p>

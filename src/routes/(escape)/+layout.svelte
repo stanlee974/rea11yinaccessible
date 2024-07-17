@@ -22,7 +22,7 @@
             </div>
         </Typewriter>
     </div>
-    <br/>
+    <br aria-hidden="true"/>
     <slot/>
 </Content>
 

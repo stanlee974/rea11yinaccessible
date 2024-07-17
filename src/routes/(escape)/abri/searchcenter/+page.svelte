@@ -24,7 +24,7 @@
     <p>{dyslexia("Cette salle est une grande pièce circulaire, légèrement éclairée par un puit de lumière central. Au centre,\n" +
         "il y a un podium avec trois piédestaux, chacun contenant une énigme.", {scrambleChance: 90})}</p>
 </TypewriterComponent>
-<br/>
+<br aria-hidden="true"/>
 <TypewriterComponent disabled={disableGoal} continueButtonAction={() => showEnigm = true} waitReading>
     <h2><u><i>Objectif</i></u></h2>
     <p>Tu dois faire abstraction des hallucinations sonores et visuelles perturbantes pour ne pas te laisser induire
