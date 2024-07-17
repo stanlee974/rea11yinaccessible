@@ -1,11 +1,25 @@
-import { type Writable, writable, get } from "svelte/store";
+import { get, writable, type Writable } from "svelte/store";
 import { base } from "$app/paths";
+import { getVolume } from "$lib/store/VolumeStore";
 
 
 export const audioStore: Writable<HTMLAudioElement> = writable();
 
-export const makePause = async() => {
-  await adjustVolume(get(audioStore), 0)
+export const changeSource = async(src: string) => {
+  let audio = get(audioStore);
+  if (audio) {
+    await adjustVolume(audio, 0)
+    audio.src = base + src
+    audio.autoplay = true
+    audio.load()
+    audio.volume = getVolume()
+  } else {
+    let audio = new Audio(base + src);
+    audio.loop = true
+    audio.autoplay = true
+    audio.muted = false
+    audioStore.set(audio)
+  }
 }
 function adjustVolume(
   element: HTMLMediaElement,
@@ -39,7 +53,6 @@ function adjustVolume(
 
       if (++tick === ticks + 1) {
         clearInterval(timer);
-        element.pause()
         element.currentTime = 0;
         resolve();
       }

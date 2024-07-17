@@ -88,12 +88,10 @@
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import { onMount } from "svelte";
   import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
-  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
+  import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
 
   onMount(() => {
-    let audio = new Audio(base + "/ost/step7.mp3");
-    audio.loop = true
-    audioStore.set(audio)
+    changeSource("/ost/step7.mp3")
     renderStore.set(new RenderData(Step.SURFACE_LABORATORY, "La surface", "Le laboratoire"));
   })
 
@@ -112,7 +110,6 @@
   const validateForm = () => {
     if (/tremors$/i.test(result)) {
       isWaiting = true
-      makePause()
       goto(base + "/surface/laboratory/audiovisualroom");
     }
   }

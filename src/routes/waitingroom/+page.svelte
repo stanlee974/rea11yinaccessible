@@ -24,10 +24,9 @@
                     <h2><u><i>{$t('waitingRoom.goal.title')}</i></u></h2>
                     <p>{$t('waitingRoom.goal.row.1')}</p>
                     <p>{$t('waitingRoom.goal.row.2')}</p>
-                    <p>{$t('waitingRoom.test.clickLink')} <a style:text-decoration="none" style:color="#F4F4F4"
+                    <p>{$t('waitingRoom.test.clickLink')} <a style:text-decoration="none" style:cursor="auto" style:color="#F4F4F4"
                                                              href="/abri/entrance" on:click={() => {
                         loading();
-                        makePause();
                     }}>{$t('waitingRoom.test.here')}</a>
                         {$t('waitingRoom.test.enter')}
                     </p>
@@ -77,7 +76,7 @@
   import { onMount } from "svelte";
   import LoadingComponent from "$lib/technicalComponent/LoadingComponent.svelte";
   import { t } from "$lib";
-  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
+  import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
 
   let disableWriter = true
   let isWaiting = false
@@ -91,9 +90,7 @@
   onMount(() => {
     errorSound = new Audio(base + "/sound/error.mp3")
     errorSound.volume = 0.5
-    let audio = new Audio(base + "/ost/opening.mp3");
-    audio.loop = true
-    audioStore.set(audio)
+    changeSource("/ost/opening.mp3")
   })
 
 </script>

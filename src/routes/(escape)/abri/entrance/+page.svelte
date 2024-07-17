@@ -82,7 +82,7 @@
             />
         </div>
         {#if isWaiting}
-            <LoadingComponent onclose={() => makePause()}/>
+            <LoadingComponent/>
         {/if}
     {/if}
     {#if showError}
@@ -110,12 +110,11 @@
   import { Step } from "$lib";
   import { onMount } from "svelte";
   import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
-  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
+  import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
 
   onMount(() => {
-    let audio = new Audio(base + "/ost/step1.mp3");
-    audio.loop = true
-    audioStore.set(audio)
+    changeSource("/ost/step1.mp3")
+
     renderStore.set(new RenderData(Step.ABRI_ENTRANCE, "L'abri", "Salle des alterations"));
   })
 

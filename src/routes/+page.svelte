@@ -23,7 +23,6 @@
 <Button kind="secondary"
         style="left: 46%; padding-right: 2.5rem; padding-left: 2.5rem; margin-top: 2rem; margin-bottom: 2rem"
         on:click={() => {
-            makePause()
             goto("/waitingroom")
         }}>{$t('intro.button.start')}
 </Button>
@@ -32,14 +31,11 @@
   import { Button, Content } from "carbon-components-svelte";
   import { goto } from "$app/navigation";
   import { t } from "$lib";
-  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
-  import { base } from "$app/paths";
+  import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
   import { onMount } from "svelte";
 
-onMount(() => {
-  let audio = new Audio(base + "/ost/intro.mp3");
-  audio.loop = true
-  audioStore.set(audio)
-})
+  onMount(() => {
+    changeSource("/ost/intro.mp3")
+  })
 
 </script>

@@ -102,7 +102,7 @@
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import { onMount } from "svelte";
   import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
-  import { audioStore, makePause } from "$lib/store/inMemoryStore/AudioStore";
+  import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
 
   let open = true;
   let showScenario = true;
@@ -119,9 +119,7 @@
 
 
   onMount(() => {
-    let audio = new Audio(base + "/ost/step3.mp3");
-    audio.loop = true
-    audioStore.set(audio)
+    changeSource("/ost/step3.mp3")
     renderStore.set(new RenderData(Step.ABRI_MEDICAL, "L'abri", "Salle medicale"));
   })
 
@@ -135,7 +133,6 @@
     if (/byslexie$/i.test(result)) {
       clearInterval(interval)
       isWaiting = true
-      makePause()
       goto(base + "/abri/searchcenter");
     }
   }
