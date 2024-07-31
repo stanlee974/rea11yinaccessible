@@ -6,6 +6,7 @@
             style="background-color: rgb(22,22,22); position: sticky; top: 8.5rem; position: flex; flex-direction: row; padding-bottom: 0.5rem; padding-left:1rem; padding-right: 1rem">
         {#each steps as step, index}
             <ProgressStep
+                    aria-hidden={index > currentStep}
                     complete
                     disabled="{index > currentStep}"
                     label={index <= currentStep ? step : "?"}
@@ -17,8 +18,7 @@
     <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
         <Typewriter mode="scramble">
             <div class="container">
-                <h1 class="neon">{$renderStore.neon}</h1>
-                <h2 class="flux">{$renderStore.flux}</h2>
+                <h1 style="display: flex; flex-direction: column"><span class="neon">{$renderStore.neon}</span> <span class="flux">{$renderStore.flux}</span></h1>
             </div>
         </Typewriter>
     </div>
@@ -31,7 +31,6 @@
   import Typewriter from "svelte-typewriter";
   import { renderStore } from "$lib/store/inMemoryStore/RenderStore";
   import { Step, StepRoom } from "$lib";
-  import { getCountdown, getCountdownStore } from "$lib/store/CountdownStore";
 
   let currentStep = 0
   let steps = [StepRoom.ABRI_ENTRANCE, StepRoom.ABRI_COMPUTER, StepRoom.ABRI_MEDICAL, StepRoom.ABRI_SEARCHCENTER, StepRoom.SURFACE_ENTRANCE, StepRoom.SURFACE_LABORATORY, StepRoom.SURFACE_LABORATORY_AUDIOVISUALROOM, StepRoom.SURFACE_LABORATORY_SANCTUARY]

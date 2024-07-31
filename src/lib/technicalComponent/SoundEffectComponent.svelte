@@ -1,5 +1,5 @@
 {#if !audio}
-    <div style="text-indent: -9999px;"> bind:this={audio}</div>
+    <div style="text-indent: -9999px;" aria-hidden={true} > bind:this={audio}</div>
 {/if}
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";

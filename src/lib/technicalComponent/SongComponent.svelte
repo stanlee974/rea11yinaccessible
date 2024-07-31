@@ -1,9 +1,9 @@
 {#if !audio}
-    <div style="text-indent: -9999px;"> bind:this={audio}</div>
+    <div style="text-indent: -9999px;" aria-hidden={true} > bind:this={audio}</div>
     {#if displayPlayButton}
-        <Button iconDescription={$t('common.header.audio.play')} tooltipAlignment="start" kind="ghost" icon={PlayFilledAlt} on:click={() => toggle(true)}></Button>
+        <Button iconDescription={$t('common.header.audio')} tooltipAlignment="start" kind="ghost" icon={PlayFilledAlt} on:click={() => toggle(true)} aria-pressed="true"></Button>
     {:else }
-        <Button iconDescription={$t('common.header.audio.stop')} tooltipAlignment="start" kind="ghost" icon={PauseFilled} on:click={() => toggle(false)}></Button>
+        <Button iconDescription={$t('common.header.audio')} tooltipAlignment="start" kind="ghost" icon={PauseFilled} on:click={() => toggle(false)} aria-pressed="false"></Button>
 
     {/if}
 {/if}
@@ -16,6 +16,8 @@
   import { Button } from "carbon-components-svelte";
   import { PauseFilled, PlayFilledAlt } from "carbon-icons-svelte";
   import { t } from "$lib";
+  import { getHeaderStoreData, setPlaySong } from "$lib/store/HeaderStore";
+  import SoundEffectComponent from "$lib/technicalComponent/SoundEffectComponent.svelte";
 
   let audio: HTMLAudioElement;
   let displayPlayButton: boolean;
@@ -33,6 +35,7 @@
       htmlAudioElement.pause()
     }
     displayPlayButton = !displayPlayButton
+    // setPlaySong(displayPlayButton)
   }
 
   onMount(() => {
@@ -41,7 +44,7 @@
       initVolumeStore(INITIAL_VOLUME)
     }
     audioUnsubscriber = audioStore.subscribe(async (value) => {
-      if (value) {
+      if (value /*|| getHeaderStoreData().playSong*/) {
         value.play()
           .then(() => {
             getVolumeStore()?.subscribe((volume) => {
@@ -49,6 +52,7 @@
             })
           }).catch(() => {
           displayPlayButton = true
+          // setPlaySong(displayPlayButton)
         })
       }
     })

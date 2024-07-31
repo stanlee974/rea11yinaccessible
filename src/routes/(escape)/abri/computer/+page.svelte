@@ -6,8 +6,8 @@
 <SoundEffectComponent src="/sound/error.mp3" postPlay={playError}></SoundEffectComponent>
 <ModalComponent
         opened={openTransition}
-        parentDoneAction={() => hideScenario = false}>
-    <div style="display: flex; flex-direction: row">
+        parentDoneAction={() => hideScenario = false} >
+    <div style="display: flex; flex-direction: row" autofocus>
         <Grid>
             <Row>
                 <Column>
@@ -29,7 +29,7 @@
         naviguer à l'aveugle.</p>
     <p>Une note indiquant que les commandes du terminal sont prédéfinies et que le code pour continuer se trouve
         dans le système.</p>
-    <p>Une page déchirée laisse paraître une photo d'un inventeur et d'informations qui lui sont liées</p>
+    <p aria-label="une page déchirée laisse paraître une photo de l'inventeur d'un langage utilisé par les non voyants et des informations qui lui sont liées">Une page déchirée laisse paraître une photo d'un inventeur et d'informations qui lui sont liées</p>
 </TypewriterComponent>
 <br aria-hidden="true"/>
 <TypewriterComponent disabled={showGoal} continueButtonAction={() => {open = true;}} waitReading>
@@ -41,8 +41,8 @@
         parentDoneAction={() => {showForm = true; open=false;}}
         modalHeading="Indices trouvés sur la table">
     <Tabs>
-        <Tab label="Inventeur"/>
         <Tab label="Navigation"/>
+        <Tab label="Inventeur"/>
         <svelte:fragment slot="content">
             <TabContent>
                 <p>La touche Tab du clavier, permet de passer au champ de saisie suivant.</p>
@@ -69,25 +69,25 @@
                 <TextInput style="background-color: black; color: black" on:focus={readLabel} aria-label="nom"
                            labelText="Nom" placeholder="Entrer un nom..."
                            required invalid={invalidNom} invalidText="le nom est invalide"
-                           bind:value={nom} aria-hidden="true"/>
+                           bind:value={nom}/>
                 <TextInput style="background-color: black; color: black" on:focus={readLabel} aria-label="prenom"
                            labelText="Prénom"
                            placeholder="Entrer un prénom..." required
                            invalid={invalidPrenom} invalidText="le prénom est invalide"
-                           bind:value={prenom} aria-hidden="true"/>
+                           bind:value={prenom}/>
                 <TextInput style="background-color: black; color: black" on:focus={readLabel}
                            aria-label="naissance" labelText="Date de naissance"
                            placeholder="Entrer une date..."
                            required
                            bind:value={naissance} invalid={invalidNaissance}
-                           invalidText="La date de naissance n'est pas au format attendu : dd/mm/aaaa" aria-hidden="true"
+                           invalidText="La date de naissance n'est pas au format attendu : dd/mm/aaaa"
                 />
                 <TextInput style="background-color: black; color: black" on:focus={readLabel} aria-label="deces"
                            labelText="Date de décès"
                            placeholder="Entrer une date..."
                            required bind:value={deces}
                            invalid={invalidDeces}
-                           invalidText="La date de décès n'est pas au format attendu : dd/mm/aaaa" aria-hidden="true"/>
+                           invalidText="La date de décès n'est pas au format attendu : dd/mm/aaaa"/>
             </FluidForm>
             <Button kind="secondary" aria-label="soumettre" on:click={() => validateForm()} on:focus={readLabel}>
                 Soumettre la saisie
@@ -123,6 +123,7 @@
   import { onMount } from "svelte";
   import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
   import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
+  import { getAccessibilityMode } from "$lib/store/AccessibilityModeStore";
 
   onMount(() => {
     changeSource("/ost/step2.mp3")
@@ -183,26 +184,27 @@
   }
 
   const readLabel = (event: any) => {
-    const target = event.target;
-    console.debug("libellé", target.getAttribute("aria-label"))
-    if (target.getAttribute("aria-label") === "nom") {
-      playLastName = () => playLastName = undefined
-    }
-    if (target.getAttribute("aria-label") === "prenom") {
-      playFirstName = () => playFirstName = undefined;
-    }
-    if (target.getAttribute("aria-label") === "naissance") {
-      playBirth = () => playBirth = undefined
-    }
-    if (target.getAttribute("aria-label") === "deces") {
-      playDeath = () => playDeath = undefined
-    }
-    if (target.getAttribute("aria-label") === "soumettre") {
-      playSubmit = () => playSubmit = undefined
+    if (!getAccessibilityMode()) {
+      const target = event.target;
+      if (target.getAttribute("aria-label") === "nom") {
+        playLastName = () => playLastName = undefined
+      }
+      if (target.getAttribute("aria-label") === "prenom") {
+        playFirstName = () => playFirstName = undefined;
+      }
+      if (target.getAttribute("aria-label") === "naissance") {
+        playBirth = () => playBirth = undefined
+      }
+      if (target.getAttribute("aria-label") === "deces") {
+        playDeath = () => playDeath = undefined
+      }
+      if (target.getAttribute("aria-label") === "soumettre") {
+        playSubmit = () => playSubmit = undefined
+      }
     }
   }
 </script>
-<style>
+<style lang="css">
     @import url(/css/app.css);
     @import url(/css/neon.css);
 </style>

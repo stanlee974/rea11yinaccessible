@@ -1,14 +1,14 @@
-<div id="glitch-body">
-    <div id="glitch" class="glitch" style="margin: 5rem 3rem 5rem;">
-        <ImageLoader
-                src="{base}/logo_alt.png" alt="logo of really inaccessible" fadeIn={true}
-        />
+    <div id="glitch-body">
+        <div id="glitch" class="glitch" style="margin: 5rem 3rem 5rem;">
+            <ImageLoader
+                    src="{base}/logo_alt.png" alt="logo of really inaccessible" fadeIn={true}
+            />
+        </div>
     </div>
-</div>
-<ButtonComponent onclick={() => {disableWriter = false}} enabled={startButton}><img slot="content"
-                                                                                    src="{base}/arrow-down.svg"
-                                                                                    aria-label="Start the escape game"/>
-</ButtonComponent>
+    <ButtonComponent onclick={() => {disableWriter = false}} enabled={startButton}><img slot="content"
+                                                                                        src="{base}/arrow-down.svg"
+                                                                                        alt="Commencer l'escape game"/>
+    </ButtonComponent>
 <Content id="scenario" style="background-color: #161616; margin-top: 0">
     <Grid>
         <Row>
@@ -17,19 +17,22 @@
                     <h1>{$t('waitingRoom.welcome')}</h1>
                 </TypewriterComponent>
                 <TypewriterComponent disabled={disableWriter} delay={3000} parentDoneAction={() => showButton = true}>
-                    <h2><u><i>{$t('waitingRoom.scenario.title')}</i></u></h2>
-                    <p>{$t('waitingRoom.scenario.row.1')}</p>
-                    <p>{$t('waitingRoom.scenario.row.2')}</p>
-                    <p>{$t('waitingRoom.scenario.row.3')}</p>
-                    <h2><u><i>{$t('waitingRoom.goal.title')}</i></u></h2>
-                    <p>{$t('waitingRoom.goal.row.1')}</p>
-                    <p>{$t('waitingRoom.goal.row.2')}</p>
-                    <p>{$t('waitingRoom.test.clickLink')} <a style:text-decoration="none" style:cursor="auto" style:color="#F4F4F4"
-                                                             href="/abri/entrance" on:click={() => {
+                    <div>
+                        <h2><u><i>{$t('waitingRoom.scenario.title')}</i></u></h2>
+                        <p>{$t('waitingRoom.scenario.row.1')}</p>
+                        <p>{$t('waitingRoom.scenario.row.2')}</p>
+                        <p>{$t('waitingRoom.scenario.row.3')}</p>
+                        <h2><u><i>{$t('waitingRoom.goal.title')}</i></u></h2>
+                        <p>{$t('waitingRoom.goal.row.1')}</p>
+                        <p>{$t('waitingRoom.goal.row.2')}</p>
+                        <p>{$t('waitingRoom.test.clickLink')} <a style:text-decoration="none" style:cursor="auto"
+                                                                 style:color="#F4F4F4"
+                                                                 href="/abri/entrance" on:click={() => {
                         loading();
                     }}>{$t('waitingRoom.test.here')}</a>
-                        {$t('waitingRoom.test.enter')}
-                    </p>
+                            {$t('waitingRoom.test.enter')}
+                        </p>
+                    </div>
                 </TypewriterComponent>
                 <br aria-hidden="true"/>
                 {#if showButton}
@@ -42,15 +45,14 @@
             padding: 10px 20px;
             cursor: pointer;
             "
-                            on:click={() => {errorSound.play(); showError = true}}
-                            autofocus>
+                            on:click={() => {errorSound.play(); showError = true}}>
                         {$t('waitingRoom.test.startButton')}
                     </Button>
                 {/if}
                 {#if showError}
                     <div
                             style="position: absolute; left: 53%; padding-right: 2rem; padding-left: 2rem;">
-                        <img src="{base}/troll.gif" aria-hidden="true"/>
+                        <img src="{base}/troll.gif" alt="" aria-hidden={true}/>
                         <ToastNotification
                                 lowContrast
                                 fullWidth

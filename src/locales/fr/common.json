@@ -4,6 +4,11 @@
     "waiting": "Continuer la suite"
   },
   "header": {
+    "accessibility": {
+      "title": "Mode Accessibilité",
+      "on": "Activé",
+      "off": "Désactivé"
+    },
     "hint": {
       "message": {
         "title": "Astuce #",
@@ -17,9 +22,6 @@
       "song": "Volume de la musique",
       "soundEffect": "Volume des effets audios"
     },
-    "audio": {
-      "play": "Active la musique de fond",
-      "stop": "Arrête la musique de fond"
-    }
+    "audio": "Musique de fond"
   }
 }

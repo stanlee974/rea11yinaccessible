@@ -119,7 +119,7 @@
   import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
   import { onMount } from "svelte";
   import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
-  import { changeSource, makePause } from "$lib/store/inMemoryStore/AudioStore";
+  import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
 
   onMount(() => {
     changeSource("/ost/trap.mp3")

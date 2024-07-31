@@ -1,3 +1,11 @@
+<ul class="skip">
+    <li>
+        <a href="#main-content">Aller au contenu</a>
+    </li>
+    <li>
+        <a href="#menu">Aller au menu</a>
+    </li>
+</ul>
 <Header style="margin-bottom: 3rem">
     <title>{"really inaccessible | " + title.toString()}</title>
     <Row style="flex: content; flex-direction: row; align-items: center;">
@@ -31,15 +39,18 @@
         <!--{/each}-->
     </ContentSwitcher>
 </Header>
-<Tile style="position: sticky; top: 3rem; position: flex; flex-direction: row; z-index: 2000">
+<Tile id="menu" style="position: sticky; top: 3rem; position: flex; flex-direction: row; z-index: 2000">
     <HeaderUtilities>
+<!--        <Toggle labelText={$t('common.header.accessibility.title')} labelA="" labelB="" toggled={accessibilityMode}-->
+<!--                on:change={() => {accessibilityMode = !accessibilityMode; setAccessibilityMode(accessibilityMode)}}/>-->
         <SongComponent/>
         <Slider
                 labelText={$t('common.header.volume.song')}
                 min={0}
                 max={10}
                 hideTextInput
-                maxLabel="10"
+                minLabel=" "
+                maxLabel=" "
                 value={songVolume}
                 step={0.1}
                 style="margin-left: 2rem"
@@ -50,43 +61,46 @@
                 min={0}
                 max={10}
                 hideTextInput
-                maxLabel="10"
+                minLabel=" "
+                maxLabel=" "
                 value={soundVolume}
                 step={0.1}
                 on:input={(value) => {{setSoundVolume(value.detail)}}}
         />
-        <div class="gauge">
-            <div class="gauge__progress" {style}>Oxygen</div>
-            <div class="gauge__tick" style="left: 0%;">
-                <div class="gauge__label">0</div>
-            </div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 5%;"></div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 10%;"></div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 15%;"></div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 20%;"></div>
-            <div class="gauge__tick" style="left: 25%;">
-                <div class="gauge__label">25</div>
-            </div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 30%;"></div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 35%;"></div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 40%;"></div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 45%;"></div>
-            <div class="gauge__tick" style="left: 50%;">
-                <div class="gauge__label">50</div>
-            </div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 55%;"></div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 60%;"></div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 65%;"></div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 70%;"></div>
-            <div class="gauge__tick" style="left: 75%;">
-                <div class="gauge__label">75</div>
-            </div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 80%;"></div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 85%;"></div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 90%;"></div>
-            <div class="gauge__tick gauge__tick--minor" style="left: 95%;"></div>
-            <div class="gauge__tick" style="left: 100%;">
-                <div class="gauge__label">100</div>
+        <div class="gauge" aria-label={`${oxygen.toFixed(0)}% d'oxygène restant`}>
+            <div aria-hidden="true">
+                <div class="gauge__progress" {style}>Oxygen</div>
+                <div class="gauge__tick" style="left: 0%;">
+                    <div class="gauge__label">0</div>
+                </div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 5%;"></div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 10%;"></div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 15%;"></div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 20%;"></div>
+                <div class="gauge__tick" style="left: 25%;">
+                    <div class="gauge__label">25</div>
+                </div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 30%;"></div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 35%;"></div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 40%;"></div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 45%;"></div>
+                <div class="gauge__tick" style="left: 50%;">
+                    <div class="gauge__label">50</div>
+                </div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 55%;"></div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 60%;"></div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 65%;"></div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 70%;"></div>
+                <div class="gauge__tick" style="left: 75%;">
+                    <div class="gauge__label">75</div>
+                </div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 80%;"></div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 85%;"></div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 90%;"></div>
+                <div class="gauge__tick gauge__tick--minor" style="left: 95%;"></div>
+                <div class="gauge__tick" style="left: 100%;">
+                    <div class="gauge__label">100</div>
+                </div>
             </div>
         </div>
         <!--        <span style="font-size: 3rem; color: goldenrod; margin-left: 3rem; margin-right: 3rem">{getFormatedCountdown($time)}</span>-->
@@ -98,81 +112,92 @@
                             icon={Idea}
                             style="margin-right: 3rem"
         />
-        <ModalComponent opened={isOpenHint} parentDoneAction={() => isOpenHint = false}>
-            <div style="display: flex; flex-direction: row">
-                <Grid>
-                    <Row>
-                        <Column>
-                            {#each Object.entries(hints) as [level, hint]}
-                                {#if Number(level) <= Number(hintLevel)}
-                                    <h2>{$t('common.header.hint.message.title')}{level}</h2>
-                                    <p style="font-size: 1.3rem">{hint}</p>
-                                {/if}
-                            {/each}
-                            {#if !hints[1] }
-                                <p style="font-size: 1.3rem">{$t('common.header.hint.message.nothing')}</p>
+        <Modal size="lg"
+               preventCloseOnClickOutside
+               bind:open={isOpenHint}
+               on:close={() => isOpenHint = false}
+               modalHeading=""
+               primaryButtonText="{$t('common.button.waiting')}"
+               on:click:button--primary={() => isOpenHint = false}>
+            <Grid>
+                <Row>
+                    <Column>
+                        {#each Object.entries(hints) as [level, hint]}
+                            {#if Number(level) <= Number(hintLevel)}
+                                <h2>{$t('common.header.hint.message.title')}{level}</h2>
+                                <p style="font-size: 1.3rem">{hint}</p>
                             {/if}
-                            {#if hints["1"] && Number(hintLevel) <= 1}
-                                <Button kind="secondary" on:click={() => increaseHintLevel()}
-                                        style="margin-top: 2rem">
-                                    {$t('common.header.hint.help')}
-                                </Button>
-                            {/if}
-                            {#if hints["1"] && Number(hintLevel) === 2}
-                                <Button on:click={() => increaseHintLevel()} style="margin-top: 2rem">
-                                    {$t('common.header.hint.solution')}
-                                </Button>
-                            {/if}
-                        </Column>
-                    </Row>
-                </Grid>
-            </div>
-        </ModalComponent>
+                        {/each}
+                        {#if !hints[1] }
+                            <p style="font-size: 1.3rem">{$t('common.header.hint.message.nothing')}</p>
+                        {/if}
+                        {#if hints["1"] && Number(hintLevel) <= 1}
+                            <Button kind="secondary" on:click={() => increaseHintLevel()}
+                                    style="margin-top: 2rem">
+                                {$t('common.header.hint.help')}
+                            </Button>
+                        {/if}
+                        {#if hints["1"] && Number(hintLevel) === 2}
+                            <Button on:click={() => increaseHintLevel()} style="margin-top: 2rem">
+                                {$t('common.header.hint.solution')}
+                            </Button>
+                        {/if}
+                    </Column>
+                </Row>
+            </Grid>
+        </Modal>
     </HeaderUtilities>
 </Tile>
 <SoundEffectComponent src="{base}/sound/heart_beat.mp3" loop postPlay={playHeartBeat}/>
 <SoundEffectComponent src="{base}/sound/heart_beat_fast.mp3" loop postPlay={playHeartBeatFast}/>
-<slot/>
+<slot id="main-content" accessibilityMode={accessibilityMode}/>
 <script lang="ts">
-  import "carbon-components-svelte/css/g90.css";
-  import {
-    Button,
-    Column,
-    ContentSwitcher,
-    Grid,
-    Header,
-    HeaderGlobalAction,
-    HeaderNav,
-    HeaderNavItem,
-    HeaderNavMenu,
-    HeaderUtilities,
-    ImageLoader,
-    Row,
-    Slider,
-    Tile,
-  } from "carbon-components-svelte";
-  import { base } from '$app/paths';
-  import { getVolume, setVolume } from "$lib/store/VolumeStore";
-  import {
-    checkVolume as checkSoundVolume,
-    getVolume as getSoundVolume,
-    initVolumeStore as initSoundVolumeStore,
-    setVolume as setSoundVolume
-  } from "$lib/store/SoundVolumeStore";
-  import { onMount } from "svelte";
-  import { Idea } from "carbon-icons-svelte";
-  import { hintsByStep, Step, t } from "$lib";
-  import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
-  import { getHintLevel, increaseHintLevel, resetLevelStore } from "$lib/store/HintLevelStore";
-  import { getCountdown, initCountdownStore, setCountdown } from "$lib/store/CountdownStore";
-  import SoundEffectComponent from "$lib/technicalComponent/SoundEffectComponent.svelte";
-  import { renderStore } from "$lib/store/inMemoryStore/RenderStore";
-  import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
-  import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
-  import { inject } from '@vercel/analytics'
-  injectSpeedInsights()
-  inject()
+    import "carbon-components-svelte/css/g90.css";
+    import {
+        Button,
+        Column,
+        ContentSwitcher,
+        Grid,
+        Header,
+        HeaderGlobalAction,
+        HeaderNav,
+        HeaderNavItem,
+        HeaderNavMenu,
+        HeaderUtilities,
+        ImageLoader,
+        Modal,
+        Row,
+        Slider,
+        Tile,
+        Toggle,
+    } from "carbon-components-svelte";
+    import {base} from '$app/paths';
+    import {getVolume, setVolume} from "$lib/store/VolumeStore";
+    import {
+        checkVolume as checkSoundVolume,
+        getVolume as getSoundVolume,
+        initVolumeStore as initSoundVolumeStore,
+        setVolume as setSoundVolume
+    } from "$lib/store/SoundVolumeStore";
+    import {onMount} from "svelte";
+    import {Idea} from "carbon-icons-svelte";
+    import {hintsByStep, Step, t} from "$lib";
+    import {getHintLevel, increaseHintLevel, resetLevelStore} from "$lib/store/HintLevelStore";
+    import {getCountdown, initCountdownStore, setCountdown} from "$lib/store/CountdownStore";
+    import SoundEffectComponent from "$lib/technicalComponent/SoundEffectComponent.svelte";
+    import {renderStore} from "$lib/store/inMemoryStore/RenderStore";
+    import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
+    import {
+        checkAccessibilityMode,
+        getAccessibilityMode,
+        initAccessibilityModeStore,
+        setAccessibilityMode
+    } from "$lib/store/AccessibilityModeStore";
+    import {injectSpeedInsights} from "@vercel/speed-insights/sveltekit";
+    import {inject} from '@vercel/analytics'
 
+    injectSpeedInsights()
+  inject()
   export let title: Step = Step.INTRODUCTION
   export let songVolume: number = 0
   export let soundVolume: number = 30
@@ -191,14 +216,21 @@
   let hintLevel: string = "2"
   let oxygen: number = 100
   let style = ""
+  let accessibilityMode: boolean = false
 
   onMount(() => {
     if (!checkSoundVolume()) {
       let INITIAL_VOLUME = "5";
       initSoundVolumeStore(INITIAL_VOLUME)
     }
+
+    if (!checkAccessibilityMode()) {
+      initAccessibilityModeStore(false)
+    }
+
     songVolume = getVolume() * 100
     soundVolume = getSoundVolume() * 100
+    accessibilityMode = getAccessibilityMode()
 
     resetLevelStore()
 
@@ -229,6 +261,7 @@
     }
     return {"1": "", "2": "", "3": ""}
   }
+
   let animationRef: any;
   let latestStartTime: any;
 
@@ -299,5 +332,14 @@
         position: absolute;
         left: 50%;
         transform: translate(-50%, 0.5rem);
+    }
+
+    .skip {
+        position: absolute;
+        left: -99999px;
+    }
+
+    .skip:focus {
+        position: static;
     }
 </style>
