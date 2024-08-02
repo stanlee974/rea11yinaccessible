@@ -1,0 +1,60 @@
+{
+  "before": {
+    "image": "Entras en la sala médica",
+    "row": {
+      "1": "Después de una minuciosa verificación y algunos ajustes, presionas el botón \"Enviar\".",
+      "2": "Una luz verde se enciende sobre la consola, confirmando que el formulario se ha completado correctamente.",
+      "3": "Con un ligero chirrido, una puerta secundaria se abre al lado de la consola, revelando un estrecho pasaje. Entras con precaución, cambiando inmediatamente la atmósfera. Un olor a moho y tierra húmeda invade tus fosas nasales, y la luz se hace más escasa. El pasaje te conduce a una nueva sala, aún más lúgubre que las anteriores."
+    }
+  },
+  "neon": {
+    "title": "El refugio",
+    "subtitle": "Sala médica"
+  },
+  "scenario": {
+    "row": {
+      "1": "La sala está débilmente iluminada, con estanterías llenas de libros y documentos viejos. En el centro, una mesa con una caja que contiene píldoras de Dysclecsus y una hoja de papel con un texto indescifrable.",
+      "2": "Una nota garabateada en el borde de la mesa dice:",
+      "3": "Para ver las palabras tal como son, toma una píldora y deja que tu mente se adapte",
+      "4": "Un manual de medicina abierto en una página que describe el medicamento Dysclecsus, explicando que induce temporalmente una forma de dislexia reversible, lo que permite leer textos ocultos.",
+      "5": "Te tragas la píldora y esperas unos momentos. Después de tomarla, sientes una ligera alteración en tu percepción, y el texto en la hoja comienza a organizarse de manera comprensible."
+    },
+    "modal": {
+      "1": {
+        "title": "Libro indescifrable y mesa con las píldoras",
+        "image": {
+          "1": "mesa que contiene una caja con píldoras",
+          "2": "viejo libro indescifrable"
+        }
+      },
+      "2": {
+        "title": "Te tragas una píldora"
+      }
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Un dispositivo electrónico al lado de la puerta de salida requiere la entrada de una contraseña revelada por el texto"
+    }
+  },
+  "test": {
+    "sentence": "E8n un mundo donde las palabras bailan y se transforman, la dislexia convierte la lectura en una aventura constante. Las letras se mezclan y confunden, ofreciendo una perspectiva única y a menudo incomprendida de la realidad escrita. Encontrarás la contraseña en la duodécima posición de este texto. Atención, debes reemplazar la letra 'd' por la letra 'b'.",
+    "button": {
+      "password": {
+        "label": "password",
+        "text": "Contraseña",
+        "placeholder": "Ingresa la contraseña",
+        "error": "La contraseña es incorrecta"
+      },
+      "submit": {
+        "text": "Validar"
+      }
+    },
+    "response": "bislexia",
+    "error": {
+      "title": "Error",
+      "message": "El orden de activación de los botones es incorrecto",
+      "caption": "Inténtalo de nuevo"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "before": {
+    "image": "Subes las escaleras y llegas a la superficie",
+    "row": {
+      "1": "Al resolver las enigmás exitosamente a pesar de las perturbadoras alucinaciones, has demostrado tu capacidad para mantenerte enfocado y determinado.",
+      "2": "Una última alucinación te muestra un periódico que menciona un laboratorio secundario ubicado en la superficie, en una antigua zona industrial.",
+      "3": "Tomas una última escalera y pronto te encuentras en la superficie."
+    }
+  },
+  "neon": {
+    "title": "La superficie",
+    "subtitle": "Entrada del laboratorio"
+  },
+  "scenario": {
+    "row": {
+      "1": "Cerca de la salida, una nota indica que este laboratorio secundario también es un refugio seguro, equipado con los recursos y tecnologías necesarios para escapar de los rastreadores.",
+      "2": "Este extracto del diario de a bordo explica que el complejo subterráneo se ha vuelto cada vez más inestable debido a la degradación estructural.",
+      "3": "Una placa junto a la puerta menciona que la puerta se abre haciendo clic en la cruz desde la interfaz de control.",
+      "4": "La señal es muy débil y la comunicación entre el ratón y el terminal es defectuosa."
+    },
+    "modal": {
+      "1": {
+        "title": "Te encuentras frente a la puerta del laboratorio",
+        "row": {
+          "1": "La entrada al laboratorio secundario es un gran edificio industrial en ruinas, parcialmente invadido por la vegetación.",
+          "2": "Frente a la entrada principal, hay una puerta metálica gruesa con un panel de control electrónico antiguo al lado.",
+          "3": "Alrededor de la puerta, grafitis y marcas indican que otros han intentado entrar pero han fallado."
+        }
+      }
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Haz clic en la cruz para abrir la puerta."
+    }
+  },
+  "test": {
+    "modal": {
+      "1": {
+        "title": "Panel de control",
+        "row": {
+          "1": "Debes hacer clic en la cruz para abrir la puerta",
+          "2": "Haga clic para abrir la puerta",
+          "3": "cursor del ratón"
+        }
+      }
+    },
+    "buttons": {
+      "open": {
+        "text": "Abrir el terminal"
+      }
+    }
+  }
+}

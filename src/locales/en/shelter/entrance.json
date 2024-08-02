@@ -1,0 +1,42 @@
+{
+  "before": {
+    "image": "You enter the shelter",
+    "row": {
+      "1": "The entrance to the shelter is a massive steel door, rusted by the years and covered with ivy and moss.",
+      "2": "An old sign, half-erased by time, reads: 'Shelter Alpha - Authorized Personnel Only'. You approach the entrance with a mix of curiosity and apprehension."
+    }
+  },
+  "neon": {
+    "title": "The Shelter",
+    "subtitle": "Alterations Room"
+  },
+  "scenario": {
+    "row": {
+      "1": "You find yourself in a dark room with abandoned medical equipment and storage cabinets.",
+      "2": "A note on the table contains the following message:",
+      "3": "Pure white on pure white, nothing seems to change, but add a shadow, and colors start to dance. When the light is soft or strong, Hidden shades knock at our door.",
+      "4": "In one corner of the room, there is a control panel with four buttons and a torn document indicating that the correct sequence is Yellow, Pink, Green, and Orange. Unfortunately, the buttons are unlabeled and color perceptions may be affected by color blindness."
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "You need to find the correct combination of 4 elements without delay. There is no repeated color in the combination.",
+      "2": "Good luck, survivor. May the CaM-RuN-a11Y injection guide you to freedom."
+    }
+  },
+  "test": {
+    "contrast": "Contrast",
+    "brightness": "Brightness",
+    "buttons": {
+      "green": "This Green button is not the second one",
+      "orange": "This Orange button comes after the Green button",
+      "rose": "This Pink button is never the first or the last",
+      "yellow": "This Yellow button is immediately followed by the Pink button"
+    },
+    "error": {
+      "title": "Error",
+      "message": "The button activation order is incorrect",
+      "caption": "Try again"
+    }
+  }
+}

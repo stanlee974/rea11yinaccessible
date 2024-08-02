@@ -1,0 +1,66 @@
+{
+  "before": {
+    "image": "Entras en el centro de investigación abandonado",
+    "row": {
+      "1": "Utilizando el medicamento Dysclecsus, pudiste explotar una forma temporal de dislexia para descifrar el texto.",
+      "2": "Subes escaleras acercándote a la superficie. Ahora entras en una nueva área del complejo, un antiguo centro de investigación abandonado.",
+      "3": "Con un ligero crujido, se abre una puerta secundaria al lado de la consola, revelando un pasaje estrecho. Entras con cautela, cambiando inmediatamente la atmósfera. Un olor a moho y tierra húmeda llena tus fosas nasales, y la luz se hace más escasa. El pasaje te lleva a una nueva sala, aún más lúgubre que las anteriores."
+    }
+  },
+  "neon": {
+    "title": "El Refugio",
+    "subtitle": "Sala de Enigmas"
+  },
+  "scenario": {
+    "row": {
+      "1": "Los efectos de la pastilla Dysclecsus comienzan a desaparecer, pero ahora experimentas efectos secundarios inesperados en forma de alucinaciones visuales y auditivas.",
+      "2": "Esta sala es un gran espacio circular, débilmente iluminado por una claraboya central. En el centro, hay un podio con tres pedestales, cada uno con un enigma."
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Debes ignorar las alucinaciones auditivas y visuales perturbadoras para no dejarte engañar. Mantente concentrado a pesar de las alucinaciones y encuentra las 3 respuestas."
+    },
+    "modal": {
+      "1": {
+        "title": "3 Tarjetas de Enigmas",
+        "row": {
+          "1": "Enigma 1: En cuanto me nombran, me rompo. ¿Qué soy?",
+          "2": "Enigma 2: Termino con una letra E, puedo contener solo una letra, pero no soy la letra E. ¿Qué soy?",
+          "3": "Enigma 3: Transformo una planta en un planeta. ¿Qué soy?"
+        }
+      }
+    }
+  },
+  "test": {
+    "overlay": "imagen intrusiva",
+    "buttons": {
+      "enigm1": {
+        "text": "Respuesta al Enigma 1",
+        "placeholder": "Escribe la respuesta al Enigma 1",
+        "error": "la respuesta es incorrecta."
+      },
+      "enigm2": {
+        "text": "Respuesta al Enigma 2",
+        "placeholder": "Escribe la respuesta al Enigma 2",
+        "error": "la respuesta es incorrecta."
+      },
+      "enigm3": {
+        "text": "Respuesta al Enigma 3",
+        "placeholder": "Escribe la respuesta al Enigma 3",
+        "error": "la respuesta es incorrecta."
+      },
+      "hint": {
+        "text": "Consultar los enigmas"
+      },
+      "submit": {
+        "text": "Validar"
+      }
+    },
+    "response": {
+      "1": "silencio$|secreto$|tabú$",
+      "2": "sobre$",
+      "3": "^e$|^letra e$"
+    }
+  }
+}

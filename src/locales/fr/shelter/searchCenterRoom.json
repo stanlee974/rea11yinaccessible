@@ -1,0 +1,66 @@
+{
+  "before": {
+    "image": "Tu rentres dans le centre de recherche abandonné",
+    "row": {
+      "1": "En utilisant le médicament Dysclecsus, tu as pu exploiter une forme temporaire de dyslexie pour déchiffrer le texte.",
+      "2": "Tu montes des escaliers te rapprochant de la surface. Tu entres maintenant dans une nouvelle zone du complexe, un ancien centre de recherche abandonné.",
+      "3": "Avec un léger grincement, une porte secondaire s'ouvre sur le côté de la console, révélant un passage étroit. Tu entres prudemment, l'atmosphère changeant immédiatement. Une odeur de moisi et de terre humide envahit tes narines, et la lumière se fait plus rare. Le passage te conduit à une nouvelle salle, encore plus lugubre que les précédentes."
+    }
+  },
+  "neon": {
+    "title": "L'abri",
+    "subtitle": "Salle des enigmes"
+  },
+  "scenario": {
+    "row": {
+      "1": "Les effets de la pilule Dysclecsus commencent à se dissiper, mais tu ressens maintenant des effets secondaires imprévus sous forme d'hallucinations visuelles et auditives.",
+      "2": "Cette salle est une grande pièce circulaire, légèrement éclairée par un puit de lumière central. Au centre, il y a un podium avec trois piédestaux, chacun contenant une énigme."
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Tu dois faire abstraction des hallucinations sonores et visuelles perturbantes pour ne pas te laisser induire en erreur. Reste donc concentré malgré les hallucinations et trouve les 3 réponses."
+    },
+    "modal": {
+      "1": {
+        "title": "3 fiches à énigmes",
+        "row": {
+          "1": "Enigme 1 : Dès que l'on me nomme, on me brise. Qui suis-je?",
+          "2": "Enigme 2 : Je commence par un E, je termine par un E, je peux contenir qu'une seule lettre, mais je ne suis pas la lettre E. Qui suis-je?",
+          "3": "Enigme 3 : Je transforme une plante en une planète. Qui suis-je ?"
+        }
+      }
+    }
+  },
+  "test": {
+    "overlay" : "image intrusive",
+    "buttons": {
+      "enigm1": {
+        "text": "Réponse énigme 1",
+        "placeholder": "Saisir la réponse à l'enigme 1",
+        "error": "la réponse est erronée."
+      },
+      "enigm2": {
+        "text": "Réponse énigme 2",
+        "placeholder": "Saisir la réponse à l'enigme 2",
+        "error": "la réponse est erronée."
+      },
+      "enigm3": {
+        "text": "Réponse énigme 3",
+        "placeholder": "Saisir la réponse à l'enigme 3",
+        "error": "la réponse est erronée."
+      },
+      "hint": {
+        "text": "Consulter les énigmes"
+      },
+      "submit": {
+        "text": "Valider"
+      }
+    },
+    "response" : {
+      "1": "silence$|secret$|tabou$",
+      "2": "enveloppe$",
+      "3": "^è$|^lettre è$"
+    }
+  }
+}

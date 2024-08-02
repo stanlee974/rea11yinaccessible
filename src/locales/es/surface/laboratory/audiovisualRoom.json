@@ -1,0 +1,58 @@
+{
+  "before": {
+    "image": "Subes las escaleras de caracol",
+    "row": {
+      "1": "Se abre una pequeña trampilla y metes la mano. Nada dentro...",
+      "2": "Continúas entonces tu exploración del laboratorio secundario. Ruidos distantes fuera del edificio.",
+      "3": "Subes rápidamente las escaleras de caracol y llegas a una sala extrañamente tranquila y oscura. Al entrar, descubres una sala audiovisual llena de cintas y videos antiguos."
+    }
+  },
+  "neon": {
+    "title": "La Superficie",
+    "subtitle": "La Sala Audiovisual"
+  },
+  "scenario": {
+    "row": {
+      "1": "La sala está equipada con varias pantallas de video y estaciones de escucha con auriculares. Estanterías llenas de carretes de películas y cintas de audio cubren las paredes. Bancos polvorientos están dispuestos frente a las pantallas, invitando a los visitantes a sentarse y escuchar."
+    },
+    "modal": {
+      "1": {
+        "row": {
+          "1": "Sala técnica audiovisual",
+          "2": "Notas dispersas explican que esta sala alguna vez sirvió como centro de documentación para los experimentos científicos realizados en el laboratorio",
+          "3": "inscripciones codificadas"
+        }
+      }
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Cada estación de escucha está asociada a una banda sonora con diferentes niveles de sonido. El objetivo es descubrir la palabra clave e ingresarla en un terminal digital."
+    }
+  },
+  "test": {
+    "response": "sordera$",
+    "buttons": {
+      "deafHigh": {
+        "text": "Alta Sordera"
+      },
+      "deafMedium": {
+        "text": "Sordera Moderada"
+      },
+      "deafLow": {
+        "text": "Baja Sordera"
+      },
+      "deafVeryLow": {
+        "text": "Muy baja Sordera"
+      },
+      "keyword": {
+        "text": "Palabra Clave",
+        "placeholder": "Ingresa la palabra clave",
+        "error": "la palabra clave es incorrecta"
+      },
+      "submit": {
+        "text": "Validar"
+      }
+    }
+  }
+}

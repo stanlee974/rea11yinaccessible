@@ -32,7 +32,6 @@
 		"@sveltejs/adapter-vercel": "^5.3.2",
 		"@sveltejs/kit": "2.5.16",
 		"@sveltejs/vite-plugin-svelte": "3.1.1",
-		"@zoom-image/svelte": "0.2.19",
 		"carbon-components-svelte": "0.85.0",
 		"carbon-icons-svelte": "^12.10.0",
 		"dyslexia": "1.0.1",

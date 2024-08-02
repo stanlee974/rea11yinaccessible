@@ -1,0 +1,125 @@
+{
+  "button": {
+    "waiting": "Continuar con lo siguiente"
+  },
+  "layout": {
+    "bypassMenu": {
+      "goToContent": "Ir al contenido",
+      "goToMenu": "Ir al menú"
+    },
+    "menu": {
+      "logo": "logo de realmente inaccesible",
+      "axe": "Axe-core - prueba de accesibilidad",
+      "reference": {
+        "title": "Referencia"
+      },
+      "uuv": {
+        "title": "UUV - prueba de accesibilidad E2E",
+        "kata": "Kata (ejercicio)"
+      },
+      "source": "Código fuente",
+      "language": {
+        "fr": "Francés",
+        "en": "Inglés",
+        "es": "Español"
+      }
+    },
+    "title": {
+      "scenario": "Escenario",
+      "goal": "Objetivo"
+    },
+    "progressRoom": {
+      "shelterEntrance": "Sala de Alteraciones",
+      "shelterMedicalRoom": "Sala Médica",
+      "shelterComputerRoom": "Sala de Control",
+      "shelterSearchCenterRoom": "Sala de Puzzles",
+      "surfaceEntrance": "Entrada del Laboratorio",
+      "surfaceLaboratoryEntrance": "El Laboratorio",
+      "audiovisualRoom": "Sala Audiovisual",
+      "sanctuary": "El Santuario"
+    }
+  },
+  "header": {
+    "accessibility": {
+      "title": "Modo de Accesibilidad",
+      "on": "Activado",
+      "off": "Desactivado"
+    },
+    "hint": {
+      "message": {
+        "title": "Consejo #",
+        "nothing": "No hay ayuda disponible para esta prueba",
+        "waitingRoom": {
+          "1": "A veces los desarrolladores no piensan en las personas que utilizan herramientas de asistencia como los asistentes de voz.",
+          "2": "Lee bien el texto y lo que debes hacer clic.",
+          "3": "La palabra aquí es un enlace clickable. Haz clic en él para continuar. El botón Continuar es una 'trampa'."
+        },
+        "shelterMedicalRoom": {
+          "1": "Concéntrate en las últimas dos frases con las letras que se mueven.",
+          "2": "La duodécima palabra desde el principio, sin contar la coma. Reemplazar d por b.",
+          "3": "La palabra es byslexia."
+        },
+        "shelterEntrance": {
+          "1": "La nota en la mesa puede ayudarte a encontrar la combinación, si no quieres probar todas las combinaciones. Usa el contraste y el brillo.",
+          "2": "Ajusta el contraste a 74 y el brillo a 100.",
+          "3": "El orden correcto es el cuarto, el tercero, el primero y el segundo."
+        },
+        "shelterSearchCenterRoom": {
+          "1": "Enigma 1: ¡Shhh!, Enigma 2: Algunas palabras tienen varios significados, Enigma 3: la diferencia puede ser mínima.",
+          "2": "Enigma 1: El silencio es oro y la palabra es plata, Enigma 2: la palabra letra tiene un doble sentido, Enigma 3: Mira bien las 2 palabras una al lado de la otra.",
+          "3": "Enigma 1: silencio, Enigma 2: sobre, Enigma 3: é."
+        },
+        "shelterComputerRoom": {
+          "1": "Mira bien los patrones en la mesa, ¿estos símbolos no te dicen nada? Aumenta el volumen de los sonidos, podrás escuchar cosas.",
+          "2": "¿Es una forma de lenguaje escrito para ciegos?",
+          "3": "Cuando escuches la zona de entrada, escribe la información correspondiente y presiona tabulación. Haz lo mismo para los demás y cuando escuches Enviar, presiona la tecla enter."
+        },
+        "surfaceEntrance": {
+          "1": "Cuando muevas el ratón, temblará menos que si te quedas en un solo lugar.",
+          "2": "Las personas con discapacidad son más eficientes en este mundo.",
+          "3": "Haz clic en el título 'Panel de control' y presiona la tecla 'tabulación' dos veces para seleccionar la cruz y luego presiona 'enter'."
+        },
+        "surfaceLaboratoryEntrance": {
+          "1": "Haz zoom en la parte inferior izquierda, verás algo interesante. La transposición está en otra parte del mapa.",
+          "2": "La transcripción en la parte inferior derecha representa las teclas de tu teclado en español.",
+          "3": "Escribe la contraseña: tremors. Ten cuidado, debes presionar la misma tecla varias veces hasta que aparezca la letra correcta."
+        },
+        "audiovisualRoom": {
+          "1": "Al escuchar una banda sonora completa, tendrás otra con una menor sordera.",
+          "2": "Sube el volumen de tu computadora o tablet al máximo.",
+          "3": "La contraseña es: sordera"
+        },
+        "sanctuary": {
+          "1": "La página es muy grande, no dudes en hacer zoom hacia afuera y desplazarte para encontrar las etiquetas y los campos de entrada. Las respuestas a los 2 campos están en el texto.",
+          "2": "Usar la tecla 'Tabulación' puede ser útil para acercarte a los campos de entrada.",
+          "3": "nombre: Rodrigue, apellido: Payet o nombre: Diva y apellido: Tchoungui. El botón de validar está a la izquierda de la página."
+        }
+      },
+      "help": "Mostrar un consejo",
+      "solution": "Mostrar la solución",
+      "tooltip": "¿Necesitas ayuda?"
+    },
+    "volume": {
+      "song": "Volumen de la música",
+      "soundEffect": "Volumen de efectos de sonido"
+    },
+    "audio": "Música de fondo",
+    "oxygen": {
+      "title": "Oxígeno",
+      "remaining": "{{oxygen}}% oxígeno restante"
+    }
+  },
+  "step": {
+    "intro": "Introducción",
+    "waitingRoom": "Apertura",
+    "shelterEntrance": "Problemas visuales | Daltonismo",
+    "shelterMedicalRoom": "Problemas cognitivos | Dislexia",
+    "shelterComputerRoom": "Problemas visuales | Ceguera",
+    "shelterSearchCenterRoom": "Problemas cognitivos | Imágenes intrusivas",
+    "surfaceEntrance": "Problemas motores | Temblores en el ratón",
+    "surfaceLaboratoryEntrance": "Problemas motores | Temblores en el teclado",
+    "audiovisualRoom": "Problemas auditivos | Sordera",
+    "sanctuary": "Problemas cognitivos | Fuente, Zoom, Alineación",
+    "final": "Epílogo"
+  }
+}

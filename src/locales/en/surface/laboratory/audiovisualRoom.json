@@ -1,0 +1,58 @@
+{
+  "before": {
+    "image": "You climb the spiral staircase",
+    "row": {
+      "1": "A small hatch opens and you slip your hand inside. Nothing in there...",
+      "2": "So you continue your exploration of the secondary lab. Distant noises from outside the building.",
+      "3": "You quickly climb the spiral staircase and arrive in a strangely calm and dark room. Upon entering, you discover an audiovisual room filled with old tapes and videos."
+    }
+  },
+  "neon": {
+    "title": "The Surface",
+    "subtitle": "The Audiovisual Room"
+  },
+  "scenario": {
+    "row": {
+      "1": "The room is equipped with several video screens and listening stations with headphones. Shelves filled with film reels and audio tapes line the walls. Dusty benches are arranged in front of the screens, inviting strangers to sit and listen."
+    },
+    "modal": {
+      "1": {
+        "row": {
+          "1": "Audiovisual technical room",
+          "2": "Scattered notes explain that this room once served as a documentation center for the scientific experiments conducted in the lab",
+          "3": "coded inscriptions"
+        }
+      }
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Each listening station is associated with a soundtrack of different sound levels. The goal is to discover the keyword and enter it on a digital terminal."
+    }
+  },
+  "test": {
+    "response": "deafness$",
+    "buttons": {
+      "deafHigh": {
+        "text": "High Deafness"
+      },
+      "deafMedium": {
+        "text": "Medium Deafness"
+      },
+      "deafLow": {
+        "text": "Low Deafness"
+      },
+      "deafVeryLow": {
+        "text": "Very low Deafness"
+      },
+      "keyword": {
+        "text": "Keyword",
+        "placeholder": "Enter the keyword",
+        "error": "the keyword is incorrect"
+      },
+      "submit": {
+        "text": "Submit"
+      }
+    }
+  }
+}

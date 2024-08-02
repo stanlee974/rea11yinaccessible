@@ -1,0 +1,42 @@
+{
+  "before": {
+    "image": "Entras en el refugio",
+    "row": {
+      "1": "La entrada del refugio es una puerta masiva de acero, oxidada por los años y cubierta de hiedra y musgo.",
+      "2": "Un viejo letrero, medio borrado por el tiempo, dice: 'Refugio Alpha - Acceso Solo para Personal Autorizado'. Te acercas a la entrada con una mezcla de curiosidad y aprensión."
+    }
+  },
+  "neon": {
+    "title": "El Refugio",
+    "subtitle": "Sala de Alteraciones"
+  },
+  "scenario": {
+    "row": {
+      "1": "Te encuentras en una sala oscura con equipo médico abandonado y armarios de almacenamiento.",
+      "2": "Una nota en la mesa contiene el siguiente mensaje:",
+      "3": "Blanco puro sobre blanco puro, nada parece cambiar, pero añade una sombra, y los colores comienzan a bailar. Cuando la luz es suave o fuerte, Las sombras ocultas llaman a nuestra puerta.",
+      "4": "En una esquina de la sala, hay un panel de control con cuatro botones y un documento rasgado que indica que la secuencia correcta es Amarillo, Rosa, Verde y Naranja. Desafortunadamente, los botones no tienen etiquetas y la percepción de los colores puede verse afectada por el daltonismo."
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Debes encontrar la combinación correcta de 4 elementos sin demora. No hay dos colores iguales en la combinación.",
+      "2": "Buena suerte, sobreviviente. Que la inyección CaM-RuN-a11Y te guíe hacia la libertad."
+    }
+  },
+  "test": {
+    "contrast": "Contraste",
+    "brightness": "Brillo",
+    "buttons": {
+      "green": "Este botón Verde no es el segundo",
+      "orange": "Este botón Naranja viene después del botón Verde",
+      "rose": "Este botón Rosa nunca es el primero ni el último",
+      "yellow": "Este botón Amarillo es seguido inmediatamente por el botón Rosa"
+    },
+    "error": {
+      "title": "Error",
+      "message": "El orden de activación de los botones no es correcto",
+      "caption": "Intenta de nuevo"
+    }
+  }
+}

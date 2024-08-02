@@ -1,22 +1,21 @@
 {
   "welcome": "Bienvenu(e) à toi !",
   "scenario": {
-    "title": "Scénario",
+    "begin": "Commencer l'escape game",
     "row": {
-      "1": "Le monde tel \nque nous le connaissions a disparu. Une pandémie inconnue a balayé la planète, laissant 99,99% de la population avec des handicaps divers. Dans ce monde futuriste où les handicaps visuels, auditifs, moteurs et cognitifs sont omniprésents et considérés comme des éléments essentiels de l'identité. Ceux qui sont exempts de toute limitation sont considérés comme des hérétiques et traités avec suspicion. Ils sont traqués et éliminés sans pitié par les autorités.",
+      "1": "Le monde tel que nous le connaissions a disparu. Une pandémie inconnue a balayé la planète, laissant 99,99% de la population avec des handicaps divers. Dans ce monde futuriste où les handicaps visuels, auditifs, moteurs et cognitifs sont omniprésents et considérés comme des éléments essentiels de l'identité. Ceux qui sont exempts de toute limitation sont considérés comme des hérétiques et traités avec suspicion. Ils sont traqués et éliminés sans pitié par les autorités.",
       "2": "Tu incarnes donc un(e) survivant(e) « hérétique » qui a découvert l'existence d'une injection nommée CaM-RuN-a11Y. Cette injection permet de développer un handicap aléatoire, ce qui te permettra de te fondre dans la population et d'échapper à la traque.",
       "3": "Un autre péril menace l'humanité : une crise écologique a drastiquement réduit le niveau d'oxygène à la surface de la Terre. Des abris ont été construits pour protéger les citoyens, mais même ces refuges ne sont pas éternellement sûrs. Le système de filtration d'air des abris commence à faiblir, et le niveau d'oxygène diminue lentement mais inexorablement."
     }
   },
   "goal": {
-    "title": "Objectif",
     "row": {
       "1": "Ton objectif est de te fondre dans la population, résoudre les énigmes et surmonter les obstacles qui se dressent sur ta route. Chaque défi te rapprochera de ta survie, mais nécessitera une adaptation rapide et une ingéniosité sans faille. La traque est lancée, et chaque instant compte. Utilise tes nouvelles capacités pour tromper les autorités, découvre les secrets de cette société étrange, et trouve un moyen de survivre dans ce monde où la norme est inversée.",
       "2": "Bonne chance, survivant. Que l'injection CaM-RuN-a11Y te guide vers la liberté"
     }
   },
   "test": {
-    "clickLink": "click",
+    "clickLink": "clique",
     "here": "ici",
     "enter": "pour entrer dans l'abri.",
     "startButton": "Continuer",
