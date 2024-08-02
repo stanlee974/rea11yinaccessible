@@ -2,7 +2,7 @@ import { get, type Writable } from "svelte/store";
 import { resetSession, writableSession } from "./technical/PersistentStore";
 
 
-let hintLevelStore: Writable<string> | undefined = undefined
+export let hintLevelStore: Writable<string>
 export const checkHintLevelStore = () => {
   return hintLevelStore
 }
@@ -27,5 +27,6 @@ export const initHintLevelStore = (init: string) => {
 
 export const resetLevelStore = () => {
   resetSession("hintLevel", "0")
-  initHintLevelStore("0")
+  hintLevelStore.set('0')
+  //initHintLevelStore("0")
 }

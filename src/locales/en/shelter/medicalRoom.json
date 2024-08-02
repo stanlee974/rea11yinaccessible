@@ -1,0 +1,60 @@
+ {
+  "before": {
+    "image": "You enter the medical room",
+    "row": {
+      "1": "After a thorough check and some adjustments, you press the \"Submit\" button.",
+      "2": "A green light turns on above the console, confirming that the form has been correctly filled out.",
+      "3": "With a slight creak, a secondary door opens on the side of the console, revealing a narrow passage. You enter cautiously, the atmosphere changing immediately. A musty and damp earth smell fills your nostrils, and the light becomes scarcer. The passage leads you to a new room, even more gloomy than the previous ones."
+    }
+  },
+  "neon": {
+    "title": "The Shelter",
+    "subtitle": "Alterations Room"
+  },
+  "scenario": {
+    "row": {
+      "1": "The room is dimly lit, with shelves filled with old books and documents. In the center, a table with a box containing Dysclecsus pills and a sheet of paper with an indecipherable text.",
+      "2": "A scribbled note on the edge of the table says:",
+      "3": "To see the words as they are, take a pill and let your mind adapt",
+      "4": "A medical manual opened to a page describing the drug Dysclecsus, explaining that it temporarily induces a reversible form of dyslexia, allowing hidden texts to be read.",
+      "5": "You swallow the pill and wait a few moments. After taking it, you feel a slight alteration in your perception, and the text on the sheet begins to arrange itself comprehensibly."
+    },
+    "modal": {
+      "1": {
+        "title": "Indecipherable book and table containing the pills",
+        "image": {
+          "1": "table containing a box with pills",
+          "2": "old indecipherable book"
+        }
+      },
+      "2": {
+        "title": "You swallow a pill"
+      }
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "An electronic device next to the exit door requires entering a password revealed by the text"
+    }
+  },
+  "test": {
+    "sentence": "In a world where words dance and transform, there is a dyslexia who turns reading into a constant adventure. Letters mix and blend, offering a unique and often misunderstood perspective on written reality. You will find the password at the twelfth position of this text. Be careful, you need to replace the letter 'd' with the letter 'b'.",
+    "button": {
+      "password": {
+        "label": "password",
+        "text": "Password",
+        "placeholder": "Enter the password",
+        "error": "The password is incorrect"
+      },
+      "submit": {
+        "text": "Submit"
+      }
+    },
+    "response": "byslexia",
+    "error": {
+      "title": "Error",
+      "message": "The button activation order is incorrect",
+      "caption": "Try again"
+    }
+  }
+}

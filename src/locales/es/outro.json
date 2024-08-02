@@ -1,0 +1,182 @@
+{
+  "neon": {
+    "title": "La Verdad",
+    "subtitle": "Revelada"
+  },
+  "modal": {
+    "1": {
+      "image": {
+        "1": {
+          "title": "Miras el Orbe",
+          "row": {
+            "1": "Lo sacudes y te das cuenta de que no está vacío. Usas un pico metálico al pie del pedestal que parece destinado a este propósito. Cuando se rompe, una luz intensa llena la habitación antes de desvanecerse, revelando una jeringa metálica finamente decorada, llena de un líquido plateado."
+          }
+        },
+        "2": {
+          "title": "Te Inyectas la Sustancia",
+          "row": {
+            "1": "Después de la inyección, esperas ansiosamente que se manifiesten los efectos. Sin embargo, en lugar de sentir cambios físicos, comienzas a sentirte extrañamente normal.",
+            "2": "Un escalofrío de pánico te recorre. Buscas desesperadamente en los manuscritos antiguos que se encuentran en el santuario para entender qué salió mal. Una nota escondida en un rincón sombrío del santuario finalmente revela la verdad: la jeringa contenía un placebo."
+          }
+        },
+        "3": {
+          "title": "El Orbe Roto Contiene la Inyección",
+          "row": {
+            "1": "En el centro del santuario, el orbe brilla, iluminado por cristales luminiscentes. Descansa sobre un pedestal dorado, rodeado de grabados antiguos e inscripciones místicas. Te acercas con una mezcla de emoción y temor. El mecanismo se abre lentamente y tomas el orbe."
+          }
+        },
+        "4": {
+          "title": "Lees la Carta que Revela la Verdad",
+          "row": {
+            "1": "Te preparas para inyectarte el contenido de la jeringa. Tomas una respiración profunda, esperando que esta inyección te otorgue la discapacidad necesaria para escapar de los rastreadores. Sostienes la jeringa con una mano temblorosa, sintiendo el peso del momento. Vacías la dosis en tu vena aún caliente."
+          }
+        }
+      }
+    },
+    "2": {
+      "image": {
+        "1": {
+          "title": "Guardia Mirando con Desdén",
+          "row": {
+            "1": "Se escuchan pasos pesados y voces enojadas en el pasillo, acercándose rápidamente. Los rastreadores, alertados por la luz intensa emitida por la ruptura del orbe, han encontrado su camino hacia el santuario.",
+            "2": "Buscas frenéticamente una salida de emergencia, pero es demasiado tarde. La puerta del santuario se abre bruscamente, dejando entrar a los rastreadores fuertemente armados.",
+            "3": "Los rastreadores, implacables y decididos, te rodean. Uno de ellos avanza y observa la jeringa vacía con una sonrisa siniestra. \"¿De verdad pensaste que podrías escapar de tu destino?\" dice con una voz helada."
+          }
+        }
+      }
+    }
+  },
+  "epilogue": {
+    "title": "Epílogo",
+    "row": {
+      "1": "Los rastreadores te llevan fuera del santuario, a través de los oscuros y fríos pasillos del laboratorio secundario. Tus esperanzas de sobrevivir y curarte se disipan, reemplazadas por una sombría resignación.",
+      "2": "Al salir del laboratorio, echas un último vistazo al cielo, sabiendo que tu búsqueda de la inyección CaM-RuN-a11Y fue en vano.",
+      "3": "En la fría luz del día, eres conducido a un destino desconocido, tu destino sellado por los rastreadores. Tu aventura termina con una nota trágica, marcada por la revelación de que tu última esperanza era una ilusión.",
+      "4": "Sin embargo, este amargo final da paso a una profunda reflexión. Tu determinación, perspicacia y capacidad para superar desafíos inimaginables no se borran. Descubriste la fuerza de tu humanidad en un mundo roto, y esa fuerza continuará brillando, incluso en la adversidad.",
+      "5": "Mientras las puertas del laboratorio se cierran detrás de ti, sabes que, a pesar de todo, luchaste hasta el final. Tu historia, aunque trágica, es un testimonio de coraje y resiliencia en un mundo post-apocalíptico despiadado, donde la diferencia aún es una herejía."
+    }
+  },
+  "viewMore": "Ver más",
+  "viewLess": "Ver menos",
+  "problem": "Dificultad:",
+  "advice": "Consejo:",
+  "buttons": {
+    "summary": "Resumen",
+    "end": "Fin de la aventura"
+  },
+  "visual": {
+    "title": "Trastorno Visual",
+    "1": {
+      "title": "Sala de Espera",
+      "disabilities": {
+        "1": {
+          "problem": "El botón de enlace no tiene un estilo distintivo. Este problema afecta a quienes usan el ratón. Los que navegan con el teclado no se ven afectados. Dependiendo del uso, uno puede verse perjudicado si no se abordan ambos modos de navegación.",
+          "advice": "No sobrecargar los estilos si no se conocen sus impactos."
+        }
+      }
+    },
+    "2": {
+      "title": "Sala de Alteraciones:",
+      "disabilities": {
+        "1": {
+          "title": "Daltonismo",
+          "problem": "Los botones tenían todos el mismo color al principio. Al alterar el contraste y el brillo, se revelan los colores reales. El daltonismo es un trastorno visual que afecta la percepción de los colores.",
+          "advice": "La elección de los colores es importante en una aplicación. Utiliza altos contrastes y no transmitas información únicamente a través del color. Prueba tu aplicación con simuladores de daltonismo."
+        }
+      }
+    },
+    "3": {
+      "title": "Sala de Control:",
+      "disabilities": {
+        "1": {
+          "title": "Ceguera",
+          "problem": "La pantalla estaba rota, por lo que no podíamos usar nuestros ojos. Las personas ciegas no pueden acceder a la información presentada únicamente en forma visual, como imágenes, gráficos o vídeos sin descripciones alternativas. Sin una estructura de navegación bien pensada, los usuarios ciegos pueden tener dificultades para navegar por un sitio web o una aplicación. Los formularios mal diseñados pueden ser difíciles de entender y completar para las personas que usan lectores de pantalla. Los usuarios ciegos pueden perderse si los elementos interactivos (botones, enlaces) no están claramente identificados y descritos.",
+          "cta": {
+            "1": {
+              "above": "Usar una solución que permita verificar los datos accesibles, como:",
+              "label": "UUV",
+              "link": "https://orange-opensource.github.io/uuv/"
+            }
+          },
+          "advice": "Usar descripciones alternativas para las imágenes y otros elementos portadores de información. Respetar los estándares ARIA (Aplicaciones de Internet Ricas y Accesibles). Estructurar las páginas con títulos y encabezados para facilitar la navegación. Diseñar formularios accesibles. Proporcionar alternativas textuales para los contenidos multimedia. Probar con lectores de pantalla."
+        }
+      }
+    },
+    "4": {
+      "title": "El Santuario:",
+      "disabilities": {
+        "1": {
+          "title": "Trastorno Visual",
+          "problem": "Las etiquetas eran demasiado pequeñas o demasiado grandes, los campos de entrada estaban lejos de sus etiquetas, y la página era demasiado grande.",
+          "advice": "Ampliar los elementos interactivos y reorganizarlos para simplificar la navegación. Usar márgenes generosos y espacios en blanco para reducir el desorden visual y mejorar la legibilidad general."
+        }
+      }
+    }
+  },
+  "cognitive": {
+    "title": "Trastorno Cognitivo",
+    "1": {
+      "title": "Sala Médica:",
+      "disabilities": {
+        "1": {
+          "title": "Dislexia",
+          "problem": "Los caracteres cambian sin interrupción. Este trastorno visuo-atencional perturba el análisis de palabras y textos, debido a un déficit de atención. Puede deberse a fuentes no adecuadas, texto demasiado denso y no estructurado, falta de claridad visual (mal contraste o fondo, o disposición desordenada), y navegación compleja (menús o enlaces no intuitivos o mal organizados).",
+          "advice": "Hacer las letras más distintas y fáciles de reconocer eligiendo una fuente sin serif como Arial o Verdana. Usar párrafos cortos y bien espaciados, con interlineado generoso. Asegurar un buen contraste entre el texto y el fondo. Los fondos claros con texto oscuro suelen ser los más legibles. Usar títulos, subtítulos, listas con viñetas y números para organizar el contenido. Preferir la alineación a la izquierda del texto en lugar de la justificación completa, que puede crear espaciados irregulares difíciles de seguir. Crear una estructura de navegación clara e intuitiva, con menús simples y enlaces bien etiquetados."
+        }
+      }
+    },
+    "2": {
+      "title": "Sala de Enigmas:",
+      "disabilities": {
+        "1": {
+          "title": "Dislexia",
+          "problem": "Las imágenes interferían con nuestra lectura. Los elementos animados, parpadeantes o en movimiento constante pueden distraer y dificultar la concentración en el contenido principal.",
+          "advice": "Limitar las animaciones, imágenes parpadeantes y otras distracciones que puedan dificultar la concentración y la lectura."
+        }
+      }
+    }
+  },
+  "motor": {
+    "title": "Trastorno Motor",
+    "1": {
+      "title": "Entrada del Laboratorio:",
+      "disabilities": {
+        "1": {
+          "title": "Temblores",
+          "problem": "La superficie de acción representada por la cruz roja es muy pequeña. Los trastornos motores causan dificultades cuando los elementos de la interfaz son demasiado pequeños o están demasiado juntos, cuando las rutas de usuario requieren movimientos precisos o rápidos, cuando las interfaces no son compatibles con dispositivos como teclados alternativos o ratones especializados.",
+          "cta": {
+            "1": {
+              "above": "Asegúrate de que todas las funciones sean accesibles mediante el teclado y que el orden de tabulación sea lógico, como con:",
+              "label": "UUV - navegación con teclado",
+              "link": "https://orange-opensource.github.io/uuv/docs/wordings/generated-wording-description/fr-generated-wording-description/#je-commence-une-navigation-au-clavier-depuis-le-haut-de-la-page"
+            }
+          },
+          "advice": "Asegúrate de que los botones, enlaces y campos de formulario sean lo suficientemente grandes y espaciados para ser fácilmente accesibles. Reduce la cantidad de movimientos necesarios para completar una tarea y evita acciones complejas como arrastrar y soltar."
+        }
+      }
+    },
+    "2": {
+      "title": "El Laboratorio:",
+      "disabilities": {
+        "1": {
+          "title": "Temblores",
+          "problem": "La sala estaba refrigerada, lo que provocaba temblores. Tuvimos dificultad para apuntar a las teclas y presionamos frecuentemente las teclas adyacentes. Los atajos de teclado tampoco funcionaban.",
+          "advice": "Recomendar el uso de teclados especializados con teclas más grandes y espaciadas, o teclados en pantalla con opciones de personalización. También, integrar opciones de dictado y entrada de voz para permitir a los usuarios introducir texto sin usar el teclado."
+        }
+      }
+    }
+  },
+  "hearing": {
+    "title": "Trastorno Auditivo",
+    "1": {
+      "title": "La Sala Audiovisual:",
+      "disabilities": {
+        "1": {
+          "title": "Sordera",
+          "problem": "El volumen del sonido es extremadamente bajo. La música ambiental también puede perturbar la concentración.",
+          "advice": "Proporcionar subtítulos, transcripciones de texto y opciones de comunicación visual como el lenguaje de señas."
+        }
+      }
+    }
+  }
+}

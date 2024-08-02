@@ -1,0 +1,57 @@
+{
+  "before": {
+    "image": "You walk down the laboratory corridor",
+    "row": {
+      "1": "You manage to activate the button correctly, and an internal mechanism begins to work. The metal door slowly opens with a creak, revealing a corridor leading into the secondary laboratory.",
+      "2": "You proceed cautiously and immediately feel a chilling cold emanating from within."
+    }
+  },
+  "neon": {
+    "title": "The Surface",
+    "subtitle": "The Laboratory"
+  },
+  "scenario": {
+    "row": {
+      "1": "This icy air comes from a large abandoned refrigerated chamber that was once used to store sensitive substances.",
+      "2": "The cold is intense, and ice crystals cover the walls and floor. Behind a cabinet, there is a large terminal with an embedded keyboard and a slightly cracked screen."
+    },
+    "modal": {
+      "1": {
+        "title": "Refrigerated Chamber Containing the Terminal",
+        "row": {
+          "1": "A handwritten note in a corner of the room mentions the effects of intense cold on the human body.",
+          "2": "On the back of this note are encoded inscriptions.",
+          "3": "encoded inscriptions"
+        }
+      }
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "You must decipher and type the resolved code on the terminal's keyboard, despite the intense cold. If your hands tremble too much, you may enter the wrong code, which could trigger an alarm or a temporary lockdown.",
+      "2": "encoded inscriptions"
+    }
+  },
+  "test": {
+    "response": "tremor$",
+    "parchment": {
+      "row": {
+        "1": "the",
+        "2": "password",
+        "3": "is",
+        "4": "tremor"
+      }
+    },
+    "buttons": {
+      "password": {
+        "text": "Password",
+        "placeholder": "Enter the password",
+        "label": "password",
+        "error": "The password is incorrect"
+      },
+      "submit": {
+        "text": "Submit"
+      }
+    }
+  }
+}

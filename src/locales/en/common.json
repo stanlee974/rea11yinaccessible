@@ -1,0 +1,126 @@
+{
+  "title": "Really Inaccessible",
+  "button": {
+    "waiting": "Continue to the next"
+  },
+  "layout": {
+    "bypassMenu": {
+      "goToContent": "Go to content",
+      "goToMenu": "Go to menu"
+    },
+    "menu": {
+      "logo": "Really Inaccessible logo",
+      "axe": "Axe-core - accessibility test",
+      "reference": {
+        "title": "Reference"
+      },
+      "uuv": {
+        "title": "UUV - E2E accessibility test",
+        "kata": "Kata (exercise)"
+      },
+      "source": "Source code",
+      "language": {
+        "fr": "French",
+        "en": "English",
+        "es": "Spanish"
+      }
+    },
+    "title": {
+      "scenario": "Scenario",
+      "goal": "Objective"
+    },
+    "progressRoom": {
+      "shelterEntrance": "Alterations Room",
+      "shelterMedicalRoom": "Medical Room",
+      "shelterComputerRoom": "Control Room",
+      "shelterSearchCenterRoom": "Puzzle Room",
+      "surfaceEntrance": "Laboratory Entrance",
+      "surfaceLaboratoryEntrance": "The Laboratory",
+      "audiovisualRoom": "Audio-Visual Room",
+      "sanctuary": "The Sanctuary"
+    }
+  },
+  "header": {
+    "accessibility": {
+      "title": "Accessibility Mode",
+      "on": "Enabled",
+      "off": "Disabled"
+    },
+    "hint": {
+      "message": {
+        "title": "Hint #",
+        "nothing": "No help available for this challenge",
+        "waitingRoom": {
+          "1": "Sometimes developers don't think about people using assistive tools like voice assistants.",
+          "2": "Read the text carefully and what you need to click on.",
+          "3": "The word here is a clickable link. Click on it to continue. The Continue button is a 'honeypot'."
+        },
+        "shelterMedicalRoom": {
+          "1": "Focus on the last two sentences with the moving letters.",
+          "2": "The twelfth word from the beginning, not counting the comma. Replace 'd' with 'b'.",
+          "3": "The word is byslexia."
+        },
+        "shelterEntrance": {
+          "1": "The note on the table can help you find the combination if you don't want to try all combinations. Use contrast and brightness.",
+          "2": "Set the contrast to 74 and brightness to 100.",
+          "3": "The correct order is fourth, third, first, and second."
+        },
+        "shelterSearchCenterRoom": {
+          "1": "Riddle 1: Shhh!, Riddle 2: Some words have multiple meanings, Riddle 3: The difference can be minimal.",
+          "2": "Riddle 1: Silence is golden and speech is silver, Riddle 2: The word letter has a double meaning, Riddle 3: Look closely at the 2 words next to each other.",
+          "3": "Riddle 1: silence, Riddle 2: envelope, Riddle 3: é."
+        },
+        "shelterComputerRoom": {
+          "1": "Look closely at the patterns on the table; don't these symbols tell you something? Increase the volume of the sounds, you might hear things.",
+          "2": "Is this a form of written language for the visually impaired?",
+          "3": "When you hear the input area, type the corresponding information and press tab. Do the same for the others, and when you hear Submit, press the enter key."
+        },
+        "surfaceEntrance": {
+          "1": "When you move the mouse, it will shake less than if you stay in one place.",
+          "2": "People with disabilities are more efficient in this world.",
+          "3": "Click on the 'Control Panel' title and press the 'tab' key twice to select the cross, then click the 'enter' key."
+        },
+        "surfaceLaboratoryEntrance": {
+          "1": "Zoom in on the bottom left, you'll see something interesting. The transcription is elsewhere on the map.",
+          "2": "The transcription in the bottom right represents the keys on your Spanish keyboard.",
+          "3": "Type the password: tremors. Be careful, you need to press the same key several times until the correct letter appears."
+        },
+        "audiovisualRoom": {
+          "1": "By listening to a complete soundtrack, you will get another one with less hearing impairment.",
+          "2": "Turn up the volume on your computer or tablet to the maximum.",
+          "3": "The password is: deafness"
+        },
+        "sanctuary": {
+          "1": "The page is very large, don't hesitate to zoom out and scroll to find the labels and input fields. The answers to the 2 fields are in the text.",
+          "2": "Using the 'Tab' key can be helpful to get close to the input fields.",
+          "3": "first name: Rodrigue, last name: Payet or first name: Diva and last name: Tchoungui. The validate button is on the left side of the page."
+        }
+      },
+      "help": "Display a hint",
+      "solution": "Display the solution",
+      "tooltip": "Need help?"
+    },
+    "volume": {
+      "song": "Music volume",
+      "soundEffect": "Sound effects volume"
+    },
+    "audio": "Background music",
+    "oxygen": {
+      "title": "Oxygen",
+      "remaining": "{{oxygen}}% oxygen remaining"
+    }
+  },
+  "step": {
+    "intro": "Introduction",
+    "waitingRoom": "Opening",
+    "shelterEntrance": "Visual impairments | Color blindness",
+    "shelterMedicalRoom": "Cognitive impairments | Dyslexia",
+    "shelterComputerRoom": "Visual impairments | Blindness",
+    "shelterSearchCenterRoom": "Cognitive impairments | Intrusive images",
+    "surfaceEntrance": "Motor impairments | Mouse tremor",
+    "surfaceLaboratoryEntrance": "Motor impairments | Keyboard tremor",
+    "audiovisualRoom": "Hearing impairments | Deafness",
+    "sanctuary": "Cognitive impairments | Font, Zoom, Alignment",
+    "final": "Epilogue"
+  }
+}

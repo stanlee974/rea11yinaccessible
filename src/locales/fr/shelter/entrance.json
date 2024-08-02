@@ -1,0 +1,42 @@
+{
+  "before": {
+    "image": "Tu rentres dans l'abri",
+    "row": {
+      "1": "L'entrée de l'abri est une porte massive en acier, rouillée par les années et recouverte de lierre et de mousse.",
+      "2": "Un vieux panneau, à moitié effacé par le temps, porte l'inscription : \"Refuge Alpha - Accès Réservé au Personnel Autorisé\". Tu t'approches de l'entrée avec un mélange de curiosité et d'appréhension."
+    }
+  },
+  "neon": {
+    "title": "L'abri",
+    "subtitle": "Salle des altérations"
+  },
+  "scenario": {
+    "row": {
+      "1": "Tu te trouves dans une salle obscure avec des équipements médicaux abandonnés et des armoires de rangement.",
+      "2": "Une note sur la table contient le message suivant : ",
+      "3": "Blanc pur sur blanc pur, rien ne semble changer, mais ajoute une ombre, et les couleurs se mettent à danser. Quand la lumière se fait douce ou se fait forte, Les nuances cachées frappent à notre porte.",
+      "4": "Dans un coin de la salle, il y a un panneau de contrôle avec quatre boutons et un document déchiré indiquant que la séquence correcte est Jaune, Rose, Vert et Orange. Malheureusement, les boutons n'ont pas d'étiquettes et les perceptions des couleurs peuvent être altérées par le daltonisme."
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Tu dois trouver la bonne combinaison de 4 éléments sans attendre. Il n'y a pas 2 fois la même couleur dans la combinaison.",
+      "2": "Bonne chance, survivant. Que l'injection CaM-RuN-a11Y te guide vers la liberté"
+    }
+  },
+  "test": {
+    "contrast": "Contraste",
+    "brightness": "luminosité",
+    "buttons": {
+      "green": "Ce bouton Vert n'est pas le second",
+      "orange": "Ce bouton Orange vient après le bouton Vert",
+      "rose": "Ce bouton Rose n'est jamais le premier ni le dernier",
+      "yellow": "Ce bouton Jaune est immédiatement suivi par le bouton Rose"
+    },
+    "error": {
+      "title": "Erreur",
+      "message": "L'ordre d'activation des boutons n'est pas bon",
+      "caption": "Essaie encore"
+    }
+  }
+}

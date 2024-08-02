@@ -1,0 +1,77 @@
+{
+  "before": {
+    "image": "Tu avances vers la nouvelle salle",
+    "row": {
+      "1": "Un mécanisme se déclenche et la porte s'ouvre, te laissant passer dans la salle suivante.",
+      "2": "Lorsque tu rentres, tu découvres qu'un accident a endommagé l'écran principal du système de contrôle. Tu dois désormais saisir des données critiques sans rien voir à l'écran."
+    }
+  },
+  "neon": {
+    "title": "L'abri",
+    "subtitle": "Salle de contrôle"
+  },
+  "scenario": {
+    "row": {
+      "1": "Plusieurs pages de manuel technique dispersées autour du terminal expliquent comment utiliser le clavier pour naviguer à l'aveugle.",
+      "2": "Une note indiquant que les commandes du terminal sont prédéfinies et que le code pour continuer se trouve dans le système.",
+      "3": "une page déchirée laisse paraître une photo de l'inventeur d'un langage utilisé par les non voyants et des informations qui lui sont liées"
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Tu dois saisir les informations de cet inventeur et appuyer sur entrer pour soumettre."
+    }
+  },
+  "hint": {
+    "title": "Indices trouvés sur la table",
+    "tabs": {
+      "1": {
+        "title": "Navigation",
+        "message": {
+          "1": "La touche Tab du clavier, permet de passer au champ de saisie suivant.",
+          "2": "La touche Shift+Tab du clavier, permet de retourner au champ de saisie précédent.",
+          "3": "La touche Entrée du clavier, permet de cliquer sur les boutons par exemple pour soumettre un formulaire.",
+          "4": "Le format des dates est jj/mm/aaaa"
+        }
+      },
+      "2": {
+        "title": "Inventeur",
+        "message": "Photo déchirée de l'inventeur nommé Louis Braille, née le 4 Janvier 1809 et mort le 6 Janvier 1852."
+      }
+    }
+  },
+  "test": {
+    "form": {
+      "title": "Consulter les notes",
+      "lastName" : {
+        "ariaLabel": "Nom de l'inventeur",
+        "text": "Nom de l'inventeur",
+        "placeholder": "Entrer un nom...",
+        "error": "le nom est invalide"
+      },
+      "firstName" : {
+        "ariaLabel": "Prénom de l'inventeur",
+        "text": "Prénom de l'inventeur",
+        "placeholder": "Entrer un prénom...",
+        "error": "le prénom est invalide"
+      },
+      "birthday" : {
+        "ariaLabel": "Date de naissance",
+        "text": "Date de naissance",
+        "placeholder": "Entrer une date...",
+        "error": "La date de naissance n'est pas au format attendu : dd/mm/aaaa"
+      },
+      "deathday" : {
+        "ariaLabel": "Date de décès",
+        "text": "Date de décès",
+        "placeholder": "Entrer une date...",
+        "error": "La date de décès n'est pas au format attendu : dd/mm/aaaa"
+      },
+      "submit" : {
+        "ariaLabel": "soumettre",
+        "text": "Soumettre la saisie"
+      }
+    },
+    "description": "ordinateur sur lequel se trouve le formulaire"
+  }
+}

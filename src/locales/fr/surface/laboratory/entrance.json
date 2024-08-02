@@ -1,0 +1,56 @@
+{
+  "before": {
+    "image": "Tu marches dans le corridor du laboratoire",
+    "row": {
+      "1": "Tu arrives correctement à activer le bouton et un mécanisme interne se met en marche. La porte métallique s'ouvre lentement avec un grincement, révélant un couloir menant à l'intérieur du laboratoire secondaire.",
+      "2": "Tu avances prudemment et ressent immédiatement un froid glacial émanant de l'intérieur."
+    }
+  },
+  "neon": {
+    "title": "La surface",
+    "subtitle": "Le laboratoire"
+  },
+  "scenario": {
+    "row": {
+      "1": "Cet air glacé émane d'une grande chambre frigorifique abandonnée autrefois utilisée pour stocker des substances sensibles.",
+      "2": "Le froid est intense, et des cristaux de glace couvrent les murs et le sol. Derrière une armoire, il y a un grand terminal avec un clavier encastré et un écran légèrement fissuré."
+    },
+    "modal": {
+      "1": {
+        "title": "Chambre frigorifiée contenant le terminal",
+        "row": {
+          "1": "Une note manuscrite dans un coin de la salle mentionne les effets du froid intense sur le corps humain.",
+          "2": "A l'arrière de cette note se trouve des inscriptions codés.",
+          "3": "inscriptions codées"
+        }
+      }
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Tu dois déchiffrer et taper le code résolu sur le clavier du terminal, malgré le froid intense. Si tes mains tremblent trop, tu risques d'entrer le mauvais code, ce qui pourrait déclencher une alarme ou un verrouillage temporaire.",
+      "2": "inscriptions codées"
+    }
+  },
+  "test": {
+    "response": "tremblement$",
+    "parchment": {
+      "row": {
+        "1": "le",
+        "2": "mot de passe",
+        "3": "est",
+        "4": "tremblement"
+      }
+    },
+    "buttons": {
+      "password": {
+        "text": "Mot de passe",
+        "placeholder": "Entrer le mot de passe",
+        "error": "Le mot de passe est erroné"
+      },
+      "submit": {
+        "text": "Valider"
+      }
+    }
+  }
+}

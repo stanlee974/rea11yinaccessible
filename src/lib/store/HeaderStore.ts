@@ -1,6 +1,7 @@
-import { get, type Writable } from "svelte/store";
+import {get, writable, type Writable} from "svelte/store";
 import { writableSession } from "./technical/PersistentStore";
 import { getAccessibilityMode } from "$lib/store/AccessibilityModeStore";
+import {setLocale} from "$lib";
 
 //FIXME à mutualiser les store persistent si possible
 export class HeaderStoreData {
@@ -8,13 +9,13 @@ export class HeaderStoreData {
   }
 }
 
-let headerStore: Writable<HeaderStoreData> | undefined = undefined
+export let headerStore: Writable<HeaderStoreData> | undefined = undefined
 
 export const getHeaderStoreData = () => {
   if (headerStore) {
     return get(headerStore)
   }
-  return new HeaderStoreData()
+  initHeaderStore(new HeaderStoreData())
 }
 
 // export const toggleAccessibilityMode = () => {
@@ -33,5 +34,6 @@ export const setPlaySong = (value: boolean) => {
 
 export const initHeaderStore = (init: HeaderStoreData) => {
   const session = writableSession("header", JSON.stringify(init))
-  headerStore = JSON.parse(get(session))
+  let value = JSON.parse(get(session));
+  headerStore = writable(value)
 }

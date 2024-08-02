@@ -1,0 +1,71 @@
+{
+  "before": {
+    "image": "Te diriges apresuradamente hacia el último ala del edificio",
+    "row": {
+      "1": "El terminal electrónico emite un pitido satisfactorio mientras una tarjeta magnética se expulsa de su compartimento.",
+      "2": "La tomas rápidamente, pero tu triunfo es breve. Se escuchan pasos pesados y apresurados en el pasillo adyacente, acercándose peligrosamente. Con el corazón acelerado, te das cuenta de que los rastreadores están muy cerca.",
+      "3": "Sin perder tiempo, das media vuelta, corriendo silenciosamente pero con prisa hacia el último ala disponible del refugio."
+    }
+  },
+  "neon": {
+    "title": "La Superficie",
+    "subtitle": "El Santuario"
+  },
+  "scenario": {
+    "row": {
+      "1": "Al entrar en este nuevo ala, la atmósfera cambia bruscamente. Las paredes, antes desnudas y austeras, ahora están adornadas con retratos antiguos.",
+      "2": "A la izquierda, un hombre con uniforme de médico, con una mirada dura y determinada, te desafía con la mirada. Es Rodrigue PAYET, un famoso virólogo de Mafate.",
+      "3": "A la derecha, una mujer con un vestido rojo escarlata, sus ojos melancólicos parecen contar una historia de pérdida y desesperación.",
+      "4": "La reconoces como tu amiga Diva TCHOUNGUI, la mayor bióloga de Douala.",
+      "5": "El ala parece interminable, cada paso te lleva más profundamente a esta galería de espectros silenciosos.",
+      "6": "Finalmente, al final del pasillo, ves una puerta maciza de madera oscura adornada con herrajes complejos.",
+      "7": "Te acercas rápidamente, esperando que esta puerta conduzca a un refugio temporal o a otra pista crucial."
+    },
+    "button": {
+      "continue": {
+        "text": "Continuar"
+      }
+    },
+    "modal": {
+      "1": {
+        "row": {
+          "1": "Puerta majestuosa adornada con herrajes complejos",
+          "2": "Con la tarjeta magnética firmemente en la mano, la insertas rápidamente en el lector adyacente, rezando para que el mecanismo funcione.",
+          "3": "Los rastreadores se acercan, sus pasos se vuelven cada vez más distintivos. La puerta se abre lentamente con un chirrido, revelando una nueva sala cuyo contenido está por descubrir.",
+          "4": "En el centro del santuario hay un pedestal de vidrio que contiene una misteriosa orbe amarilla, bloqueada por un mecanismo complejo.",
+          "5": "Pedestal que contiene la orbe amarilla"
+        }
+      }
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Al acercarte al mecanismo, una pequeña pantalla muestra un formulario de entrada. La resolución de la pantalla es muy baja en comparación con su tamaño.",
+      "2": "Debes enviar el formulario lo más rápido posible"
+    }
+  },
+  "test": {
+    "response": {
+      "1": {
+        "firstName": "^Payet$",
+        "lastName": "^Rodrigue$"
+      },
+      "2": {
+        "firstName": "^Tchoungui$",
+        "lastName": "^Diva$"
+      }
+    },
+    "buttons": {
+      "lastName": {
+        "text": "Apellido del biólogo"
+      },
+      "firstName": {
+        "text": "Nombre del biólogo"
+      },
+      "submit": {
+        "text": "Validar"
+      }
+    },
+    "error": "El apellido o el nombre es incorrecto. ¿Qué biólogo realizará la intervención?"
+  }
+}

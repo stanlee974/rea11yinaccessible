@@ -1,0 +1,77 @@
+{
+  "before": {
+    "image": "Avanzas hacia la nueva sala",
+    "row": {
+      "1": "Un mecanismo se activa y la puerta se abre, permitiéndote pasar a la sala siguiente.",
+      "2": "Al entrar, descubres que un accidente ha dañado la pantalla principal del sistema de control. Ahora debes ingresar datos críticos sin poder ver la pantalla."
+    }
+  },
+  "neon": {
+    "title": "El refugio",
+    "subtitle": "Sala de control"
+  },
+  "scenario": {
+    "row": {
+      "1": "Varias páginas de un manual técnico esparcidas alrededor del terminal explican cómo usar el teclado para navegar a ciegas.",
+      "2": "Una nota indica que los comandos del terminal están predefinidos y que el código para continuar se encuentra en el sistema.",
+      "3": "Una página rasgada revela una foto del inventor de un lenguaje utilizado por personas con discapacidad visual y la información relacionada con él."
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Debes ingresar la información de este inventor y presionar enter para enviar."
+    }
+  },
+  "hint": {
+    "title": "Pistas encontradas en la mesa",
+    "tabs": {
+      "1": {
+        "title": "Navegación",
+        "message": {
+          "1": "La tecla Tab del teclado permite pasar al siguiente campo de entrada.",
+          "2": "La tecla Shift+Tab del teclado permite regresar al campo de entrada anterior.",
+          "3": "La tecla Enter del teclado permite hacer clic en los botones, por ejemplo, para enviar un formulario.",
+          "4": "El formato de las fechas es dd/mm/aaaa."
+        }
+      },
+      "2": {
+        "title": "Inventor",
+        "message": "Foto rasgada del inventor llamado Louis Braille, nacido el 4 de enero de 1809 y fallecido el 6 de enero de 1852."
+      }
+    }
+  },
+  "test": {
+    "form": {
+      "title": "Consultar las notas",
+      "lastName" : {
+        "ariaLabel": "Apellido del inventor",
+        "text": "Apellido del inventor",
+        "placeholder": "Introduce un apellido...",
+        "error": "El apellido es inválido"
+      },
+      "firstName" : {
+        "ariaLabel": "Nombre del inventor",
+        "text": "Nombre del inventor",
+        "placeholder": "Introduce un nombre...",
+        "error": "El nombre es inválido"
+      },
+      "birthday" : {
+        "ariaLabel": "Fecha de nacimiento",
+        "text": "Fecha de nacimiento",
+        "placeholder": "Introduce una fecha...",
+        "error": "La fecha de nacimiento no está en el formato esperado: dd/mm/aaaa"
+      },
+      "deathday" : {
+        "ariaLabel": "Fecha de fallecimiento",
+        "text": "Fecha de fallecimiento",
+        "placeholder": "Introduce una fecha...",
+        "error": "La fecha de fallecimiento no está en el formato esperado: dd/mm/aaaa"
+      },
+      "submit" : {
+        "ariaLabel": "soumettre",
+        "text": "Enviar la entrada"
+      }
+    },
+    "description": "Computadora en la que se encuentra el formulario"
+  }
+}

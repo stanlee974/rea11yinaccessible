@@ -1,0 +1,71 @@
+{
+  "before": {
+    "image": "You rush towards the last wing of the building",
+    "row": {
+      "1": "The electronic terminal emits a satisfying beep as a magnetic card ejects from its slot.",
+      "2": "You quickly grab it, but your triumph is short-lived. Heavy, hurried footsteps can be heard in the adjacent hallway, dangerously close. With a racing heart, you realize the trackers are not far behind.",
+      "3": "Without wasting a moment, you double back, silently but quickly heading towards the last available wing of the refuge."
+    }
+  },
+  "neon": {
+    "title": "The Surface",
+    "subtitle": "The Sanctuary"
+  },
+  "scenario": {
+    "row": {
+      "1": "Entering this new wing, the atmosphere changes abruptly. The walls, once bare and austere, are now adorned with old portraits.",
+      "2": "To the left, a man in a doctor's uniform, with a stern and determined look, challenges you with his gaze. It's Rodrigue PAYET, a famous virologist from Mafate.",
+      "3": "To the right, a woman in a scarlet red dress, her melancholic eyes telling a story of loss and despair.",
+      "4": "You recognize her as your friend Diva TCHOUNGUI, the greatest biologist from Douala.",
+      "5": "The wing seems endless, each step drawing you deeper into this gallery of silent specters.",
+      "6": "Finally, at the end of the corridor, you see a massive dark wooden door adorned with complex ironwork.",
+      "7": "You quickly approach, hoping this door leads to a temporary refuge or another crucial clue."
+    },
+    "button": {
+      "continue": {
+        "text": "Continue"
+      }
+    },
+    "modal": {
+      "1": {
+        "row": {
+          "1": "Majestic door adorned with complex ironwork",
+          "2": "With the magnetic card firmly in hand, you quickly insert it into the adjacent reader, praying that the mechanism works.",
+          "3": "The trackers are closing in, their footsteps becoming increasingly distinct. The door slowly opens with a creak, revealing a new room whose contents are yet to be discovered.",
+          "4": "At the center of the sanctuary is a glass pedestal containing a mysterious yellow orb, locked by a complex mechanism.",
+          "5": "Pedestal containing the yellow orb"
+        }
+      }
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "As you approach the mechanism, a small screen displays a form. The screen's resolution is very low, relative to its size.",
+      "2": "You need to submit the form as quickly as possible"
+    }
+  },
+  "test": {
+    "response": {
+      "1": {
+        "firstName": "^Payet$",
+        "lastName": "^Rodrigue$"
+      },
+      "2": {
+        "firstName": "^Tchoungui$",
+        "lastName": "^Diva$"
+      }
+    },
+    "buttons": {
+      "lastName": {
+        "text": "Biologist's Last Name"
+      },
+      "firstName": {
+        "text": "Biologist's First Name"
+      },
+      "submit": {
+        "text": "Submit"
+      }
+    },
+    "error": "The last name or first name is incorrect. Which biologist will perform the intervention?"
+  }
+}

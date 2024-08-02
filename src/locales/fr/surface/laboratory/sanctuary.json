@@ -1,0 +1,71 @@
+{
+  "before": {
+    "image": "Tu te diriges à toute allures dans la dernière aile du bâtiment",
+    "row": {
+      "1": "La borne électronique émet un bip satisfaisant alors qu'une carte magnétique s'éjecte de son compartiment.",
+      "2": "Tu la saisis rapidement, mais ton triomphe est de courte durée. Des bruits de pas lourds et pressés se font entendre dans le couloir adjacent, se rapprochant dangereusement. Le cœur battant, tu réalises que les traqueurs ne sont plus très loin.",
+      "3": "Sans perdre un instant, tu rebrousses chemin, courant silencieusement mais précipitamment vers la dernière aile disponible du refuge."
+    }
+  },
+  "neon": {
+    "title": "La surface",
+    "subtitle": "Le sanctuaire"
+  },
+  "scenario": {
+    "row": {
+      "1": "En entrant dans cette nouvelle aile, l'atmosphère change brusquement. Les murs, autrefois nus et austères, sont maintenant parsemés de portraits anciens.",
+      "2": "À gauche, un homme en uniforme de médecin, son regard dur et déterminé, te défie du regard. C'est bien Rodrigue PAYET, un célèbre virologue de Mafate.",
+      "3": "À droite, une femme en robe rouge écarlate, ses yeux mélancoliques semblant raconter une histoire de perte et de désespoir.",
+      "4": "Tu reconnais là ton amie Diva TCHOUNGUI, la plus grande biologiste de Douala.",
+      "5": "L'aile semble interminable, chaque pas t'entraînant plus profondément dans cette galerie de spectres silencieux.",
+      "6": "Enfin, au bout du couloir, tu aperçois une porte massive en bois sombre, ornée de ferrures complexes.",
+      "7": "Tu t'approches rapidement, espérant que cette porte mène à un refuge temporaire ou à un autre indice crucial."
+    },
+    "button": {
+      "continue": {
+        "text": "Continuer"
+      }
+    },
+    "modal": {
+      "1": {
+        "row": {
+          "1": "Porte majestueuse ornée de ferrures complexes",
+          "2": "Avec la carte magnétique fermement en main, tu insères rapidement celle-ci dans le lecteur adjacent, priant pour que le mécanisme fonctionne.",
+          "3": "Les traqueurs se rapprochent, leurs pas devenant de plus en plus distincts. La porte s'ouvre lentement avec un grincement, révélant une nouvelle salle dont le contenu reste à découvrir.",
+          "4": "Au centre du sanctuaire se trouve un piédestal en verre contenant une mystérieuse orbe jaune, verrouillée par un mécanisme complexe.",
+          "5": "Piedestal contenant l'orbe jaune"
+        }
+      }
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "En se rapprochant du mécanisme, un petit écran affiche un formulaire de saisie. La résolution de l'écran est vraiment basse, par rapport à la taille de l'écran.",
+      "2": "Tu dois soumettre le formulaire le plus vite possible"
+    }
+  },
+  "test": {
+    "response": {
+      "1": {
+        "firstName": "^Payet$",
+        "lastName": "^Rodrigue$"
+      },
+      "2": {
+        "firstName": "^Tchoungui$",
+        "lastName": "^Diva$"
+      }
+    },
+    "buttons": {
+      "lastName": {
+        "text": "Nom du biologiste"
+      },
+      "firstName": {
+        "text": "prénom du biologiste"
+      },
+      "submit": {
+        "text": "Valider"
+      }
+    },
+    "error": "le nom ou le prénom n'est pas correct. Quel est le biologiste qui fera l'intervention?"
+  }
+}

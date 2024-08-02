@@ -1,0 +1,27 @@
+{
+  "welcome": "Welcome!",
+  "scenario": {
+    "begin": "Start the escape game",
+    "row": {
+      "1": "The world as we knew it has vanished. An unknown pandemic swept across the planet, leaving 99.99% of the population with various disabilities. In this futuristic world where visual, auditory, motor, and cognitive disabilities are ubiquitous and considered essential aspects of identity, those without any limitations are regarded as heretics and treated with suspicion. They are hunted down and mercilessly eliminated by the authorities.",
+      "2": "You play as a 'heretic' survivor who has discovered the existence of an injection called CaM-RuN-a11Y. This injection allows you to develop a random disability, enabling you to blend in with the population and escape the hunt.",
+      "3": "Another peril threatens humanity: an ecological crisis has drastically reduced the oxygen levels on the Earth's surface. Shelters have been built to protect citizens, but even these refuges are not eternally safe. The air filtration systems in the shelters are starting to fail, and the oxygen levels are slowly but inexorably decreasing."
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Your objective is to blend in with the population, solve puzzles, and overcome the obstacles that stand in your way. Each challenge will bring you closer to survival, but will require quick adaptation and flawless ingenuity. The hunt is on, and every moment counts. Use your new abilities to deceive the authorities, uncover the secrets of this strange society, and find a way to survive in this world where the norm is reversed.",
+      "2": "Good luck, survivor. May the CaM-RuN-a11Y injection guide you to freedom."
+    }
+  },
+  "test": {
+    "clickLink": "click",
+    "here": "here",
+    "enter": "to enter the shelter.",
+    "startButton": "Continue",
+    "error": {
+      "title": "Error",
+      "content": "This is not the place."
+    }
+  }
+}

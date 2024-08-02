@@ -10,11 +10,10 @@
   let audio: HTMLAudioElement;
   export let src: string = ""
   export let postPlay: Function | undefined = undefined
-  export let loop: boolean = false
   let interval: number;
   onMount(() => {
     audio = new Audio(base + src)
-    audio.loop = loop
+    audio.loop = false
     interval = setInterval(() => {
       audio.volume = getVolume()
       if (postPlay) {

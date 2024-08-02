@@ -1,0 +1,59 @@
+{
+  "before": {
+    "image": "Tu rentres dans la salle médicale",
+    "row": {
+      "1": "Après une minutieuse vérification et quelques ajustements, tu appuies sur le bouton \"Soumettre\".",
+      "2": "Une lumière verte s'allume au-dessus de la console, confirmant que le formulaire a été correctement rempli.",
+      "3": "Avec un léger grincement, une porte secondaire s'ouvre sur le côté de la console, révélant un passage étroit. Tu entres prudemment, l'atmosphère changeant immédiatement. Une odeur de moisi et de terre humide envahit tes narines, et la lumière se fait plus rare. Le passage te conduit à une nouvelle salle, encore plus lugubre que les précédentes."
+    }
+  },
+  "neon": {
+    "title": "L'abri",
+    "subtitle": "Salle médicale"
+  },
+  "scenario": {
+    "row": {
+      "1": "La salle est faiblement éclairée, avec des étagères remplies de vieux livres et documents. Au centre, une table avec une boîte contenant des pilules de Dysclecsus et une feuille de papier avec un texte indéchiffrable.",
+      "2": "Une note griffonnée sur le bord de la table disant :",
+      "3": "Pour voir les mots tels qu'ils sont, prenez une pilule et laissez votre esprit s'adapter",
+      "4": "Un manuel de médecine ouvert sur une page décrivant le médicament Dysclecsus, expliquant qu'il induit temporairement une forme de dyslexie réversible, permettant de lire des textes cachés.",
+      "5": "Tu avales la pilule et attends quelques instants. Après la prise, tu ressens une légère altération de ta perception, et le texte sur la feuille commence à s'organiser de manière compréhensible."
+    },
+    "modal": {
+      "1" : {
+        "title": "Livre indéchiffrable et table contenant les pilules",
+        "image": {
+          "1": "table contenant une boîte avec des pillules",
+          "2": "vieux livre indéchiffrable"
+        }
+      },
+      "2" : {
+        "title": "Tu avales une pilule"
+      }
+    }
+  },
+  "goal": {
+    "row": {
+      "1": "Un dispositif électronique à côté de la porte de sortie nécessite l'entrée d'un mot de passe révélé par le texte"
+    }
+  },
+  "test": {
+    "sentence": "Dans un monde où les mots dansent et se transforment, la dyslexie transforme la lecture en une aventure constante. Les lettres se mêlent et se confondent, offrant une perspective unique et souvent méconnue sur la réalité écrite. Tu trouveras le mot de passe à la douzième position de ce texte. Attention, il faut remplacer la lettre d par la lettre b.",
+    "button": {
+      "password": {
+        "label": "password",
+        "text": "Mot de passe",
+        "placeholder": "Entrer le mot de passe",
+        "error": "le mot de passe est erroné"
+      },
+      "submit": {
+        "text": "Valider"}
+    },
+    "response": "byslexie",
+    "error": {
+      "title": "Erreur",
+      "message": "L'ordre d'activation des boutons n'est pas bon",
+      "caption": "Essaie encore"
+    }
+  }
+}
