@@ -222,7 +222,7 @@
     let accessibilityMode: boolean = false
     let currentStep: string = $renderStore.step
     onMount(() => {
-        document.title = "really inaccessible | " + $t('common.step.intro')
+        document.title = $t('common.step.intro') + " | really inaccessible"
         document.body.lang = $page.params.lang ?? "fr"
 
         if (!checkSoundVolume()) {

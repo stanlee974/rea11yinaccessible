@@ -54,7 +54,7 @@
             $t('common.layout.progressRoom.sanctuary')]
         renderStoreSetData(`common.step.${$renderStore.step}`, $t(`${$renderStore.step}.neon.title`), $t(`${$renderStore.step}.neon.subtitle`))
         renderStore.subscribe((value) => {
-            document.title = "really inaccessible | " + t.get(`common.step.${value.step}`)
+            document.title = t.get(`common.step.${value.step}`) + " | really inaccessible"
             switch (value.step) {
                 case Step.ABRI_ENTRANCE:
                     currentStep = 0

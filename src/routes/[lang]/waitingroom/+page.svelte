@@ -95,7 +95,7 @@
         renderStore.set(new RenderData($t(`common.step.${Step.WAITING_ROOM}`), "", "", Step.WAITING_ROOM));
         setLocale($page.params.lang)
         document.body.lang = $page.params.lang ?? "fr"
-        document.title = "really inaccessible | " + $t('common.step.waitingRoom')
+        document.title = $t('common.step.waitingRoom') + " | really inaccessible"
         errorSound = new Audio(base + "/sound/error.mp3")
         errorSound.volume = 0.5
         changeSource("/ost/opening.mp3")
