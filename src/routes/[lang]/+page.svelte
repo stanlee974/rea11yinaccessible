@@ -37,7 +37,7 @@
     onMount(() => {
         setLocale($page.params.lang)
         document.body.lang = $page.params.lang ?? "fr"
-        document.title = "really inaccessible | " + $t('common.step.intro')
+        document.title = $t('common.step.intro') + " | really inaccessible"
         changeSource("/ost/intro.mp3")
     })
 
