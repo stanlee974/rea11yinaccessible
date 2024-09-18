@@ -1,35 +1,38 @@
 <ModalComponent opened={showTransitionModal}
                 parentDoneAction={() => {showScenario = false;}}>
-    <div style="display: flex; flex-direction: row">
-        <Grid>
-            <Row>
-                <Column>
-                    <ImageLoader
-                            src="{base}/surface/laboratory/sanctuary/direction_to_sanctuary.jpg"
-                            alt={$t('sanctuary.before.image')}
-                            fadeIn={true}/>
-                </Column>
-                <Column><p style="font-size: 1.3rem">{$t('sanctuary.before.row.1')}</p>
-                    <p style="font-size: 1.3rem">{$t('sanctuary.before.row.2')}</p>
-                    <p style="font-size: 1.3rem">{$t('sanctuary.before.row.3')}</p>
-                </Column>
-            </Row>
-        </Grid>
-    </div>
+    <Grid>
+        <Row>
+            <Column>
+                <ImageLoader
+                        src="{base}/surface/laboratory/sanctuary/direction_to_sanctuary.jpg"
+                        alt={$t('sanctuary.before.image')}
+                        fadeIn={true}/>
+            </Column>
+            <Column>
+                <p class="mb-2">{$t('sanctuary.before.row.1')}</p>
+                <p class="mb-2">{$t('sanctuary.before.row.2')}</p>
+                <p class="mb-2">{$t('sanctuary.before.row.3')}</p>
+            </Column>
+        </Row>
+    </Grid>
 </ModalComponent>
 <Typewriter disabled={showScenario} mode="cascade"
             on:done={() => setTimeout(() => showContinueButton = true, 2000)}>
-    <h2><u><i>{$t('common.layout.title.scenario')}</i></u></h2>
-    <p>{$t('sanctuary.scenario.row.1')}</p>
-    <p>{$t('sanctuary.scenario.row.2')}</p>
-    <p>{$t('sanctuary.scenario.row.3')}</p>
-    <p>{$t('sanctuary.scenario.row.4')}</p>
-    <p>{$t('sanctuary.scenario.row.5')}</p>
-    <p>{$t('sanctuary.scenario.row.6')}</p>
-    <p>{$t('sanctuary.scenario.row.7')}</p>
+    <div>
+        <div class="container mt-4 mb-5">
+            <h2 class="mb-2">{$t('common.layout.title.scenario')}</h2>
+            <p>{$t('sanctuary.scenario.row.1')}</p>
+            <p>{$t('sanctuary.scenario.row.2')}</p>
+            <p>{$t('sanctuary.scenario.row.3')}</p>
+            <p>{$t('sanctuary.scenario.row.4')}</p>
+            <p>{$t('sanctuary.scenario.row.5')}</p>
+            <p>{$t('sanctuary.scenario.row.6')}</p>
+            <p>{$t('sanctuary.scenario.row.7')}</p>
+        </div>
+    </div>
 </Typewriter>
 {#if showContinueButton}
-    <Button kind="secondary"
+    <Button kind="primary"
             style="position: layout; left: 46%; padding-right: 2.5rem; padding-left: 2.5rem;"
             on:click={() => {
             showEnigm = true
@@ -62,11 +65,14 @@
         </Row>
     </Grid>
 </ModalComponent>
-<br aria-hidden="true"/>
 <Typewriter mode="cascade" disabled={disableGoal} on:done={() => setTimeout(() => showForm = true, 2000)}>
-    <h2><u><i>{$t('common.layout.title.goal')}</i></u></h2>
-    <p>{$t('sanctuary.goal.row.1')}</p>
-    <p>{$t('sanctuary.goal.row.2')}</p>
+    <div>
+        <div class="container mb-4">
+            <h2 class="mb-2">{$t('common.layout.title.goal')}</h2>
+            <p>{$t('sanctuary.goal.row.1')}</p>
+            <p>{$t('sanctuary.goal.row.2')}</p>
+        </div>
+    </div>
 </Typewriter>
 {#if showForm}
     <FluidForm style="width: 5000px; height: 5000px">
@@ -81,7 +87,7 @@
                    bind:value={firstName}>
         </div>
     </FluidForm>
-    <Button kind="secondary" on:click={() => validateForm()}>{$t('sanctuary.test.buttons.submit.text')}</Button>
+    <Button kind="primary" on:click={() => validateForm()}>{$t('sanctuary.test.buttons.submit.text')}</Button>
     {#if error}
         <span style="color: red; font-weight: bold">{error}</span>
     {/if}
@@ -132,9 +138,6 @@
 </script>
 
 <style lang="css">
-    @import url(/css/app.css);
-    @import url(/css/neon.css);
-
     label {
         font-size: 1.3em;
     }

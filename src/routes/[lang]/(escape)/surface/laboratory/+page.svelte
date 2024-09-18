@@ -1,24 +1,26 @@
 <ModalComponent opened={showTransitionModal}
                 parentDoneAction={() => {showScenario = false}}>
-    <div style="display: flex; flex-direction: row">
-        <Grid>
-            <Row>
-                <Column>
-                    <ImageLoader
-                            src="{base}/surface/laboratory/man_walking.jpg"
-                            alt={$t('surfaceLaboratory.before.image')} fadeIn={true}/>
-                </Column>
-                <Column><p style="font-size: 1.3rem">{$t('surfaceLaboratory.before.row.1')}</p>
-                    <p style="font-size: 1.3rem">{$t('surfaceLaboratory.before.row.2')}</p>
-                </Column>
-            </Row>
-        </Grid>
-    </div>
+    <Grid>
+        <Row>
+            <Column>
+                <ImageLoader
+                        src="{base}/surface/laboratory/man_walking.jpg"
+                        alt={$t('surfaceLaboratory.before.image')} fadeIn={true}/>
+            </Column>
+            <Column><p style="font-size: 1.3rem">{$t('surfaceLaboratory.before.row.1')}</p>
+                <p style="font-size: 1.3rem">{$t('surfaceLaboratory.before.row.2')}</p>
+            </Column>
+        </Row>
+    </Grid>
 </ModalComponent>
 <TypewriterComponent disabled={showScenario} parentDoneAction={() => {setTimeout(() => showEnigm = true, 2000)}}>
-    <h2><u><i>{$t('common.layout.title.scenario')}</i></u></h2>
-    <p>{$t('surfaceLaboratory.scenario.row.1')}</p>
-    <p>{$t('surfaceLaboratory.scenario.row.2')}</p>
+    <div>
+        <div class="container mb-4">
+            <h2 class="mb-2">{$t('common.layout.title.scenario')}</h2>
+            <p>{$t('surfaceLaboratory.scenario.row.1')}</p>
+            <p>{$t('surfaceLaboratory.scenario.row.2')}</p>
+        </div>
+    </div>
 </TypewriterComponent>
 <ModalComponent opened={showEnigm}
                 parentDoneAction={() => disableGoal = false}>
@@ -52,11 +54,14 @@
         </Row>
     </Grid>
 </ModalComponent>
-<br aria-hidden="true"/>
 <TypewriterComponent disabled={disableGoal}
                      parentDoneAction={() => showForm = true}>
-    <h2><u><i>{$t('common.layout.title.goal')}</i></u></h2>
-    <p>{$t('surfaceLaboratory.goal.row.1')}</p>
+    <div>
+        <div class="container mb-4">
+            <h2 class="mb-2">{$t('common.layout.title.goal')}</h2>
+            <p>{$t('surfaceLaboratory.goal.row.1')}</p>
+        </div>
+    </div>
 </TypewriterComponent>
 {#if showForm}
     <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
@@ -80,14 +85,14 @@
                 </div>
             </div>
         </div>
-        <FluidForm>
+        <FluidForm class="my-3">
             <TextInput
                     labelText={$t('surfaceLaboratory.test.buttons.password.text')}
                     placeholder={$t('surfaceLaboratory.test.buttons.password.placeholder')}
                     required invalid={invalidResult} invalidText={$t('surfaceLaboratory.test.buttons.password.error')}
                     autofocus bind:value={result} on:keydown={(event) => {adaptPressedKey(event)}}/>
         </FluidForm>
-        <Button kind="secondary"
+        <Button kind="primary"
                 on:click={() => validateForm()}>{$t('surfaceLaboratory.test.buttons.submit.text')}</Button>
     </div>
     {#if isWaiting}
@@ -183,9 +188,6 @@
 </script>
 
 <style lang="css">
-    @import url(/css/app.css);
-    @import url(/css/neon.css);
-
     @font-face {
         font-family: brailleFont;
         src: url('/surface/laboratory/source/BRAILLE.woff') format('woff'),

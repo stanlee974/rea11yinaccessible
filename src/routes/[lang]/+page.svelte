@@ -1,34 +1,53 @@
-<Content id="scenario" style="background-color: #161616;">
-    <h1 lang="en">Really Inaccessible</h1>
-    <br aria-hidden="true"/>
-    <br aria-hidden="true"/>
-    <h2>{$t('intro.advice.title')}</h2>
-    <p style="font-size: 1.6rem">{$t('intro.advice.immersive')}</p>
-    <p style="font-size: 1.3rem">{$t('intro.advice.sound')}</p>
-    <p style="font-size: 1.3rem">{$t('intro.advice.fullScreen')}</p>
-    <p style="font-size: 1.6rem">{$t('intro.advice.blocked')}</p>
-    <p style="font-size: 1.3rem">{$t('intro.advice.hints')}</p>
-    <br aria-hidden="true"/>
-    <h2>{$t('intro.context.title')}</h2>
-    <p style="font-size: 1.3rem">{$t('intro.context.welcome')}</p>
-    <p style="font-size: 1.3rem">{$t('intro.context.explanation')}</p>
-    <br aria-hidden="true"/>
-    <br aria-hidden="true"/>
-    <h2>{$t('intro.theme.title')}</h2>
-    <p style="font-size: 1.3rem">{$t('intro.theme.disabilities.visual')}</p>
-    <p style="font-size: 1.3rem">{$t('intro.theme.disabilities.hearing')}</p>
-    <p style="font-size: 1.3rem">{$t('intro.theme.disabilities.cognitive')}</p>
-    <p style="font-size: 1.3rem">{$t('intro.theme.disabilities.motor')}</p>
+<Content id="scenario">
+    <div class="container">
+        <h1 lang="en" class="mb-4">{$t('intro.welcome')}</h1>
+        <div class="mb-4">
+            <h2 class="mb-1">{$t('intro.context.title')}</h2>
+            <p>{$t('intro.context.welcome')}</p>
+            <p>{$t('intro.context.explanation')}</p>
+        </div>
+        <div class="mb-4">
+            <h2 class="mb-1" id="disabilities">{$t('intro.theme.title')}</h2>
+            <UnorderedList aria-labelledby="disabilities" class="ms-4">
+                <ListItem>{$t('intro.theme.disabilities.visual')}</ListItem>
+                <ListItem>{$t('intro.theme.disabilities.hearing')}</ListItem>
+                <ListItem>{$t('intro.theme.disabilities.cognitive')}</ListItem>
+                <ListItem>{$t('intro.theme.disabilities.motor')}</ListItem>
+            </UnorderedList>
+        </div>
+        <div>
+            <h2>{$t('intro.advice.title')}</h2>
+            <InlineNotification kind="info" lowContrast hideCloseButton="true">
+                <strong slot="title" id="advice-immersive">{$t('intro.advice.immersive')}</strong>
+                <div slot="subtitle">
+                    <UnorderedList aria-labelledby="advice-immersive" class="ms-4">
+                        <ListItem>{$t('intro.advice.sound')}</ListItem>
+                        <ListItem>{$t('intro.advice.fullScreen')}</ListItem>
+                    </UnorderedList>
+                </div>
+            </InlineNotification>
+            <InlineNotification kind="warning" lowContrast hideCloseButton="true">
+                <strong slot="title" id="advice-blocked">{$t('intro.advice.blocked')}</strong>
+                <div slot="subtitle">
+                    <UnorderedList aria-labelledby="advice-blocked" class="ms-4">
+                        <ListItem>{$t('intro.advice.hints.0')}</ListItem>
+                        <ListItem>{$t('intro.advice.hints.1')}</ListItem>
+                    </UnorderedList>
+                </div>
+            </InlineNotification>
+        </div>
+    </div>
+    <div class="d-flex flex-row justify-content-center p-3">
+        <Button kind="primary" icon="{PlayFilled}"
+            on:click={() => {
+                redirect($page.params.lang, "waitingroom")
+            }}>{$t('intro.button.start')}</Button>
+    </div>
 </Content>
-<Button kind="secondary"
-        style="left: 46%; padding-right: 2.5rem; padding-left: 2.5rem; margin-top: 2rem; margin-bottom: 2rem"
-        on:click={() => {
-            redirect($page.params.lang, "waitingroom")
-        }}>{$t('intro.button.start')}
-</Button>
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
-    import {Button, Content} from "carbon-components-svelte";
+    import {Button, Content, UnorderedList, ListItem, InlineNotification } from "carbon-components-svelte";
+    import {PlayFilled} from "carbon-icons-svelte";
     import {locale, redirect, setLocale, t} from "$lib";
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {onMount} from "svelte";

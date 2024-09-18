@@ -45,42 +45,45 @@
                 parentDoneAction={() => {
                    showScenario = false;
                }}>
-    <div style="display: flex; flex-direction: row">
-        <Grid>
-            <Row>
-                <Column>
-                    <div class="glitch">
-                        <ImageLoader
-                                src="{base}/final/guard.jpg"
-                                alt={$t('outro.modal.2.image.1.title')}
-                                fadeIn={true}/>
-                    </div>
-                </Column>
-                <Column>
-                    <p style:font-size="1.3rem">{$t('outro.modal.2.image.1.row.1')}</p>
-                    <p style:font-size="1.3rem">{$t('outro.modal.2.image.1.row.2')}</p>
-                    <p style:font-size="1.3rem">{$t('outro.modal.2.image.1.row.3')}</p>
-                </Column>
-            </Row>
-        </Grid>
-    </div>
+    <Grid>
+        <Row>
+            <Column>
+                <div class="glitch">
+                    <ImageLoader
+                            src="{base}/final/guard.jpg"
+                            alt={$t('outro.modal.2.image.1.title')}
+                            fadeIn={true}/>
+                </div>
+            </Column>
+            <Column>
+                <p class="mb-2">{$t('outro.modal.2.image.1.row.1')}</p>
+                <p class="mb-2">{$t('outro.modal.2.image.1.row.2')}</p>
+                <p  class="mb-2">{$t('outro.modal.2.image.1.row.3')}</p>
+            </Column>
+        </Row>
+    </Grid>
 </ModalComponent>
 <TypewriterComponent disabled={showScenario} parentDoneAction={() => disabledFin = false}>
-    <h2><u><i>{$t('outro.epilogue.title')}</i></u></h2>
-    <p>{$t('outro.epilogue.row.1')}</p>
-    <p>{$t('outro.epilogue.row.2')}</p>
-    <p>{$t('outro.epilogue.row.3')}</p>
-    <p>{$t('outro.epilogue.row.4')}</p>
-    <p>{$t('outro.epilogue.row.5')}</p>
+    <div>
+        <div class="container mb-4">
+            <h2 class="mb-2">{$t('outro.epilogue.title')}</h2>
+            <p class="mb-2">{$t('outro.epilogue.row.1')}</p>
+            <p class="mb-2">{$t('outro.epilogue.row.2')}</p>
+            <p class="mb-2">{$t('outro.epilogue.row.3')}</p>
+            <p class="mb-2">{$t('outro.epilogue.row.4')}</p>
+            <p class="mb-2">{$t('outro.epilogue.row.5')}</p>
+        </div>
+    </div>
 </TypewriterComponent>
 <TypewriterComponent disabled={disabledFin} waitReading continueButtonAction={() => showSummary = true}
                      buttonLabel={$t('outro.buttons.summary')}>
-    <span class="fin">{$t('outro.buttons.end')}</span>
+    <div>
+        <div class="container mb-5">
+            <span class="fin">{$t('outro.buttons.end')}</span>
+        </div>
+    </div>
 </TypewriterComponent>
 {#if showSummary}
-    <br aria-hidden="true"/>
-    <br aria-hidden="true"/>
-    <br aria-hidden="true"/>
     <ExpandableTile tileExpandedLabel={$t('outro.viewLess')} tileCollapsedLabel={$t('outro.viewMore')}>
         <div slot="above">
             <h2>{$t('outro.visual.title')}</h2>
@@ -212,8 +215,9 @@
 </script>
 
 <style lang="css">
-    @import url(/css/app.css);
-    @import url(/css/neon.css);
+    .half {
+        width: 49%;
+    }
 
     .number {
         border: white 1px solid;
@@ -291,7 +295,8 @@
         font-size: 3.5rem;
         font-weight: 300;
         animation: lights 5s 750ms linear infinite;
-        left: 38%;
+        text-align: center;
+        display: block;
         position: relative;
     }
 </style>

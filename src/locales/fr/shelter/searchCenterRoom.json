@@ -22,12 +22,13 @@
       "1": "Tu dois faire abstraction des hallucinations sonores et visuelles perturbantes pour ne pas te laisser induire en erreur. Reste donc concentré malgré les hallucinations et trouve les 3 réponses."
     },
     "modal": {
+      "riddle": "Enigme",
       "1": {
         "title": "3 fiches à énigmes",
         "row": {
-          "1": "Enigme 1 : Dès que l'on me nomme, on me brise. Qui suis-je?",
-          "2": "Enigme 2 : Je commence par un E, je termine par un E, je peux contenir qu'une seule lettre, mais je ne suis pas la lettre E. Qui suis-je?",
-          "3": "Enigme 3 : Je transforme une plante en une planète. Qui suis-je ?"
+          "1": "Dès que l'on me nomme, on me brise. Qui suis-je?",
+          "2": "Je commence par un E, je termine par un E, je peux contenir qu'une seule lettre, mais je ne suis pas la lettre E. Qui suis-je?",
+          "3": "Je transforme une plante en une planète. Qui suis-je ?"
         }
       }
     }

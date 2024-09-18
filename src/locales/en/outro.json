@@ -9,26 +9,26 @@
         "1": {
           "title": "You Look at the Orb",
           "row": {
-            "1": "You shake it and realize it's not empty. You use a metal pick at the foot of the pedestal that seems intended for this purpose. When it breaks, an intense light fills the room before fading, revealing a finely decorated metal syringe filled with a silvery liquid."
+            "1": "At the center of the sanctuary, the orb glows, illuminated by luminescent crystals. It rests on a golden pedestal, surrounded by ancient engravings and mystical inscriptions. You approach with a mix of excitement and fear. The mechanism slowly opens, and you grasp the orb."
           }
         },
         "2": {
           "title": "You Inject the Substance",
           "row": {
-            "1": "After the injection, you anxiously wait for the effects to manifest. However, instead of feeling physical changes, you begin to feel strangely normal.",
-            "2": "A chill of panic runs through you. You desperately search through the ancient manuscripts in the sanctuary to understand what went wrong. A note hidden in a shadowy corner of the sanctuary finally reveals the truth: the syringe contained a placebo."
+            "1": "You shake it and realize it's not empty. You use a metal pick at the foot of the pedestal that seems intended for this purpose. When it breaks, an intense light fills the room before fading, revealing a finely decorated metal syringe filled with a silvery liquid."
           }
         },
         "3": {
           "title": "The Broken Orb Contains the Injection",
           "row": {
-            "1": "At the center of the sanctuary, the orb glows, illuminated by luminescent crystals. It rests on a golden pedestal, surrounded by ancient engravings and mystical inscriptions. You approach with a mix of excitement and fear. The mechanism slowly opens, and you grasp the orb."
+            "1": "You prepare to inject the contents of the syringe. You take a deep breath, hoping that this injection will give you the disability needed to escape the trackers. You hold the syringe with a trembling hand, feeling the weight of the moment. You empty the dose into your still-warm vein."
           }
         },
         "4": {
           "title": "You Read the Letter Revealing the Truth",
           "row": {
-            "1": "You prepare to inject the contents of the syringe. You take a deep breath, hoping that this injection will give you the disability needed to escape the trackers. You hold the syringe with a trembling hand, feeling the weight of the moment. You empty the dose into your still-warm vein."
+            "1": "After the injection, you anxiously wait for the effects to manifest. However, instead of feeling physical changes, you begin to feel strangely normal.",
+            "2": "A chill of panic runs through you. You desperately search through the ancient manuscripts in the sanctuary to understand what went wrong. A note hidden in a shadowy corner of the sanctuary finally reveals the truth: the syringe contained a placebo."
           }
         }
       }

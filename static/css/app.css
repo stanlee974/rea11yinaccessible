@@ -1,13 +1,3 @@
-:global(p) {
-	font-size: 2em;
-	text-justify: inter-word;
-	text-align: justify;
-}
-
-:global(body) {
-	margin-bottom: 5rem;
-}
-
 /* NEON */
 html,
 body {
@@ -17,17 +7,62 @@ body {
 	height: 100%;
 	display: table;
 	background-color: black;
+	/* TODO : pourquoi ce margin ? (j'ai remplacé le margin par un padding */
+	padding-bottom: 5rem;
+}
+
+h2 {
+	text-decoration: underline;
+}
+
+body p, body li:not(.bx--tabs__nav-item, .bx--tabs__nav-link), .bx--modal-footer .bx--btn {
+	font-size: 1.7em;
+	text-justify: inter-word;
+	text-align: justify;
+}
+
+.bx--modal-footer .bx--btn {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+  	padding: 1em !important;
+}
+
+.bx--modal-footer .bx--btn .bx--btn__icon {
+	position: relative !important;
+}
+
+.bx--inline-notification__details * {
+	font-size: 1.2em;
+}
+
+.riddle-form > .bx--form-item {
+	width: 33%;
+	margin: 10px;
+}
+
+#scenario {
+	background-color: #161616;
+}
+
+.main-button {
+	position: fixed !important;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 10px 20px !important;
+	cursor: pointer !important;
+}
+
+.disabled-link {
+	text-decoration: none;
+	cursor: auto;
+	color: #F4F4F4;
 }
 
 @font-face {
 	font-family: neon;
 	src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
-}
-
-.container {
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
 }
 
 .neon {
@@ -81,4 +116,15 @@ body {
 		text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
 		color: #146C80;
 	}
+}
+
+.quote {
+	padding: 2.5rem;
+	line-height: 1.80rem;
+	font-weight: bolder;
+	color: black;
+	width: 600px;
+	min-height: 150px;
+	font-family: 'Handwriting', sans-serif;
+	background: url(/old-paper-banner.png);
 }

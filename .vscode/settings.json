@@ -1,0 +1,11 @@
+{
+    "cucumber.features": [
+      "tests/e2e/uuv/e2e/**/*.feature"
+    ],
+    "cucumber.glue": [
+      "tests/e2e/uuv/cucumber/step_definitions/**/*.{js,ts}",
+      "tests/e2e/node_modules/@uuv/*/src/cucumber/step_definitions/*/unsafe/**/*.ts",
+      "tests/e2e/node_modules/@uuv/*/src/cucumber/step_definitions/*/generated/**/*.ts",
+      "tests/e2e/node_modules/@uuv/*/src/cucumber/step_definitions/*/generated/enriched/*/*.ts"
+    ]
+}

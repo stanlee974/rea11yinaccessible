@@ -1,24 +1,27 @@
 <ModalComponent opened={showTransitionModal}
                 parentDoneAction={() => {showScenario = false}}>
-    <div style="display: flex; flex-direction: row">
-        <Grid>
-            <Row>
-                <Column>
-                    <ImageLoader
-                            src="{base}/surface/laboratory/audiovisual_room/spiral_staircase.jpg"
-                            alt={$t('audiovisualRoom.before.image')} fadeIn={true}/>
-                </Column>
-                <Column><p style="font-size: 1.5rem">{$t('audiovisualRoom.before.row.1')}</p>
-                    <p style="font-size: 1.5rem">{$t('audiovisualRoom.before.row.2')}</p>
-                    <p style="font-size: 1.5rem">{$t('audiovisualRoom.before.row.3')}</p>
-                </Column>
-            </Row>
-        </Grid>
-    </div>
+    <Grid>
+        <Row>
+            <Column>
+                <ImageLoader
+                        src="{base}/surface/laboratory/audiovisual_room/spiral_staircase.jpg"
+                        alt={$t('audiovisualRoom.before.image')} fadeIn={true}/>
+            </Column>
+            <Column>
+                <p class="mb-2">{$t('audiovisualRoom.before.row.1')}</p>
+                <p class="mb-2">{$t('audiovisualRoom.before.row.2')}</p>
+                <p class="mb-2">{$t('audiovisualRoom.before.row.3')}</p>
+            </Column>
+        </Row>
+    </Grid>
 </ModalComponent>
 <TypewriterComponent disabled={showScenario} parentDoneAction={() => setTimeout(() => {showEnigm = true}, 2000)}>
-    <h2><u><i>{$t('common.layout.title.scenario')}</i></u></h2>
-    <p>{$t('audiovisualRoom.scenario.row.1')}</p>
+    <div>
+        <div class="container mb-4">
+            <h2 class="mb-2">{$t('common.layout.title.scenario')}</h2>
+            <p>{$t('audiovisualRoom.scenario.row.1')}</p>
+        </div>
+    </div>
 </TypewriterComponent>
 <ModalComponent opened={showEnigm}
                 parentDoneAction={() => disableGoal = false}>
@@ -34,16 +37,19 @@
         </Row>
     </Grid>
 </ModalComponent>
-<br aria-hidden="true"/>
 <TypewriterComponent disabled={disableGoal} waitReading continueButtonAction={() => {
             showForm = true
             savedVolume = getVolume() * 100
     }}>
-    <h2><u><i>{$t('common.layout.title.goal')}</i></u></h2>
-    <p>{$t('audiovisualRoom.goal.row.1')}</p>
+    <div>
+        <div class="container mb-5">
+            <h2 class="mb-2">{$t('common.layout.title.goal')}</h2>
+            <p>{$t('audiovisualRoom.goal.row.1')}</p>
+        </div>
+    </div>
 </TypewriterComponent>
 {#if showForm}
-    <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
+    <div class="d-flex flex-column my-2 align-items-center">
         <Grid>
             <Row>
                 <AudioComponent id="deafHigh" name={$t('audiovisualRoom.test.buttons.deafHigh.text')}
@@ -66,14 +72,14 @@
                 {/if}
             </Row>
         </Grid>
-        <FluidForm>
+        <FluidForm class="my-2">
             <TextInput
                     labelText={$t('audiovisualRoom.test.buttons.keyword.text')}
                     placeholder={$t('audiovisualRoom.test.buttons.keyword.placeholder')}
                     required invalid={invalidResult} invalidText={$t('audiovisualRoom.test.buttons.keyword.error')}
                     bind:value={result}/>
         </FluidForm>
-        <Button kind="secondary"
+        <Button kind="primary" class="mt-4 mb-2"
                 on:click={() => validateForm()}>{$t('audiovisualRoom.test.buttons.submit.text')}</Button>
     </div>
     {#if isWaiting}
@@ -123,9 +129,6 @@
 </script>
 
 <style lang="css">
-    @import url(/css/app.css);
-    @import url(/css/neon.css);
-
     label {
         font-size: 1.3em;
     }

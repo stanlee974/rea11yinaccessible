@@ -1,11 +1,15 @@
 {
+  "welcome": "Bienvenido a Rea11y Inaccessible",
   "advice": {
-    "title": "Advice",
+    "title": "Advices",
     "immersive": "For a more immersive experience:",
     "sound": "Use Firefox for faster animation playback. Enable background music in the top left if necessary. Turn your computer or tablet's volume to 100% and adjust the audio volume using the music volume bar.",
     "fullScreen": "Clique F11 to enter full screen mode.",
     "blocked": "If you are stuck:",
-    "hints": "You have 2 hints available in the top right corner. If that's not enough, a third hint will be available, providing you with the solution."
+    "hints": [
+      "You have 2 hints available in the top right corner",
+      "If that's not enough, a third hint will be available, providing you with the solution."
+    ]
   },
   "context": {
     "title": "Context",

@@ -1,11 +1,14 @@
 {
   "advice": {
-    "title": "Consejo",
+    "title": "Consejos",
     "immersive": "Para una mayor inmersión:",
     "sound": "Utiliza Firefox para una reproducción más rápida de las animaciones. Activa la música de fondo en la parte superior izquierda si es necesario. Sube el volumen de tu computadora o tableta al 100% y ajusta el volumen del audio con la barra de volumen de la música.",
     "fullScreen": "Haz clic en F11 para poner en pantalla completa.",
     "blocked": "Si estás bloqueado(a):",
-    "hints": "Tienes 2 pistas disponibles en la parte superior derecha. Si no es suficiente, una tercera pista estará disponible y te dará la solución."
+    "hints": [
+      "Tienes 2 pistas disponibles en la parte superior derecha",
+      "Si no es suficiente, una tercera pista estará disponible y te dará la solución."
+    ]
   },
   "context": {
     "title": "Contexto",

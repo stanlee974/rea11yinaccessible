@@ -22,12 +22,13 @@
       "1": "You must ignore the disturbing auditory and visual hallucinations to avoid being misled. Stay focused despite the hallucinations and find the 3 answers."
     },
     "modal": {
+      "riddle": "Riddle",
       "1": {
         "title": "3 Riddle Cards",
         "row": {
-          "1": "Riddle 1: As soon as I am named, I am broken. What am I?",
-          "2": "Riddle 2: I start with an E, end with an E, I can hold only one letter, but I am not the letter E. What am I?",
-          "3": "Riddle 3: I turn a plant into a planet. What am I?"
+          "1": "As soon as I am named, I am broken. What am I?",
+          "2": "I start with an E, end with an E, I can hold only one letter, but I am not the letter E. What am I?",
+          "3": "I turn a plant into a planet. What am I?"
         }
       }
     }

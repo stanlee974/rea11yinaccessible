@@ -7,37 +7,44 @@
 <ModalComponent
         opened={openTransition}
         parentDoneAction={() => hideScenario = false}>
-    <div style="display: flex; flex-direction: row">
-        <Grid>
-            <Row>
-                <Column>
-                    <ImageLoader
-                            src="{base}/abri/computer/man_walking.jpg" alt={$t('common.layout.title.scenario')}
-                            fadeIn={true}/>
-                </Column>
-                <Column><p>{$t(`shelterComputerRoom.before.row.1`)}</p>
-                    <p>{$t(`shelterComputerRoom.before.row.2`)}</p>
-                </Column>
-            </Row>
-        </Grid>
-    </div>
+    <Grid>
+        <Row>
+            <Column>
+                <ImageLoader
+                        src="{base}/abri/computer/man_walking.jpg" alt={$t('common.layout.title.scenario')}
+                        fadeIn={true}/>
+            </Column>
+            <Column>
+                <p>{$t(`shelterComputerRoom.before.row.1`)}</p>
+                <p>{$t(`shelterComputerRoom.before.row.2`)}</p>
+            </Column>
+        </Row>
+    </Grid>
 </ModalComponent>
-<TypewriterComponent disabled={hideScenario} parentDoneAction={() => showGoal = false}>
-    <h2><u><i>{$t('common.layout.title.scenario')}</i></u></h2>
-    <p>{$t(`shelterComputerRoom.scenario.row.1`)}</p>
-    <p>{$t(`shelterComputerRoom.scenario.row.2`)}</p>
-    <p>{$t(`shelterComputerRoom.scenario.row.3`)}</p>
-</TypewriterComponent>
-<br aria-hidden="true"/>
-<TypewriterComponent disabled={showGoal} continueButtonAction={() => {open = true;}} waitReading>
-    <h2><u><i>{$t('common.layout.title.goal')}</i></u></h2>
-    <p>{$t(`shelterComputerRoom.goal.row.1`)}</p>
-</TypewriterComponent>
+<div>
+    <div class="container">
+        <div class="mb-4">
+            <TypewriterComponent disabled={hideScenario} parentDoneAction={() => showGoal = false}>
+                <h2 class="mb-1">{$t('common.layout.title.scenario')}</h2>
+                <p>{$t(`shelterComputerRoom.scenario.row.1`)}</p>
+                <p>{$t(`shelterComputerRoom.scenario.row.2`)}</p>
+                <p>{$t(`shelterComputerRoom.scenario.row.3`)}</p>
+            </TypewriterComponent>
+        </div>
+       <div class="mb-5">
+         <TypewriterComponent disabled={showGoal} continueButtonAction={() => {open = true;}} waitReading>
+             <h2 class="mb-1">{$t('common.layout.title.goal')}</h2>
+             <p>{$t(`shelterComputerRoom.goal.row.1`)}</p>
+         </TypewriterComponent>
+       </div>
+    </div>
+</div>
 <ModalComponent
         opened="{open}"
         parentDoneAction={() => {showForm = true; open=false;}}
-        modalHeading={$t(`shelterComputerRoom.hint.title`)}>
-    <Tabs>
+        modalHeading={$t(`shelterComputerRoom.hint.title`)}
+        direction="column">
+    <Tabs type="container">
         <Tab label={$t(`shelterComputerRoom.hint.tabs.1.title`)}/>
         <Tab label={$t(`shelterComputerRoom.hint.tabs.2.title`)}/>
         <svelte:fragment slot="content">
@@ -219,7 +226,3 @@
         }
     }
 </script>
-<style lang="css">
-    @import url(/css/app.css);
-    @import url(/css/neon.css);
-</style>

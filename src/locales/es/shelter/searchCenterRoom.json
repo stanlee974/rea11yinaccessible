@@ -22,12 +22,13 @@
       "1": "Debes ignorar las alucinaciones auditivas y visuales perturbadoras para no dejarte engañar. Mantente concentrado a pesar de las alucinaciones y encuentra las 3 respuestas."
     },
     "modal": {
+      "riddle": "Enigma",
       "1": {
         "title": "3 Tarjetas de Enigmas",
         "row": {
-          "1": "Enigma 1: En cuanto me nombran, me rompo. ¿Qué soy?",
-          "2": "Enigma 2: Termino con una letra E, puedo contener solo una letra, pero no soy la letra E. ¿Qué soy?",
-          "3": "Enigma 3: Transformo una planta en un planeta. ¿Qué soy?"
+          "1": "En cuanto me nombran, me rompo. ¿Qué soy?",
+          "2": "Termino con una letra E, puedo contener solo una letra, pero no soy la letra E. ¿Qué soy?",
+          "3": "Transformo una planta en un planeta. ¿Qué soy?"
         }
       }
     }

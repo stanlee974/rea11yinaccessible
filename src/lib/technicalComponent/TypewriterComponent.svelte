@@ -16,7 +16,7 @@
         <slot></slot>
     </Typewriter>
     {#if (waitReading && !hasNotStartedWriting && !continuePressed)}
-        <ButtonComponent autofocus onclick={buttonAction}><span slot="content">{buttonLabel}</span></ButtonComponent>
+        <ButtonComponent autofocus onclick={buttonAction}><span slot="content" class="d-flex flex-row align-items-center">{buttonLabel}<ContinueFilled class="ms-2"/></span></ButtonComponent>
     {/if}
 <!--{/if}-->
 <script lang="ts">
@@ -25,6 +25,7 @@
   import Typewriter from "svelte-typewriter";
   import { base } from "$app/paths";
   import ButtonComponent from "$lib/technicalComponent/ButtonComponent.svelte";
+  import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
   import { t } from "$lib";
   import {
     getAccessibilityMode, getAccessibilityModeStore

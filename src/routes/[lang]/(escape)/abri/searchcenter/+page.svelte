@@ -1,74 +1,85 @@
 <ModalComponent
         parentDoneAction={() => {showScenario = false; showOverlay()}}>
-    <div style="display: flex; flex-direction: row">
-        <Grid>
-            <Row>
-                <Column>
-                    <ImageLoader
-                            src="{base}/abri/search_center/zone.jpg"
-                            alt={$t('shelterSearchCenterRoom.before.image')} fadeIn={true}/>
-                </Column>
-                <Column><p>{$t('shelterSearchCenterRoom.before.row.1')}</p>
-                    <p>{$t('shelterSearchCenterRoom.before.row.2')}</p>
-                </Column>
-            </Row>
-        </Grid>
-    </div>
+    <Grid>
+        <Row>
+            <Column>
+                <ImageLoader
+                        src="{base}/abri/search_center/zone.jpg"
+                        alt={$t('shelterSearchCenterRoom.before.image')} fadeIn={true}/>
+            </Column>
+            <Column>
+                <p>{$t('shelterSearchCenterRoom.before.row.1')}</p>
+                <p>{$t('shelterSearchCenterRoom.before.row.2')}</p>
+            </Column>
+        </Row>
+    </Grid>
 </ModalComponent>
 <TypewriterComponent disabled={showScenario} parentDoneAction={() => disableGoal = false}>
-    <h2><u><i>{$t('common.layout.title.scenario')}</i></u></h2>
-    <p>{$t('shelterSearchCenterRoom.scenario.row.1')}</p>
-    <p>{dyslexia($t('shelterSearchCenterRoom.scenario.row.2'), {scrambleChance: 90})}</p>
+    <div>
+        <div class="container mb-3">
+            <h2 class="mb-2">{$t('common.layout.title.scenario')}</h2>
+            <p>{$t('shelterSearchCenterRoom.scenario.row.1')}</p>
+            <p>{dyslexia($t('shelterSearchCenterRoom.scenario.row.2'), {scrambleChance: 90})}</p>
+        </div>
+    </div>
 </TypewriterComponent>
-<br aria-hidden="true"/>
 <TypewriterComponent disabled={disableGoal} continueButtonAction={() => showEnigm = true} waitReading>
-    <h2><u><i>{$t('common.layout.title.goal')}</i></u></h2>
-    <p>{$t('shelterSearchCenterRoom.goal.row.1')}</p>
+    <div>
+        <div class="container mb-5">
+            <h2 class="mb-2">{$t('common.layout.title.goal')}</h2>
+            <p>{$t('shelterSearchCenterRoom.goal.row.1')}</p>
+        </div>
+    </div>
 </TypewriterComponent>
 <ModalComponent opened={showEnigm} modalHeading={$t('shelterSearchCenterRoom.goal.modal.1.title')}
                 parentDoneAction={() => {disableGoal = false; showForm = true; showEnigm = false}}>
-    <div style="display: flex; flex-direction: row">
-        <Grid>
-            <Row>
-                <Column>
+    <Grid>
+        <Row>
+            <Column>
+                <div class="mb-3">
+                    <h2>{$t('shelterSearchCenterRoom.goal.modal.riddle')} 1</h2>
                     <p>{$t('shelterSearchCenterRoom.goal.modal.1.row.1')}</p>
-                </Column>
-                <Column>
-                    <p>{$t('shelterSearchCenterRoom.goal.modal.1.row.2')}</p>
-                </Column>
-                <Column>
-                    <p>{$t('shelterSearchCenterRoom.goal.modal.1.row.3')}</p>
-                </Column>
-            </Row>
-        </Grid>
-    </div>
+                </div>
+                <div class="mb-3">
+                    <h2>{$t('shelterSearchCenterRoom.goal.modal.riddle')} 2</h2>
+                    <p class="mb-3">{$t('shelterSearchCenterRoom.goal.modal.1.row.2')}</p>
+                </div>
+                <div class="mb-3">
+                    <h2>{$t('shelterSearchCenterRoom.goal.modal.riddle')} 3</h2>
+                    <p class="mb-3">{$t('shelterSearchCenterRoom.goal.modal.1.row.3')}</p>
+            </div>
+            </Column>
+        </Row>
+    </Grid>
 </ModalComponent>
 {#if showForm}
-    <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
-        <FluidForm>
-            <TextInput style="width: 300px" labelText={$t('shelterSearchCenterRoom.test.buttons.enigm1.text')}
-                       placeholder={$t('shelterSearchCenterRoom.test.buttons.enigm1.placeholder')}
-                       required invalid={invalidEnigm1}
-                       invalidText={$t('shelterSearchCenterRoom.test.buttons.enigm1.error')}
-                       autofocus bind:value={enigm1}/>
-            <TextInput style="width: 300px" labelText={$t('shelterSearchCenterRoom.test.buttons.enigm2.text')}
-                       placeholder={$t('shelterSearchCenterRoom.test.buttons.enigm2.placeholder')}
-                       required invalid={invalidEnigm2}
-                       invalidText={$t('shelterSearchCenterRoom.test.buttons.enigm2.error')}
-                       bind:value={enigm2}/>
-            <TextInput style="width: 300px" labelText={$t('shelterSearchCenterRoom.test.buttons.enigm3.text')}
-                       placeholder={$t('shelterSearchCenterRoom.test.buttons.enigm3.placeholder')}
-                       required invalid={invalidEnigm3}
-                       invalidText={$t('shelterSearchCenterRoom.test.buttons.enigm3.error')}
-                       bind:value={enigm3}/>
-        </FluidForm>
-        <Row style="margin-top: 1rem">
-            <Button kind="secondary" on:click={() => showEnigm = true}
-                    style="margin-right: 1rem">{$t('shelterSearchCenterRoom.test.buttons.hint.text')}
-            </Button>
-            <Button kind="secondary"
-                    on:click={() => validateForm()}>{$t('shelterSearchCenterRoom.test.buttons.submit.text')}</Button>
-        </Row>
+    <div>
+        <div class="container mb-4">
+            <FluidForm class="d-flex flex-row justify-content-arount riddle-form">
+                <TextInput labelText={$t('shelterSearchCenterRoom.test.buttons.enigm1.text')}
+                           placeholder={$t('shelterSearchCenterRoom.test.buttons.enigm1.placeholder')}
+                           required invalid={invalidEnigm1}
+                           invalidText={$t('shelterSearchCenterRoom.test.buttons.enigm1.error')}
+                           autofocus bind:value={enigm1}/>
+                <TextInput labelText={$t('shelterSearchCenterRoom.test.buttons.enigm2.text')}
+                           placeholder={$t('shelterSearchCenterRoom.test.buttons.enigm2.placeholder')}
+                           required invalid={invalidEnigm2}
+                           invalidText={$t('shelterSearchCenterRoom.test.buttons.enigm2.error')}
+                           bind:value={enigm2}/>
+                <TextInput labelText={$t('shelterSearchCenterRoom.test.buttons.enigm3.text')}
+                           placeholder={$t('shelterSearchCenterRoom.test.buttons.enigm3.placeholder')}
+                           required invalid={invalidEnigm3}
+                           invalidText={$t('shelterSearchCenterRoom.test.buttons.enigm3.error')}
+                           bind:value={enigm3}/>
+            </FluidForm>
+            <Row class="mt-2 d-flex flex-row justify-content-center">
+                <Button kind="secondary" on:click={() => showEnigm = true}
+                        class="me-3">{$t('shelterSearchCenterRoom.test.buttons.hint.text')}
+                </Button>
+                <Button kind="primary"
+                        on:click={() => validateForm()}>{$t('shelterSearchCenterRoom.test.buttons.submit.text')}</Button>
+            </Row>
+        </div>
     </div>
     {#if isWaiting}
         <Loading/>
@@ -158,9 +169,6 @@
 </script>
 
 <style lang="css">
-    @import url(/css/app.css);
-    @import url(/css/neon.css);
-
     body {
         font-size: 24px;
         margin: 0;

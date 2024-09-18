@@ -53,3 +53,9 @@ testem.log
 .DS_Store
 Thumbs.db
 *.iml
+
+#@uuv
+/uuv/reports
+/uuv/.uuv-features-gen
+/.history
+/tests/e2e/uuv/.uuv-features-gen

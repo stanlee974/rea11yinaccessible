@@ -9,26 +9,26 @@
         "1": {
           "title": "Tu regardes l'orbe",
           "row": {
-            "1": "Tu la secoues et te rends compte qu'il n'est pas vide. Tu utilises un pic métallique au pied du piédestal qui semble prévu à cet effet. Lorsqu'elle se brise, une lumière intense emplit la pièce avant de s'éteindre, laissant apparaître une seringue métallique finement ornée, remplie d'un liquide argenté."
+            "1": "Au centre du sanctuaire, l'orbe scintille, illuminée par les cristaux luminescents. Elle repose sur un piédestal doré, entourée de gravures anciennes et d'inscriptions mystiques. Tu t'approches avec un mélange d'excitation et de crainte. Le mécanisme s'ouvre lentement et tu t'empares de l'orbe."
           }
         },
         "2": {
           "title": "Tu t'injectes la substance",
           "row": {
-            "1": "Après l'injection, tu attends anxieusement que les effets se manifestent. Cependant, au lieu de ressentir des changements physiques, tu commences à te sentir étrangement normal.",
-            "2": "Un frisson de panique te parcours. Tu fouilles désespérément les manuscrits anciens qui se trouvent dans le sanctuaire pour comprendre ce qui ne va pas. Une des notes cachées dans un coin ombragé du sanctuaire révèle enfin la vérité : la seringue contenait un placebo."
+            "1": "Tu la secoues et te rends compte qu'il n'est pas vide. Tu utilises un pic métallique au pied du piédestal qui semble prévu à cet effet. Lorsqu'elle se brise, une lumière intense emplit la pièce avant de s'éteindre, laissant apparaître une seringue métallique finement ornée, remplie d'un liquide argenté."
           }
         },
         "3": {
           "title": "L'orbe brisée contient l'injection",
           "row": {
-            "1": "Au centre du sanctuaire, l'orbe scintille, illuminée par les cristaux luminescents. Elle repose sur un piédestal doré, entourée de gravures anciennes et d'inscriptions mystiques. Tu t'approches avec un mélange d'excitation et de crainte. Le mécanisme s'ouvre lentement et tu t'empares de l'orbe."
+            "1": "Tu te prépares à t'injecter le contenu de la seringue. Tu prends une profonde inspiration, espérant que cette injection t'accorderas le handicap nécessaire pour échapper aux traqueurs. Tu tiens la seringue avec une main tremblante, ressentant le poids de l'instant. Tu vides la dose dans ta veine encore chaude."
           }
         },
         "4": {
           "title": "Tu lis la lettre révélant la vérité",
           "row": {
-            "1": "Tu te prépares à t'injecter le contenu de la seringue. Tu prends une profonde inspiration, espérant que cette injection t'accorderas le handicap nécessaire pour échapper aux traqueurs. Tu tiens la seringue avec une main tremblante, ressentant le poids de l'instant. Tu vides la dose dans ta veine encore chaude."
+            "1": "Après l'injection, tu attends anxieusement que les effets se manifestent. Cependant, au lieu de ressentir des changements physiques, tu commences à te sentir étrangement normal.",
+            "2": "Un frisson de panique te parcours. Tu fouilles désespérément les manuscrits anciens qui se trouvent dans le sanctuaire pour comprendre ce qui ne va pas. Une des notes cachées dans un coin ombragé du sanctuaire révèle enfin la vérité : la seringue contenait un placebo."
           }
         }
       }
