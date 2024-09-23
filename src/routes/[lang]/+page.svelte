@@ -38,6 +38,7 @@
         setLocale($page.params.lang)
         document.body.lang = $page.params.lang ?? "fr"
         document.title = $t('common.step.intro') + " | really inaccessible"
+        document.body.scrollIntoView()
         changeSource("/ost/intro.mp3")
     })
 
