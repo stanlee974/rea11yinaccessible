@@ -5,7 +5,6 @@
     <SoundEffectComponent src="/sound/click.mp3" postPlay={playSong}></SoundEffectComponent>
     <Button kind="primary"
             class="main-button"
-            autofocus={autofocus}
             on:click={onClick}><slot name="content"></slot>
 </Button>
 {/if}

@@ -3,42 +3,56 @@
                     changeSource("/ost/step10.mp3")
                    showTrapModal = true
                }}>
-    <div style="display: flex; flex-direction: row">
-        <Grid>
-            <Row>
-                <Column>
-                    <div>
-                        <ImageLoader
-                                src="{base}/final/orbe.jpg"
-                                alt={$t('outro.modal.1.image.1.title')}
-                                fadeIn={true}/>
-                        <span class="number">2</span>
-                        <p style:font-size="1.3rem">{$t('outro.modal.1.image.1.row.1')}</p>
-                        <ImageLoader
-                                src="{base}/final/man_with_syringe.jpg"
-                                alt={$t('outro.modal.1.image.2.title')}
-                                fadeIn={true}/>
-                        <span class="number">4</span>
-                        <p style:font-size="1.3rem">{$t('outro.modal.1.image.2.row.1')}</p>
-                        <p style:font-size="1.3rem">{$t('outro.modal.1.image.2.row.2')}</p>
-                    </div>
-                </Column>
-                <Column>
-                    <span class="number">1</span>
-                    <p style:font-size="1.3rem">{$t('outro.modal.1.image.3.row.1')}</p>
-                    <ImageLoader
-                            src="{base}/final/broken_orb.jpg"
-                            alt={$t('outro.modal.1.image.3.title')}
-                            fadeIn={true}/>
-                    <span class="number">3</span>
-                    <p style:font-size="1.3rem">{$t('outro.modal.1.image.4.row.1')}</p>
-                    <ImageLoader
-                            src="{base}/final/man_reading_letter.jpg"
-                            alt={$t('outro.modal.1.image.4.title')}
-                            fadeIn={true}/>
-                </Column>
-            </Row>
-        </Grid>
+    <div>
+        <div class="d-flex flew-row align-items-center">
+            <div class="half">
+                <ImageLoader
+                        src="{base}/final/orbe.jpg"
+                        alt={$t('outro.modal.1.image.1.title')}
+                        fadeIn={true}/>
+            </div>
+            <div class="half m-3">
+                <span class="number">1</span>
+                <p class="mt-4">{$t('outro.modal.1.image.1.row.1')}</p>
+            </div>
+        </div>
+        <div class="d-flex flew-row align-items-center">
+            <div class="half m-3">
+                <span class="number">2</span>
+                <p class="mt-4">{$t('outro.modal.1.image.2.row.1')}</p>
+            </div>
+            <div class="half">
+                <ImageLoader
+                        src="{base}/final/broken_orb.jpg"
+                        alt={$t('outro.modal.1.image.2.title')}
+                        fadeIn={true}/>
+            </div>
+        </div>
+        <div class="d-flex flew-row align-items-center">
+            <div class="half">
+                <ImageLoader
+                        src="{base}/final/man_with_syringe.jpg"
+                        alt={$t('outro.modal.1.image.3.title')}
+                        fadeIn={true}/>
+            </div>
+            <div class="half m-3">
+                <span class="number">3</span>
+                <p class="mt-4">{$t('outro.modal.1.image.3.row.1')}</p>
+            </div>
+        </div>
+        <div class="d-flex flew-row align-items-center">
+            <div class="half m-3">
+                <span class="number">4</span>
+                <p class="mt-4 mb-3">{$t('outro.modal.1.image.4.row.1')}</p>
+                <p>{$t('outro.modal.1.image.4.row.2')}</p>
+            </div>
+            <div class="half">
+                <ImageLoader
+                        src="{base}/final/man_reading_letter.jpg"
+                        alt={$t('outro.modal.1.image.4.title')}
+                        fadeIn={true}/>
+            </div>
+        </div>
     </div>
 </ModalComponent>
 <ModalComponent opened={showTrapModal} on:open
@@ -192,26 +206,26 @@
     </ExpandableTile>
 {/if}
 <script lang="ts">
-  import "carbon-components-svelte/css/g90.css";
-  import { Column, ExpandableTile, Grid, ImageLoader, Row, } from "carbon-components-svelte";
-  import { base } from "$app/paths";
-  import {Step, t} from "$lib";
-  import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
-  import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
-  import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
-  import { onMount } from "svelte";
-  import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
+    import "carbon-components-svelte/css/g90.css";
+    import { Column, ExpandableTile, Grid, ImageLoader, Row, } from "carbon-components-svelte";
+    import { base } from "$app/paths";
+    import {Step, t} from "$lib";
+    import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
+    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
+    import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
+    import { onMount } from "svelte";
+    import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
 
-  let showTransitionModal = true;
-  let showTrapModal = false;
-  let showScenario = true;
-  let disabledFin = true;
-  let showSummary = false;
+    let showTransitionModal = true;
+    let showTrapModal = false;
+    let showScenario = true;
+    let disabledFin = true;
+    let showSummary = false;
 
-  onMount(() => {
-    changeSource("/ost/stress.mp3")
-    renderStore.set(new RenderData($t('common.step.final'), $t('outro.neon.title'), $t('outro.neon.subtitle'), Step.FINAL));
-  })
+    onMount(() => {
+        changeSource("/ost/stress.mp3")
+        renderStore.set(new RenderData($t('common.step.final'), $t('outro.neon.title'), $t('outro.neon.subtitle'), Step.FINAL));
+    })
 </script>
 
 <style lang="css">

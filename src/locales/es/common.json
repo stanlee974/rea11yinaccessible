@@ -17,12 +17,7 @@
         "title": "UUV - prueba de accesibilidad E2E",
         "kata": "Kata (ejercicio)"
       },
-      "source": "Código fuente",
-      "language": {
-        "fr": "Français",
-        "en": "English",
-        "es": "Español"
-      }
+      "source": "Código fuente"
     },
     "title": {
       "scenario": "Escenario",

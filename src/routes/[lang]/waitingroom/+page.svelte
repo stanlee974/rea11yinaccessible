@@ -82,7 +82,7 @@
     let isWaiting = false
     let showButton = false
     let showError = false
-    let startButton = true
+    let startButton = false
     let errorSound: HTMLAudioElement;
     const loading = () => {
         isWaiting = true
@@ -95,6 +95,7 @@
         errorSound = new Audio(base + "/sound/error.mp3")
         errorSound.volume = 0.5
         changeSource("/ost/opening.mp3")
+        startButton = true
     })
 
 </script>

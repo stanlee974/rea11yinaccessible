@@ -1,13 +1,13 @@
 {
-  "name": "rea11y-inacessible-e2e",
+  "name": "rea11y-inaccessible-e2e",
   "version": "1.0.0",
-  "description": "E2E Project for Really Inacessible Web Application",
+  "description": "E2E Project for Really Inaccessible Web Application",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "devDependencies": {
     "@uuv/playwright": "^3.8.0"
   }
