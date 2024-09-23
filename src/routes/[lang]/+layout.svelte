@@ -35,14 +35,17 @@
                            target="_blank"/>
         </HeaderNav>
     </Row>
-    <ContentSwitcher bind:selectedIndex={selectedLanguageIndex} size="sm" style="width: 18rem; margin-right: 1rem;">
-        <Switch text={$t('common.layout.menu.language.fr')}
-                on:click={() => changeLangRedirect($page.route.id, 'fr')}/>
-        <Switch text={$t('common.layout.menu.language.en')}
-                on:click={() => changeLangRedirect($page.route.id, 'en')}/>
-        <Switch text={$t('common.layout.menu.language.es')}
-                on:click={() => changeLangRedirect($page.route.id, 'es')}/>
-    </ContentSwitcher>
+    <Select
+            inline
+            labelText="Langue"
+            bind:selected={selectedLanguageIndex}
+            on:change={(e) => changeLangRedirect($page.route.id, e?.target?.value)}
+            style="width: 10rem; margin-right: 2rem;"
+    >
+        <SelectItem value='fr' text='Français' />
+        <SelectItem value='en' text='English' />
+        <SelectItem value='es' text='Español' />
+    </Select>
 </Header>
 <Tile id="menu" style="position: sticky; top: 3rem; position: flex; flex-direction: row; z-index: 2000">
     <HeaderUtilities>
@@ -169,9 +172,9 @@
         HeaderNavItem,
         HeaderNavMenu,
         HeaderUtilities,
-        ImageLoader,
-        Modal,
-        Row,
+        ImageLoader, Link, ListItem,
+        Modal, OrderedList,
+        Row, Select, SelectItem,
         Slider,
         Switch,
         Tile,
@@ -417,4 +420,9 @@
     .skip:focus {
         position: static;
     }
+
+    select {
+        width: 7rem !important;
+    }
+
 </style>
