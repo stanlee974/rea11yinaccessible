@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Subes las escaleras de caracol",
     "row": {
       "1": "Se abre una pequeña trampilla y metes la mano. Nada dentro...",
       "2": "Continúas entonces tu exploración del laboratorio secundario. Ruidos distantes fuera del edificio.",
@@ -18,9 +17,7 @@
     "modal": {
       "1": {
         "row": {
-          "1": "Sala técnica audiovisual",
-          "2": "Notas dispersas explican que esta sala alguna vez sirvió como centro de documentación para los experimentos científicos realizados en el laboratorio",
-          "3": "inscripciones codificadas"
+          "1": "Notas dispersas explican que esta sala alguna vez sirvió como centro de documentación para los experimentos científicos realizados en el laboratorio"
         }
       }
     }

@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "You ascend the stairs and reach the surface",
     "row": {
       "1": "By successfully solving the riddles despite the disturbing hallucinations, you have shown your ability to remain focused and determined.",
       "2": "A final hallucination shows you a newspaper mentioning a secondary laboratory located on the surface, in an old industrial area.",
@@ -20,7 +19,6 @@
     },
     "modal": {
       "1": {
-        "title": "You find yourself in front of the lab door",
         "row": {
           "1": "The entrance to the secondary laboratory is a large, dilapidated industrial building, partially overgrown with vegetation.",
           "2": "In front of the main entrance, there is a thick metal door with an old electronic control panel beside it.",
@@ -38,17 +36,13 @@
     "modal": {
       "1": {
         "title": "Control Panel",
-        "row": {
-          "1": "You must click on the cross to open the door",
-          "2": "Click to open the door",
-          "3": "mouse cursor"
-        }
+        "content": "Click to open the door"
       }
-    },
-    "buttons": {
-      "open": {
-        "text": "Open the terminal"
-      }
+    }
+  },
+  "buttons": {
+    "open": {
+      "text": "Open the terminal"
     }
   }
 }

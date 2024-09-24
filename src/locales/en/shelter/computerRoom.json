@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "You move towards the new room",
     "row": {
       "1": "A mechanism is triggered and the door opens, allowing you to pass into the next room.",
       "2": "Upon entering, you discover that an accident has damaged the main screen of the control system. You now need to enter critical data without being able to see the screen."
@@ -71,7 +70,6 @@
         "ariaLabel": "soumettre",
         "text": "Submit the entry"
       }
-    },
-    "description": "Computer on which the form is located"
+    }
   }
 }

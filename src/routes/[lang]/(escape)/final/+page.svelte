@@ -8,7 +8,7 @@
             <div class="half">
                 <ImageLoader
                         src="{base}/final/orbe.jpg"
-                        alt={$t('outro.modal.1.image.1.title')}
+                        alt=""
                         fadeIn={true}/>
             </div>
             <div class="half m-3">
@@ -24,7 +24,7 @@
             <div class="half">
                 <ImageLoader
                         src="{base}/final/broken_orb.jpg"
-                        alt={$t('outro.modal.1.image.2.title')}
+                        alt=""
                         fadeIn={true}/>
             </div>
         </div>
@@ -32,7 +32,7 @@
             <div class="half">
                 <ImageLoader
                         src="{base}/final/man_with_syringe.jpg"
-                        alt={$t('outro.modal.1.image.3.title')}
+                        alt=""
                         fadeIn={true}/>
             </div>
             <div class="half m-3">
@@ -49,7 +49,7 @@
             <div class="half">
                 <ImageLoader
                         src="{base}/final/man_reading_letter.jpg"
-                        alt={$t('outro.modal.1.image.4.title')}
+                        alt=""
                         fadeIn={true}/>
             </div>
         </div>
@@ -65,7 +65,7 @@
                 <div class="glitch">
                     <ImageLoader
                             src="{base}/final/guard.jpg"
-                            alt={$t('outro.modal.2.image.1.title')}
+                            alt=""
                             fadeIn={true}/>
                 </div>
             </Column>

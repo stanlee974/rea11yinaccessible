@@ -5,7 +5,7 @@
             <Column>
                 <ImageLoader
                         src="{base}/surface/laboratory/audiovisual_room/spiral_staircase.jpg"
-                        alt={$t('audiovisualRoom.before.image')} fadeIn={true}/>
+                        alt="" fadeIn={true}/>
             </Column>
             <Column>
                 <p class="mb-2">{$t('audiovisualRoom.before.row.1')}</p>
@@ -30,9 +30,9 @@
             <Column>
                 <ImageLoader
                         src="{base}/surface/laboratory/audiovisual_room/audioroom.jpg"
-                        alt={$t('audiovisualRoom.scenario.modal.1.row.1')} fadeIn={true}/>
+                        alt="" fadeIn={true}/>
             </Column>
-            <Column><p>{$t('audiovisualRoom.scenario.modal.1.row.2')}</p>
+            <Column><p>{$t('audiovisualRoom.scenario.modal.1.row.1')}</p>
             </Column>
         </Row>
     </Grid>

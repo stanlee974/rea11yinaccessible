@@ -1,7 +1,6 @@
 {
   "welcome": "Bienvenu(e) à toi !",
   "scenario": {
-    "begin": "Commencer l'escape game",
     "row": {
       "1": "Le monde tel que nous le connaissions a disparu. Une pandémie inconnue a balayé la planète, laissant 99,99% de la population avec des handicaps divers. Dans ce monde futuriste où les handicaps visuels, auditifs, moteurs et cognitifs sont omniprésents et considérés comme des éléments essentiels de l'identité. Ceux qui sont exempts de toute limitation sont considérés comme des hérétiques et traités avec suspicion. Ils sont traqués et éliminés sans pitié par les autorités.",
       "2": "Tu incarnes donc un(e) survivant(e) « hérétique » qui a découvert l'existence d'une injection nommée CaM-RuN-a11Y. Cette injection permet de développer un handicap aléatoire, ce qui te permettra de te fondre dans la population et d'échapper à la traque.",

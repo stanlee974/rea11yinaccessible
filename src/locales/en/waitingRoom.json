@@ -1,7 +1,6 @@
 {
   "welcome": "Welcome!",
   "scenario": {
-    "begin": "Start the escape game",
     "row": {
       "1": "The world as we knew it has vanished. An unknown pandemic swept across the planet, leaving 99.99% of the population with various disabilities. In this futuristic world where visual, auditory, motor, and cognitive disabilities are ubiquitous and considered essential aspects of identity, those without any limitations are regarded as heretics and treated with suspicion. They are hunted down and mercilessly eliminated by the authorities.",
       "2": "You play as a 'heretic' survivor who has discovered the existence of an injection called CaM-RuN-a11Y. This injection allows you to develop a random disability, enabling you to blend in with the population and escape the hunt.",

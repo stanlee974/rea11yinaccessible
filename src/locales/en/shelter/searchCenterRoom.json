@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "You enter the abandoned research center",
     "row": {
       "1": "Using the Dysclecsus drug, you were able to exploit a temporary form of dyslexia to decipher the text.",
       "2": "You climb stairs leading closer to the surface. You now enter a new area of the complex, a former abandoned research center.",
@@ -34,7 +33,6 @@
     }
   },
   "test": {
-    "overlay": "intrusive image",
     "buttons": {
       "enigm1": {
         "text": "Answer to Riddle 1",

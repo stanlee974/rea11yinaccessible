@@ -1,7 +1,6 @@
 {
   "welcome": "¡Bienvenido(a)!",
   "scenario": {
-    "begin": "Comenzar el escape room",
     "row": {
       "1": "El mundo tal como lo conocíamos ha desaparecido. Una pandemia desconocida arrasó el planeta, dejando al 99,99% de la población con diversas discapacidades. En este mundo futurista, donde las discapacidades visuales, auditivas, motoras y cognitivas son omnipresentes y se consideran aspectos esenciales de la identidad, aquellos que están libres de cualquier limitación son considerados herejes y tratados con desconfianza. Son perseguidos y eliminados sin piedad por las autoridades.",
       "2": "Tú interpretas a un(a) sobreviviente 'hereje' que ha descubierto la existencia de una inyección llamada CaM-RuN-a11Y. Esta inyección permite desarrollar una discapacidad aleatoria, lo que te permitirá integrarte en la población y escapar de la persecución.",

@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Entras en el centro de investigación abandonado",
     "row": {
       "1": "Utilizando el medicamento Dysclecsus, pudiste explotar una forma temporal de dislexia para descifrar el texto.",
       "2": "Subes escaleras acercándote a la superficie. Ahora entras en una nueva área del complejo, un antiguo centro de investigación abandonado.",
@@ -34,7 +33,6 @@
     }
   },
   "test": {
-    "overlay": "imagen intrusiva",
     "buttons": {
       "enigm1": {
         "text": "Respuesta al Enigma 1",

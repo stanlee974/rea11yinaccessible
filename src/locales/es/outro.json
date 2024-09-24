@@ -7,25 +7,21 @@
     "1": {
       "image": {
         "1": {
-          "title": "Miras el Orbe",
           "row": {
             "1": "En el centro del santuario, el orbe brilla, iluminado por cristales luminiscentes. Descansa sobre un pedestal dorado, rodeado de grabados antiguos e inscripciones místicas. Te acercas con una mezcla de emoción y temor. El mecanismo se abre lentamente y tomas el orbe."
           }
         },
         "2": {
-          "title": "Te Inyectas la Sustancia",
           "row": {
             "1": "Lo sacudes y te das cuenta de que no está vacío. Usas un pico metálico al pie del pedestal que parece destinado a este propósito. Cuando se rompe, una luz intensa llena la habitación antes de desvanecerse, revelando una jeringa metálica finamente decorada, llena de un líquido plateado."
           }
         },
         "3": {
-          "title": "El Orbe Roto Contiene la Inyección",
           "row": {
             "1": "Te preparas para inyectarte el contenido de la jeringa. Tomas una respiración profunda, esperando que esta inyección te otorgue la discapacidad necesaria para escapar de los rastreadores. Sostienes la jeringa con una mano temblorosa, sintiendo el peso del momento. Vacías la dosis en tu vena aún caliente."
           }
         },
         "4": {
-          "title": "Lees la Carta que Revela la Verdad",
           "row": {
             "1": "Después de la inyección, esperas ansiosamente que se manifiesten los efectos. Sin embargo, en lugar de sentir cambios físicos, comienzas a sentirte extrañamente normal.",
             "2": "Un escalofrío de pánico te recorre. Buscas desesperadamente en los manuscritos antiguos que se encuentran en el santuario para entender qué salió mal. Una nota escondida en un rincón sombrío del santuario finalmente revela la verdad: la jeringa contenía un placebo."
@@ -36,7 +32,6 @@
     "2": {
       "image": {
         "1": {
-          "title": "Guardia Mirando con Desdén",
           "row": {
             "1": "Se escuchan pasos pesados y voces enojadas en el pasillo, acercándose rápidamente. Los rastreadores, alertados por la luz intensa emitida por la ruptura del orbe, han encontrado su camino hacia el santuario.",
             "2": "Buscas frenéticamente una salida de emergencia, pero es demasiado tarde. La puerta del santuario se abre bruscamente, dejando entrar a los rastreadores fuertemente armados.",

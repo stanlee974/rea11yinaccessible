@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Tu rentres dans la salle médicale",
     "row": {
       "1": "Après une minutieuse vérification et quelques ajustements, tu appuies sur le bouton \"Soumettre\".",
       "2": "Une lumière verte s'allume au-dessus de la console, confirmant que le formulaire a été correctement rempli.",
@@ -21,11 +20,7 @@
     },
     "modal": {
       "1" : {
-        "title": "Livre indéchiffrable et table contenant les pilules",
-        "image": {
-          "1": "table contenant une boîte avec des pillules",
-          "2": "vieux livre indéchiffrable"
-        }
+        "title": "Livre indéchiffrable et table contenant les pilules"
       },
       "2" : {
         "title": "Tu avales une pilule"

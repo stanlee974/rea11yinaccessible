@@ -4,7 +4,7 @@
         <Row>
             <Column>
                 <ImageLoader
-                        src="{base}/abri/entrance/enter.jpg" alt={$t('shelterMedicalRoom.before.image')}
+                        src="{base}/abri/entrance/enter.jpg" alt=""
                         fadeIn={true}/>
             </Column>
             <Column>
@@ -27,9 +27,9 @@
                 modalHeading={$t('shelterMedicalRoom.scenario.modal.1.title')}
                 parentDoneAction={() => showNotice = false}>
     <ImageLoader
-            src="{base}/abri/medical/pills.jpg" alt={$t('shelterMedicalRoom.scenario.modal.1.image.1')} fadeIn={true}/>
+            src="{base}/abri/medical/pills.jpg" alt="" fadeIn={true}/>
     <ImageLoader
-            src="{base}/abri/medical/book.jpg" alt={$t('shelterMedicalRoom.scenario.modal.1.image.2')} fadeIn={true}/>
+            src="{base}/abri/medical/book.jpg" alt="" fadeIn={true}/>
 </ModalComponent>
 <TypewriterComponent disabled={showNotice} waitReading continueButtonAction={() => showManEating = true}>
     <div>

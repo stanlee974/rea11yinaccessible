@@ -12,7 +12,7 @@
         <div style:width="100%" style:max-width="250px" style:margin-right="1rem">
             <a href="{base}/">
                 <ImageLoader
-                        src="{base}/logo.png" alt={$t('common.layout.menu.logo')} fadeIn={true}
+                        src="{base}/logo.png" alt="" fadeIn={true}
                 />
             </a>
         </div>

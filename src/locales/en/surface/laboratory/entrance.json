@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "You walk down the laboratory corridor",
     "row": {
       "1": "You manage to activate the button correctly, and an internal mechanism begins to work. The metal door slowly opens with a creak, revealing a corridor leading into the secondary laboratory.",
       "2": "You proceed cautiously and immediately feel a chilling cold emanating from within."
@@ -17,19 +16,16 @@
     },
     "modal": {
       "1": {
-        "title": "Refrigerated Chamber Containing the Terminal",
         "row": {
           "1": "A handwritten note in a corner of the room mentions the effects of intense cold on the human body.",
-          "2": "On the back of this note are encoded inscriptions.",
-          "3": "encoded inscriptions"
+          "2": "On the back of this note are encoded inscriptions."
         }
       }
     }
   },
   "goal": {
     "row": {
-      "1": "You must decipher and type the resolved code on the terminal's keyboard, despite the intense cold. If your hands tremble too much, you may enter the wrong code, which could trigger an alarm or a temporary lockdown.",
-      "2": "encoded inscriptions"
+      "1": "You must decipher and type the resolved code on the terminal's keyboard, despite the intense cold. If your hands tremble too much, you may enter the wrong code, which could trigger an alarm or a temporary lockdown."
     }
   },
   "test": {

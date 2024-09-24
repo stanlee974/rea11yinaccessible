@@ -4,7 +4,7 @@
         <Row>
             <Column>
                 <ImageLoader
-                        src="{base}/abri/entrance/enter.jpg" alt={$t('shelterEntrance.before.image')} fadeIn={true}/>
+                        src="{base}/abri/entrance/enter.jpg" alt="" fadeIn={true}/>
             </Column>
             <Column>
                 <p>{$t('shelterEntrance.before.row.1')}</p>

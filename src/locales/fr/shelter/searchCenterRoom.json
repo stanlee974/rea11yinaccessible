@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Tu rentres dans le centre de recherche abandonné",
     "row": {
       "1": "En utilisant le médicament Dysclecsus, tu as pu exploiter une forme temporaire de dyslexie pour déchiffrer le texte.",
       "2": "Tu montes des escaliers te rapprochant de la surface. Tu entres maintenant dans une nouvelle zone du complexe, un ancien centre de recherche abandonné.",
@@ -34,7 +33,6 @@
     }
   },
   "test": {
-    "overlay" : "image intrusive",
     "buttons": {
       "enigm1": {
         "text": "Réponse énigme 1",

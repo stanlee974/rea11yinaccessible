@@ -5,7 +5,7 @@
             <Column>
                 <ImageLoader
                         src="{base}/surface/laboratory/sanctuary/direction_to_sanctuary.jpg"
-                        alt={$t('sanctuary.before.image')}
+                        alt=""
                         fadeIn={true}/>
             </Column>
             <Column>
@@ -49,18 +49,18 @@
                 <div>
                     <ImageLoader
                             src="{base}/surface/laboratory/sanctuary/door.jpg"
-                            alt={$t('sanctuary.scenario.modal.1.row.1')} fadeIn={true}/>
+                            alt="" fadeIn={true}/>
                     <span>2</span>
+                    <p>{$t('sanctuary.scenario.modal.1.row.1')}</p>
                     <p>{$t('sanctuary.scenario.modal.1.row.2')}</p>
-                    <p>{$t('sanctuary.scenario.modal.1.row.3')}</p>
                 </div>
             </Column>
             <Column>
                 <span>1</span>
-                <p>{$t('sanctuary.scenario.modal.1.row.4')}</p>
+                <p>{$t('sanctuary.scenario.modal.1.row.3')}</p>
                 <ImageLoader
                         src="{base}/surface/laboratory/sanctuary/last_item.jpg"
-                        alt={$t('sanctuary.scenario.modal.1.row.5')} fadeIn={true}/>
+                        alt="" fadeIn={true}/>
             </Column>
         </Row>
     </Grid>

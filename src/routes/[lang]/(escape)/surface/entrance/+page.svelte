@@ -5,7 +5,7 @@
             <Column>
                 <ImageLoader
                         src="{base}/surface/entrance/man_stair.jpg"
-                        alt={$t('surfaceEntrance.before.image')} fadeIn={true}/>
+                        alt="" fadeIn={true}/>
             </Column>
             <Column><p style="font-size: 1.3rem">{$t('surfaceEntrance.before.row.1')}</p>
                 <p style="font-size: 1.3rem">{$t('surfaceEntrance.before.row.2')}</p>
@@ -30,7 +30,7 @@
             <Column>
                 <ImageLoader
                         src="{base}/surface/entrance/man_laboratory.jpg"
-                        alt={$t('surfaceEntrance.scenario.modal.1.title')} fadeIn={true}/>
+                        alt="" fadeIn={true}/>
             </Column>
             <Column>
                 <p>{$t('surfaceEntrance.scenario.modal.1.row.1')}</p>
@@ -58,19 +58,19 @@
              on:mousemove={movingMouseTremors}>
             <ImageLoader
                     src="{base}/surface/entrance/open_door.jpg"
-                    alt={$t('surfaceEntrance.test.modal.1.row.1')} fadeIn={true}/>
+                    alt="" fadeIn={true}/>
             <div tabindex="0"
                  style="position: absolute; top: 78.8%; left: 23.7%; color:#7F0000; font-size: 1.3rem; font-weight: bold"
                  on:click={() => validateClick()}
                  on:keydown={(event) => {if (event.key === "Enter") {validateClick()}}}>X
             </div>
             <div style="position: absolute; top: 79.8%; left: 27.7%; color:#7F0000; font-size: 1; font-weight: bold;">
-                {$t('surfaceEntrance.test.modal.1.row.2')}
+                {$t('surfaceEntrance.test.modal.1.content')}
             </div>
             <div style="position: absolute; top:0; width: 15px">
                 <ImageLoader
                         src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png"
-                        alt={$t('surfaceEntrance.test.modal.1.row.3')} style="position: absolute; left:{mouseX}px; top:{mouseY}px; z-index: 15000"/>
+                        alt="" style="position: absolute; left:{mouseX}px; top:{mouseY}px; z-index: 15000"/>
             </div>
         </div>
     </ModalComponent>

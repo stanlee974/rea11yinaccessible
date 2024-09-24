@@ -1,11 +1,11 @@
 <div id="glitch-body">
     <div id="glitch" class="glitch" style="margin: 5rem 3rem 5rem;">
         <ImageLoader
-                src="{base}/logo_alt.png" alt={$t('common.layout.menu.logo')} fadeIn={true}
+                src="{base}/logo_alt.png" alt="" fadeIn={true}
         />
     </div>
 </div>
-<ButtonComponent onclick={() => {disableWriter = false}} enabled={startButton}><img slot="content" src="{base}/arrow-down.svg" alt={$t('waitingRoom.scenario.begin')}/>
+<ButtonComponent onclick={() => {disableWriter = false}} enabled={startButton}><img slot="content" src="{base}/arrow-down.svg" alt=""/>
 </ButtonComponent>
 <Content id="scenario">
     <div class="container">

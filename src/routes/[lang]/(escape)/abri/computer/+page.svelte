@@ -11,7 +11,7 @@
         <Row>
             <Column>
                 <ImageLoader
-                        src="{base}/abri/computer/man_walking.jpg" alt={$t('common.layout.title.scenario')}
+                        src="{base}/abri/computer/man_walking.jpg" alt=""
                         fadeIn={true}/>
             </Column>
             <Column>
@@ -110,7 +110,7 @@
                 {$t(`shelterComputerRoom.test.form.submit.text`)}
             </Button>
         </Content>
-        <img src="{base}/abri/computer/computer.jpg" alt={$t(`shelterComputerRoom.test.description`)}/>
+        <img src="{base}/abri/computer/computer.jpg" alt=""/>
     </div>
     {#if isWaiting}
         <Loading/>

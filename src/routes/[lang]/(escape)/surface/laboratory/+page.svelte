@@ -5,7 +5,7 @@
             <Column>
                 <ImageLoader
                         src="{base}/surface/laboratory/man_walking.jpg"
-                        alt={$t('surfaceLaboratory.before.image')} fadeIn={true}/>
+                        alt="" fadeIn={true}/>
             </Column>
             <Column><p style="font-size: 1.3rem">{$t('surfaceLaboratory.before.row.1')}</p>
                 <p style="font-size: 1.3rem">{$t('surfaceLaboratory.before.row.2')}</p>
@@ -29,7 +29,7 @@
             <Column>
                 <ImageLoader
                         src="{base}/surface/laboratory/frozen_room.jpg"
-                        alt={$t('surfaceLaboratory.scenario.modal.1.title')} fadeIn={true}/>
+                        alt="" fadeIn={true}/>
             </Column>
             <Column><p>{$t('surfaceLaboratory.scenario.modal.1.row.1')}</p>
                 <p>{$t('surfaceLaboratory.scenario.modal.1.row.2')}</p>
@@ -37,7 +37,7 @@
                     <div style="position:absolute;z-index:1">
                         <ImageLoader
                                 src="{base}/surface/laboratory/password.png"
-                                alt={$t('surfaceLaboratory.scenario.modal.1.row.3')} fadeIn={true}/>
+                                alt="" fadeIn={true}/>
                     </div>
                     <div style="z-index:2; display: flex; flex-direction: column; position: relative">
                         <span class="writtenBraille"
@@ -71,7 +71,7 @@
                     <img id="parchment"
                          class="image"
                          src="{base}/surface/laboratory/password.png"
-                         alt={$t('surfaceLaboratory.goal.row.2')}/>
+                         alt=""/>
                 </div>
                 <div style="z-index:2; display: flex; flex-direction: column">
                     <span class="writtenBraille"

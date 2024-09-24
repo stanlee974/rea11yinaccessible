@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Subes las escaleras y llegas a la superficie",
     "row": {
       "1": "Al resolver las enigmás exitosamente a pesar de las perturbadoras alucinaciones, has demostrado tu capacidad para mantenerte enfocado y determinado.",
       "2": "Una última alucinación te muestra un periódico que menciona un laboratorio secundario ubicado en la superficie, en una antigua zona industrial.",
@@ -20,7 +19,6 @@
     },
     "modal": {
       "1": {
-        "title": "Te encuentras frente a la puerta del laboratorio",
         "row": {
           "1": "La entrada al laboratorio secundario es un gran edificio industrial en ruinas, parcialmente invadido por la vegetación.",
           "2": "Frente a la entrada principal, hay una puerta metálica gruesa con un panel de control electrónico antiguo al lado.",
@@ -38,17 +36,13 @@
     "modal": {
       "1": {
         "title": "Panel de control",
-        "row": {
-          "1": "Debes hacer clic en la cruz para abrir la puerta",
-          "2": "Haga clic para abrir la puerta",
-          "3": "cursor del ratón"
-        }
+        "content": "Haga clic para abrir la puerta"
       }
-    },
-    "buttons": {
-      "open": {
-        "text": "Abrir el terminal"
-      }
+    }
+  },
+  "buttons": {
+    "open": {
+      "text": "Abrir el terminal"
     }
   }
 }

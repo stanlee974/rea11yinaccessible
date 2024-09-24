@@ -5,7 +5,7 @@
             <Column>
                 <ImageLoader
                         src="{base}/abri/search_center/zone.jpg"
-                        alt={$t('shelterSearchCenterRoom.before.image')} fadeIn={true}/>
+                        alt="" fadeIn={true}/>
             </Column>
             <Column>
                 <p>{$t('shelterSearchCenterRoom.before.row.1')}</p>
@@ -144,7 +144,7 @@
 
     const showOverlay = () => {
         if (content) {
-            content.innerHTML = `<img src="${getDisturbedImage()}" alt=$t('shelterSearchCenterRoom.test.overlay')>`;
+            content.innerHTML = `<img src="${getDisturbedImage()}" alt="">`;
         }
         if (overlay) {
             overlay.style.display = 'flex';

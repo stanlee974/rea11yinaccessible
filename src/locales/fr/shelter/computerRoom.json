@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Tu avances vers la nouvelle salle",
     "row": {
       "1": "Un mécanisme se déclenche et la porte s'ouvre, te laissant passer dans la salle suivante.",
       "2": "Lorsque tu rentres, tu découvres qu'un accident a endommagé l'écran principal du système de contrôle. Tu dois désormais saisir des données critiques sans rien voir à l'écran."
@@ -71,7 +70,6 @@
         "ariaLabel": "soumettre",
         "text": "Soumettre la saisie"
       }
-    },
-    "description": "ordinateur sur lequel se trouve le formulaire"
+    }
   }
 }
