@@ -1,8 +1,7 @@
-<div id="glitch-body">
-    <div id="glitch" class="glitch" style="margin: 5rem 3rem 5rem;">
-        <ImageLoader
-                src="{base}/logo_alt.png" alt="" fadeIn={true}
-        />
+<div class="d-flex flex-column align-items-center mt-4">
+    <span class="mb-4" id="teaser-video-title">{$t('waitingRoom.playVideo')}</span>
+    <div id="teaser-video-container">
+        <div id="teaserPlayer" data-plyr-provider="youtube" data-plyr-embed-id="4EzZ4Na1rtk"></div>
     </div>
 </div>
 <ButtonComponent onclick={() => {disableWriter = false}} enabled={startButton}><img slot="content" src="{base}/arrow-down.svg" alt=""/>
@@ -66,6 +65,7 @@
 </Content>
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
+    import "plyr/dist/plyr.css";
     import {Button, Column, Content, Grid, ImageLoader, Row, ToastNotification} from "carbon-components-svelte";
     import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
     import {base} from "$app/paths";
@@ -77,6 +77,7 @@
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {page} from "$app/stores";
     import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
+    import Plyr from 'plyr';
 
     let disableWriter = true
     let isWaiting = false
@@ -96,9 +97,22 @@
         errorSound.volume = 0.5
         changeSource("/ost/opening.mp3")
         startButton = true
+        const player = new Plyr('#teaserPlayer', { "captions": { "active": "true", "language": $page.params.lang} });
     })
 
 </script>
 <style lang="css">
     @import url(/css/glitch.css);
+
+    #teaser-video-container {
+        width: 800px;
+    }
+
+    #teaser-video-title {
+        margin-top: 2rem !important;
+        font-size: 2rem;
+        font-weight: 400;
+        line-height: 1.25;
+        letter-spacing: 0;
+    }
 </style>
