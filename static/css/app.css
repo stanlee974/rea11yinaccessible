@@ -131,3 +131,7 @@ button {
 	font-family: 'Handwriting', sans-serif;
 	background: url(/old-paper-banner.png);
 }
+
+#start-button-block .bx--toast-notification__caption {
+	display: none !important;
+}

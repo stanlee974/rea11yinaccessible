@@ -4,60 +4,54 @@
         <div id="teaserPlayer" data-plyr-provider="youtube" data-plyr-embed-id="4EzZ4Na1rtk"></div>
     </div>
 </div>
-<ButtonComponent onclick={() => {disableWriter = false}} enabled={startButton}><img slot="content" src="{base}/arrow-down.svg" alt=""/>
-</ButtonComponent>
+<ButtonComponent enabled={startButton} onclick={() => {disableWriter = false}}><span slot="content" class="d-flex flex-row align-items-center">{$t('waitingRoom.test.startButton')}<ContinueFilled class="ms-2"/></span></ButtonComponent>
 <Content id="scenario">
     <div class="container">
-        <Grid>
-            <Row>
-                <Column>
-                    <TypewriterComponent mode="scramble" disabled={disableWriter}>
-                        <h1>{$t('waitingRoom.welcome')}</h1>
-                    </TypewriterComponent>
-                    <TypewriterComponent disabled={disableWriter} delay={3000} parentDoneAction={() => showButton = true}>
-                        <div>
-                            <div class="mb-4">
-                                <h2 class="mb-3">{$t('common.layout.title.scenario')}</h2>
-                                <p>{$t(`waitingRoom.scenario.row.1`)}</p>
-                                <p>{$t('waitingRoom.scenario.row.2')}</p>
-                                <p>{$t('waitingRoom.scenario.row.3')}</p>
-                            </div>
-                            <div class="mb-4">
-                                <h2 class="mb-3">{$t('common.layout.title.goal')}</h2>
-                                <p>{$t('waitingRoom.goal.row.1')}</p>
-                                <p>{$t('waitingRoom.goal.row.2')}</p>
-                                <p>{$t('waitingRoom.test.clickLink')} <a class="disabled-link"
-                                    href="{base}/{$locale}/abri/entrance" 
-                                    on:click={() => loading()}>{$t('waitingRoom.test.here')}</a>
-                                    {$t('waitingRoom.test.enter')}
-                                </p>
-                            </div>
-                        </div>
-                    </TypewriterComponent>
-                    <br aria-hidden="true"/>
-                    {#if showButton}
-                        <Button kind="primary"
-                            class="main-button d-flex flex-row align-items-center"
-                            on:click={() => {errorSound.play(); showError = true}}>
-                            {$t('waitingRoom.test.startButton')}<ContinueFilled class="ms-2"/>
-                        </Button>
-                    {/if}
-                    {#if showError}
-                        <div
-                                style="position: absolute; left: 53%; padding-right: 2rem; padding-left: 2rem;">
-                            <img src="{base}/troll.gif" alt="" aria-hidden={true}/>
-                            <ToastNotification
-                                    lowContrast
-                                    fullWidth
-                                    kind="error"
-                                    title={$t('waitingRoom.test.error.title')}
-                                    subtitle={$t('waitingRoom.test.error.content')}
-                            />
-                        </div>
-                    {/if}
-                </Column>
-            </Row>
-        </Grid>
+        <TypewriterComponent mode="scramble" disabled={disableWriter}>
+            <h1>{$t('waitingRoom.welcome')}</h1>
+        </TypewriterComponent>
+        <TypewriterComponent disabled={disableWriter} delay={3000} parentDoneAction={() => showButton = true}>
+            <div>
+                <div class="mb-4">
+                    <h2 class="mb-3">{$t('common.layout.title.scenario')}</h2>
+                    <p>{$t(`waitingRoom.scenario.row.1`)}</p>
+                    <p>{$t('waitingRoom.scenario.row.2')}</p>
+                    <p>{$t('waitingRoom.scenario.row.3')}</p>
+                </div>
+                <div class="mb-5">
+                    <h2 class="mb-3">{$t('common.layout.title.goal')}</h2>
+                    <p>{$t('waitingRoom.goal.row.1')}</p>
+                    <p>{$t('waitingRoom.goal.row.2')}</p>
+                    <p>{$t('waitingRoom.test.clickLink')} <a class="disabled-link"
+                        href="{base}/{$locale}/abri/entrance" 
+                        on:click={() => loading()}>{$t('waitingRoom.test.here')}</a>
+                        {$t('waitingRoom.test.enter')}
+                    </p>
+                </div>
+            </div>
+        </TypewriterComponent>
+        <div id="start-button-block">
+            {#if showButton}
+                <Button kind="primary"
+                    class="main-button d-flex flex-row align-items-center"
+                    on:click={() => {errorSound.play(); showError = true}}>
+                    {$t('waitingRoom.test.startButton')}<ContinueFilled class="ms-2"/>
+                </Button>
+            {/if}
+            {#if showError}
+                <div id="troll-block">
+                    <img src="{base}/troll.gif" alt="" aria-hidden={true}/>
+                    <ToastNotification
+                            lowContrast
+                            fullWidth
+                            kind="error"
+                            title={$t('waitingRoom.test.error.title')}
+                            subtitle={$t('waitingRoom.test.error.content')}
+                            on:close={() => {showError = false}}
+                    />
+                </div>
+            {/if}
+        </div>
     </div>
     {#if isWaiting}
         <LoadingComponent/>
@@ -103,6 +97,18 @@
 </script>
 <style lang="css">
     @import url(/css/glitch.css);
+
+    #start-button-block {
+        position: relative;
+    }
+
+    #troll-block {
+        position: absolute;
+        left: 53%;
+        bottom: -30px;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
 
     #teaser-video-container {
         width: 800px;
