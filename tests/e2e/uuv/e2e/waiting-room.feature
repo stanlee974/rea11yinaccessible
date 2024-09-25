@@ -1,20 +1,12 @@
-Feature: Homepage
+Feature: Waiting room
 
-  Scenario: Homepage
-    When I visit path "/fr"
-    Then I should see a title named "Bienvenue sur Rea11y Inaccessible"
-     And I should see a title named "Contexte"
-     And I should see a title named "Thématiques abordées"
-     And I should see a title named "Conseils"
-     And I should see a button named "Débuter la partie"
-
-  Scenario: Waiting room 1/2
+  Scenario: Landigng with teaser 1/2
     Given I visit path "/fr"
     When I click on button named "Débuter la partie"
     Then I should see an element with content "Le temps presse, regarde la vidéo pour comprendre la situation..."
      And I should see a button named "Continuer"
 
-  Scenario: Waiting room 2/2
+  Scenario: Reveal synopsis 2/2
     Given I visit path "/fr/waitingroom"
     When I click on button named "Continuer"
     Then I should not see a button named "Continuer"

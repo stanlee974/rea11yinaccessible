@@ -59,3 +59,4 @@ Thumbs.db
 /uuv/.uuv-features-gen
 /.history
 /tests/e2e/uuv/.uuv-features-gen
+tests/e2e/uuv/reports/

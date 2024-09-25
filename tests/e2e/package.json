@@ -9,6 +9,6 @@
   "author": "",
   "license": "GPL-3.0",
   "devDependencies": {
-    "@uuv/playwright": "^3.8.0"
+    "@uuv/playwright": "^3.13.0"
   }
 }

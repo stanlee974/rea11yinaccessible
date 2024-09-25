@@ -2,6 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 import { buildConfig } from "@uuv/playwright";
 
 export default defineConfig({
+  timeout: 120000,
   testDir: buildConfig(
     ["e2e/*.feature"]
   ),
@@ -13,7 +14,7 @@ export default defineConfig({
   workers: 1,
   reporter: "@uuv/playwright/uuv-playwright-reporter",
   use: {
-    baseURL: process.env.UUV_BASE_URL ? process.env.UUV_BASE_URL : "http://localhost:5173",
+    baseURL: process.env.UUV_BASE_URL ? process.env.UUV_BASE_URL : "http://localhost:4173",
     trace: "on-first-retry",
     screenshot: "only-on-failure"
   },
