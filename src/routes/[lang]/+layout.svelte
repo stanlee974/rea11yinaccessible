@@ -211,7 +211,7 @@
     export let songVolume: number = 0
     export let soundVolume: number = 30
 
-    let selectedLanguageIndex = $page.params.lang === 'fr' ? 0 : $page.params.lang === 'en' ? 1 : 2
+    let selectedLanguageIndex = $page.params.lang
     let playHeartBeat: Function | undefined = undefined
     let playHeartBeatFast: Function | undefined = undefined
 
