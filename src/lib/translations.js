@@ -1,101 +1,114 @@
 import i18n from 'sveltekit-i18n';
 import lang from './lang.json';
-import {page} from "$app/stores"
-
 
 const availableLocales = Object.keys(lang);
 const translations = {};
-const loaders = []
-for (let i = 0; i < availableLocales.length; i++) {
-    translations[availableLocales[i]] = {lang};
+const loaders = [];
+
+availableLocales.forEach((currentLocale) => {
+    translations[currentLocale] = {lang};
+
     loaders.push(
         {
-            locale: availableLocales[i],
+            locale: currentLocale,
             key: 'common',
-            loader: async () => (await import(`../locales/${availableLocales[i]}/common.json`)).default
+            loader: async () => (await import(`../locales/${currentLocale}/common.json`)).default
         }
     )
+
     loaders.push(
         {
-            locale: availableLocales[i],
+            locale: currentLocale,
             key: 'intro',
-            loader: async () => (await import(`../locales/${availableLocales[i]}/intro.json`)).default
+            loader: async () => (await import(`../locales/${currentLocale}/intro.json`)).default
         }
     )
+
     loaders.push(
         {
-            locale: availableLocales[i],
+            locale: currentLocale,
             key: 'waitingRoom',
-            loader: async () => (await import(`../locales/${availableLocales[i]}/waitingRoom.json`)).default
-        })
+            loader: async () => (await import(`../locales/${currentLocale}/waitingRoom.json`)).default
+        }
+    )
+
     loaders.push(
         {
-            locale: availableLocales[i],
+            locale: currentLocale,
             key: 'shelterEntrance',
-            loader: async () => (await import(`../locales/${availableLocales[i]}/shelter/entrance.json`)).default
-        })
+            loader: async () => (await import(`../locales/${currentLocale}/shelter/entrance.json`)).default
+        }
+    )
+
     loaders.push(
         {
-            locale: availableLocales[i],
+            locale: currentLocale,
             key: 'shelterComputerRoom',
-            loader: async () => (await import(`../locales/${availableLocales[i]}/shelter/computerRoom.json`)).default
-        })
+            loader: async () => (await import(`../locales/${currentLocale}/shelter/computerRoom.json`)).default
+        }
+    )
     loaders.push(
         {
-            locale: availableLocales[i],
+            locale: currentLocale,
             key: 'shelterMedicalRoom',
-            loader: async () => (await import(`../locales/${availableLocales[i]}/shelter/medicalRoom.json`)).default
+            loader: async () => (await import(`../locales/${currentLocale}/shelter/medicalRoom.json`)).default
         }
     )
+
     loaders.push(
         {
-            locale: availableLocales[i],
+            locale: currentLocale,
             key: 'shelterSearchCenterRoom',
-            loader: async () => (await import(`../locales/${availableLocales[i]}/shelter/searchCenterRoom.json`)).default
+            loader: async () => (await import(`../locales/${currentLocale}/shelter/searchCenterRoom.json`)).default
         }
     )
+
     loaders.push(
         {
-            locale: availableLocales[i],
+            locale: currentLocale,
             key: 'surfaceEntrance',
-            loader: async () => (await import(`../locales/${availableLocales[i]}/surface/entrance.json`)).default
+            loader: async () => (await import(`../locales/${currentLocale}/surface/entrance.json`)).default
         }
     )
+
     loaders.push(
         {
-            locale: availableLocales[i],
+            locale: currentLocale,
             key: 'surfaceLaboratory',
-            loader: async () => (await import(`../locales/${availableLocales[i]}/surface/laboratory/entrance.json`)).default
+            loader: async () => (await import(`../locales/${currentLocale}/surface/laboratory/entrance.json`)).default
         }
     )
+
     loaders.push(
         {
-            locale: availableLocales[i],
+            locale: currentLocale,
             key: 'audiovisualRoom',
-            loader: async () => (await import(`../locales/${availableLocales[i]}/surface/laboratory/audiovisualRoom.json`)).default
+            loader: async () => (await import(`../locales/${currentLocale}/surface/laboratory/audiovisualRoom.json`)).default
         }
     )
+
     loaders.push(
         {
-            locale: availableLocales[i],
+            locale: currentLocale,
             key: 'sanctuary',
-            loader: async () => (await import(`../locales/${availableLocales[i]}/surface/laboratory/sanctuary.json`)).default
+            loader: async () => (await import(`../locales/${currentLocale}/surface/laboratory/sanctuary.json`)).default
         }
     )
 
-
     loaders.push(
         {
-            locale: availableLocales[i],
+            locale: currentLocale,
             key: 'outro',
-            loader: async () => (await import(`../locales/${availableLocales[i]}/outro.json`)).default
-        })
-}
+            loader: async () => (await import(`../locales/${currentLocale}/outro.json`)).default
+        }
+    )
+})
 
 const config = ({
     initLocale: 'fr',
-    translations: translations,
-    loaders: loaders
+    fallbackLocale: 'fr',
+    loaders,
+    translations
 });
 
-export const {t, loading, locales, locale, setLocale, getTranslationProps} = new i18n(config);
+export const { t, loading, locales, locale, setLocale, loadTranslations } = new i18n(config);

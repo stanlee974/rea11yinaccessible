@@ -1,7 +1,7 @@
-import {t, locales, setLocale, locale, getTranslationProps} from "$lib/translations"
-import {goto, invalidateAll} from "$app/navigation";
-import {base} from "$app/paths";
-import {RenderData, renderStore, renderStoreSetData} from "$lib/store/inMemoryStore/RenderStore";
+import { t, locales, setLocale, locale } from "$lib/translations"
+import { goto } from "$app/navigation";
+import { base } from "$app/paths";
+import { renderStore, renderStoreSetData } from "$lib/store/inMemoryStore/RenderStore";
 import { get } from "svelte/store";
 
 export {t, locales, setLocale, locale}
