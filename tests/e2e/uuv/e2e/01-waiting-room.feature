@@ -1,21 +1,13 @@
-Feature: Homepage
+Feature: Waiting room
 
-  Scenario: Homepage
-    When I visit path "/fr"
-    Then I should see a title named "Bienvenue sur Rea11y Inaccessible"
-     And I should see a title named "Contexte"
-     And I should see a title named "Thématiques abordées"
-     And I should see a title named "Conseils"
-     And I should see a button named "Débuter la partie"
+  Background:
+    Given I visit path "/fr/waitingroom"
 
-  Scenario: Waiting room 1/2
-    Given I visit path "/fr"
-    When I click on button named "Débuter la partie"
+  Scenario: Landigng with teaser
     Then I should see an element with content "Le temps presse, regarde la vidéo pour comprendre la situation..."
      And I should see a button named "Continuer"
 
-  Scenario: Waiting room 2/2
-    Given I visit path "/fr/waitingroom"
+  Scenario: Reveal scenario
     When I click on button named "Continuer"
     Then I should not see a button named "Continuer"
      And I set timeout with value 60000
@@ -24,4 +16,11 @@ Feature: Homepage
      And I should see a title named "Objectif"
      And I should see a link named "ici"
      And I should see a button named "Continuer"
-  
+
+  Scenario: Go to abri
+    When I click on button named "Continuer"
+     And I set timeout with value 80000
+     And I click on element with role "link" and name "ici"
+     And I reset context
+    Then within the element with selector "#currentModal"
+     And I should see a button named "Continuer la suite"

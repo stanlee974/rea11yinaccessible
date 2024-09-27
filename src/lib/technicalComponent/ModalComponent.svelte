@@ -1,5 +1,5 @@
 <!--{#if !$accessibilityModeStore}-->
-    <Modal size="lg" preventCloseOnClickOutside passiveModal={!hasPrimaryButton} modalHeading={modalHeading}
+    <Modal id="currentModal" size="lg" preventCloseOnClickOutside passiveModal={!hasPrimaryButton} modalHeading={modalHeading}
            bind:open={opened}
            on:close={() => onClose()}
            primaryButtonText="{$t('common.button.waiting')}"
