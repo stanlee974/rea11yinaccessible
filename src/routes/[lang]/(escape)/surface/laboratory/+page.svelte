@@ -1,104 +1,3 @@
-<ModalComponent opened={showTransitionModal}
-                parentDoneAction={() => {showScenario = false}}>
-    <Grid>
-        <Row>
-            <Column>
-                <ImageLoader
-                        src="{base}/surface/laboratory/man_walking.jpg"
-                        alt="" fadeIn={true}/>
-            </Column>
-            <Column><p style="font-size: 1.3rem">{$t('surfaceLaboratory.before.row.1')}</p>
-                <p style="font-size: 1.3rem">{$t('surfaceLaboratory.before.row.2')}</p>
-            </Column>
-        </Row>
-    </Grid>
-</ModalComponent>
-<TypewriterComponent disabled={showScenario} parentDoneAction={() => {setTimeout(() => showEnigm = true, 2000)}}>
-    <div>
-        <div class="container mb-4">
-            <h2 class="mb-2">{$t('common.layout.title.scenario')}</h2>
-            <p>{$t('surfaceLaboratory.scenario.row.1')}</p>
-            <p>{$t('surfaceLaboratory.scenario.row.2')}</p>
-        </div>
-    </div>
-</TypewriterComponent>
-<ModalComponent opened={showEnigm}
-                parentDoneAction={() => disableGoal = false}>
-    <Grid>
-        <Row>
-            <Column>
-                <ImageLoader
-                        src="{base}/surface/laboratory/frozen_room.jpg"
-                        alt="" fadeIn={true}/>
-            </Column>
-            <Column><p>{$t('surfaceLaboratory.scenario.modal.1.row.1')}</p>
-                <p>{$t('surfaceLaboratory.scenario.modal.1.row.2')}</p>
-                <div style="position:relative; height:430px">
-                    <div style="position:absolute;z-index:1">
-                        <ImageLoader
-                                src="{base}/surface/laboratory/password.png"
-                                alt="" fadeIn={true}/>
-                    </div>
-                    <div style="z-index:2; display: flex; flex-direction: column; position: relative">
-                        <span class="writtenBraille"
-                              style="top:7rem;left:8.5rem;">{normalize($t('surfaceLaboratory.test.parchment.row.1'))}</span>
-                        <span class="writtenBraille"
-                              style="top:8rem;left:15rem;">{normalize($t('surfaceLaboratory.test.parchment.row.2'))}</span>
-                        <span class="writtenBraille"
-                              style="top:10rem;left:9rem;">{normalize($t('surfaceLaboratory.test.parchment.row.3'))}</span>
-                        <span class="writtenBraille"
-                              style="top:12rem;left:12rem;">{normalize($t('surfaceLaboratory.test.parchment.row.4'))}</span>
-                    </div>
-                </div>
-            </Column>
-        </Row>
-    </Grid>
-</ModalComponent>
-<TypewriterComponent disabled={disableGoal}
-                     parentDoneAction={() => showForm = true}>
-    <div>
-        <div class="container mb-4">
-            <h2 class="mb-2">{$t('common.layout.title.goal')}</h2>
-            <p>{$t('surfaceLaboratory.goal.row.1')}</p>
-        </div>
-    </div>
-</TypewriterComponent>
-{#if showForm}
-    <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
-        <div style="width:600px; border: white 0.2em solid; ">
-            <div class="imageContainer">
-                <div style="z-index:1">
-                    <img id="parchment"
-                         class="image"
-                         src="{base}/surface/laboratory/password.png"
-                         alt=""/>
-                </div>
-                <div style="z-index:2; display: flex; flex-direction: column">
-                    <span class="writtenBraille"
-                          style="top:8.5rem;left:11rem;">{normalize($t('surfaceLaboratory.test.parchment.row.1'))}</span>
-                    <span class="writtenBraille"
-                          style="top:10rem;left:19rem;">{normalize($t('surfaceLaboratory.test.parchment.row.2'))}</span>
-                    <span class="writtenBraille"
-                          style="top:12rem;left:11.5rem;">{normalize($t('surfaceLaboratory.test.parchment.row.3'))}</span>
-                    <span class="writtenBraille"
-                          style="top:15rem;left:15rem;">{normalize($t('surfaceLaboratory.test.parchment.row.4'))}</span>
-                </div>
-            </div>
-        </div>
-        <FluidForm class="my-3">
-            <TextInput
-                    labelText={$t('surfaceLaboratory.test.buttons.password.text')}
-                    placeholder={$t('surfaceLaboratory.test.buttons.password.placeholder')}
-                    required invalid={invalidResult} invalidText={$t('surfaceLaboratory.test.buttons.password.error')}
-                    autofocus bind:value={result} on:keydown={(event) => {adaptPressedKey(event)}}/>
-        </FluidForm>
-        <Button kind="primary"
-                on:click={() => validateForm()}>{$t('surfaceLaboratory.test.buttons.submit.text')}</Button>
-    </div>
-    {#if isWaiting}
-        <Loading/>
-    {/if}
-{/if}
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
     import {Button, Column, FluidForm, Grid, ImageLoader, Loading, Row, TextInput,} from "carbon-components-svelte";
@@ -215,3 +114,105 @@
     }
 
 </style>
+
+<ModalComponent opened={showTransitionModal}
+                parentDoneAction={() => {showScenario = false}}>
+    <Grid>
+        <Row>
+            <Column>
+                <ImageLoader
+                        src="{base}/surface/laboratory/man_walking.jpg"
+                        alt="" fadeIn={true}/>
+            </Column>
+            <Column><p style="font-size: 1.3rem">{$t('surfaceLaboratory.before.row.1')}</p>
+                <p style="font-size: 1.3rem">{$t('surfaceLaboratory.before.row.2')}</p>
+            </Column>
+        </Row>
+    </Grid>
+</ModalComponent>
+<TypewriterComponent disabled={showScenario} parentDoneAction={() => {setTimeout(() => showEnigm = true, 2000)}}>
+    <div>
+        <div class="container mb-4">
+            <h2 class="mb-2">{$t('common.layout.title.scenario')}</h2>
+            <p>{$t('surfaceLaboratory.scenario.row.1')}</p>
+            <p>{$t('surfaceLaboratory.scenario.row.2')}</p>
+        </div>
+    </div>
+</TypewriterComponent>
+<ModalComponent opened={showEnigm}
+                parentDoneAction={() => disableGoal = false}>
+    <Grid>
+        <Row>
+            <Column>
+                <ImageLoader
+                        src="{base}/surface/laboratory/frozen_room.jpg"
+                        alt="" fadeIn={true}/>
+            </Column>
+            <Column><p>{$t('surfaceLaboratory.scenario.modal.1.row.1')}</p>
+                <p>{$t('surfaceLaboratory.scenario.modal.1.row.2')}</p>
+                <div style="position:relative; height:430px">
+                    <div style="position:absolute;z-index:1">
+                        <ImageLoader
+                                src="{base}/surface/laboratory/password.png"
+                                alt="" fadeIn={true}/>
+                    </div>
+                    <div style="z-index:2; display: flex; flex-direction: column; position: relative">
+                        <span class="writtenBraille"
+                              style="top:7rem;left:8.5rem;">{normalize($t('surfaceLaboratory.test.parchment.row.1'))}</span>
+                        <span class="writtenBraille"
+                              style="top:8rem;left:15rem;">{normalize($t('surfaceLaboratory.test.parchment.row.2'))}</span>
+                        <span class="writtenBraille"
+                              style="top:10rem;left:9rem;">{normalize($t('surfaceLaboratory.test.parchment.row.3'))}</span>
+                        <span class="writtenBraille"
+                              style="top:12rem;left:12rem;">{normalize($t('surfaceLaboratory.test.parchment.row.4'))}</span>
+                    </div>
+                </div>
+            </Column>
+        </Row>
+    </Grid>
+</ModalComponent>
+<TypewriterComponent disabled={disableGoal}
+                     parentDoneAction={() => showForm = true}>
+    <div>
+        <div class="container mb-4">
+            <h2 class="mb-2">{$t('common.layout.title.goal')}</h2>
+            <p>{$t('surfaceLaboratory.goal.row.1')}</p>
+        </div>
+    </div>
+</TypewriterComponent>
+{#if showForm}
+    <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
+        <div style="width:600px; border: white 0.2em solid; ">
+            <div class="imageContainer">
+                <div style="z-index:1">
+                    <img id="parchment"
+                         class="image"
+                         src="{base}/surface/laboratory/password.png"
+                         alt=""/>
+                </div>
+                <div style="z-index:2; display: flex; flex-direction: column">
+                    <span class="writtenBraille"
+                          style="top:8.5rem;left:11rem;">{normalize($t('surfaceLaboratory.test.parchment.row.1'))}</span>
+                    <span class="writtenBraille"
+                          style="top:10rem;left:19rem;">{normalize($t('surfaceLaboratory.test.parchment.row.2'))}</span>
+                    <span class="writtenBraille"
+                          style="top:12rem;left:11.5rem;">{normalize($t('surfaceLaboratory.test.parchment.row.3'))}</span>
+                    <span class="writtenBraille"
+                          style="top:15rem;left:15rem;">{normalize($t('surfaceLaboratory.test.parchment.row.4'))}</span>
+                </div>
+            </div>
+        </div>
+        <FluidForm class="my-3">
+            <TextInput
+                    labelText={$t('surfaceLaboratory.test.buttons.password.text')}
+                    placeholder={$t('surfaceLaboratory.test.buttons.password.placeholder')}
+                    required invalid={invalidResult} invalidText={$t('surfaceLaboratory.test.buttons.password.error')}
+                    autofocus bind:value={result} on:keydown={(event) => {adaptPressedKey(event)}}/>
+        </FluidForm>
+        <Button kind="primary"
+                on:click={() => validateForm()}>{$t('surfaceLaboratory.test.buttons.submit.text')}</Button>
+    </div>
+    {#if isWaiting}
+        <Loading/>
+    {/if}
+{/if}

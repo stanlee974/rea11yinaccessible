@@ -1,3 +1,65 @@
+<script lang="ts">
+    import "carbon-components-svelte/css/g90.css";
+    import {
+        Button,
+        Column,
+        Content,
+        FluidForm,
+        Grid,
+        ImageLoader,
+        Loading,
+        Row,
+        TextInput,
+    } from "carbon-components-svelte";
+    import dyslexia from "dyslexia";
+    import {base} from '$app/paths';
+    import {redirect, Step, t} from "$lib";
+    import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
+    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
+    import {onMount} from "svelte";
+    import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
+    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
+    import {page} from "$app/stores";
+
+    let open = true;
+    let showScenario = true;
+    let showBookAndPills = false;
+    let showNotice = true;
+    let showManEating = false;
+    let showForm = false;
+    let showGoal = true;
+    let isWaiting = false;
+
+    let result = ""
+
+    let hint = $t('shelterMedicalRoom.test.sentence')
+
+
+    onMount(() => {
+        changeSource("/ost/step3.mp3")
+        renderStore.set(new RenderData($t('common.step.shelterMedicalRoom'), $t('shelterMedicalRoom.neon.title'), $t('shelterMedicalRoom.neon.subtitle'), Step.ABRI_MEDICAL));
+    })
+
+    $: invalidResult = !new RegExp($t('shelterMedicalRoom.test.response'), 'i').test(result);
+    const dyslexifyContent = () => {
+        hint = dyslexia(hint)
+
+    }
+    const interval = setInterval(dyslexifyContent, 500)
+    const validateForm = (): void => {
+        if (new RegExp($t('shelterMedicalRoom.test.response'), 'i').test(result)) {
+            clearInterval(interval)
+            isWaiting = true
+            redirect($page.params.lang, "abri/searchcenter")
+        }
+    }
+
+</script>
+
+<style>
+    @import url('https://fonts.cdnfonts.com/css/handwriting');
+</style>
+
 <ModalComponent opened={open}
                 parentDoneAction={() => showScenario = false}>
     <Grid>
@@ -77,63 +139,3 @@
         <Loading/>
     {/if}
 {/if}
-<script lang="ts">
-    import "carbon-components-svelte/css/g90.css";
-    import {
-        Button,
-        Column,
-        Content,
-        FluidForm,
-        Grid,
-        ImageLoader,
-        Loading,
-        Row,
-        TextInput,
-    } from "carbon-components-svelte";
-    import dyslexia from "dyslexia";
-    import {base} from '$app/paths';
-    import {redirect, Step, t} from "$lib";
-    import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
-    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
-    import {onMount} from "svelte";
-    import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
-    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
-    import {page} from "$app/stores";
-
-    let open = true;
-    let showScenario = true;
-    let showBookAndPills = false;
-    let showNotice = true;
-    let showManEating = false;
-    let showForm = false;
-    let showGoal = true;
-    let isWaiting = false;
-
-    let result = ""
-
-    let hint = $t('shelterMedicalRoom.test.sentence')
-
-
-    onMount(() => {
-        changeSource("/ost/step3.mp3")
-        renderStore.set(new RenderData($t('common.step.shelterMedicalRoom'), $t('shelterMedicalRoom.neon.title'), $t('shelterMedicalRoom.neon.subtitle'), Step.ABRI_MEDICAL));
-    })
-
-    $: invalidResult = !new RegExp($t('shelterMedicalRoom.test.response'), 'i').test(result);
-    const dyslexifyContent = () => {
-        hint = dyslexia(hint)
-
-    }
-    const interval = setInterval(dyslexifyContent, 500)
-    const validateForm = (): void => {
-        if (new RegExp($t('shelterMedicalRoom.test.response'), 'i').test(result)) {
-            clearInterval(interval)
-            isWaiting = true
-            redirect($page.params.lang, "abri/searchcenter")
-        }
-    }
-
-</script>
-<style>
-    @import url('https://fonts.cdnfonts.com/css/handwriting');
-</style>

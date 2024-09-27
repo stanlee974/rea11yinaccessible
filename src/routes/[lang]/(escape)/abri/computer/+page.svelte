@@ -1,3 +1,114 @@
+<script lang="ts">
+    import {
+        Button,
+        Column,
+        Content,
+        FluidForm,
+        Grid,
+        ImageLoader,
+        Loading,
+        Row,
+        Tab,
+        TabContent,
+        Tabs,
+        TextInput
+    } from "carbon-components-svelte";
+    import {base} from '$app/paths';
+    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
+    import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
+    import {redirect, Step, t} from "$lib";
+    import SoundEffectComponent from "$lib/technicalComponent/SoundEffectComponent.svelte";
+    import {onMount} from "svelte";
+    import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
+    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
+    import {getAccessibilityMode} from "$lib/store/AccessibilityModeStore";
+    import {page} from "$app/stores";
+
+    onMount(() => {
+        changeSource("/ost/step2.mp3")
+        renderStore.set(new RenderData($t('common.step.shelterComputerRoom'), $t(`shelterComputerRoom.neon.title`), $t(`shelterComputerRoom.neon.subtitle`), Step.ABRI_COMPUTER));
+    })
+
+    let open = false;
+    let openTransition = true;
+    let isWaiting = false;
+    let hideScenario = true;
+    let showForm = false;
+    let showGoal = true;
+
+    let playLastName: Function | undefined = undefined
+    let playFirstName: Function | undefined = undefined
+    let playBirth: Function | undefined = undefined
+    let playDeath: Function | undefined = undefined
+    let playSubmit: Function | undefined = undefined
+    let playError: Function | undefined = undefined
+
+    let nom = "";
+    let prenom = "";
+    let naissance = "";
+    let deces = "";
+
+    $: invalidNaissance = !/(^0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(\d{4}$)$/.test(naissance);
+    $: invalidDeces = !/(^0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(\d{4}$)$/.test(deces);
+    $: invalidNom = !/^braille$/i.test(nom);
+    $: invalidPrenom = !/^louis$/i.test(prenom);
+
+    const validateForm = (): boolean => {
+        let isValid = true;
+        if ("braille" !== nom.trim().toLowerCase()) {
+            isValid = false;
+        }
+        if ("louis" !== prenom.trim().toLowerCase()) {
+            isValid = false;
+        }
+        if ("04/01/1809" !== naissance.trim().toLowerCase()) {
+            isValid = false;
+        }
+        if ("06/01/1852" !== deces.trim().toLowerCase()) {
+            isValid = false;
+        }
+        console.debug(
+            nom.trim().toLowerCase(),
+            prenom.trim().toLowerCase(),
+            naissance.trim().toLowerCase(),
+            deces.trim().toLowerCase()
+        )
+        if (isValid) {
+            isWaiting = true
+            redirect($page.params.lang, "abri/medical")
+        } else {
+            playError = () => playError = undefined
+        }
+        return isValid;
+    }
+
+    const readLabel = (event: any) => {
+        if (!getAccessibilityMode()) {
+            const target = event.target;
+            if (target.getAttribute("id") === 'lastName') {
+                console.log("nom")
+                playLastName = () => playLastName = undefined
+            }
+            if (target.getAttribute("id") === 'firstName') {
+                console.log("prenom")
+                playFirstName = () => playFirstName = undefined;
+            }
+            if (target.getAttribute("id") === 'birthday') {
+                console.log("naissance")
+                playBirth = () => playBirth = undefined
+            }
+            if (target.getAttribute("id") === 'deathday') {
+                console.log("deces")
+                playDeath = () => playDeath = undefined
+            }
+            if (target.getAttribute("id") === "submit") {
+                console.log("soumettre")
+                playSubmit = () => playSubmit = undefined
+            }
+        }
+    }
+</script>
+
 <SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/lastName.mp3" postPlay={playLastName}></SoundEffectComponent>
 <SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/firstName.mp3" postPlay={playFirstName}></SoundEffectComponent>
 <SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/birthDay.mp3" postPlay={playBirth}></SoundEffectComponent>
@@ -116,113 +227,3 @@
         <Loading/>
     {/if}
 {/if}
-<script lang="ts">
-    import {
-        Button,
-        Column,
-        Content,
-        FluidForm,
-        Grid,
-        ImageLoader,
-        Loading,
-        Row,
-        Tab,
-        TabContent,
-        Tabs,
-        TextInput
-    } from "carbon-components-svelte";
-    import {base} from '$app/paths';
-    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
-    import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
-    import {redirect, Step, t} from "$lib";
-    import SoundEffectComponent from "$lib/technicalComponent/SoundEffectComponent.svelte";
-    import {onMount} from "svelte";
-    import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
-    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
-    import {getAccessibilityMode} from "$lib/store/AccessibilityModeStore";
-    import {page} from "$app/stores";
-
-    onMount(() => {
-        changeSource("/ost/step2.mp3")
-        renderStore.set(new RenderData($t('common.step.shelterComputerRoom'), $t(`shelterComputerRoom.neon.title`), $t(`shelterComputerRoom.neon.subtitle`), Step.ABRI_COMPUTER));
-    })
-
-    let open = false;
-    let openTransition = true;
-    let isWaiting = false;
-    let hideScenario = true;
-    let showForm = false;
-    let showGoal = true;
-
-    let playLastName: Function | undefined = undefined
-    let playFirstName: Function | undefined = undefined
-    let playBirth: Function | undefined = undefined
-    let playDeath: Function | undefined = undefined
-    let playSubmit: Function | undefined = undefined
-    let playError: Function | undefined = undefined
-
-    let nom = "";
-    let prenom = "";
-    let naissance = "";
-    let deces = "";
-
-    $: invalidNaissance = !/(^0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(\d{4}$)$/.test(naissance);
-    $: invalidDeces = !/(^0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(\d{4}$)$/.test(deces);
-    $: invalidNom = !/^braille$/i.test(nom);
-    $: invalidPrenom = !/^louis$/i.test(prenom);
-
-    const validateForm = (): boolean => {
-        let isValid = true;
-        if ("braille" !== nom.trim().toLowerCase()) {
-            isValid = false;
-        }
-        if ("louis" !== prenom.trim().toLowerCase()) {
-            isValid = false;
-        }
-        if ("04/01/1809" !== naissance.trim().toLowerCase()) {
-            isValid = false;
-        }
-        if ("06/01/1852" !== deces.trim().toLowerCase()) {
-            isValid = false;
-        }
-        console.debug(
-            nom.trim().toLowerCase(),
-            prenom.trim().toLowerCase(),
-            naissance.trim().toLowerCase(),
-            deces.trim().toLowerCase()
-        )
-        if (isValid) {
-            isWaiting = true
-            redirect($page.params.lang, "abri/medical")
-        } else {
-            playError = () => playError = undefined
-        }
-        return isValid;
-    }
-
-    const readLabel = (event: any) => {
-        if (!getAccessibilityMode()) {
-            const target = event.target;
-            if (target.getAttribute("id") === 'lastName') {
-                console.log("nom")
-                playLastName = () => playLastName = undefined
-            }
-            if (target.getAttribute("id") === 'firstName') {
-                console.log("prenom")
-                playFirstName = () => playFirstName = undefined;
-            }
-            if (target.getAttribute("id") === 'birthday') {
-                console.log("naissance")
-                playBirth = () => playBirth = undefined
-            }
-            if (target.getAttribute("id") === 'deathday') {
-                console.log("deces")
-                playDeath = () => playDeath = undefined
-            }
-            if (target.getAttribute("id") === "submit") {
-                console.log("soumettre")
-                playSubmit = () => playSubmit = undefined
-            }
-        }
-    }
-</script>

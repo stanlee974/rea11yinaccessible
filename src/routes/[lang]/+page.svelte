@@ -1,3 +1,22 @@
+<script lang="ts">
+    import "carbon-components-svelte/css/g90.css";
+    import {Button, Content, UnorderedList, ListItem, InlineNotification } from "carbon-components-svelte";
+    import {PlayFilled} from "carbon-icons-svelte";
+    import {locale, redirect, setLocale, t} from "$lib";
+    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
+    import {onMount} from "svelte";
+    import {page} from "$app/stores";
+
+    onMount(() => {
+        setLocale($page.params.lang)
+        document.body.lang = $page.params.lang ?? "fr"
+        document.title = $t('common.step.intro') + " | really inaccessible"
+        document.body.scrollIntoView()
+        changeSource("/ost/intro.mp3")
+    })
+
+</script>
+
 <Content id="scenario">
     <div class="container">
         <h1 lang="en" class="mb-4">{$t('intro.welcome')}</h1>
@@ -44,21 +63,3 @@
             }}>{$t('intro.button.start')}</Button>
     </div>
 </Content>
-<script lang="ts">
-    import "carbon-components-svelte/css/g90.css";
-    import {Button, Content, UnorderedList, ListItem, InlineNotification } from "carbon-components-svelte";
-    import {PlayFilled} from "carbon-icons-svelte";
-    import {locale, redirect, setLocale, t} from "$lib";
-    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
-    import {onMount} from "svelte";
-    import {page} from "$app/stores";
-
-    onMount(() => {
-        setLocale($page.params.lang)
-        document.body.lang = $page.params.lang ?? "fr"
-        document.title = $t('common.step.intro') + " | really inaccessible"
-        document.body.scrollIntoView()
-        changeSource("/ost/intro.mp3")
-    })
-
-</script>

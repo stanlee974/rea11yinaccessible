@@ -1,3 +1,72 @@
+<script lang="ts">
+    import "carbon-components-svelte/css/g90.css";
+    import {Button, Column, Grid, ImageLoader, Row, Slider, ToastNotification, Content} from "carbon-components-svelte";
+    import {base} from '$app/paths';
+    import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
+    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
+    import LoadingComponent from "$lib/technicalComponent/LoadingComponent.svelte";
+    import {redirect, Step, t} from "$lib";
+    import {onMount} from "svelte";
+    import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
+    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
+    import {getAccessibilityMode, getAccessibilityModeStore} from "$lib/store/AccessibilityModeStore";
+    import {page} from "$app/stores";
+
+    export let accessibilityMode = false
+
+    onMount(() => {
+        changeSource("/ost/step1.mp3")
+        accessibilityMode = getAccessibilityMode()
+        getAccessibilityModeStore()?.subscribe((data) => {
+            accessibilityMode = data === "true"
+        })
+        renderStore.set(new RenderData($t('common.step.shelterEntrance'), $t('shelterEntrance.neon.title'), $t('shelterEntrance.neon.subtitle'), Step.ABRI_ENTRANCE));
+    })
+
+    const goodOrder = [3, 2, 0, 1];
+    let orderTyped: number[] = [];
+    let showError = false;
+    let hideScenario = true;
+    let hideGoal = true;
+    let showButtons = false;
+    let isWaiting = false;
+    let contrast = 0;
+    let brightness = 0;
+    let firstButtonLabel = " "
+    let secondButtonLabel = " "
+    let thirdButtonLabel = " "
+    let fourthButtonLabel = " "
+
+    const timeout: number = 4000;
+    const validOrder = (id: number) => {
+        if (!orderTyped.includes(id)) orderTyped.push(id)
+        if (id === 0 && !isButtonPressed(firstButtonLabel)) firstButtonLabel = displayOrder(id)
+        if (id === 1 && !isButtonPressed(secondButtonLabel)) secondButtonLabel = displayOrder(id)
+        if (id === 2 && !isButtonPressed(thirdButtonLabel)) thirdButtonLabel = displayOrder(id)
+        if (id === 3 && !isButtonPressed(fourthButtonLabel)) fourthButtonLabel = displayOrder(id)
+        if (orderTyped.length >= 4) {
+            if (JSON.stringify(orderTyped) == JSON.stringify(goodOrder)) {
+                isWaiting = true;
+                redirect($page.params.lang, "abri/computer")
+            } else {
+                showError = true;
+                orderTyped = [];
+            }
+        }
+    }
+
+    function displayOrder(id: number) {
+        let number = orderTyped.indexOf(id)
+        let position = number + 1
+        return position > 0 ? position.toString() : ""
+    }
+
+    function isButtonPressed(button: string) {
+        return button !== " "
+    }
+
+</script>
+
 <ModalComponent
         parentDoneAction={() => hideScenario = false}>
     <Grid>
@@ -116,71 +185,3 @@
         {/if}
     </div>
 </Content>
-<script lang="ts">
-    import "carbon-components-svelte/css/g90.css";
-    import {Button, Column, Grid, ImageLoader, Row, Slider, ToastNotification, Content} from "carbon-components-svelte";
-    import {base} from '$app/paths';
-    import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
-    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
-    import LoadingComponent from "$lib/technicalComponent/LoadingComponent.svelte";
-    import {redirect, Step, t} from "$lib";
-    import {onMount} from "svelte";
-    import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
-    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
-    import {getAccessibilityMode, getAccessibilityModeStore} from "$lib/store/AccessibilityModeStore";
-    import {page} from "$app/stores";
-
-    export let accessibilityMode = false
-
-    onMount(() => {
-        changeSource("/ost/step1.mp3")
-        accessibilityMode = getAccessibilityMode()
-        getAccessibilityModeStore()?.subscribe((data) => {
-            accessibilityMode = data === "true"
-        })
-        renderStore.set(new RenderData($t('common.step.shelterEntrance'), $t('shelterEntrance.neon.title'), $t('shelterEntrance.neon.subtitle'), Step.ABRI_ENTRANCE));
-    })
-
-    const goodOrder = [3, 2, 0, 1];
-    let orderTyped: number[] = [];
-    let showError = false;
-    let hideScenario = true;
-    let hideGoal = true;
-    let showButtons = false;
-    let isWaiting = false;
-    let contrast = 0;
-    let brightness = 0;
-    let firstButtonLabel = " "
-    let secondButtonLabel = " "
-    let thirdButtonLabel = " "
-    let fourthButtonLabel = " "
-
-    const timeout: number = 4000;
-    const validOrder = (id: number) => {
-        if (!orderTyped.includes(id)) orderTyped.push(id)
-        if (id === 0 && !isButtonPressed(firstButtonLabel)) firstButtonLabel = displayOrder(id)
-        if (id === 1 && !isButtonPressed(secondButtonLabel)) secondButtonLabel = displayOrder(id)
-        if (id === 2 && !isButtonPressed(thirdButtonLabel)) thirdButtonLabel = displayOrder(id)
-        if (id === 3 && !isButtonPressed(fourthButtonLabel)) fourthButtonLabel = displayOrder(id)
-        if (orderTyped.length >= 4) {
-            if (JSON.stringify(orderTyped) == JSON.stringify(goodOrder)) {
-                isWaiting = true;
-                redirect($page.params.lang, "abri/computer")
-            } else {
-                showError = true;
-                orderTyped = [];
-            }
-        }
-    }
-
-    function displayOrder(id: number) {
-        let number = orderTyped.indexOf(id)
-        let position = number + 1
-        return position > 0 ? position.toString() : ""
-    }
-
-    function isButtonPressed(button: string) {
-        return button !== " "
-    }
-
-</script>

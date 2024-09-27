@@ -1,3 +1,56 @@
+<script lang="ts">
+    import "carbon-components-svelte/css/g90.css";
+    import {Button, Column, FluidForm, Grid, ImageLoader, Loading, Row, TextInput,} from "carbon-components-svelte";
+    import {base} from '$app/paths';
+    import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
+    import {redirect, Step, t} from "$lib";
+    import {getVolume, setVolume} from "$lib/store/VolumeStore";
+    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
+    import {onMount} from "svelte";
+    import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
+    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
+    import AudioComponent from "$lib/technicalComponent/AudioComponent.svelte";
+    import {page} from "$app/stores";
+
+    onMount(() => {
+        changeSource("/ost/step8.mp3")
+        renderStore.set(new RenderData($t('common.step.audiovisualRoom'), $t('audiovisualRoom.neon.title'), $t('audiovisualRoom.neon.subtitle'), Step.SURFACE_LABORATORY_AUDIOVISUALROOM));
+    })
+
+    let showTransitionModal = true;
+    let showScenario = true;
+    let showEnigm = false;
+    let showForm = false;
+    let isWaiting = false;
+    let disableGoal = true;
+    let result = ""
+    let showAudioMediumDeaf = false
+    let showAudioLowDeaf = false
+    let showAudioVeryLowDeaf = false
+    let savedVolume = 0
+
+    $: invalidResult = !new RegExp($t('audiovisualRoom.test.response'), 'i').test(result)
+    const validateForm = () => {
+        if (new RegExp($t('audiovisualRoom.test.response'), 'i').test(result)) {
+            isWaiting = true
+            setVolume(savedVolume)
+            redirect($page.params.lang, "surface/laboratory/sanctuary")
+        }
+    }
+
+</script>
+
+<style lang="css">
+    label {
+        font-size: 1.3em;
+    }
+
+    audio {
+        margin-right: 2em;
+        margin-top: 1em;
+    }
+</style>
+
 <ModalComponent opened={showTransitionModal}
                 parentDoneAction={() => {showScenario = false}}>
     <Grid>
@@ -86,55 +139,3 @@
         <Loading/>
     {/if}
 {/if}
-<script lang="ts">
-    import "carbon-components-svelte/css/g90.css";
-    import {Button, Column, FluidForm, Grid, ImageLoader, Loading, Row, TextInput,} from "carbon-components-svelte";
-    import {base} from '$app/paths';
-    import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
-    import {redirect, Step, t} from "$lib";
-    import {getVolume, setVolume} from "$lib/store/VolumeStore";
-    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
-    import {onMount} from "svelte";
-    import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
-    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
-    import AudioComponent from "$lib/technicalComponent/AudioComponent.svelte";
-    import {page} from "$app/stores";
-
-    onMount(() => {
-        changeSource("/ost/step8.mp3")
-        renderStore.set(new RenderData($t('common.step.audiovisualRoom'), $t('audiovisualRoom.neon.title'), $t('audiovisualRoom.neon.subtitle'), Step.SURFACE_LABORATORY_AUDIOVISUALROOM));
-    })
-
-    let showTransitionModal = true;
-    let showScenario = true;
-    let showEnigm = false;
-    let showForm = false;
-    let isWaiting = false;
-    let disableGoal = true;
-    let result = ""
-    let showAudioMediumDeaf = false
-    let showAudioLowDeaf = false
-    let showAudioVeryLowDeaf = false
-    let savedVolume = 0
-
-    $: invalidResult = !new RegExp($t('audiovisualRoom.test.response'), 'i').test(result)
-    const validateForm = () => {
-        if (new RegExp($t('audiovisualRoom.test.response'), 'i').test(result)) {
-            isWaiting = true
-            setVolume(savedVolume)
-            redirect($page.params.lang, "surface/laboratory/sanctuary")
-        }
-    }
-
-</script>
-
-<style lang="css">
-    label {
-        font-size: 1.3em;
-    }
-
-    audio {
-        margin-right: 2em;
-        margin-top: 1em;
-    }
-</style>

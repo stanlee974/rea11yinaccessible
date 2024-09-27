@@ -1,5 +1,3 @@
-
-
 <script lang="ts">
     import {Content, ProgressIndicator, ProgressStep} from "carbon-components-svelte";
     import Typewriter from "svelte-typewriter";

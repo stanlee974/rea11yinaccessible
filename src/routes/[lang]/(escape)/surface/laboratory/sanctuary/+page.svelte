@@ -1,3 +1,56 @@
+<script lang="ts">
+    import "carbon-components-svelte/css/g90.css";
+    import {Button, Column, FluidForm, Grid, ImageLoader, Loading, Row,} from "carbon-components-svelte";
+    import Typewriter from 'svelte-typewriter'
+    import {base} from '$app/paths';
+    import {redirect, Step, t} from "$lib";
+    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
+    import {onMount} from "svelte";
+    import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
+    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
+    import {page} from "$app/stores";
+
+    onMount(() => {
+        changeSource("/ost/trap.mp3")
+        renderStore.set(new RenderData($t('common.step.sanctuary'), $t('sanctuary.neon.title'), $t('sanctuary.neon.subtitle'), Step.SURFACE_LABORATORY_SANCTUARY));
+    })
+
+    let showTransitionModal = true;
+    let showScenario = true;
+    let showEnigm = false;
+    let isWaiting = false;
+    let showContinueButton = false;
+    let showForm = true;
+    let disableGoal = true;
+    let lastName = ""
+    let firstName = ""
+    let error = ""
+    $: validRodrigue = new RegExp($t('sanctuary.test.response.1.firstName'), 'i').test(lastName) && new RegExp($t('sanctuary.test.response.1.lastName'), 'i').test(firstName)
+    $: validDiva = new RegExp($t('sanctuary.test.response.2.firstName'), 'i').test(lastName) && new RegExp($t('sanctuary.test.response.2.lastName'), 'i').test(firstName)
+
+    const validateForm = () => {
+        if (validDiva
+            || validRodrigue) {
+            isWaiting = true
+            redirect($page.params.lang, "final")
+        } else {
+            error = $t('sanctuary.test.error')
+        }
+    }
+
+</script>
+
+<style lang="css">
+    label {
+        font-size: 1.3em;
+    }
+
+    span {
+        border: white 1px solid;
+        padding: 0.3em;
+    }
+</style>
+
 <ModalComponent opened={showTransitionModal}
                 parentDoneAction={() => {showScenario = false;}}>
     <Grid>
@@ -95,55 +148,3 @@
         <Loading/>
     {/if}
 {/if}
-<script lang="ts">
-    import "carbon-components-svelte/css/g90.css";
-    import {Button, Column, FluidForm, Grid, ImageLoader, Loading, Row,} from "carbon-components-svelte";
-    import Typewriter from 'svelte-typewriter'
-    import {base} from '$app/paths';
-    import {redirect, Step, t} from "$lib";
-    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
-    import {onMount} from "svelte";
-    import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
-    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
-    import {page} from "$app/stores";
-
-    onMount(() => {
-        changeSource("/ost/trap.mp3")
-        renderStore.set(new RenderData($t('common.step.sanctuary'), $t('sanctuary.neon.title'), $t('sanctuary.neon.subtitle'), Step.SURFACE_LABORATORY_SANCTUARY));
-    })
-
-    let showTransitionModal = true;
-    let showScenario = true;
-    let showEnigm = false;
-    let isWaiting = false;
-    let showContinueButton = false;
-    let showForm = true;
-    let disableGoal = true;
-    let lastName = ""
-    let firstName = ""
-    let error = ""
-    $: validRodrigue = new RegExp($t('sanctuary.test.response.1.firstName'), 'i').test(lastName) && new RegExp($t('sanctuary.test.response.1.lastName'), 'i').test(firstName)
-    $: validDiva = new RegExp($t('sanctuary.test.response.2.firstName'), 'i').test(lastName) && new RegExp($t('sanctuary.test.response.2.lastName'), 'i').test(firstName)
-
-    const validateForm = () => {
-        if (validDiva
-            || validRodrigue) {
-            isWaiting = true
-            redirect($page.params.lang, "final")
-        } else {
-            error = $t('sanctuary.test.error')
-        }
-    }
-
-</script>
-
-<style lang="css">
-    label {
-        font-size: 1.3em;
-    }
-
-    span {
-        border: white 1px solid;
-        padding: 0.3em;
-    }
-</style>

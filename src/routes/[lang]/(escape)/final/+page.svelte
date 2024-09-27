@@ -1,3 +1,113 @@
+<script lang="ts">
+    import "carbon-components-svelte/css/g90.css";
+    import { Column, ExpandableTile, Grid, ImageLoader, Row, } from "carbon-components-svelte";
+    import { base } from "$app/paths";
+    import {Step, t} from "$lib";
+    import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
+    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
+    import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
+    import { onMount } from "svelte";
+    import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
+
+    let showTransitionModal = true;
+    let showTrapModal = false;
+    let showScenario = true;
+    let disabledFin = true;
+    let showSummary = false;
+
+    onMount(() => {
+        changeSource("/ost/stress.mp3")
+        renderStore.set(new RenderData($t('common.step.final'), $t('outro.neon.title'), $t('outro.neon.subtitle'), Step.FINAL));
+    })
+</script>
+
+<style lang="css">
+    .half {
+        width: 49%;
+    }
+
+    .number {
+        border: white 1px solid;
+        padding: 0.3em;
+    }
+
+    h3 {
+        margin-left: 2rem;
+        font-size: 1.6rem;
+    }
+
+    .tab {
+        margin-left: 4rem;
+        font-size: 1.3rem;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    @keyframes lights {
+        0% {
+            color: hsl(230, 40%, 80%);
+            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+            0 0 0.125em hsla(320, 100%, 60%, 0.3),
+            -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+            1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+        }
+
+        30% {
+            color: hsl(230, 80%, 90%);
+            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 60%, 0.5),
+            -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+            0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+        }
+
+        40% {
+            color: hsl(230, 100%, 95%);
+            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 90%, 0.5),
+            -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+            0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+        }
+
+        70% {
+            color: hsl(230, 80%, 90%);
+            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 60%, 0.5),
+            0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+            -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+        }
+
+        100% {
+            color: hsl(230, 40%, 80%);
+            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+            0 0 0.125em hsla(320, 100%, 60%, 0.3),
+            1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+            -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+        }
+
+    }
+
+    body {
+        margin: 0;
+        font: 100% / 1.5 Raleway, sans-serif;
+        color: hsl(230, 100%, 95%);
+        background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));
+        height: 100vh;
+        display: flex;
+    }
+
+    .fin {
+        margin: auto;
+        font-size: 3.5rem;
+        font-weight: 300;
+        animation: lights 5s 750ms linear infinite;
+        text-align: center;
+        display: block;
+        position: relative;
+    }
+</style>
+
 <ModalComponent opened={showTransitionModal} on:open
                 parentDoneAction={() => {
                     changeSource("/ost/step10.mp3")
@@ -205,112 +315,3 @@
         </div>
     </ExpandableTile>
 {/if}
-<script lang="ts">
-    import "carbon-components-svelte/css/g90.css";
-    import { Column, ExpandableTile, Grid, ImageLoader, Row, } from "carbon-components-svelte";
-    import { base } from "$app/paths";
-    import {Step, t} from "$lib";
-    import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
-    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
-    import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
-    import { onMount } from "svelte";
-    import { changeSource } from "$lib/store/inMemoryStore/AudioStore";
-
-    let showTransitionModal = true;
-    let showTrapModal = false;
-    let showScenario = true;
-    let disabledFin = true;
-    let showSummary = false;
-
-    onMount(() => {
-        changeSource("/ost/stress.mp3")
-        renderStore.set(new RenderData($t('common.step.final'), $t('outro.neon.title'), $t('outro.neon.subtitle'), Step.FINAL));
-    })
-</script>
-
-<style lang="css">
-    .half {
-        width: 49%;
-    }
-
-    .number {
-        border: white 1px solid;
-        padding: 0.3em;
-    }
-
-    h3 {
-        margin-left: 2rem;
-        font-size: 1.6rem;
-    }
-
-    .tab {
-        margin-left: 4rem;
-        font-size: 1.3rem;
-    }
-
-    .italic {
-        font-style: italic;
-    }
-
-    @keyframes lights {
-        0% {
-            color: hsl(230, 40%, 80%);
-            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
-            0 0 0.125em hsla(320, 100%, 60%, 0.3),
-            -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
-            1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
-        }
-
-        30% {
-            color: hsl(230, 80%, 90%);
-            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
-            0 0 0.125em hsla(320, 100%, 60%, 0.5),
-            -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
-            0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
-        }
-
-        40% {
-            color: hsl(230, 100%, 95%);
-            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
-            0 0 0.125em hsla(320, 100%, 90%, 0.5),
-            -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
-            0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
-        }
-
-        70% {
-            color: hsl(230, 80%, 90%);
-            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
-            0 0 0.125em hsla(320, 100%, 60%, 0.5),
-            0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
-            -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
-        }
-
-        100% {
-            color: hsl(230, 40%, 80%);
-            text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
-            0 0 0.125em hsla(320, 100%, 60%, 0.3),
-            1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
-            -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
-        }
-
-    }
-
-    body {
-        margin: 0;
-        font: 100% / 1.5 Raleway, sans-serif;
-        color: hsl(230, 100%, 95%);
-        background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));
-        height: 100vh;
-        display: flex;
-    }
-
-    .fin {
-        margin: auto;
-        font-size: 3.5rem;
-        font-weight: 300;
-        animation: lights 5s 750ms linear infinite;
-        text-align: center;
-        display: block;
-        position: relative;
-    }
-</style>
