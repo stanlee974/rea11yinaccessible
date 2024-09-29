@@ -130,6 +130,8 @@ button {
 	min-height: 150px;
 	font-family: 'Handwriting', sans-serif;
 	background: url(/old-paper-banner.png);
+	background-repeat: no-repeat;
+  	background-size: cover;
 }
 
 #start-button-block .bx--toast-notification__caption {

@@ -67,6 +67,10 @@
 
 </script>
 
+<style>
+    @import url('https://fonts.cdnfonts.com/css/handwriting');
+</style>
+
 <ModalComponent
         parentDoneAction={() => hideScenario = false}>
     <Grid>
@@ -89,7 +93,7 @@
                 <h2 class="mb-1">{$t('common.layout.title.scenario')}</h2>
                 <p>{$t('shelterEntrance.scenario.row.1')}</p>
                 <p>{$t('shelterEntrance.scenario.row.2')}</p>
-                <p style="font-style: italic;">{$t('shelterEntrance.scenario.row.3')}</p>
+                <p class="quote m-3">{$t('shelterEntrance.scenario.row.3')}</p>
                 <p>{$t('shelterEntrance.scenario.row.4')}</p>
             </TypewriterComponent>
         </div>
