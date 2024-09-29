@@ -36,9 +36,8 @@
     import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
     import {page} from "$app/stores";
     import {
-        checkAccessibilityMode,
         getAccessibilityMode,
-        initAccessibilityModeStore
+        setAccessibilityMode
     } from "$lib/store/AccessibilityModeStore";
     import {injectSpeedInsights} from "@vercel/speed-insights/sveltekit";
     import {inject} from '@vercel/analytics'
@@ -64,16 +63,14 @@
     let accessibilityMode: boolean = false
     let currentStep: string = $renderStore.step
     onMount(() => {
+        setAccessibilityMode($page.url.searchParams.get('isA11yMode') == 'true')
+
         document.title = $t('common.step.intro') + " | really inaccessible"
         document.body.lang = $page.params.lang ?? "fr"
 
         if (!checkSoundVolume()) {
             let INITIAL_VOLUME = "5";
             initSoundVolumeStore(INITIAL_VOLUME)
-        }
-
-        if (!checkAccessibilityMode()) {
-            initAccessibilityModeStore(false)
         }
 
         songVolume = getVolume() * 100

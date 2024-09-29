@@ -3,6 +3,7 @@ import { goto } from "$app/navigation";
 import { base } from "$app/paths";
 import { renderStore, renderStoreSetData } from "$lib/store/inMemoryStore/RenderStore";
 import { get } from "svelte/store";
+import { getAccessibilityModeStoreQueryParam } from '$lib/store/AccessibilityModeStore';
 
 export {t, locales, setLocale, locale}
 
@@ -20,7 +21,7 @@ export const enum Step {
 }
 
 export async function redirect(locale: string, path: string = "") {
-    await goto(base + "/" + locale + "/" + path)
+    await goto(`${base}/${locale}/${path}${getAccessibilityModeStoreQueryParam()}`)
 }
 
 export async function changeLangRedirect(id: string | null, lang: string) {

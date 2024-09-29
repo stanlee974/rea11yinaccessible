@@ -12,6 +12,7 @@
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {page} from "$app/stores";
     import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
+    import { getAccessibilityModeStoreQueryParam } from '$lib/store/AccessibilityModeStore';
     import Plyr from 'plyr';
 
     let disableWriter = true
@@ -89,7 +90,7 @@
                     <p>{$t('waitingRoom.goal.row.1')}</p>
                     <p>{$t('waitingRoom.goal.row.2')}</p>
                     <p>{$t('waitingRoom.test.clickLink')} <a class="disabled-link"
-                        href="{base}/{$locale}/abri/entrance" 
+                        href="{base}/{$locale}/abri/entrance{getAccessibilityModeStoreQueryParam()}" 
                         on:click={() => loading()}>{$t('waitingRoom.test.here')}</a>
                         {$t('waitingRoom.test.enter')}
                     </p>

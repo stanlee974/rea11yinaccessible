@@ -1,7 +1,7 @@
 Feature: Homepage
 
   Background:
-    Given I visit path "/fr"
+    Given I visit path "/fr?isA11yMode=true"
 
   Scenario: Homepage
     Then I should see a title named "Bienvenue sur Rea11y Inaccessible"
