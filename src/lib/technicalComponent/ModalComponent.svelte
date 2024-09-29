@@ -1,17 +1,3 @@
-<!--{#if !$accessibilityModeStore}-->
-    <Modal id="currentModal" size="lg" preventCloseOnClickOutside passiveModal={!hasPrimaryButton} modalHeading={modalHeading}
-           bind:open={opened}
-           on:close={() => onClose()}
-           primaryButtonText="{$t('common.button.waiting')}"
-           primaryButtonIcon={ContinueFilled}
-           on:click:button--primary={() => {opened=false; onClose()}}>
-        <div class="d-flex flex-{direction}">
-            <slot></slot>
-        </div>
-    </Modal>
-<!--{:else}-->
-<!--    <slot></slot>-->
-<!--{/if}-->
 <script lang="ts">
     import {Modal,} from "carbon-components-svelte";
     import {t} from "$lib";
@@ -38,3 +24,17 @@
         // }
     })
 </script>
+<!--{#if !$accessibilityModeStore}-->
+<Modal id="currentModal" size="lg" preventCloseOnClickOutside passiveModal={!hasPrimaryButton} modalHeading={modalHeading}
+       bind:open={opened}
+       on:close={() => onClose()}
+       primaryButtonText="{$t('common.button.waiting')}"
+       primaryButtonIcon={ContinueFilled}
+       on:click:button--primary={() => {opened=false; onClose()}}>
+    <div class="d-flex flex-{direction}">
+        <slot></slot>
+    </div>
+</Modal>
+<!--{:else}-->
+<!--    <slot></slot>-->
+<!--{/if}-->

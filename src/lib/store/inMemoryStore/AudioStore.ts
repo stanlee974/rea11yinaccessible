@@ -1,6 +1,6 @@
-import { get, writable, type Writable } from "svelte/store";
-import { base } from "$app/paths";
-import { getVolume } from "$lib/store/VolumeStore";
+import {get, writable, type Writable} from "svelte/store";
+import {base} from "$app/paths";
+import {headerStore} from "../HeaderStore";
 
 
 export const audioStore: Writable<HTMLAudioElement> = writable();
@@ -8,21 +8,21 @@ export const audioStore: Writable<HTMLAudioElement> = writable();
 export const changeSource = async(src: string) => {
   let audio = get(audioStore);
   if (audio) {
-    await adjustVolume(audio, 0)
+    await adjustVolume( 0)
     audio.src = base + src
-    audio.autoplay = true
+    audio.autoplay = false
     audio.load()
-    audio.volume = getVolume()
+    audio.volume = get(headerStore).songVolume / 100
+    audioStore.set(audio)
   } else {
     let audio = new Audio(base + src);
     audio.loop = true
-    audio.autoplay = true
+    audio.autoplay = false
     audio.muted = false
     audioStore.set(audio)
   }
 }
-function adjustVolume(
-  element: HTMLMediaElement,
+export function adjustVolume(
   newVolume: number,
   {
     duration = 1000,
@@ -34,30 +34,43 @@ function adjustVolume(
     interval?: number,
   } = {},
 ): Promise<void> {
-  const originalVolume = element.volume;
-  const delta = newVolume - originalVolume;
+  let htmlAudioElement = get(audioStore);
+  if (htmlAudioElement) {
+    const originalVolume = htmlAudioElement.volume;
+    const delta = newVolume - originalVolume;
 
-  if (!delta || !duration || !easing || !interval) {
-    element.volume = newVolume;
-    return Promise.resolve();
+    if (!delta || !duration || !easing || !interval) {
+      htmlAudioElement.volume = newVolume;
+      return Promise.resolve();
+    }
+
+    const ticks = Math.floor(duration / interval);
+    let tick = 1;
+
+    return new Promise(resolve => {
+      const timer = setInterval(() => {
+        htmlAudioElement.volume = originalVolume + (
+            easing(tick / ticks) * delta
+        );
+
+        if (++tick === ticks + 1) {
+          clearInterval(timer);
+          htmlAudioElement.currentTime = 0;
+          resolve();
+        }
+      }, interval);
+    });
   }
+  return Promise.resolve()
+}
 
-  const ticks = Math.floor(duration / interval);
-  let tick = 1;
-
-  return new Promise(resolve => {
-    const timer = setInterval(() => {
-      element.volume = originalVolume + (
-        easing(tick / ticks) * delta
-      );
-
-      if (++tick === ticks + 1) {
-        clearInterval(timer);
-        element.currentTime = 0;
-        resolve();
-      }
-    }, interval);
-  });
+export function changeVolume(
+    newVolume: number
+) {
+  let htmlAudioElement = get(audioStore);
+  if (htmlAudioElement) {
+    htmlAudioElement.volume = newVolume
+  }
 }
 
 function swing(p: number) {

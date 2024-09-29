@@ -1,13 +1,3 @@
-{#if showMessage}
-    <slot name="message"></slot>
-{/if}
-{#if enabled}
-    <SoundEffectComponent src="/sound/click.mp3" postPlay={playSong}></SoundEffectComponent>
-    <Button kind="primary"
-            class="main-button"
-            on:click={onClick}><slot name="content"></slot>
-</Button>
-{/if}
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import { Button } from "carbon-components-svelte";
@@ -31,4 +21,13 @@
     }
   }
 </script>
-
+{#if showMessage}
+    <slot name="message"></slot>
+{/if}
+{#if enabled}
+    <SoundEffectComponent src="/sound/click.mp3" postPlay={playSong}></SoundEffectComponent>
+    <Button kind="primary"
+            class="main-button"
+            on:click={onClick}><slot name="content"></slot>
+    </Button>
+{/if}

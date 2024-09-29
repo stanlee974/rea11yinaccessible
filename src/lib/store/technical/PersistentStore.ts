@@ -4,18 +4,19 @@ function persist(key: string, value: string) {
   sessionStorage.setItem(key, JSON.stringify(value));
 }
 
-export function writableSession(key: string, initialValue: string) {
+export function writableSession(key: string, initialValue: string | object) {
+  const data = typeof initialValue === "string" ? initialValue : JSON.stringify(initialValue)
   const item = sessionStorage.getItem(key);
   let store: Writable<string> | undefined = undefined
   if (item) {
     const sessionValue = JSON.parse(item);
     if (!sessionValue) {
-      persist(key, initialValue)
+      persist(key, data)
     }
     store = writable(sessionValue);
   }
   if (!store) {
-    store = writable(initialValue);
+    store = writable(data);
   }
   store.subscribe(value => persist(key, value));
   return store;

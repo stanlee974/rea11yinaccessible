@@ -3,7 +3,6 @@
     import {
         Button,
         Column,
-        ContentSwitcher,
         Grid,
         Header,
         HeaderGlobalAction,
@@ -11,21 +10,15 @@
         HeaderNavItem,
         HeaderNavMenu,
         HeaderUtilities,
-        ImageLoader, Link, ListItem,
-        Modal, OrderedList,
-        Row, Select, SelectItem,
+        ImageLoader,
+        Modal,
+        Row,
+        Select,
+        SelectItem,
         Slider,
-        Switch,
         Tile,
     } from "carbon-components-svelte";
     import {base} from '$app/paths';
-    import {getVolume, setVolume} from "$lib/store/VolumeStore";
-    import {
-        checkVolume as checkSoundVolume,
-        getVolume as getSoundVolume,
-        initVolumeStore as initSoundVolumeStore,
-        setVolume as setSoundVolume
-    } from "$lib/store/SoundVolumeStore";
     import {onMount} from "svelte";
     import {Idea} from "carbon-icons-svelte";
     import {changeLangRedirect, Step, t} from "$lib";
@@ -41,13 +34,13 @@
     } from "$lib/store/AccessibilityModeStore";
     import {injectSpeedInsights} from "@vercel/speed-insights/sveltekit";
     import {inject} from '@vercel/analytics'
-    import {resetSession} from "$lib/store/technical/PersistentStore";
+    import {headerStore, updateSongVolume, updateSoundVolume} from "../../lib/store/HeaderStore";
 
     injectSpeedInsights()
     inject()
     export let title: string = $t('common.step.intro') || "Introduction"
-    export let songVolume: number = 0
-    export let soundVolume: number = 30
+    export let songVolume: number = $headerStore.songVolume
+    export let soundVolume: number = $headerStore.soundVolume
 
     let selectedLanguageIndex = $page.params.lang
     let playHeartBeat: Function | undefined = undefined
@@ -67,14 +60,9 @@
 
         document.title = $t('common.step.intro') + " | really inaccessible"
         document.body.lang = $page.params.lang ?? "fr"
+        songVolume = $headerStore.songVolume
+        soundVolume = $headerStore.soundVolume
 
-        if (!checkSoundVolume()) {
-            let INITIAL_VOLUME = "5";
-            initSoundVolumeStore(INITIAL_VOLUME)
-        }
-
-        songVolume = getVolume() * 100
-        soundVolume = getSoundVolume() * 100
         accessibilityMode = getAccessibilityMode()
 
         initHintLevelStore('0')
@@ -307,9 +295,9 @@
             on:change={(e) => changeLangRedirect($page.route.id, e?.target?.value)}
             style="width: 10rem; margin-right: 2rem;"
     >
-        <SelectItem value='fr' text='Français' />
-        <SelectItem value='en' text='English' />
-        <SelectItem value='es' text='Español' />
+        <SelectItem value='fr' text='Français'/>
+        <SelectItem value='en' text='English'/>
+        <SelectItem value='es' text='Español'/>
     </Select>
 </Header>
 <Tile id="menu" style="position: sticky; top: 3rem; position: flex; flex-direction: row; z-index: 2000">
@@ -327,7 +315,7 @@
                 value={songVolume}
                 step={0.1}
                 style="margin-left: 2rem"
-                on:input={(value) => {{setVolume(value.detail)}}}
+                on:input={(value) => {updateSongVolume(value.detail)}}
         />
         <Slider
                 labelText={$t('common.header.volume.soundEffect')}
@@ -338,7 +326,7 @@
                 maxLabel=" "
                 value={soundVolume}
                 step={0.1}
-                on:input={(value) => {{setSoundVolume(value.detail)}}}
+                on:input={(value) => {updateSoundVolume(value.detail)}}
         />
         <div class="gauge" aria-label={$t('common.header.oxygen.remaining', {oxygen: oxygen.toFixed(0)})}>
             <div aria-hidden="true">

@@ -12,8 +12,11 @@
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {page} from "$app/stores";
     import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
-    import { getAccessibilityModeStoreQueryParam } from '$lib/store/AccessibilityModeStore';
+    import {getAccessibilityModeStoreQueryParam} from '$lib/store/AccessibilityModeStore';
     import Plyr from 'plyr';
+    import {headerStore} from "../../../lib/store/HeaderStore";
+    import {audioStore} from "../../../lib/store/inMemoryStore/AudioStore";
+    import {get} from "svelte/store";
 
     let disableWriter = true
     let isWaiting = false
@@ -33,7 +36,23 @@
         errorSound.volume = 0.5
         changeSource("/ost/opening.mp3")
         startButton = true
-        const player = new Plyr('#teaserPlayer', { "captions": { "active": "true", "language": $page.params.lang} });
+        const player = new Plyr('#teaserPlayer', {
+            "captions": {"active": "true", "language": $page.params.lang},
+            "volume": $headerStore.songVolume / 10
+        });
+        headerStore.subscribe((value) => {
+            player.volume = value.songVolume / 10
+        })
+        const audioElement = get(audioStore);
+        player.on('play', (event) => {
+            audioElement.pause()
+        });
+        player.on('pause', (event) => {
+            if ($headerStore.playSong) {
+                $audioStore.play()
+                $audioStore.volume = $headerStore.songVolume / 100
+            }
+        });
     })
 
 </script>
@@ -71,7 +90,9 @@
         <div id="teaserPlayer" data-plyr-provider="youtube" data-plyr-embed-id="4EzZ4Na1rtk"></div>
     </div>
 </div>
-<ButtonComponent enabled={startButton} onclick={() => {disableWriter = false}}><span slot="content" class="d-flex flex-row align-items-center">{$t('waitingRoom.test.startButton')}<ContinueFilled class="ms-2"/></span></ButtonComponent>
+<ButtonComponent enabled={startButton} onclick={() => {disableWriter = false}}><span slot="content"
+                                                                                     class="d-flex flex-row align-items-center">{$t('waitingRoom.test.startButton')}
+    <ContinueFilled class="ms-2"/></span></ButtonComponent>
 <Content id="scenario">
     <div class="container">
         <TypewriterComponent mode="scramble" disabled={disableWriter}>
@@ -90,8 +111,8 @@
                     <p>{$t('waitingRoom.goal.row.1')}</p>
                     <p>{$t('waitingRoom.goal.row.2')}</p>
                     <p>{$t('waitingRoom.test.clickLink')} <a class="disabled-link"
-                        href="{base}/{$locale}/abri/entrance{getAccessibilityModeStoreQueryParam()}" 
-                        on:click={() => loading()}>{$t('waitingRoom.test.here')}</a>
+                                                             href="{base}/{$locale}/abri/entrance{getAccessibilityModeStoreQueryParam()}"
+                                                             on:click={() => loading()}>{$t('waitingRoom.test.here')}</a>
                         {$t('waitingRoom.test.enter')}
                     </p>
                 </div>
@@ -100,9 +121,10 @@
         <div id="start-button-block">
             {#if showButton}
                 <Button kind="primary"
-                    class="main-button d-flex flex-row align-items-center"
-                    on:click={() => {errorSound.play(); showError = true}}>
-                    {$t('waitingRoom.test.startButton')}<ContinueFilled class="ms-2"/>
+                        class="main-button d-flex flex-row align-items-center"
+                        on:click={() => {errorSound.play(); showError = true}}>
+                    {$t('waitingRoom.test.startButton')}
+                    <ContinueFilled class="ms-2"/>
                 </Button>
             {/if}
             {#if showError}

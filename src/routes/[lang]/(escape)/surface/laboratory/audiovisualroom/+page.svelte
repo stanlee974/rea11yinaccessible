@@ -4,13 +4,14 @@
     import {base} from '$app/paths';
     import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
     import {redirect, Step, t} from "$lib";
-    import {getVolume, setVolume} from "$lib/store/VolumeStore";
     import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
     import {onMount} from "svelte";
     import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import AudioComponent from "$lib/technicalComponent/AudioComponent.svelte";
     import {page} from "$app/stores";
+    import {headerStore} from "../../../../../../lib/store/HeaderStore";
+    import {adjustVolume} from "../../../../../../lib/store/inMemoryStore/AudioStore";
 
     onMount(() => {
         changeSource("/ost/step8.mp3")
@@ -27,13 +28,12 @@
     let showAudioMediumDeaf = false
     let showAudioLowDeaf = false
     let showAudioVeryLowDeaf = false
-    let savedVolume = 0
 
     $: invalidResult = !new RegExp($t('audiovisualRoom.test.response'), 'i').test(result)
     const validateForm = () => {
         if (new RegExp($t('audiovisualRoom.test.response'), 'i').test(result)) {
             isWaiting = true
-            setVolume(savedVolume)
+            adjustVolume($headerStore.songVolume * 100)
             redirect($page.params.lang, "surface/laboratory/sanctuary")
         }
     }
@@ -92,7 +92,7 @@
 </ModalComponent>
 <TypewriterComponent disabled={disableGoal} waitReading continueButtonAction={() => {
             showForm = true
-            savedVolume = getVolume() * 100
+            adjustVolume(0)
     }}>
     <div>
         <div class="container mb-5">

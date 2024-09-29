@@ -108,12 +108,16 @@
         }
     }
 </script>
-
-<SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/lastName.mp3" postPlay={playLastName}></SoundEffectComponent>
-<SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/firstName.mp3" postPlay={playFirstName}></SoundEffectComponent>
-<SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/birthDay.mp3" postPlay={playBirth}></SoundEffectComponent>
-<SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/deathDay.mp3" postPlay={playDeath}></SoundEffectComponent>
-<SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/submit.mp3" postPlay={playSubmit}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/lastName.mp3"
+                      postPlay={playLastName}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/firstName.mp3"
+                      postPlay={playFirstName}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/birthDay.mp3"
+                      postPlay={playBirth}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/deathDay.mp3"
+                      postPlay={playDeath}></SoundEffectComponent>
+<SoundEffectComponent src="/sound/accessibleName/{$page.params.lang}/submit.mp3"
+                      postPlay={playSubmit}></SoundEffectComponent>
 <SoundEffectComponent src="/sound/error.mp3" postPlay={playError}></SoundEffectComponent>
 <ModalComponent
         opened={openTransition}
@@ -142,12 +146,12 @@
                 <p>{$t(`shelterComputerRoom.scenario.row.3`)}</p>
             </TypewriterComponent>
         </div>
-       <div class="mb-5">
-         <TypewriterComponent disabled={showGoal} continueButtonAction={() => {open = true;}} waitReading>
-             <h2 class="mb-1">{$t('common.layout.title.goal')}</h2>
-             <p>{$t(`shelterComputerRoom.goal.row.1`)}</p>
-         </TypewriterComponent>
-       </div>
+        <div class="mb-5">
+            <TypewriterComponent disabled={showGoal} continueButtonAction={() => {open = true;}} waitReading>
+                <h2 class="mb-1">{$t('common.layout.title.goal')}</h2>
+                <p>{$t(`shelterComputerRoom.goal.row.1`)}</p>
+            </TypewriterComponent>
+        </div>
     </div>
 </div>
 <ModalComponent
