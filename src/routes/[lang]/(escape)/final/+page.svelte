@@ -13,7 +13,7 @@
                                 alt={$t('outro.modal.1.image.1.title')}
                                 fadeIn={true}/>
                         <span class="number">2</span>
-                        <p style:font-size="1.3rem">{$t('outro.modal.1.row.1')}</p>
+                        <p style:font-size="1.3rem">{$t('outro.modal.1.image.1.row.1')}</p>
                         <ImageLoader
                                 src="{base}/final/man_with_syringe.jpg"
                                 alt={$t('outro.modal.1.image.2.title')}
