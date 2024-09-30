@@ -51,6 +51,10 @@
       "5": "Mientras las puertas del laboratorio se cierran detrás de ti, sabes que, a pesar de todo, luchaste hasta el final. Tu historia, aunque trágica, es un testimonio de coraje y resiliencia en un mundo post-apocalíptico despiadado, donde la diferencia aún es una herejía."
     }
   },
+  "buttons": {
+    "summary": "Resumen",
+    "end": "Fin de la aventura"
+  },
   "conclusion": {
     "title": "Conclusión",
     "row": {
@@ -64,10 +68,6 @@
     "viewLess": "Ver menos",
     "problem": "Dificultad:",
     "advice": "Consejo:",
-    "buttons": {
-      "summary": "Resumen",
-      "end": "Fin de la aventura"
-    },
     "visual": {
       "title": "Trastorno Visual",
       "1": {

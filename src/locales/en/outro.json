@@ -51,6 +51,10 @@
       "5": "As the laboratory doors close behind you, you know that, despite everything, you fought until the end. Your story, though tragic, is a testament to courage and resilience in a ruthless post-apocalyptic world where difference is still heresy."
     }
   },
+  "buttons": {
+    "summary": "Summary",
+    "end": "End of the Adventure"
+  },
   "conclusion": {
     "title": "Conclusion",
     "row": {
@@ -64,10 +68,6 @@
     "viewLess": "View Less",
     "problem": "Difficulty:",
     "advice": "Advice:",
-    "buttons": {
-      "summary": "Summary",
-      "end": "End of the Adventure"
-    },
     "visual": {
       "title": "Visual Impairment",
       "1": {

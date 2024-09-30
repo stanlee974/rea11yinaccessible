@@ -58,7 +58,7 @@
     let currentStep: string = $renderStore.step
     onMount(() => {
         setAccessibilityMode($page.url.searchParams.get('isA11yMode') == 'true')
-
+        window.scrollTo(0, 0);
         document.title = $t('common.step.intro') + " | really inaccessible"
         document.body.lang = $page.params.lang ?? "fr"
         songVolume = $headerStore.songVolume

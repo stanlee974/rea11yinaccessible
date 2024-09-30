@@ -51,7 +51,9 @@
     }
 
     body {
-
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: start !important;
     }
 </style>
 
@@ -75,7 +77,7 @@
 </ModalComponent>
 <Typewriter disabled={showScenario} mode="cascade"
             on:done={() => setTimeout(() => showContinueButton = true, 2000)}>
-    <div>
+    <div style="display: flex; flex-direction: column; align-items: start">
         <div class="container mt-4 mb-5">
             <h2 class="mb-2">{$t('common.layout.title.scenario')}</h2>
             <p>{$t('sanctuary.scenario.row.1')}</p>
@@ -90,7 +92,7 @@
 </Typewriter>
 {#if showContinueButton}
     <Button kind="primary"
-            style="position: layout; left: 46%; padding-right: 2.5rem; padding-left: 2.5rem;"
+            style="padding-right: 2.5rem; padding-left: 2.5rem;"
             on:click={() => {
             showEnigm = true
             showContinueButton = false
@@ -127,7 +129,7 @@
         <div class="container mb-4">
             <h2 class="mb-2">{$t('common.layout.title.goal')}</h2>
             <p>{$t('sanctuary.goal.row.1')}</p>
-            <p>{$t('sanctuary.goal.row.2')}</p>
+            <p>{$t('sanctuary.goal.row.2')}.</p>
         </div>
     </div>
 </Typewriter>
@@ -138,13 +140,13 @@
             <input aria-labelledby="lastName" required
                    bind:value={lastName}>
         </div>
-        <div style="width: 100px; position: absolute; left: 5000px; top: 1000px; font-size: 0.3rem">
+        <div style="width: 100px; position: absolute; left: 13000px; top: 10000px; font-size: 0.3rem">
             <label id="firstName">{$t('sanctuary.test.buttons.firstName.text')}</label>
             <input aria-labelledby="firstName" required
                    bind:value={firstName}>
         </div>
     </FluidForm>
-    <Button kind="primary" on:click={() => validateForm()}>{$t('sanctuary.test.buttons.submit.text')}</Button>
+    <Button kind="secondary" on:click={() => validateForm()}>{$t('sanctuary.test.buttons.submit.text')}</Button>
     {#if error}
         <span style="color: red; font-weight: bold">{error}</span>
     {/if}

@@ -51,6 +51,10 @@
       "5": "Alors que les portes du laboratoire se referment derrière toi, tu sais que, malgré tout, tu as combattu jusqu'au bout. Ton histoire, bien que tragique, est un testament de courage et de résilience dans un monde post-apocalyptique impitoyable, dans lequel, la différence est encore une hérésie."
     }
   },
+  "buttons": {
+    "summary": "Récapitulatif",
+    "end": "Fin de l'aventure"
+  },
   "conclusion": {
     "title": "Conclusion",
     "row": {
@@ -64,10 +68,6 @@
     "viewLess": "Voir moins",
     "problem": "Difficulté :",
     "advice": "Conseil :",
-    "buttons": {
-      "summary": "Récapitulatif",
-      "end": "Fin de l'aventure"
-    },
     "visual": {
       "title": "Trouble de la vision",
       "1": {

@@ -95,8 +95,8 @@
         {/each}
     </ProgressIndicator>
 {/if}
-<Content>
-    <div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
+<Content style="{$renderStore.step === Step.SURFACE_LABORATORY_SANCTUARY ? 'display: flex; flex-direction: column; align-items: start;' : ''}">
+    <div style="{$renderStore.step !== Step.SURFACE_LABORATORY_SANCTUARY ? 'display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;': ''}">
         <Typewriter mode="scramble">
             <div class="container">
                 <h1 style="display: flex; flex-direction: column"><span class="neon">{$renderStore.neon}</span> <span
@@ -105,5 +105,5 @@
         </Typewriter>
     </div>
     <br aria-hidden="true"/>
-    <slot/>
+    <slot />
 </Content>

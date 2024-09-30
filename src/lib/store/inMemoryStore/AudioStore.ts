@@ -56,6 +56,7 @@ export function adjustVolume(
         if (++tick === ticks + 1) {
           clearInterval(timer);
           htmlAudioElement.currentTime = 0;
+          htmlAudioElement.pause()
           resolve();
         }
       }, interval);

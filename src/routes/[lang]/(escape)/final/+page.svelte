@@ -12,6 +12,7 @@
     import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
     import ButtonComponent from "$lib/technicalComponent/ButtonComponent.svelte";
     import {redirect} from "$lib";
+    import {adjustVolume, audioStore} from "../../../../lib/store/inMemoryStore/AudioStore";
 
     let showTransitionModal = true;
     let showTrapModal = false;
@@ -194,7 +195,10 @@
         <div class="container mb-5">
             <span class="fin">{$t('outro.buttons.end')}</span>
         </div>
-        <ButtonComponent onclick={() => redirect($page.params.lang, "summary")}>
+        <ButtonComponent onclick={() => {
+            adjustVolume(0);
+            redirect($page.params.lang, "summary")
+        }}>
             <span slot="content"
                 class="d-flex flex-row align-items-center">
                 {$t('outro.buttons.summary')}
