@@ -18,7 +18,7 @@ Feature: Waiting room
 
   Scenario: Go to abri
     When I click on button named "Continuer"
-     And I click on element with role "link" and name "ici"
+     And I click on link named "ici"
      And I reset context
     Then within the element with selector "#currentModal"
      And I should see a button named "Continuer la suite"
