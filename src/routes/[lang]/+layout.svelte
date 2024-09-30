@@ -35,6 +35,7 @@
     import {injectSpeedInsights} from "@vercel/speed-insights/sveltekit";
     import {inject} from '@vercel/analytics'
     import {headerStore, updateSongVolume, updateSoundVolume} from "../../lib/store/HeaderStore";
+    import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
 
     injectSpeedInsights()
     inject()
@@ -390,6 +391,7 @@
                    on:close={() => isOpenHint = false}
                    modalHeading=""
                    primaryButtonText="{$t('common.button.waiting')}"
+                   primaryButtonIcon={ContinueFilled}
                    on:click:button--primary={() => isOpenHint = false}>
                 <Grid>
                     <Row>

@@ -49,7 +49,7 @@
         "waitingRoom": {
           "1": "Parfois les développeurs ne pensent pas aux personnes utilisant les outils d'assistance comme les assistants vocaux",
           "2": "Lis bien le texte et ce sur quoi tu dois cliquer",
-          "3": "Le mot ici est un lien clickable. Clique dessus pour continuer. Le bouton Continuer est un 'honeypot'"
+          "3": "Le mot ici est un lien cliquable. Clique dessus pour continuer. Le bouton Continuer est un 'honeypot'"
         },
         "shelterMedicalRoom": {
           "1": "Concentre toi sur les 2 dernières phrases avec les lettres qui bougent",
@@ -115,7 +115,7 @@
     "shelterSearchCenterRoom": "Troubles cognitifs | Images intrusives",
     "surfaceEntrance": "Troubles moteurs | Tremblement souris",
     "surfaceLaboratoryEntrance": "Troubles moteurs | Tremblement clavier",
-    "surfaceLaboratoryAudioVisualRroom": "Troubles auditifs | Surdité",
+    "audiovisualRoom": "Troubles auditifs | Surdité",
     "sanctuary": "Troubles cognitifs | Police, Zoom, Alignement",
     "outro": "Epilogue",
     "summary": "Conclusion"

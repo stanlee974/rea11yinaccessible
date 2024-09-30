@@ -49,6 +49,10 @@
         border: white 1px solid;
         padding: 0.3em;
     }
+
+    body {
+
+    }
 </style>
 
 <ModalComponent opened={showTransitionModal}
