@@ -53,6 +53,13 @@
   },
   "conclusion": {
     "title": "Conclusión",
+    "row": {
+      "1": "Gracias por participar en la aventura.",
+      "2_1": "Para profundizar, puedes consultar el",
+      "2_2": "siguiente enlace",
+      "2_3": "para profundizar en los usos de la web por parte de personas con discapacidad.",
+      "3": "Para las personas más técnicas, a continuación encontrarás algunos consejos para mejorar los problemas encontrados durante el juego:"
+    },
     "viewMore": "Ver más",
     "viewLess": "Ver menos",
     "problem": "Dificultad:",
