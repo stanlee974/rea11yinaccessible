@@ -52,10 +52,6 @@
 
     onDestroy(audioUnsubscriber)
 </script>
-{#if displayPlayButton}
-    <Button iconDescription={$t('common.header.audio')} tooltipAlignment="start" kind="ghost" icon={PlayFilledAlt}
-            on:click={() => toggle(true)} aria-pressed="true"></Button>
-{:else }
-    <Button iconDescription={$t('common.header.audio')} tooltipAlignment="start" kind="ghost" icon={PauseFilled}
-            on:click={() => toggle(false)} aria-pressed="false"></Button>
-{/if}
+<Button id="song" iconDescription={$t('common.header.audio')} tooltipAlignment="start" kind="ghost"
+        icon={displayPlayButton ? PlayFilledAlt : PauseFilled}
+        on:click={() => toggle(displayPlayButton)} aria-pressed={displayPlayButton ? "false" : "true"}></Button>

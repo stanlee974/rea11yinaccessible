@@ -52,6 +52,9 @@
                 case Step.SURFACE_LABORATORY_SANCTUARY:
                     currentStep = 7
                     break
+                case Step.OUTRO:
+                    currentStep = 8
+                    break
                 default:
                     break
             }
@@ -76,7 +79,7 @@
     @import url(/css/neon.css);
 </style>
 
-{#if $renderStore.title !== $t('common.step.final')}
+{#if $renderStore.title !== $t('common.step.outro')}
     <ProgressIndicator
             spaceEqually
             preventChangeOnClick

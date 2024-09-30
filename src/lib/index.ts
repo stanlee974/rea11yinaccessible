@@ -17,7 +17,8 @@ export const enum Step {
     SURFACE_LABORATORY = "surfaceLaboratoryEntrance",
     SURFACE_LABORATORY_AUDIOVISUALROOM = "audiovisualRoom",
     SURFACE_LABORATORY_SANCTUARY = "sanctuary",
-    FINAL = "final",
+    OUTRO = "outro",
+    SUMMARY = "summary",
 }
 
 export async function redirect(locale: string, path: string = "") {

@@ -1,14 +1,14 @@
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
     import "plyr/dist/plyr.css";
-    import {Button, Column, Content, Grid, ImageLoader, Row, ToastNotification} from "carbon-components-svelte";
+    import {Button, Content, ToastNotification} from "carbon-components-svelte";
     import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
     import {base} from "$app/paths";
     import ButtonComponent from "$lib/technicalComponent/ButtonComponent.svelte";
     import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
     import {onMount} from "svelte";
     import LoadingComponent from "$lib/technicalComponent/LoadingComponent.svelte";
-    import {setLocale, t, locale, Step} from "$lib";
+    import {locale, setLocale, Step, t} from "$lib";
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {page} from "$app/stores";
     import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";

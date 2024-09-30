@@ -253,7 +253,16 @@
 
 <ul class="skip">
     <li>
-        <a href="#main-content">{$t('common.layout.bypassMenu.goToContent')}</a>
+        <a autofocus href="#main-content">{$t('common.layout.bypassMenu.goToContent')}</a>
+    </li>
+    <li>
+        <a href="#language">{$t('common.layout.bypassMenu.goToLanguage')}</a>
+    </li>
+    <li>
+        <a href="#song">{$t('common.layout.bypassMenu.goToSong')}</a>
+    </li>
+    <li>
+        <a href="#hint">{$t('common.layout.bypassMenu.goToHint')}</a>
     </li>
     <li>
         <a href="#menu">{$t('common.layout.bypassMenu.goToMenu')}</a>
@@ -289,6 +298,7 @@
         </HeaderNav>
     </Row>
     <Select
+            id="language"
             inline
             labelText="Langue"
             bind:selected={selectedLanguageIndex}
@@ -300,115 +310,117 @@
         <SelectItem value='es' text='Español'/>
     </Select>
 </Header>
-<Tile id="menu" style="position: sticky; top: 3rem; position: flex; flex-direction: row; z-index: 2000">
-    <HeaderUtilities>
-        <!--        <Toggle labelText={$t('common.header.accessibility.title')} labelA="" labelB="" toggled={accessibilityMode}-->
-        <!--                on:change={() => {accessibilityMode = !accessibilityMode; setAccessibilityMode(accessibilityMode)}}/>-->
-        <SongComponent/>
-        <Slider
-                labelText={$t('common.header.volume.song')}
-                min={0}
-                max={10}
-                hideTextInput
-                minLabel=" "
-                maxLabel=" "
-                value={songVolume}
-                step={0.1}
-                style="margin-left: 2rem"
-                on:input={(value) => {updateSongVolume(value.detail)}}
-        />
-        <Slider
-                labelText={$t('common.header.volume.soundEffect')}
-                min={0}
-                max={10}
-                hideTextInput
-                minLabel=" "
-                maxLabel=" "
-                value={soundVolume}
-                step={0.1}
-                on:input={(value) => {updateSoundVolume(value.detail)}}
-        />
-        <div class="gauge" aria-label={$t('common.header.oxygen.remaining', {oxygen: oxygen.toFixed(0)})}>
-            <div aria-hidden="true">
-                <div class="gauge__progress" {style}>{$t('common.header.oxygen.title')}</div>
-                <div class="gauge__tick" style="left: 0%;">
-                    <div class="gauge__label">0</div>
-                </div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 5%;"></div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 10%;"></div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 15%;"></div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 20%;"></div>
-                <div class="gauge__tick" style="left: 25%;">
-                    <div class="gauge__label">25</div>
-                </div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 30%;"></div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 35%;"></div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 40%;"></div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 45%;"></div>
-                <div class="gauge__tick" style="left: 50%;">
-                    <div class="gauge__label">50</div>
-                </div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 55%;"></div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 60%;"></div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 65%;"></div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 70%;"></div>
-                <div class="gauge__tick" style="left: 75%;">
-                    <div class="gauge__label">75</div>
-                </div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 80%;"></div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 85%;"></div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 90%;"></div>
-                <div class="gauge__tick gauge__tick--minor" style="left: 95%;"></div>
-                <div class="gauge__tick" style="left: 100%;">
-                    <div class="gauge__label">100</div>
+{#if $renderStore.step !== Step.SUMMARY}
+    <Tile id="menu" style="position: sticky; top: 3rem; position: flex; flex-direction: row; z-index: 2000">
+        <HeaderUtilities>
+            <!--        <Toggle labelText={$t('common.header.accessibility.title')} labelA="" labelB="" toggled={accessibilityMode}-->
+            <!--                on:change={() => {accessibilityMode = !accessibilityMode; setAccessibilityMode(accessibilityMode)}}/>-->
+            <SongComponent />
+            <Slider
+                    labelText={$t('common.header.volume.song')}
+                    min={0}
+                    max={10}
+                    hideTextInput
+                    minLabel=" "
+                    maxLabel=" "
+                    value={songVolume}
+                    step={0.1}
+                    style="margin-left: 2rem"
+                    on:input={(value) => {updateSongVolume(value.detail)}}
+            />
+            <Slider
+                    labelText={$t('common.header.volume.soundEffect')}
+                    min={0}
+                    max={10}
+                    hideTextInput
+                    minLabel=" "
+                    maxLabel=" "
+                    value={soundVolume}
+                    step={0.1}
+                    on:input={(value) => {updateSoundVolume(value.detail)}}
+            />
+            <div class="gauge" aria-label={$t('common.header.oxygen.remaining', {oxygen: oxygen.toFixed(0)})}>
+                <div aria-hidden="true">
+                    <div class="gauge__progress" {style}>{$t('common.header.oxygen.title')}</div>
+                    <div class="gauge__tick" style="left: 0%;">
+                        <div class="gauge__label">0</div>
+                    </div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 5%;"></div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 10%;"></div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 15%;"></div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 20%;"></div>
+                    <div class="gauge__tick" style="left: 25%;">
+                        <div class="gauge__label">25</div>
+                    </div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 30%;"></div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 35%;"></div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 40%;"></div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 45%;"></div>
+                    <div class="gauge__tick" style="left: 50%;">
+                        <div class="gauge__label">50</div>
+                    </div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 55%;"></div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 60%;"></div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 65%;"></div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 70%;"></div>
+                    <div class="gauge__tick" style="left: 75%;">
+                        <div class="gauge__label">75</div>
+                    </div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 80%;"></div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 85%;"></div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 90%;"></div>
+                    <div class="gauge__tick gauge__tick--minor" style="left: 95%;"></div>
+                    <div class="gauge__tick" style="left: 100%;">
+                        <div class="gauge__label">100</div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--        <span style="font-size: 3rem; color: goldenrod; margin-left: 3rem; margin-right: 3rem">{getFormatedCountdown($time)}</span>-->
+            <!--        <span style="font-size: 3rem; color: goldenrod; margin-left: 3rem; margin-right: 3rem">{getFormatedCountdown($time)}</span>-->
 
-        <HeaderGlobalAction on:click={() => isOpenHint = true}
-                            iconDescription={$t("common.header.hint.tooltip")}
-                            tooltipAlignment="end"
-                            tooltipPosition="bottom"
-                            icon={Idea}
-                            style="margin-right: 3rem"
-        />
-        <Modal size="lg"
-               preventCloseOnClickOutside
-               bind:open={isOpenHint}
-               on:close={() => isOpenHint = false}
-               modalHeading=""
-               primaryButtonText="{$t('common.button.waiting')}"
-               on:click:button--primary={() => isOpenHint = false}>
-            <Grid>
-                <Row>
-                    <Column>
-                        {#each Object.entries(hints) as [level, hint]}
-                            {#if Number(level) <= Number(hintLevel)}
-                                <h2>{$t('common.header.hint.message.title')}{level}</h2>
-                                <p style="font-size: 1.3rem">{hint}</p>
+            <HeaderGlobalAction id="hint" on:click={() => isOpenHint = true}
+                                iconDescription={$t("common.header.hint.tooltip")}
+                                tooltipAlignment="end"
+                                tooltipPosition="bottom"
+                                icon={Idea}
+                                style="margin-right: 3rem"
+            />
+            <Modal size="lg"
+                   preventCloseOnClickOutside
+                   bind:open={isOpenHint}
+                   on:close={() => isOpenHint = false}
+                   modalHeading=""
+                   primaryButtonText="{$t('common.button.waiting')}"
+                   on:click:button--primary={() => isOpenHint = false}>
+                <Grid>
+                    <Row>
+                        <Column>
+                            {#each Object.entries(hints) as [level, hint]}
+                                {#if Number(level) <= Number(hintLevel)}
+                                    <h2>{$t('common.header.hint.message.title')}{level}</h2>
+                                    <p style="font-size: 1.3rem">{hint}</p>
+                                {/if}
+                            {/each}
+                            {#if !hints[1] }
+                                <p style="font-size: 1.3rem">{$t('common.header.hint.message.nothing')}</p>
                             {/if}
-                        {/each}
-                        {#if !hints[1] }
-                            <p style="font-size: 1.3rem">{$t('common.header.hint.message.nothing')}</p>
-                        {/if}
-                        {#if hints["1"] && Number(hintLevel) <= 1}
-                            <Button kind="secondary" on:click={() => increaseHintLevel()}
-                                    style="margin-top: 2rem">
-                                {$t('common.header.hint.help')}
-                            </Button>
-                        {/if}
-                        {#if hints["1"] && Number(hintLevel) === 2}
-                            <Button on:click={() => increaseHintLevel()} style="margin-top: 2rem">
-                                {$t('common.header.hint.solution')}
-                            </Button>
-                        {/if}
-                    </Column>
-                </Row>
-            </Grid>
-        </Modal>
-    </HeaderUtilities>
-</Tile>
+                            {#if hints["1"] && Number(hintLevel) <= 1}
+                                <Button kind="secondary" on:click={() => increaseHintLevel()}
+                                        style="margin-top: 2rem">
+                                    {$t('common.header.hint.help')}
+                                </Button>
+                            {/if}
+                            {#if hints["1"] && Number(hintLevel) === 2}
+                                <Button on:click={() => increaseHintLevel()} style="margin-top: 2rem">
+                                    {$t('common.header.hint.solution')}
+                                </Button>
+                            {/if}
+                        </Column>
+                    </Row>
+                </Grid>
+            </Modal>
+        </HeaderUtilities>
+    </Tile>
+{/if}
 <SoundEffectComponent src="{base}/sound/heart_beat.mp3" postPlay={playHeartBeat}/>
 <SoundEffectComponent src="{base}/sound/heart_beat_fast.mp3" postPlay={playHeartBeatFast}/>
 <slot id="main-content" accessibilityMode={accessibilityMode}/>
