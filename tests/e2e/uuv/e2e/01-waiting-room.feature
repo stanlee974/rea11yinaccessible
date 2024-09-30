@@ -21,4 +21,4 @@ Feature: Waiting room
      And I click on link named "ici"
      And I reset context
     Then within the element with selector "#currentModal"
-     And I should see a button named "Continuer la suite"
+     And I should see a button named "Poursuivre"
