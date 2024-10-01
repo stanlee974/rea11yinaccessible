@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Caminas por el corredor del laboratorio",
     "row": {
       "1": "Logras activar el botón correctamente, y un mecanismo interno comienza a funcionar. La puerta metálica se abre lentamente con un chirrido, revelando un corredor que conduce al laboratorio secundario.",
       "2": "Avanzas con cautela y sientes inmediatamente un frío helado emanando desde dentro."
@@ -17,19 +16,16 @@
     },
     "modal": {
       "1": {
-        "title": "Cámara Refrigerada Conteniendo el Terminal",
         "row": {
           "1": "Una nota manuscrita en un rincón de la sala menciona los efectos del frío intenso en el cuerpo humano.",
-          "2": "En la parte posterior de esta nota hay inscripciones codificadas.",
-          "3": "inscripciones codificadas"
+          "2": "En la parte posterior de esta nota hay inscripciones codificadas."
         }
       }
     }
   },
   "goal": {
     "row": {
-      "1": "Debes descifrar y escribir el código resuelto en el teclado del terminal, a pesar del intenso frío. Si tus manos tiemblan demasiado, puedes introducir el código incorrecto, lo que podría desencadenar una alarma o un bloqueo temporal.",
-      "2": "inscripciones codificadas"
+      "1": "Debes descifrar y escribir el código resuelto en el teclado del terminal, a pesar del intenso frío. Si tus manos tiemblan demasiado, puedes introducir el código incorrecto, lo que podría desencadenar una alarma o un bloqueo temporal."
     }
   },
   "test": {

@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Tu montes les escaliers en colimaçon",
     "row": {
       "1": "Une petite trappe s'ouvre et tu y glisses ta main. Rien à l'intérieur...",
       "2": "Tu continues donc, ton exploration du laboratoire secondaire. Des bruits lointains à l'extérieur du bâtiment.",
@@ -18,9 +17,7 @@
     "modal": {
       "1": {
         "row": {
-          "1": "Salle technique audiovisuelle",
-          "2": "Des notes éparses expliquent que cette salle servait autrefois de centre de documentation pour les expériences scientifiques menées dans le laboratoire",
-          "3": "inscriptions codées"
+          "1": "Des notes éparses expliquent que cette salle servait autrefois de centre de documentation pour les expériences scientifiques menées dans le laboratoire"
         }
       }
     }

@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "You rush towards the last wing of the building",
     "row": {
       "1": "The electronic terminal emits a satisfying beep as a magnetic card ejects from its slot.",
       "2": "You quickly grab it, but your triumph is short-lived. Heavy, hurried footsteps can be heard in the adjacent hallway, dangerously close. With a racing heart, you realize the trackers are not far behind.",
@@ -29,11 +28,9 @@
     "modal": {
       "1": {
         "row": {
-          "1": "Majestic door adorned with complex ironwork",
-          "2": "With the magnetic card firmly in hand, you quickly insert it into the adjacent reader, praying that the mechanism works.",
-          "3": "The trackers are closing in, their footsteps becoming increasingly distinct. The door slowly opens with a creak, revealing a new room whose contents are yet to be discovered.",
-          "4": "At the center of the sanctuary is a glass pedestal containing a mysterious yellow orb, locked by a complex mechanism.",
-          "5": "Pedestal containing the yellow orb"
+          "1": "With the magnetic card firmly in hand, you quickly insert it into the adjacent reader, praying that the mechanism works.",
+          "2": "The trackers are closing in, their footsteps becoming increasingly distinct. The door slowly opens with a creak, revealing a new room whose contents are yet to be discovered.",
+          "3": "At the center of the sanctuary is a glass pedestal containing a mysterious yellow orb, locked by a complex mechanism."
         }
       }
     }

@@ -1,14 +1,16 @@
 {
   "button": {
-    "waiting": "Continue to the next"
+    "waiting": "Continue"
   },
   "layout": {
     "bypassMenu": {
       "goToContent": "Go to content",
-      "goToMenu": "Go to menu"
+      "goToMenu": "Go to menu",
+      "goToLanguage": "Change language",
+      "goToSong": "Turn music on or off",
+      "goToHint": "Go to hints"
     },
     "menu": {
-      "logo": "Really Inaccessible logo",
       "axe": "Axe-core - accessibility test",
       "reference": {
         "title": "Reference"
@@ -17,12 +19,7 @@
         "title": "UUV - E2E accessibility test",
         "kata": "Kata (exercise)"
       },
-      "source": "Source code",
-      "language": {
-        "fr": "French",
-        "en": "English",
-        "es": "Spanish"
-      }
+      "source": "Source code"
     },
     "title": {
       "scenario": "Scenario",
@@ -120,6 +117,7 @@
     "surfaceLaboratoryEntrance": "Motor impairments | Keyboard tremor",
     "audiovisualRoom": "Hearing impairments | Deafness",
     "sanctuary": "Cognitive impairments | Font, Zoom, Alignment",
-    "final": "Epilogue"
+    "final": "Epilogue",
+    "summary": "Conclusion"
   }
 }

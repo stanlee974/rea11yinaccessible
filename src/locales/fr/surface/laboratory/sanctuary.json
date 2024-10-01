@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Tu te diriges à toute allures dans la dernière aile du bâtiment",
     "row": {
       "1": "La borne électronique émet un bip satisfaisant alors qu'une carte magnétique s'éjecte de son compartiment.",
       "2": "Tu la saisis rapidement, mais ton triomphe est de courte durée. Des bruits de pas lourds et pressés se font entendre dans le couloir adjacent, se rapprochant dangereusement. Le cœur battant, tu réalises que les traqueurs ne sont plus très loin.",
@@ -29,11 +28,9 @@
     "modal": {
       "1": {
         "row": {
-          "1": "Porte majestueuse ornée de ferrures complexes",
-          "2": "Avec la carte magnétique fermement en main, tu insères rapidement celle-ci dans le lecteur adjacent, priant pour que le mécanisme fonctionne.",
-          "3": "Les traqueurs se rapprochent, leurs pas devenant de plus en plus distincts. La porte s'ouvre lentement avec un grincement, révélant une nouvelle salle dont le contenu reste à découvrir.",
-          "4": "Au centre du sanctuaire se trouve un piédestal en verre contenant une mystérieuse orbe jaune, verrouillée par un mécanisme complexe.",
-          "5": "Piedestal contenant l'orbe jaune"
+          "1": "Avec la carte magnétique fermement en main, tu insères rapidement celle-ci dans le lecteur adjacent, priant pour que le mécanisme fonctionne.",
+          "2": "Les traqueurs se rapprochent, leurs pas devenant de plus en plus distincts. La porte s'ouvre lentement avec un grincement, révélant une nouvelle salle dont le contenu reste à découvrir.",
+          "3": "Au centre du sanctuaire se trouve un piédestal en verre contenant une mystérieuse orbe jaune, verrouillée par un mécanisme complexe."
         }
       }
     }

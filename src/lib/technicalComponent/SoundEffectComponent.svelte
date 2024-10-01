@@ -1,11 +1,8 @@
-{#if !audio}
-    <div style="text-indent: -9999px;" aria-hidden={true} > bind:this={audio}</div>
-{/if}
 <script lang="ts">
   import "carbon-components-svelte/css/g90.css";
   import { base } from "$app/paths";
   import { onDestroy, onMount } from "svelte";
-  import { getVolume } from "$lib/store/SoundVolumeStore";
+  import {headerStore} from "../store/HeaderStore";
 
   let audio: HTMLAudioElement;
   export let src: string = ""
@@ -15,7 +12,7 @@
     audio = new Audio(base + src)
     audio.loop = false
     interval = setInterval(() => {
-      audio.volume = getVolume()
+      audio.volume = $headerStore.soundVolume / 100
       if (postPlay) {
         audio.play()
         postPlay()
@@ -31,4 +28,6 @@
     }
     clearInterval(interval)})
 </script>
-
+{#if !audio}
+    <div style="text-indent: -9999px;" aria-hidden={true} > bind:this={audio}</div>
+{/if}

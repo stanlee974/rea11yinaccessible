@@ -1,82 +1,3 @@
-<ModalComponent opened={showTransitionModal}
-                parentDoneAction={() => {showScenario = false}}>
-    <div style="display: flex; flex-direction: row">
-        <Grid>
-            <Row>
-                <Column>
-                    <ImageLoader
-                            src="{base}/surface/entrance/man_stair.jpg"
-                            alt={$t('surfaceEntrance.before.image')} fadeIn={true}/>
-                </Column>
-                <Column><p style="font-size: 1.3rem">{$t('surfaceEntrance.before.row.1')}</p>
-                    <p style="font-size: 1.3rem">{$t('surfaceEntrance.before.row.2')}</p>
-                    <p style="font-size: 1.3rem">{$t('surfaceEntrance.before.row.3')}</p>
-                </Column>
-            </Row>
-        </Grid>
-    </div>
-</ModalComponent>
-<TypewriterComponent disabled={showScenario} waitReading continueButtonAction={() => showEntrance = true}>
-    <h2><u><i>{$t('common.layout.title.scenario')}</i></u></h2>
-    <p>{$t('surfaceEntrance.scenario.row.1')}</p>
-    <p>{$t('surfaceEntrance.scenario.row.2')}</p>
-</TypewriterComponent>
-<ModalComponent opened={showEntrance}
-                parentDoneAction={() => disableGoal = false}>
-    <Grid>
-        <Row>
-            <Column>
-                <ImageLoader
-                        src="{base}/surface/entrance/man_laboratory.jpg"
-                        alt={$t('surfaceEntrance.scenario.modal.1.title')} fadeIn={true}/>
-            </Column>
-            <Column>
-                <p>{$t('surfaceEntrance.scenario.modal.1.row.1')}</p>
-                <p>{$t('surfaceEntrance.scenario.modal.1.row.2')}</p>
-                <p>{$t('surfaceEntrance.scenario.modal.1.row.3')}</p>
-            </Column>
-        </Row>
-    </Grid>
-</ModalComponent>
-<br aria-hidden="true"/>
-<TypewriterComponent disabled={disableGoal} waitReading continueButtonAction={() => showTrialModal = true}>
-    <p>{$t('surfaceEntrance.scenario.row.3')}</p>
-    <p>{$t('surfaceEntrance.scenario.row.4')}</p>
-    <h2><u><i>{$t('common.layout.title.goal')}</i></u></h2>
-    <p>{$t('surfaceEntrance.goal.row.1')}</p>
-</TypewriterComponent>
-<div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
-    <ModalComponent opened={showTrialModal} modalHeading={$t('surfaceEntrance.test.modal.1.title')}
-                    hasPrimaryButton="{false}"
-                    parentDoneAction={() => {reopenTrialModal = true; showTrialModal = false}}>
-        <div bind:this={xElement} style="position: relative;cursor: none;"
-             on:mousemove={movingMouseTremors}>
-            <ImageLoader
-                    src="{base}/surface/entrance/open_door.jpg"
-                    alt={$t('surfaceEntrance.test.modal.1.row.1')} fadeIn={true}/>
-            <div tabindex="0"
-                 style="position: absolute; top: 78.8%; left: 23.7%; color:#7F0000; font-size: 1.3rem; font-weight: bold"
-                 on:click={() => validateClick()}
-                 on:keydown={(event) => {if (event.key === "Enter") {validateClick()}}}>X
-            </div>
-            <div style="position: absolute; top: 79.8%; left: 27.7%; color:#7F0000; font-size: 1; font-weight: bold;">
-                {$t('surfaceEntrance.test.modal.1.row.2')}
-            </div>
-            <div style="position: absolute; top:0; width: 15px">
-                <ImageLoader
-                        src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png"
-                        alt={$t('surfaceEntrance.test.modal.1.row.3')} style="position: absolute; left:{mouseX}px; top:{mouseY}px; z-index: 15000"/>
-            </div>
-        </div>
-    </ModalComponent>
-    {#if reopenTrialModal}
-        <Button kind="secondary" on:click={() => {showTrialModal = true; reopenTrialModal= true}}>{$t('surfaceEntrance.test.buttons.open.text')}
-        </Button>
-    {/if}
-</div>
-{#if isWaiting}
-    <LoadingComponent/>
-{/if}
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
     import {Button, Column, Grid, ImageLoader, Row,} from "carbon-components-svelte";
@@ -143,7 +64,87 @@
 
 </script>
 
-<style lang="css">
-    @import url(/css/app.css);
-    @import url(/css/neon.css);
-</style>
+<ModalComponent opened={showTransitionModal}
+                parentDoneAction={() => {showScenario = false}}>
+    <Grid>
+        <Row>
+            <Column>
+                <ImageLoader
+                        src="{base}/surface/entrance/man_stair.jpg"
+                        alt="" fadeIn={true}/>
+            </Column>
+            <Column><p style="font-size: 1.3rem">{$t('surfaceEntrance.before.row.1')}</p>
+                <p style="font-size: 1.3rem">{$t('surfaceEntrance.before.row.2')}</p>
+                <p style="font-size: 1.3rem">{$t('surfaceEntrance.before.row.3')}</p>
+            </Column>
+        </Row>
+    </Grid>
+</ModalComponent>
+<TypewriterComponent disabled={showScenario} waitReading continueButtonAction={() => showEntrance = true}>
+    <div>
+        <div class="container mb-2">
+            <h2 class="mb-2">{$t('common.layout.title.scenario')}</h2>
+            <p>{$t('surfaceEntrance.scenario.row.1')}</p>
+            <p>{$t('surfaceEntrance.scenario.row.2')}</p>
+        </div>
+    </div>
+</TypewriterComponent>
+<ModalComponent opened={showEntrance}
+                parentDoneAction={() => disableGoal = false}>
+    <Grid>
+        <Row>
+            <Column>
+                <ImageLoader
+                        src="{base}/surface/entrance/man_laboratory.jpg"
+                        alt="" fadeIn={true}/>
+            </Column>
+            <Column>
+                <p>{$t('surfaceEntrance.scenario.modal.1.row.1')}</p>
+                <p>{$t('surfaceEntrance.scenario.modal.1.row.2')}</p>
+                <p>{$t('surfaceEntrance.scenario.modal.1.row.3')}</p>
+            </Column>
+        </Row>
+    </Grid>
+</ModalComponent>
+<TypewriterComponent disabled={disableGoal} waitReading continueButtonAction={() => showTrialModal = true}>
+    <div>
+        <div class="container mb-4">
+            <p>{$t('surfaceEntrance.scenario.row.3')}</p>
+            <p>{$t('surfaceEntrance.scenario.row.4')}</p>
+            <h2 class="mt-4 mb-2">{$t('common.layout.title.goal')}</h2>
+            <p class="mb-4">{$t('surfaceEntrance.goal.row.1')}</p>
+        </div>
+    </div>
+</TypewriterComponent>
+<div style="display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;">
+    <ModalComponent opened={showTrialModal} modalHeading={$t('surfaceEntrance.test.modal.1.title')}
+                    hasPrimaryButton="{false}"
+                    parentDoneAction={() => {reopenTrialModal = true; showTrialModal = false}}>
+        <div bind:this={xElement} style="position: relative;cursor: none;"
+             on:mousemove={movingMouseTremors}>
+            <ImageLoader
+                    src="{base}/surface/entrance/open_door.jpg"
+                    alt="" fadeIn={true}/>
+            <div tabindex="0"
+                 style="position: absolute; top: 78.8%; left: 23.7%; color:#7F0000; font-size: 1.3rem; font-weight: bold"
+                 on:click={() => validateClick()}
+                 on:keydown={(event) => {if (event.key === "Enter") {validateClick()}}}>X
+            </div>
+            <div style="position: absolute; top: 79.8%; left: 27.7%; color:#7F0000; font-size: 1; font-weight: bold;">
+                {$t('surfaceEntrance.test.modal.1.content')}
+            </div>
+            <div style="position: absolute; top:0; width: 15px">
+                <ImageLoader
+                        src="http://telcontar.net/Misc/screeniecursors/Cursor%20arrow%20white.png"
+                        alt="" style="position: absolute; left:{mouseX}px; top:{mouseY}px; z-index: 15000"/>
+            </div>
+        </div>
+    </ModalComponent>
+    {#if reopenTrialModal}
+        <Button kind="secondary" on:click={() => {showTrialModal = true; reopenTrialModal= true}}>{$t('surfaceEntrance.test.buttons.open.text')}
+        </Button>
+    {/if}
+</div>
+{#if isWaiting}
+    <LoadingComponent/>
+{/if}

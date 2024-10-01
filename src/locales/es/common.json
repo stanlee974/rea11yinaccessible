@@ -1,14 +1,16 @@
 {
   "button": {
-    "waiting": "Continuar con lo siguiente"
+    "waiting": "Continuar"
   },
   "layout": {
     "bypassMenu": {
       "goToContent": "Ir al contenido",
-      "goToMenu": "Ir al menú"
+      "goToMenu": "Ir al menú",
+      "goToLanguage": "Cambiar idioma",
+      "goToSong": "Activar o desactivar la música",
+      "goToHint": "Ir a las ayudas"
     },
     "menu": {
-      "logo": "logo de realmente inaccesible",
       "axe": "Axe-core - prueba de accesibilidad",
       "reference": {
         "title": "Referencia"
@@ -17,12 +19,7 @@
         "title": "UUV - prueba de accesibilidad E2E",
         "kata": "Kata (ejercicio)"
       },
-      "source": "Código fuente",
-      "language": {
-        "fr": "Francés",
-        "en": "Inglés",
-        "es": "Español"
-      }
+      "source": "Código fuente"
     },
     "title": {
       "scenario": "Escenario",
@@ -120,6 +117,7 @@
     "surfaceLaboratoryEntrance": "Problemas motores | Temblores en el teclado",
     "audiovisualRoom": "Problemas auditivos | Sordera",
     "sanctuary": "Problemas cognitivos | Fuente, Zoom, Alineación",
-    "final": "Epílogo"
+    "final": "Epílogo",
+    "summary": "Conclusión"
   }
 }

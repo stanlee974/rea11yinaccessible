@@ -7,28 +7,24 @@
     "1": {
       "image": {
         "1": {
-          "title": "You Look at the Orb",
-          "row": {
-            "1": "You shake it and realize it's not empty. You use a metal pick at the foot of the pedestal that seems intended for this purpose. When it breaks, an intense light fills the room before fading, revealing a finely decorated metal syringe filled with a silvery liquid."
-          }
-        },
-        "2": {
-          "title": "You Inject the Substance",
-          "row": {
-            "1": "After the injection, you anxiously wait for the effects to manifest. However, instead of feeling physical changes, you begin to feel strangely normal.",
-            "2": "A chill of panic runs through you. You desperately search through the ancient manuscripts in the sanctuary to understand what went wrong. A note hidden in a shadowy corner of the sanctuary finally reveals the truth: the syringe contained a placebo."
-          }
-        },
-        "3": {
-          "title": "The Broken Orb Contains the Injection",
           "row": {
             "1": "At the center of the sanctuary, the orb glows, illuminated by luminescent crystals. It rests on a golden pedestal, surrounded by ancient engravings and mystical inscriptions. You approach with a mix of excitement and fear. The mechanism slowly opens, and you grasp the orb."
           }
         },
-        "4": {
-          "title": "You Read the Letter Revealing the Truth",
+        "2": {
+          "row": {
+            "1": "You shake it and realize it's not empty. You use a metal pick at the foot of the pedestal that seems intended for this purpose. When it breaks, an intense light fills the room before fading, revealing a finely decorated metal syringe filled with a silvery liquid."
+          }
+        },
+        "3": {
           "row": {
             "1": "You prepare to inject the contents of the syringe. You take a deep breath, hoping that this injection will give you the disability needed to escape the trackers. You hold the syringe with a trembling hand, feeling the weight of the moment. You empty the dose into your still-warm vein."
+          }
+        },
+        "4": {
+          "row": {
+            "1": "After the injection, you anxiously wait for the effects to manifest. However, instead of feeling physical changes, you begin to feel strangely normal.",
+            "2": "A chill of panic runs through you. You desperately search through the ancient manuscripts in the sanctuary to understand what went wrong. A note hidden in a shadowy corner of the sanctuary finally reveals the truth: the syringe contained a placebo."
           }
         }
       }
@@ -36,7 +32,6 @@
     "2": {
       "image": {
         "1": {
-          "title": "Guard Watching with a Scornful Look",
           "row": {
             "1": "Heavy footsteps and angry voices echo in the hallway, approaching quickly. The trackers, alerted by the intense light emitted from the orb's breaking, have found their way to the sanctuary.",
             "2": "You frantically search for an escape route, but it's too late. The sanctuary door bursts open, letting in the heavily armed trackers.",
@@ -56,125 +51,135 @@
       "5": "As the laboratory doors close behind you, you know that, despite everything, you fought until the end. Your story, though tragic, is a testament to courage and resilience in a ruthless post-apocalyptic world where difference is still heresy."
     }
   },
-  "viewMore": "View More",
-  "viewLess": "View Less",
-  "problem": "Difficulty:",
-  "advice": "Advice:",
   "buttons": {
     "summary": "Summary",
     "end": "End of the Adventure"
   },
-  "visual": {
-    "title": "Visual Impairment",
-    "1": {
-      "title": "Waiting Room",
-      "disabilities": {
-        "1": {
-          "problem": "The link button has no distinctive style. This issue affects those who use a mouse. Keyboard navigators are not affected. Depending on usage, one can be disadvantaged if both navigation modes are not addressed.",
-          "advice": "Do not overload styles if you are not familiar with their impacts."
+  "conclusion": {
+    "title": "Conclusion",
+    "row": {
+      "1": "Thank you for participating in the adventure.",
+      "2_1": "To go further, you can check the",
+      "2_2": "following link",
+      "2_3": "to deepen your understanding of web usage by disabled individuals.",
+      "3": "For more technical users, you will find below some tips to address the issues encountered during the game:"
+    },
+    "viewMore": "View More",
+    "viewLess": "View Less",
+    "problem": "Difficulty:",
+    "advice": "Advice:",
+    "visual": {
+      "title": "Visual Impairment",
+      "1": {
+        "title": "Waiting Room",
+        "disabilities": {
+          "1": {
+            "problem": "The link button has no distinctive style. This issue affects those who use a mouse. Keyboard navigators are not affected. Depending on usage, one can be disadvantaged if both navigation modes are not addressed.",
+            "advice": "Do not overload styles if you are not familiar with their impacts."
+          }
+        }
+      },
+      "2": {
+        "title": "Alteration Room:",
+        "disabilities": {
+          "1": {
+            "title": "Color Blindness",
+            "problem": "The buttons were all the same color initially. By altering the contrast and brightness, the true colors are revealed. Color blindness is a visual impairment that affects color perception.",
+            "advice": "Color choice is important in an application. Use high contrasts and do not convey information solely through color. Test your application with color blindness simulators."
+          }
+        }
+      },
+      "3": {
+        "title": "Control Room:",
+        "disabilities": {
+          "1": {
+            "title": "Blindness",
+            "problem": "The screen was broken, so we couldn't use our eyes. Blind individuals cannot access information presented solely in visual form, such as images, charts, or videos without alternative descriptions. Without a well-thought-out navigation structure, blind users may have difficulty navigating a website or application. Poorly designed forms can be difficult to understand and complete for those using screen readers. Blind users may get lost if interactive elements (buttons, links) are not clearly identified and described.",
+            "cta": {
+              "1": {
+                "above": "Use a solution that verifies accessible data, such as:",
+                "label": "UUV",
+                "link": "https://orange-opensource.github.io/uuv/"
+              }
+            },
+            "advice": "Use alternative descriptions for images and other information-bearing elements. Follow ARIA (Accessible Rich Internet Applications) standards. Structure pages with titles and headers to facilitate navigation. Design accessible forms. Provide text alternatives for multimedia content. Test with screen readers."
+          }
+        }
+      },
+      "4": {
+        "title": "The Sanctuary:",
+        "disabilities": {
+          "1": {
+            "title": "Visual Disorder",
+            "problem": "Labels were either too small or too large, input fields were far from their labels, and the page was too large.",
+            "advice": "Enlarge interactive elements and reorganize them to simplify navigation. Use generous margins and white spaces to reduce visual clutter and improve overall readability."
+          }
         }
       }
     },
-    "2": {
-      "title": "Alteration Room:",
-      "disabilities": {
-        "1": {
-          "title": "Color Blindness",
-          "problem": "The buttons were all the same color initially. By altering the contrast and brightness, the true colors are revealed. Color blindness is a visual impairment that affects color perception.",
-          "advice": "Color choice is important in an application. Use high contrasts and do not convey information solely through color. Test your application with color blindness simulators."
+    "cognitive": {
+      "title": "Cognitive Impairment",
+      "1": {
+        "title": "Medical Room:",
+        "disabilities": {
+          "1": {
+            "title": "Dyslexia",
+            "problem": "Characters change without interruption. This visual-attention disorder disrupts the analysis of words and texts due to attention deficit. It can stem from inappropriate fonts, overly dense and unstructured text, lack of visual clarity (poor contrast or background, or cluttered layout), and complex navigation (non-intuitive or poorly organized menus or links).",
+            "advice": "Make letters more distinct and easier to recognize by choosing a sans-serif font like Arial or Verdana. Use short, well-spaced paragraphs with generous line spacing. Ensure good contrast between text and background. Light backgrounds with dark text are often the most readable. Use headings, subheadings, bullet points, and numbers to organize content. Prefer left-aligned text rather than full justification, which can create irregular spacing that's hard to follow. Create a clear and intuitive navigation structure, with simple menus and well-labeled links."
+          }
+        }
+      },
+      "2": {
+        "title": "Puzzle Room:",
+        "disabilities": {
+          "1": {
+            "title": "Dyslexia",
+            "problem": "Images disrupted our reading. Animated, flashing, or constantly moving elements can distract and make it difficult to focus on the main content.",
+            "advice": "Limit animations, flashing images, and other distractions that can hinder concentration and reading."
+          }
         }
       }
     },
-    "3": {
-      "title": "Control Room:",
-      "disabilities": {
-        "1": {
-          "title": "Blindness",
-          "problem": "The screen was broken, so we couldn't use our eyes. Blind individuals cannot access information presented solely in visual form, such as images, charts, or videos without alternative descriptions. Without a well-thought-out navigation structure, blind users may have difficulty navigating a website or application. Poorly designed forms can be difficult to understand and complete for those using screen readers. Blind users may get lost if interactive elements (buttons, links) are not clearly identified and described.",
-          "cta": {
-            "1": {
-              "above": "Use a solution that verifies accessible data, such as:",
-              "label": "UUV",
-              "link": "https://orange-opensource.github.io/uuv/"
-            }
-          },
-          "advice": "Use alternative descriptions for images and other information-bearing elements. Follow ARIA (Accessible Rich Internet Applications) standards. Structure pages with titles and headers to facilitate navigation. Design accessible forms. Provide text alternatives for multimedia content. Test with screen readers."
+    "motor": {
+      "title": "Motor Impairment",
+      "1": {
+        "title": "Laboratory Entrance:",
+        "disabilities": {
+          "1": {
+            "title": "Tremor",
+            "problem": "The action surface represented by the red cross is very small. Motor impairments cause difficulties when interface elements are too small or close together, when user journeys require precise or rapid movements, or when interfaces are incompatible with devices like alternative keyboards or specialized mice.",
+            "cta": {
+              "1": {
+                "above": "Ensure all features are accessible via the keyboard and that the tab order is logical, as with:",
+                "label": "UUV - Keyboard Navigation",
+                "link": "https://orange-opensource.github.io/uuv/docs/wordings/generated-wording-description/fr-generated-wording-description/#je-commence-une-navigation-au-clavier-depuis-le-haut-de-la-page"
+              }
+            },
+            "advice": "Ensure that buttons, links, and form fields are large enough and spaced out for easy access. Reduce the number of movements needed to complete a task and avoid complex actions like drag-and-drop."
+          }
+        }
+      },
+      "2": {
+        "title": "The Laboratory:",
+        "disabilities": {
+          "1": {
+            "title": "Tremor",
+            "problem": "The room was refrigerated, causing tremors. We had difficulty targeting keys and often pressed adjacent keys. Keyboard shortcuts also didn't work.",
+            "advice": "Recommend using specialized keyboards with larger and more spaced keys or on-screen keyboards with customization options. Also, integrate dictation and voice input options to allow users to enter text without using the keyboard."
+          }
         }
       }
     },
-    "4": {
-      "title": "The Sanctuary:",
-      "disabilities": {
-        "1": {
-          "title": "Visual Disorder",
-          "problem": "Labels were either too small or too large, input fields were far from their labels, and the page was too large.",
-          "advice": "Enlarge interactive elements and reorganize them to simplify navigation. Use generous margins and white spaces to reduce visual clutter and improve overall readability."
-        }
-      }
-    }
-  },
-  "cognitive": {
-    "title": "Cognitive Impairment",
-    "1": {
-      "title": "Medical Room:",
-      "disabilities": {
-        "1": {
-          "title": "Dyslexia",
-          "problem": "Characters change without interruption. This visual-attention disorder disrupts the analysis of words and texts due to attention deficit. It can stem from inappropriate fonts, overly dense and unstructured text, lack of visual clarity (poor contrast or background, or cluttered layout), and complex navigation (non-intuitive or poorly organized menus or links).",
-          "advice": "Make letters more distinct and easier to recognize by choosing a sans-serif font like Arial or Verdana. Use short, well-spaced paragraphs with generous line spacing. Ensure good contrast between text and background. Light backgrounds with dark text are often the most readable. Use headings, subheadings, bullet points, and numbers to organize content. Prefer left-aligned text rather than full justification, which can create irregular spacing that's hard to follow. Create a clear and intuitive navigation structure, with simple menus and well-labeled links."
-        }
-      }
-    },
-    "2": {
-      "title": "Puzzle Room:",
-      "disabilities": {
-        "1": {
-          "title": "Dyslexia",
-          "problem": "Images disrupted our reading. Animated, flashing, or constantly moving elements can distract and make it difficult to focus on the main content.",
-          "advice": "Limit animations, flashing images, and other distractions that can hinder concentration and reading."
-        }
-      }
-    }
-  },
-  "motor": {
-    "title": "Motor Impairment",
-    "1": {
-      "title": "Laboratory Entrance:",
-      "disabilities": {
-        "1": {
-          "title": "Tremor",
-          "problem": "The action surface represented by the red cross is very small. Motor impairments cause difficulties when interface elements are too small or close together, when user journeys require precise or rapid movements, or when interfaces are incompatible with devices like alternative keyboards or specialized mice.",
-          "cta": {
-            "1": {
-              "above": "Ensure all features are accessible via the keyboard and that the tab order is logical, as with:",
-              "label": "UUV - Keyboard Navigation",
-              "link": "https://orange-opensource.github.io/uuv/docs/wordings/generated-wording-description/fr-generated-wording-description/#je-commence-une-navigation-au-clavier-depuis-le-haut-de-la-page"
-            }
-          },
-          "advice": "Ensure that buttons, links, and form fields are large enough and spaced out for easy access. Reduce the number of movements needed to complete a task and avoid complex actions like drag-and-drop."
-        }
-      }
-    },
-    "2": {
-      "title": "The Laboratory:",
-      "disabilities": {
-        "1": {
-          "title": "Tremor",
-          "problem": "The room was refrigerated, causing tremors. We had difficulty targeting keys and often pressed adjacent keys. Keyboard shortcuts also didn't work.",
-          "advice": "Recommend using specialized keyboards with larger and more spaced keys or on-screen keyboards with customization options. Also, integrate dictation and voice input options to allow users to enter text without using the keyboard."
-        }
-      }
-    }
-  },
-  "hearing": {
-    "title": "Hearing Impairment",
-    "1": {
-      "title": "The Audiovisual Room:",
-      "disabilities": {
-        "1": {
-          "title": "Deafness",
-          "problem": "The sound volume is extremely low. Ambient music can also disturb concentration.",
-          "advice": "Provide subtitles, text transcripts, and visual communication options such as sign language."
+    "hearing": {
+      "title": "Hearing Impairment",
+      "1": {
+        "title": "The Audiovisual Room:",
+        "disabilities": {
+          "1": {
+            "title": "Deafness",
+            "problem": "The sound volume is extremely low. Ambient music can also disturb concentration.",
+            "advice": "Provide subtitles, text transcripts, and visual communication options such as sign language."
+          }
         }
       }
     }

@@ -1,15 +1,3 @@
-<Column style="display: flex; align-items: center; flex-direction: column; width: 20rem;">
-    <span id={id}>{name}</span>
-    <audio aria-labelledby={id} style="text-indent: -9999px;" aria-hidden={true}> bind:this={audio} >
-    </audio>
-    {#if displayPlayButton}
-        <Button iconDescription={name} tooltipAlignment="start" kind="ghost" icon={PlayFilledAlt}
-                on:click={() => toggle(true)} aria-pressed="true"></Button>
-    {:else }
-        <Button iconDescription={name} tooltipAlignment="start" kind="ghost" icon={PauseFilled}
-                on:click={() => toggle(false)} aria-pressed="false"></Button>
-    {/if}
-</Column>
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
     import {onMount} from "svelte";
@@ -49,4 +37,11 @@
         }
     })
 </script>
-
+<Column style="display: flex; align-items: center; flex-direction: column; width: 20rem;">
+    <span id={id}>{name}</span>
+    <audio aria-labelledby={id} style="text-indent: -9999px;" aria-hidden={true}> bind:this={audio} >
+    </audio>
+    <Button iconDescription={name} tooltipAlignment="start" kind="ghost"
+            icon={displayPlayButton ? PlayFilledAlt : PauseFilled}
+            on:click={() => toggle(displayPlayButton)} aria-pressed={displayPlayButton ? "false" : "true"}></Button>
+</Column>

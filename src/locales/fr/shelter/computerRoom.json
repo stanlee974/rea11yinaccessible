@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Tu avances vers la nouvelle salle",
     "row": {
       "1": "Un mécanisme se déclenche et la porte s'ouvre, te laissant passer dans la salle suivante.",
       "2": "Lorsque tu rentres, tu découvres qu'un accident a endommagé l'écran principal du système de contrôle. Tu dois désormais saisir des données critiques sans rien voir à l'écran."
@@ -14,7 +13,7 @@
     "row": {
       "1": "Plusieurs pages de manuel technique dispersées autour du terminal expliquent comment utiliser le clavier pour naviguer à l'aveugle.",
       "2": "Une note indiquant que les commandes du terminal sont prédéfinies et que le code pour continuer se trouve dans le système.",
-      "3": "une page déchirée laisse paraître une photo de l'inventeur d'un langage utilisé par les non voyants et des informations qui lui sont liées"
+      "3": "Une page déchirée laisse paraître une photo de l'inventeur d'un langage utilisé par les non voyants et des informations qui lui sont liées"
     }
   },
   "goal": {
@@ -71,7 +70,6 @@
         "ariaLabel": "soumettre",
         "text": "Soumettre la saisie"
       }
-    },
-    "description": "ordinateur sur lequel se trouve le formulaire"
+    }
   }
 }

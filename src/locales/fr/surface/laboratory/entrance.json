@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Tu marches dans le corridor du laboratoire",
     "row": {
       "1": "Tu arrives correctement à activer le bouton et un mécanisme interne se met en marche. La porte métallique s'ouvre lentement avec un grincement, révélant un couloir menant à l'intérieur du laboratoire secondaire.",
       "2": "Tu avances prudemment et ressent immédiatement un froid glacial émanant de l'intérieur."
@@ -17,19 +16,16 @@
     },
     "modal": {
       "1": {
-        "title": "Chambre frigorifiée contenant le terminal",
         "row": {
           "1": "Une note manuscrite dans un coin de la salle mentionne les effets du froid intense sur le corps humain.",
-          "2": "A l'arrière de cette note se trouve des inscriptions codés.",
-          "3": "inscriptions codées"
+          "2": "A l'arrière de cette note se trouve des inscriptions codés."
         }
       }
     }
   },
   "goal": {
     "row": {
-      "1": "Tu dois déchiffrer et taper le code résolu sur le clavier du terminal, malgré le froid intense. Si tes mains tremblent trop, tu risques d'entrer le mauvais code, ce qui pourrait déclencher une alarme ou un verrouillage temporaire.",
-      "2": "inscriptions codées"
+      "1": "Tu dois déchiffrer et taper le code résolu sur le clavier du terminal, malgré le froid intense. Si tes mains tremblent trop, tu risques d'entrer le mauvais code, ce qui pourrait déclencher une alarme ou un verrouillage temporaire."
     }
   },
   "test": {

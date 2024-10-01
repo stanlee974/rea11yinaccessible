@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Tu montes les escaliers et te rends à la surface",
     "row": {
       "1": "En réussissant à résoudre les énigmes malgré les hallucinations perturbantes, tu as su montrer ta capacité à rester concentré et déterminé.",
       "2": "Une dernière hallucination te montre un journal mentionnant un laboratoire secondaire situé à la surface, dans une ancienne zone industrielle.",
@@ -20,7 +19,6 @@
     },
     "modal": {
       "1": {
-        "title": "Tu te retrouves devant la porte du laboratoire",
         "row": {
           "1": "L'entrée du laboratoire secondaire est un grand bâtiment industriel délabré, partiellement envahi par la végétation.",
           "2": "Devant l'entrée principale, il y a une porte métallique épaisse avec un panneau de commande électronique ancien à côté.",
@@ -38,11 +36,7 @@
     "modal": {
       "1": {
         "title": "Tableau de contrôle",
-        "row": {
-          "1": "Tu dois cliquer sur la croix pour ouvrir la porte",
-          "2": "Clique to open the door",
-          "3": "curseur de souris"
-        }
+        "content": "Clique pour ouvrir la porte"
       }
     },
     "buttons": {

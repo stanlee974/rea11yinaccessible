@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "You climb the spiral staircase",
     "row": {
       "1": "A small hatch opens and you slip your hand inside. Nothing in there...",
       "2": "So you continue your exploration of the secondary lab. Distant noises from outside the building.",
@@ -18,9 +17,7 @@
     "modal": {
       "1": {
         "row": {
-          "1": "Audiovisual technical room",
-          "2": "Scattered notes explain that this room once served as a documentation center for the scientific experiments conducted in the lab",
-          "3": "coded inscriptions"
+          "1": "Scattered notes explain that this room once served as a documentation center for the scientific experiments conducted in the lab"
         }
       }
     }

@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Te diriges apresuradamente hacia el último ala del edificio",
     "row": {
       "1": "El terminal electrónico emite un pitido satisfactorio mientras una tarjeta magnética se expulsa de su compartimento.",
       "2": "La tomas rápidamente, pero tu triunfo es breve. Se escuchan pasos pesados y apresurados en el pasillo adyacente, acercándose peligrosamente. Con el corazón acelerado, te das cuenta de que los rastreadores están muy cerca.",
@@ -29,11 +28,9 @@
     "modal": {
       "1": {
         "row": {
-          "1": "Puerta majestuosa adornada con herrajes complejos",
-          "2": "Con la tarjeta magnética firmemente en la mano, la insertas rápidamente en el lector adyacente, rezando para que el mecanismo funcione.",
-          "3": "Los rastreadores se acercan, sus pasos se vuelven cada vez más distintivos. La puerta se abre lentamente con un chirrido, revelando una nueva sala cuyo contenido está por descubrir.",
-          "4": "En el centro del santuario hay un pedestal de vidrio que contiene una misteriosa orbe amarilla, bloqueada por un mecanismo complejo.",
-          "5": "Pedestal que contiene la orbe amarilla"
+          "1": "Con la tarjeta magnética firmemente en la mano, la insertas rápidamente en el lector adyacente, rezando para que el mecanismo funcione.",
+          "2": "Los rastreadores se acercan, sus pasos se vuelven cada vez más distintivos. La puerta se abre lentamente con un chirrido, revelando una nueva sala cuyo contenido está por descubrir.",
+          "3": "En el centro del santuario hay un pedestal de vidrio que contiene una misteriosa orbe amarilla, bloqueada por un mecanismo complejo."
         }
       }
     }

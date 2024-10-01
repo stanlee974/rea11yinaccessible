@@ -1,22 +1,15 @@
-import {get, writable, type Writable} from "svelte/store";
-import { writableSession } from "./technical/PersistentStore";
-import { getAccessibilityMode } from "$lib/store/AccessibilityModeStore";
-import {setLocale} from "$lib";
+import {get} from "svelte/store";
+import {persisted} from 'svelte-persisted-store'
 
-//FIXME à mutualiser les store persistent si possible
-export class HeaderStoreData {
-  constructor(public accessibilityMode: boolean = false, public songVolume: number = 0, public soundVolume: number = 0, public playSong: boolean = true) {
-  }
-}
+export const headerStore = persisted('header', {
+    accessibilityMode: false,
+    songVolume: 2,
+    soundVolume: 5,
+    playSong: false
+}, {
+    storage: 'session', syncTabs: false
+})
 
-export let headerStore: Writable<HeaderStoreData> | undefined = undefined
-
-export const getHeaderStoreData = () => {
-  if (headerStore) {
-    return get(headerStore)
-  }
-  initHeaderStore(new HeaderStoreData())
-}
 
 // export const toggleAccessibilityMode = () => {
 //   let accessibilityMode = getAccessibilityMode();
@@ -26,14 +19,18 @@ export const getHeaderStoreData = () => {
 //   return undefined
 // }
 export const setPlaySong = (value: boolean) => {
-  if (headerStore) {
-    return headerStore.update((data) => ({...data, playSong: value}))
-  }
-  return undefined
+    if (headerStore) {
+        headerStore.update((data) => ({...data, playSong: value}))
+    }
+}
+export const updateSongVolume = (value: number) => {
+    if (headerStore) {
+        headerStore.update((data) => ({...data, songVolume: value}))
+    }
 }
 
-export const initHeaderStore = (init: HeaderStoreData) => {
-  const session = writableSession("header", JSON.stringify(init))
-  let value = JSON.parse(get(session));
-  headerStore = writable(value)
+export const updateSoundVolume = (value: number) => {
+    if (headerStore) {
+        headerStore.update((data) => ({...data, soundVolume: value}))
+    }
 }

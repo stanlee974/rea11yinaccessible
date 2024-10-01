@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Entras en la sala médica",
     "row": {
       "1": "Después de una minuciosa verificación y algunos ajustes, presionas el botón \"Enviar\".",
       "2": "Una luz verde se enciende sobre la consola, confirmando que el formulario se ha completado correctamente.",
@@ -21,11 +20,7 @@
     },
     "modal": {
       "1": {
-        "title": "Libro indescifrable y mesa con las píldoras",
-        "image": {
-          "1": "mesa que contiene una caja con píldoras",
-          "2": "viejo libro indescifrable"
-        }
+        "title": "Libro indescifrable y mesa con las píldoras"
       },
       "2": {
         "title": "Te tragas una píldora"

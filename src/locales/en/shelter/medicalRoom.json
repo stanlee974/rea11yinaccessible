@@ -1,6 +1,5 @@
  {
   "before": {
-    "image": "You enter the medical room",
     "row": {
       "1": "After a thorough check and some adjustments, you press the \"Submit\" button.",
       "2": "A green light turns on above the console, confirming that the form has been correctly filled out.",
@@ -21,11 +20,7 @@
     },
     "modal": {
       "1": {
-        "title": "Indecipherable book and table containing the pills",
-        "image": {
-          "1": "table containing a box with pills",
-          "2": "old indecipherable book"
-        }
+        "title": "Indecipherable book and table containing the pills"
       },
       "2": {
         "title": "You swallow a pill"

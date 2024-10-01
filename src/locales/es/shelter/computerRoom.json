@@ -1,6 +1,5 @@
 {
   "before": {
-    "image": "Avanzas hacia la nueva sala",
     "row": {
       "1": "Un mecanismo se activa y la puerta se abre, permitiéndote pasar a la sala siguiente.",
       "2": "Al entrar, descubres que un accidente ha dañado la pantalla principal del sistema de control. Ahora debes ingresar datos críticos sin poder ver la pantalla."
@@ -71,7 +70,6 @@
         "ariaLabel": "soumettre",
         "text": "Enviar la entrada"
       }
-    },
-    "description": "Computadora en la que se encuentra el formulario"
+    }
   }
 }
