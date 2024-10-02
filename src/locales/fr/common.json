@@ -36,6 +36,16 @@
       "sanctuary": "Le sanctuaire"
     }
   },
+  "highlight": {
+    "button": {
+      "previous": "Précédent",
+      "next": "Suivant",
+      "done": "Terminer"
+    },
+    "audio": "Active ou désactive la musique ambiante. A activer manuellement avant de commencer l'escape game.",
+    "hint": "Si tu es bloqué(e), tu disposes de 2 indices. Si ce n'est pas suffisant, un 3ème indice sera disponible et te donnera la solution.",
+    "language": "Le choix de la langue va traduire tout le contenu y compris les réponses et les audios."
+  },
   "header": {
     "accessibility": {
       "title": "Mode Accessibilité",
@@ -94,13 +104,14 @@
       },
       "help": "Affiche une aide",
       "solution": "Affiche la solution",
-      "tooltip": "Tu veux de l'aide?"
+      "tooltip": "Tu veux de l'aide ?"
     },
     "volume": {
       "song": "Volume de la musique",
       "soundEffect": "Volume des effets audios"
     },
     "audio": "Musique de fond",
+    "language": "Langue",
     "oxygen": {
       "title": "Oxygène",
       "remaining": "{{oxygen}}% d'oxygène restant"

@@ -36,6 +36,16 @@
       "sanctuary": "The Sanctuary"
     }
   },
+  "highlight": {
+    "button": {
+      "previous": "Previous",
+      "next": "Next",
+      "done": "Done"
+    },
+    "audio": "Turn the ambient music on or off. It must be activated manually before starting the escape game.",
+    "hint": "If you are stuck, you have 2 hints available. If that's not enough, a third hint will be available and will give you the solution.",
+    "language": "Choosing the language will translate all content including responses and audio."
+  },
   "header": {
     "accessibility": {
       "title": "Accessibility Mode",
@@ -101,6 +111,7 @@
       "soundEffect": "Sound effects volume"
     },
     "audio": "Background music",
+    "language": "Language",
     "oxygen": {
       "title": "Oxygen",
       "remaining": "{{oxygen}}% oxygen remaining"
