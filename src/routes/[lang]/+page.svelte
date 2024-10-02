@@ -45,15 +45,6 @@
                     </UnorderedList>
                 </div>
             </InlineNotification>
-            <InlineNotification kind="warning" lowContrast hideCloseButton="true">
-                <strong slot="title" id="advice-blocked">{$t('intro.advice.blocked')}</strong>
-                <div slot="subtitle">
-                    <UnorderedList aria-labelledby="advice-blocked" class="ms-4">
-                        <ListItem>{$t('intro.advice.hints.0')}</ListItem>
-                        <ListItem>{$t('intro.advice.hints.1')}</ListItem>
-                    </UnorderedList>
-                </div>
-            </InlineNotification>
         </div>
     </div>
     <div class="d-flex flex-row justify-content-center p-3">
