@@ -45,6 +45,14 @@
                     </UnorderedList>
                 </div>
             </InlineNotification>
+            <InlineNotification kind="warning" lowContrast hideCloseButton="true">
+                <strong slot="title" id="advice-warning">{$t('intro.advice.warning.title')}</strong>
+                <div slot="subtitle">
+                    <UnorderedList aria-labelledby="advice-warning" class="ms-4">
+                        <ListItem>{$t('intro.advice.warning.content')}</ListItem>
+                    </UnorderedList>
+                </div>
+            </InlineNotification>
         </div>
     </div>
     <div class="d-flex flex-row justify-content-center p-3">

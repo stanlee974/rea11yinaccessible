@@ -4,7 +4,11 @@
     "title": "Conseils",
     "immersive": "Pour plus d'immersion :",
     "sound": "Utilisez Firefox qui jouera plus rapidement les animations. Activez la musique de fond en haut à gauche si nécessaire. Montez le son de votre ordinateur ou tablette à 100% et paramétrer le volume audio avec la barre de volume de la musique",
-    "fullScreen": "Cliquez sur F11 pour mettre en plein écran"
+    "fullScreen": "Cliquez sur F11 pour mettre en plein écran",
+    "warning": {
+      "title" : "Attention",
+      "content": "On n'a pas besoin de naviguer sur le web pour trouver les réponses, tout est dans l'escape game. N'oubliez pas les indices si tu es bloqué(e)."
+    }
   },
   "context": {
     "title": "Contexte",
