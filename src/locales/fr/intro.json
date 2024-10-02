@@ -5,12 +5,10 @@
     "immersive": "Pour plus d'immersion :",
     "sound": "Utilise Firefox qui jouera plus rapidement les animations. Active la musique de fond en haut à gauche si nécessaire. Monte le son de votre ordinateur ou tablette à 100% et paramètre le volume audio avec la barre de volume de la musique",
     "fullScreen": "Clique sur F11 pour mettre en plein écran",
-    "noInternetNeeded": "Tout ce dont tu as besoin pour progresser dans le jeu est entièrement contenu dans l'escape game, aucune recherche externe ou consultation d'internet n'est nécessaire.",
-    "blocked": "Si tu es bloqué(e) :",
-    "hints": [
-      "Tu disposes de 2 indices en haut à droite",
-      "Si ce n'est pas suffisant, un 3ème indice sera disponible et te donnera la solution."
-    ]
+    "warning": {
+      "title" : "Attention",
+      "content": "On n'a pas besoin de naviguer sur le web pour trouver les réponses, tout est dans l'escape game. N'oubliez pas les indices si tu es bloqué(e)."
+    }
   },
   "context": {
     "title": "Contexte",
@@ -22,7 +20,7 @@
     "disabilities": {
       "visual": "Handicap Visuel : Par moments, ta vision sera restreinte ou entièrement obscurcie. Tu devras compter sur tes autres sens pour avancer.",
       "hearing": "Handicap Auditif : Parfois, le son sera presque inaudible.",
-      "cognitive": "Handicap Cognitif : Attention a bien rester concentré.",
+      "cognitive": "Handicap Cognitif : Attention à bien rester concentré.",
       "motor": "Handicap Moteur : Certains puzzles nécessiteront de la patience avec une mobilité réduite."
     }
   },

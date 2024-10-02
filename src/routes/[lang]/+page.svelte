@@ -42,7 +42,14 @@
                     <UnorderedList aria-labelledby="advice-immersive" class="ms-4">
                         <ListItem>{$t('intro.advice.sound')}</ListItem>
                         <ListItem>{$t('intro.advice.fullScreen')}</ListItem>
-                        <ListItem>{$t('intro.advice.noInternetNeeded')}</ListItem>
+                    </UnorderedList>
+                </div>
+            </InlineNotification>
+            <InlineNotification kind="warning" lowContrast hideCloseButton="true">
+                <strong slot="title" id="advice-warning">{$t('intro.advice.warning.title')}</strong>
+                <div slot="subtitle">
+                    <UnorderedList aria-labelledby="advice-warning" class="ms-4">
+                        <ListItem>{$t('intro.advice.warning.content')}</ListItem>
                     </UnorderedList>
                 </div>
             </InlineNotification>
