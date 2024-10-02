@@ -131,7 +131,7 @@
                            invalidText={$t('shelterMedicalRoom.test.button.password.error')}
                            autofocus bind:value={result}/>
             </FluidForm>
-            <Button kind="secondary" on:click={() => validateForm()}>{$t('shelterMedicalRoom.test.button.submit.text')}
+            <Button kind="primary" on:click={() => validateForm()}>{$t('shelterMedicalRoom.test.button.submit.text')}
             </Button>
         </div>
     </div>

@@ -220,7 +220,7 @@
                            invalid={invalidDeces}
                            invalidText={$t(`shelterComputerRoom.test.form.deathday.error`)}/>
             </FluidForm>
-            <Button id='submit' kind="secondary" aria-label={$t(`shelterComputerRoom.test.form.submit.ariaLabel`)}
+            <Button id='submit' kind="primary" aria-label={$t(`shelterComputerRoom.test.form.submit.ariaLabel`)}
                     on:click={() => validateForm()} on:focus={readLabel}>
                 {$t(`shelterComputerRoom.test.form.submit.text`)}
             </Button>
