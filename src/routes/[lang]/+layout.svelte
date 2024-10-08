@@ -1,5 +1,6 @@
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
+    import "driver.js/dist/driver.css";
     import {
         Button,
         Column,
@@ -36,6 +37,7 @@
     import {inject} from '@vercel/analytics'
     import {headerStore, updateSongVolume, updateSoundVolume} from "../../lib/store/HeaderStore";
     import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
+    import {driver} from "driver.js";
 
     injectSpeedInsights()
     inject()
@@ -63,9 +65,32 @@
         document.body.lang = $page.params.lang ?? "fr"
         songVolume = $headerStore.songVolume
         soundVolume = $headerStore.soundVolume
-
         accessibilityMode = getAccessibilityMode()
 
+        const driverObj = driver({
+            popoverClass: "custom-theme",
+            showProgress: false,
+            prevBtnText: $t("common.highlight.button.previous"),
+            nextBtnText: $t("common.highlight.button.next"),
+            doneBtnText: $t("common.highlight.button.done"),
+            steps: [
+                {
+                    element: '#song',
+                    popover: {title: $t("common.header.audio"), description: $t("common.highlight.audio")}
+                },
+                {
+                    element: '#hint',
+                    popover: {title: $t("common.header.hint.tooltip"), description: $t("common.highlight.hint")}
+                },
+                {
+                    element: '#language',
+                    popover: {title: $t('common.header.language'), description: $t("common.highlight.language")}
+                }
+            ]
+        });
+        if (!accessibilityMode) {
+            driverObj.drive();
+        }
         initHintLevelStore('0')
         hints = getHint($renderStore.step)
 
@@ -250,6 +275,72 @@
         width: 7rem !important;
     }
 
+     :global(.driver-popover.custom-theme) {
+        background-color: #393939;
+        color: #FFFFFF;
+    }
+
+     :global(.driver-popover.custom-theme .driver-popover-title) {
+        font-size: 20px;
+    }
+
+     :global(.driver-popover.custom-theme .driver-popover-title),
+     :global(.driver-popover.custom-theme .driver-popover-description),
+     :global(.driver-popover.custom-theme .driver-popover-progress-text) {
+        color: #FFFFFF;
+     }
+
+    :global(.driver-popover.custom-theme .driver-popover-description) {
+        font-size: 16px;
+    }
+
+     :global(.driver-popover.custom-theme button) {
+        flex: 1;
+        text-align: center;
+        background-color: #000;
+        color: #ffffff;
+        border: 2px solid #000;
+        text-shadow: none;
+        font-size: 16px;
+        padding: 5px 8px;
+        border-radius: 6px;
+    }
+
+     :global(.driver-popover.custom-theme button:hover) {
+        background-color: #000;
+        color: #ffffff;
+    }
+
+     :global(.driver-popover.custom-theme .driver-popover-navigation-btns) {
+        justify-content: space-between;
+        gap: 3px;
+    }
+
+     :global(.driver-popover.custom-theme .driver-popover-close-btn),
+     :global(.driver-popover.custom-theme .driver-popover-close-btn:hover) {
+         color: #9b9b9b;
+         background-color: #393939;
+         border-color: #393939;
+         font-size: 2rem;
+
+     }
+
+     :global(.driver-popover.custom-theme .driver-popover-arrow-side-left.driver-popover-arrow) {
+        border-left-color: #393939;
+    }
+
+     :global(.driver-popover.custom-theme .driver-popover-arrow-side-right.driver-popover-arrow) {
+        border-right-color: #393939;
+    }
+
+     :global(.driver-popover.custom-theme .driver-popover-arrow-side-top.driver-popover-arrow) {
+        border-top-color: #393939;
+    }
+
+     :global(.driver-popover.custom-theme .driver-popover-arrow-side-bottom.driver-popover-arrow) {
+        border-bottom-color: #393939;
+    }
+
 </style>
 
 <ul class="skip">
@@ -301,7 +392,7 @@
     <Select
             id="language"
             inline
-            labelText="Langue"
+            labelText={$t('common.header.language')}
             bind:selected={selectedLanguageIndex}
             on:change={(e) => changeLangRedirect($page.route.id, e?.target?.value)}
             style="width: 10rem; margin-right: 2rem;"
@@ -316,7 +407,7 @@
         <HeaderUtilities>
             <!--        <Toggle labelText={$t('common.header.accessibility.title')} labelA="" labelB="" toggled={accessibilityMode}-->
             <!--                on:change={() => {accessibilityMode = !accessibilityMode; setAccessibilityMode(accessibilityMode)}}/>-->
-            <SongComponent />
+            <SongComponent/>
             <Slider
                     labelText={$t('common.header.volume.song')}
                     min={0}
