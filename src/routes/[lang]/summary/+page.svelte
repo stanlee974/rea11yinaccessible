@@ -6,11 +6,15 @@
     import {Step} from "../../../lib";
     import {page} from "$app/stores";
     import {setLocale} from "../../../lib/translations";
+    import {onMount} from "svelte";
 
-    renderStore.set(new RenderData($t(`common.step.${Step.SUMMARY}`), "", "", Step.SUMMARY));
-    setLocale($page.params.lang)
-    document.body.lang = $page.params.lang ?? "fr"
-    document.title = $t('common.step.summary') + " | really inaccessible"
+    onMount(() => {
+        renderStore.set(new RenderData($t(`common.step.${Step.SUMMARY}`), "", "", Step.SUMMARY));
+        setLocale($page.params.lang)
+        document.body.lang = $page.params.lang ?? "fr"
+        document.title = $t('common.step.summary') + " | really inaccessible"
+    })
+
     function getUsageUrl(lang: string) {
         const url = "https://www.w3.org/WAI/people-use-web/"
         switch (lang) {
@@ -52,7 +56,7 @@
     <div>
         <p class="mb-3">{$t("outro.conclusion.row.3")}</p>
         <ExpandableTile tileExpandedLabel={$t('outro.conclusion.viewLess')}
-                        tileCollapsedLabel={$t('outro.conclusion.viewMore')}>
+                        tileCollapsedLabel={$t('outro.conclusion.viewMore')} class="pb-5">
             <div slot="above">
                 <h2>{$t('outro.conclusion.visual.title')}</h2>
             </div>
@@ -103,7 +107,7 @@
         </ExpandableTile>
         <br aria-hidden="true"/>
         <ExpandableTile tileExpandedLabel={$t('outro.conclusion.viewLess')}
-                        tileCollapsedLabel={$t('outro.conclusion.viewMore')}>
+                        tileCollapsedLabel={$t('outro.conclusion.viewMore')} class="pb-5">
             <div slot="above">
                 <h2>{$t('outro.conclusion.cognitive.title')}</h2>
             </div>
@@ -128,7 +132,7 @@
         </ExpandableTile>
         <br aria-hidden="true"/>
         <ExpandableTile tileExpandedLabel={$t('outro.conclusion.viewLess')}
-                        tileCollapsedLabel={$t('outro.conclusion.viewMore')}>
+                        tileCollapsedLabel={$t('outro.conclusion.viewMore')} class="pb-5">
             <div slot="above">
                 <h2>{$t('outro.conclusion.motor.title')}</h2>
             </div>
@@ -160,7 +164,7 @@
         </ExpandableTile>
         <br aria-hidden="true"/>
         <ExpandableTile tileExpandedLabel={$t('outro.conclusion.viewLess')}
-                        tileCollapsedLabel={$t('outro.conclusion.viewMore')}>
+                        tileCollapsedLabel={$t('outro.conclusion.viewMore')} class="pb-5">
             <div slot="above">
                 <h2>{$t('outro.conclusion.hearing.title')}</h2>
             </div>
