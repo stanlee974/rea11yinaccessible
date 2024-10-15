@@ -1,8 +1,8 @@
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
-    import {Button, Content, UnorderedList, ListItem, InlineNotification } from "carbon-components-svelte";
+    import {Button, Content, InlineNotification, ListItem, UnorderedList} from "carbon-components-svelte";
     import {PlayFilled} from "carbon-icons-svelte";
-    import {locale, redirect, setLocale, t} from "$lib";
+    import {redirect, setLocale, t} from "$lib";
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {onMount} from "svelte";
     import {page} from "$app/stores";
@@ -35,13 +35,13 @@
             </UnorderedList>
         </div>
         <div>
-            <h2>{$t('intro.advice.title')}</h2>
+            <h2>{$t('intro.advice.info.title')}</h2>
             <InlineNotification kind="info" lowContrast hideCloseButton="true">
-                <strong slot="title" id="advice-immersive">{$t('intro.advice.immersive')}</strong>
+                <strong slot="title" id="advice-immersive">{$t('intro.advice.info.content.0')}</strong>
                 <div slot="subtitle">
                     <UnorderedList aria-labelledby="advice-immersive" class="ms-4">
-                        <ListItem>{$t('intro.advice.sound')}</ListItem>
-                        <ListItem>{$t('intro.advice.fullScreen')}</ListItem>
+                        <ListItem>{$t('intro.advice.info.content.1')}</ListItem>
+                        <ListItem>{$t('intro.advice.info.content.2')}</ListItem>
                     </UnorderedList>
                 </div>
             </InlineNotification>
@@ -53,11 +53,19 @@
                     </UnorderedList>
                 </div>
             </InlineNotification>
+            <InlineNotification kind="error" lowContrast hideCloseButton="true">
+                <strong slot="title" id="advice-danger">{$t('intro.advice.danger.title')}</strong>
+                <div slot="subtitle">
+                    <UnorderedList aria-labelledby="advice-danger" class="ms-4">
+                        <ListItem>{$t('intro.advice.danger.content')}</ListItem>
+                    </UnorderedList>
+                </div>
+            </InlineNotification>
         </div>
     </div>
     <div class="d-flex flex-row justify-content-center p-3">
         <Button kind="primary" icon="{PlayFilled}"
-            on:click={() => {
+                on:click={() => {
                 redirect($page.params.lang, "waitingroom")
             }}>{$t('intro.button.start')}</Button>
     </div>
