@@ -3,12 +3,14 @@
   "advice": {
     "title": "Conseils",
     "immersive": "Pour plus d'immersion :",
-    "sound": "Utilisez Firefox qui jouera plus rapidement les animations. Activez la musique de fond en haut à gauche si nécessaire. Montez le son de votre ordinateur ou tablette à 100% et paramétrer le volume audio avec la barre de volume de la musique",
-    "fullScreen": "Cliquez sur F11 pour mettre en plein écran",
+    "sound": "Utilise Firefox qui jouera plus rapidement les animations. Active la musique de fond en haut à gauche si nécessaire. Monte le son de votre ordinateur ou tablette à 100% et paramètre le volume audio avec la barre de volume de la musique",
+    "fullScreen": "Clique sur F11 pour mettre en plein écran",
+    "noInternetNeeded": "Tout ce dont tu as besoin pour progresser dans le jeu est entièrement contenu dans l'escape game, aucune recherche externe ou consultation d'internet n'est nécessaire.",
     "blocked": "Si tu es bloqué(e) :",
     "hints": [
       "Tu disposes de 2 indices en haut à droite",
-      "Si ce n'est pas suffisant, un 3ème indice sera disponible et te donnera la solution."]
+      "Si ce n'est pas suffisant, un 3ème indice sera disponible et te donnera la solution."
+    ]
   },
   "context": {
     "title": "Contexte",

@@ -42,6 +42,7 @@
                     <UnorderedList aria-labelledby="advice-immersive" class="ms-4">
                         <ListItem>{$t('intro.advice.sound')}</ListItem>
                         <ListItem>{$t('intro.advice.fullScreen')}</ListItem>
+                        <ListItem>{$t('intro.advice.noInternetNeeded')}</ListItem>
                     </UnorderedList>
                 </div>
             </InlineNotification>
