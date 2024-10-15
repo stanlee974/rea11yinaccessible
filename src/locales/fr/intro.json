@@ -1,13 +1,21 @@
 {
   "welcome": "Bienvenue sur Rea11y Inaccessible",
   "advice": {
-    "title": "Conseils",
-    "immersive": "Pour plus d'immersion :",
-    "sound": "Utilise Firefox qui jouera plus rapidement les animations. Active la musique de fond en haut à gauche si nécessaire. Monte le son de votre ordinateur ou tablette à 100% et paramètre le volume audio avec la barre de volume de la musique",
-    "fullScreen": "Clique sur F11 pour mettre en plein écran",
+    "info": {
+      "title": "Conseils",
+      "content": [
+        "Pour plus d'immersion :",
+        "Utilise Firefox qui jouera plus rapidement les animations. Active la musique de fond en haut à gauche si nécessaire. Monte le son de votre ordinateur ou tablette à 100% et paramètre le volume audio avec la barre de volume de la musique",
+        "Clique sur F11 pour mettre en plein écran"
+      ]
+    },
     "warning": {
-      "title" : "Attention",
+      "title": "Attention",
       "content": "On n'a pas besoin de naviguer sur le web pour trouver les réponses, tout est dans l'escape game. N'oubliez pas les indices si tu es bloqué(e)."
+    },
+    "danger": {
+      "title": "Danger",
+      "content": "Certaines épreuves contiennent des effets visuels pouvant déclencher des crises d'épilepsie photosensible."
     }
   },
   "context": {
