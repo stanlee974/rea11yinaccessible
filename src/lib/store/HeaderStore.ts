@@ -1,4 +1,3 @@
-import {get} from "svelte/store";
 import {persisted} from 'svelte-persisted-store'
 
 export const headerStore = persisted('header', {
@@ -10,14 +9,6 @@ export const headerStore = persisted('header', {
     storage: 'session', syncTabs: false
 })
 
-
-// export const toggleAccessibilityMode = () => {
-//   let accessibilityMode = getAccessibilityMode();
-//   if (accessibilityMode) {
-//     return headerStore.update((data) => ({...data, accessibilityMode: !data.accessibilityMode}))
-//   }
-//   return undefined
-// }
 export const setPlaySong = (value: boolean) => {
     if (headerStore) {
         headerStore.update((data) => ({...data, playSong: value}))

@@ -32,6 +32,9 @@
       "motor": "Discapacidad Motora: Algunos rompecabezas requerirán paciencia con una movilidad reducida."
     }
   },
+  "disability": {
+    "title": "¿Tienes alguna discapacidad que requiera una adaptación de tu experiencia?"
+  },
   "button": {
     "start": "Comenzar el juego"
   }

@@ -1,15 +1,13 @@
 <script lang="ts">
 
-  import { onMount } from "svelte";
+  import {onMount} from "svelte";
   import Typewriter from "svelte-typewriter";
-  import { base } from "$app/paths";
+  import {base} from "$app/paths";
   import ButtonComponent from "$lib/technicalComponent/ButtonComponent.svelte";
   import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
-  import { t } from "$lib";
-  import {
-    getAccessibilityModeStore
-  } from "$lib/store/AccessibilityModeStore.js";
-  import {page} from "$app/stores";
+  import {t} from "$lib";
+  import {headerStore} from "../store/HeaderStore";
+  import {animationStore, DISABILITY_NAME} from "../store/AnimationStore";
 
   export let disabled = false;
   export let mode: string = "cascade"
@@ -18,9 +16,6 @@
   export let parentDoneAction: Function | undefined = undefined
   export let continueButtonAction: Function | undefined = undefined
   export let buttonLabel: string | undefined = $t('common.button.waiting')
-
-  let isA11yMode = false;
-  let accessibilityMode = false
 
   let continuePressed: boolean = false
 
@@ -40,7 +35,7 @@
   const doneAction = () => {
     isWriting = false
     hasNotStartedWriting = false
-    if (!accessibilityMode) {
+    if (!$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)) {
       keyboardSound.pause()
     }
     if (parentDoneAction !== undefined) {
@@ -49,7 +44,7 @@
   }
   
   $: if (!disabled) {
-    if (isA11yMode) {
+    if ($animationStore.disabilities.includes(DISABILITY_NAME.BLIND)) {
       setTimeout(() => {
         window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"})
         doneAction()
@@ -62,16 +57,12 @@
   }
 
   onMount(() => {
-    getAccessibilityModeStore().subscribe(value => {
-      isA11yMode = value === 'true';
-    })
-
     keyboardSound = new Audio(base + "/sound/keyboard.mp3")
     keyboardSound.loop = true
     keyboardSound.volume = 0.3
     
     interval = setInterval(() => {
-      if (!isA11yMode) {
+      if (!$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)) {
         if (!disabled && hasNotStartedWriting) {
           isWriting = true;
           keyboardSound.play()
@@ -85,7 +76,7 @@
 </script>
 
 <div style="text-indent: -9999px;" aria-hidden={true}> bind:this={keyboardSound}</div>
-{#if (!isA11yMode)}
+{#if (!$animationStore.disabilities.includes(DISABILITY_NAME.BLIND))}
   <Typewriter
       mode={mode}
       disabled={disabled}
