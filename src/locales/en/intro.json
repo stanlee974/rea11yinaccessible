@@ -32,6 +32,9 @@
       "motor": "Motor Disability: Some puzzles will require patience with reduced mobility."
     }
   },
+  "disability": {
+    "title": "Do you have any disabilities that require an adaptation of your experience?"
+  },
   "button": {
     "start": "Start the game"
   }

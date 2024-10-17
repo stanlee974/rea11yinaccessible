@@ -32,6 +32,9 @@
       "motor": "Handicap Moteur : Certains puzzles nécessiteront de la patience avec une mobilité réduite."
     }
   },
+  "disability": {
+    "title": "As-tu des handicaps nécessitant une adaptation de ton expérience ?"
+  },
   "button": {
     "start": "Débuter la partie"
   }

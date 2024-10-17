@@ -44,13 +44,15 @@
     },
     "audio": "Active ou désactive la musique ambiante. A activer manuellement avant de commencer l'escape game.",
     "hint": "Si tu es bloqué(e), tu disposes de 2 indices. Si ce n'est pas suffisant, un 3ème indice sera disponible et te donnera la solution.",
-    "language": "Le choix de la langue va traduire tout le contenu y compris les réponses et les audios."
+    "language": "Le choix de la langue va traduire tout le contenu y compris les réponses et les audios.",
+    "accessibility": "Le mode accessibilité permet de désactiver les animations susceptibles de poser des difficultés en fonction de certains handicaps."
   },
   "header": {
     "accessibility": {
       "title": "Mode Accessibilité",
-      "on": "Activé",
-      "off": "Désactivé"
+      "placeholder": "Sélectionnez vos handicaps",
+      "epilepsy": "Épilepsie",
+      "blind": "Aveugle"
     },
     "hint": {
       "message": {

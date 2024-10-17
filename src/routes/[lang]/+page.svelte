@@ -1,11 +1,24 @@
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
-    import {Button, Content, InlineNotification, ListItem, UnorderedList} from "carbon-components-svelte";
+    import {
+        Button,
+        Content,
+        InlineNotification,
+        ListItem,
+        SelectableTile,
+        UnorderedList
+    } from "carbon-components-svelte";
     import {PlayFilled} from "carbon-icons-svelte";
     import {redirect, setLocale, t} from "$lib";
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {onMount} from "svelte";
     import {page} from "$app/stores";
+    import {updateBlind, updateEpilepsy} from "$lib/store/AnimationStore";
+    import {driver} from "driver.js";
+    import {animationStore, DISABILITY_NAME} from "../../lib/store/AnimationStore";
+
+    let blind = null
+    let epilepsy = null
 
     onMount(() => {
         setLocale($page.params.lang)
@@ -13,10 +26,109 @@
         document.title = $t('common.step.intro') + " | really inaccessible"
         document.body.scrollIntoView()
         changeSource("/ost/intro.mp3")
+        blind = $animationStore.disabilities.includes(DISABILITY_NAME.BLIND)
+        epilepsy = $animationStore.disabilities.includes(DISABILITY_NAME.EPILEPSY)
+        const driverObj = driver({
+            popoverClass: "custom-theme",
+            showProgress: false,
+            prevBtnText: $t("common.highlight.button.previous"),
+            nextBtnText: $t("common.highlight.button.next"),
+            doneBtnText: $t("common.highlight.button.done"),
+            steps: [
+                {
+                    element: '#song',
+                    popover: {title: $t("common.header.audio"), description: $t("common.highlight.audio")}
+                },
+                {
+                    element: '#hint',
+                    popover: {title: $t("common.header.hint.tooltip"), description: $t("common.highlight.hint")}
+                },
+                {
+                    element: '#language',
+                    popover: {title: $t('common.header.language'), description: $t("common.highlight.language")}
+                },
+                {
+                    element: '#accessibility',
+                    popover: {
+                        title: $t('common.header.accessibility.title'),
+                        description: $t("common.highlight.accessibility")
+                    }
+                }
+            ]
+        });
+        if (!$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)) {
+            driverObj.drive();
+        }
     })
-
 </script>
 
+<style lang="css">
+    :global(.driver-popover.custom-theme) {
+        background-color: #393939;
+        color: #FFFFFF;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-title) {
+        font-size: 20px;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-title),
+    :global(.driver-popover.custom-theme .driver-popover-description),
+    :global(.driver-popover.custom-theme .driver-popover-progress-text) {
+        color: #FFFFFF;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-description) {
+        font-size: 16px;
+    }
+
+    :global(.driver-popover.custom-theme button) {
+        flex: 1;
+        text-align: center;
+        background-color: #000;
+        color: #ffffff;
+        border: 2px solid #000;
+        text-shadow: none;
+        font-size: 16px;
+        padding: 5px 8px;
+        border-radius: 6px;
+    }
+
+    :global(.driver-popover.custom-theme button:hover) {
+        background-color: #000;
+        color: #ffffff;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-navigation-btns) {
+        justify-content: space-between;
+        gap: 3px;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-close-btn),
+    :global(.driver-popover.custom-theme .driver-popover-close-btn:hover) {
+        color: #9b9b9b;
+        background-color: #393939;
+        border-color: #393939;
+        font-size: 2rem;
+
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-arrow-side-left.driver-popover-arrow) {
+        border-left-color: #393939;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-arrow-side-right.driver-popover-arrow) {
+        border-right-color: #393939;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-arrow-side-top.driver-popover-arrow) {
+        border-top-color: #393939;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-arrow-side-bottom.driver-popover-arrow) {
+        border-bottom-color: #393939;
+    }
+</style>
 <Content id="scenario">
     <div class="container">
         <h1 lang="en" class="mb-4">{$t('intro.welcome')}</h1>
@@ -61,12 +173,22 @@
                     </UnorderedList>
                 </div>
             </InlineNotification>
+            <p>{$t('intro.disability.title')}</p>
+            <div role="group" class="d-flex">
+                <div class="mx-3 my-2">
+                    <SelectableTile bind:selected={epilepsy}
+                                    on:click={() => updateEpilepsy(!epilepsy)}>{$t('common.header.accessibility.epilepsy')} </SelectableTile>
+                </div>
+                <div class="mx-3 my-2">
+                    <SelectableTile bind:selected={blind}
+                                    on:click={() => updateBlind(!blind)}>{$t('common.header.accessibility.blind')}</SelectableTile>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="d-flex flex-row justify-content-center p-3">
-        <Button kind="primary" icon="{PlayFilled}"
-                on:click={() => {
+        <div class="d-flex flex-row justify-content-center p-3">
+            <Button kind="primary" icon="{PlayFilled}"
+                    on:click={() => {
                 redirect($page.params.lang, "waitingroom")
             }}>{$t('intro.button.start')}</Button>
-    </div>
+        </div>
 </Content>
