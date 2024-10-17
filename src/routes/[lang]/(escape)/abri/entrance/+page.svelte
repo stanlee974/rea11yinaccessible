@@ -9,17 +9,11 @@
     import {onMount} from "svelte";
     import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
-    import {getAccessibilityMode, getAccessibilityModeStore} from "$lib/store/AccessibilityModeStore";
     import {page} from "$app/stores";
-
-    export let accessibilityMode = false
+    import {animationStore, DISABILITY_NAME} from "$lib/store/AnimationStore";
 
     onMount(() => {
         changeSource("/ost/step1.mp3")
-        accessibilityMode = getAccessibilityMode()
-        getAccessibilityModeStore()?.subscribe((data) => {
-            accessibilityMode = data === "true"
-        })
         renderStore.set(new RenderData($t('common.step.shelterEntrance'), $t('shelterEntrance.neon.title'), $t('shelterEntrance.neon.subtitle'), Step.ABRI_ENTRANCE));
     })
 
@@ -113,8 +107,8 @@
                         value={contrast}
                         step={1}
                         style="align-items: normal; margin-right: 2em"
-                        aria-hidden={accessibilityMode}
-                        disabled={accessibilityMode}
+                        aria-hidden={$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)}
+                        disabled={$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)}
                         on:input={(value) => {{contrast = value.detail}}}
                 />
                 <Column sm style="display: flex; flex-direction: column; text-align: center;">
@@ -159,8 +153,8 @@
                         maxLabel="100"
                         value={brightness}
                         step={1}
-                        aria-hidden={accessibilityMode}
-                        disabled={accessibilityMode}
+                        aria-hidden={$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)}
+                        disabled={$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)}
                         style="align-items: normal; margin-left: 2rem"
                         on:input={(value) => {{brightness = value.detail}}}
                 />

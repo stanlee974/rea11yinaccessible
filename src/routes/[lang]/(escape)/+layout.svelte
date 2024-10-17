@@ -1,13 +1,10 @@
 <script lang="ts">
     import {Content, ProgressIndicator, ProgressStep} from "carbon-components-svelte";
     import Typewriter from "svelte-typewriter";
-    import {RenderData, renderStore, renderStoreSetData } from "$lib/store/inMemoryStore/RenderStore";
+    import {renderStore, renderStoreSetData} from "$lib/store/inMemoryStore/RenderStore";
     import {setLocale, Step, t} from "$lib";
     import {onMount} from "svelte";
     import {page} from "$app/stores";
-    import {headerStore} from "$lib/store/HeaderStore";
-    import type {LayoutData} from "../../../../.svelte-kit/types/src/routes/[lang]/$types";
-    import {get} from "svelte/store";
 
     let currentStep = 0
     let steps: string[] = []

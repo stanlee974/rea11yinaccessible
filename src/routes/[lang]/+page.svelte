@@ -1,11 +1,24 @@
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
-    import {Button, Content, UnorderedList, ListItem, InlineNotification } from "carbon-components-svelte";
+    import {
+        Button,
+        Content,
+        InlineNotification,
+        ListItem,
+        SelectableTile,
+        UnorderedList
+    } from "carbon-components-svelte";
     import {PlayFilled} from "carbon-icons-svelte";
-    import {locale, redirect, setLocale, t} from "$lib";
+    import {redirect, setLocale, t} from "$lib";
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {onMount} from "svelte";
     import {page} from "$app/stores";
+    import {updateBlind, updateEpilepsy} from "$lib/store/AnimationStore";
+    import {driver} from "driver.js";
+    import {animationStore, DISABILITY_NAME} from "../../lib/store/AnimationStore";
+
+    let blind = null
+    let epilepsy = null
 
     onMount(() => {
         setLocale($page.params.lang)
@@ -13,10 +26,109 @@
         document.title = $t('common.step.intro') + " | really inaccessible"
         document.body.scrollIntoView()
         changeSource("/ost/intro.mp3")
+        blind = $animationStore.disabilities.includes(DISABILITY_NAME.BLIND)
+        epilepsy = $animationStore.disabilities.includes(DISABILITY_NAME.EPILEPSY)
+        const driverObj = driver({
+            popoverClass: "custom-theme",
+            showProgress: false,
+            prevBtnText: $t("common.highlight.button.previous"),
+            nextBtnText: $t("common.highlight.button.next"),
+            doneBtnText: $t("common.highlight.button.done"),
+            steps: [
+                {
+                    element: '#song',
+                    popover: {title: $t("common.header.audio"), description: $t("common.highlight.audio")}
+                },
+                {
+                    element: '#hint',
+                    popover: {title: $t("common.header.hint.tooltip"), description: $t("common.highlight.hint")}
+                },
+                {
+                    element: '#language',
+                    popover: {title: $t('common.header.language'), description: $t("common.highlight.language")}
+                },
+                {
+                    element: '#accessibility',
+                    popover: {
+                        title: $t('common.header.accessibility.title'),
+                        description: $t("common.highlight.accessibility")
+                    }
+                }
+            ]
+        });
+        if (!$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)) {
+            driverObj.drive();
+        }
     })
-
 </script>
 
+<style lang="css">
+    :global(.driver-popover.custom-theme) {
+        background-color: #393939;
+        color: #FFFFFF;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-title) {
+        font-size: 20px;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-title),
+    :global(.driver-popover.custom-theme .driver-popover-description),
+    :global(.driver-popover.custom-theme .driver-popover-progress-text) {
+        color: #FFFFFF;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-description) {
+        font-size: 16px;
+    }
+
+    :global(.driver-popover.custom-theme button) {
+        flex: 1;
+        text-align: center;
+        background-color: #000;
+        color: #ffffff;
+        border: 2px solid #000;
+        text-shadow: none;
+        font-size: 16px;
+        padding: 5px 8px;
+        border-radius: 6px;
+    }
+
+    :global(.driver-popover.custom-theme button:hover) {
+        background-color: #000;
+        color: #ffffff;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-navigation-btns) {
+        justify-content: space-between;
+        gap: 3px;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-close-btn),
+    :global(.driver-popover.custom-theme .driver-popover-close-btn:hover) {
+        color: #9b9b9b;
+        background-color: #393939;
+        border-color: #393939;
+        font-size: 2rem;
+
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-arrow-side-left.driver-popover-arrow) {
+        border-left-color: #393939;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-arrow-side-right.driver-popover-arrow) {
+        border-right-color: #393939;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-arrow-side-top.driver-popover-arrow) {
+        border-top-color: #393939;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-arrow-side-bottom.driver-popover-arrow) {
+        border-bottom-color: #393939;
+    }
+</style>
 <Content id="scenario">
     <div class="container">
         <h1 lang="en" class="mb-4">{$t('intro.welcome')}</h1>
@@ -35,31 +147,48 @@
             </UnorderedList>
         </div>
         <div>
-            <h2>{$t('intro.advice.title')}</h2>
+            <h2>{$t('intro.advice.info.title')}</h2>
             <InlineNotification kind="info" lowContrast hideCloseButton="true">
-                <strong slot="title" id="advice-immersive">{$t('intro.advice.immersive')}</strong>
+                <strong slot="title" id="advice-immersive">{$t('intro.advice.info.content.0')}</strong>
                 <div slot="subtitle">
                     <UnorderedList aria-labelledby="advice-immersive" class="ms-4">
-                        <ListItem>{$t('intro.advice.sound')}</ListItem>
-                        <ListItem>{$t('intro.advice.fullScreen')}</ListItem>
+                        <ListItem>{$t('intro.advice.info.content.1')}</ListItem>
+                        <ListItem>{$t('intro.advice.info.content.2')}</ListItem>
                     </UnorderedList>
                 </div>
             </InlineNotification>
             <InlineNotification kind="warning" lowContrast hideCloseButton="true">
-                <strong slot="title" id="advice-blocked">{$t('intro.advice.blocked')}</strong>
+                <strong slot="title" id="advice-warning">{$t('intro.advice.warning.title')}</strong>
                 <div slot="subtitle">
-                    <UnorderedList aria-labelledby="advice-blocked" class="ms-4">
-                        <ListItem>{$t('intro.advice.hints.0')}</ListItem>
-                        <ListItem>{$t('intro.advice.hints.1')}</ListItem>
+                    <UnorderedList aria-labelledby="advice-warning" class="ms-4">
+                        <ListItem>{$t('intro.advice.warning.content')}</ListItem>
                     </UnorderedList>
                 </div>
             </InlineNotification>
+            <InlineNotification kind="error" lowContrast hideCloseButton="true">
+                <strong slot="title" id="advice-danger">{$t('intro.advice.danger.title')}</strong>
+                <div slot="subtitle">
+                    <UnorderedList aria-labelledby="advice-danger" class="ms-4">
+                        <ListItem>{$t('intro.advice.danger.content')}</ListItem>
+                    </UnorderedList>
+                </div>
+            </InlineNotification>
+            <p>{$t('intro.disability.title')}</p>
+            <div role="group" class="d-flex">
+                <div class="mx-3 my-2">
+                    <SelectableTile bind:selected={epilepsy}
+                                    on:click={() => updateEpilepsy(!epilepsy)}>{$t('common.header.accessibility.epilepsy')} </SelectableTile>
+                </div>
+                <div class="mx-3 my-2">
+                    <SelectableTile bind:selected={blind}
+                                    on:click={() => updateBlind(!blind)}>{$t('common.header.accessibility.blind')}</SelectableTile>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="d-flex flex-row justify-content-center p-3">
-        <Button kind="primary" icon="{PlayFilled}"
-            on:click={() => {
+        <div class="d-flex flex-row justify-content-center p-3">
+            <Button kind="primary" icon="{PlayFilled}"
+                    on:click={() => {
                 redirect($page.params.lang, "waitingroom")
             }}>{$t('intro.button.start')}</Button>
-    </div>
+        </div>
 </Content>

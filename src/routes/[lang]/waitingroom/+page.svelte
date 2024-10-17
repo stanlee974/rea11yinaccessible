@@ -12,11 +12,11 @@
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {page} from "$app/stores";
     import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
-    import {getAccessibilityModeStoreQueryParam} from '$lib/store/AccessibilityModeStore';
     import Plyr from 'plyr';
-    import {headerStore} from "../../../lib/store/HeaderStore";
-    import {audioStore} from "../../../lib/store/inMemoryStore/AudioStore";
+    import {getAccessibilityModeStoreQueryParam} from "$lib/store/AnimationStore";
+    import {audioStore} from "$lib/store/inMemoryStore/AudioStore";
     import {get} from "svelte/store";
+    import {headerStore} from "$lib/store/HeaderStore";
 
     let disableWriter = true
     let isWaiting = false
@@ -28,7 +28,7 @@
         isWaiting = true
     }
     onMount(() => {
-        renderStore.set(new RenderData($t(`common.step.${Step.WAITING_ROOM}`), "", "", Step.WAITING_ROOM));
+        renderStore.set(new RenderData($t(`common.step.${Step.WAITING_ROOM}`), "", "", Step.WAITING_ROOM, $renderStore.disabilities));
         setLocale($page.params.lang)
         document.body.lang = $page.params.lang ?? "fr"
         document.title = $t('common.step.waitingRoom') + " | really inaccessible"

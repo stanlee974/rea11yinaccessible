@@ -65,10 +65,9 @@
             b: ['b', 'v', 'g', 'h', 'n'],
             n: ['n', 'b', 'h', 'j', 'm']
         };
-
         if (originalKey in frenchKeyboardNeighbors) {
             const neighbors = frenchKeyboardNeighbors[originalKey];
-            if (lastPressedKey === originalKey) {
+            if (lastPressedKey === originalKey ) {
                 result = result.slice(0, -1);
             } else {
                 lastPressedKey = originalKey;
@@ -82,6 +81,8 @@
                 result += originalKey
                 event.preventDefault();
             }
+        } else if (originalKey === "Backspace" || originalKey === "Delete") {
+            lastPressedKey = originalKey;
         }
     }
 </script>

@@ -1,7 +1,6 @@
 <script lang="ts">
     import {Modal,} from "carbon-components-svelte";
     import {t} from "$lib";
-    import {accessibilityModeStore} from "$lib/store/AccessibilityModeStore";
     import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
     import {onMount} from "svelte";
 

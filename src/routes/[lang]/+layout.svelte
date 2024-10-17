@@ -1,5 +1,6 @@
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
+    import "driver.js/dist/driver.css";
     import {
         Button,
         Column,
@@ -12,6 +13,7 @@
         HeaderUtilities,
         ImageLoader,
         Modal,
+        MultiSelect,
         Row,
         Select,
         SelectItem,
@@ -28,14 +30,12 @@
     import {renderStore} from "$lib/store/inMemoryStore/RenderStore";
     import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
     import {page} from "$app/stores";
-    import {
-        getAccessibilityMode,
-        setAccessibilityMode
-    } from "$lib/store/AccessibilityModeStore";
     import {injectSpeedInsights} from "@vercel/speed-insights/sveltekit";
     import {inject} from '@vercel/analytics'
     import {headerStore, updateSongVolume, updateSoundVolume} from "../../lib/store/HeaderStore";
     import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
+    import {normalizeUrl, redirect} from "../../lib";
+    import {animationStore, DISABILITY_NAME, updateBlind, updateEpilepsy} from "../../lib/store/AnimationStore";
 
     injectSpeedInsights()
     inject()
@@ -54,17 +54,16 @@
     let hintLevel: string = "2"
     let oxygen: number = 100
     let style = ""
-    let accessibilityMode: boolean = false
     let currentStep: string = $renderStore.step
     onMount(() => {
-        setAccessibilityMode($page.url.searchParams.get('isA11yMode') == 'true')
         window.scrollTo(0, 0);
         document.title = $t('common.step.intro') + " | really inaccessible"
         document.body.lang = $page.params.lang ?? "fr"
         songVolume = $headerStore.songVolume
         soundVolume = $headerStore.soundVolume
-
-        accessibilityMode = getAccessibilityMode()
+        if ($page.url.searchParams.get('isA11yMode') == 'true') {
+            updateBlind(true)
+        }
 
         initHintLevelStore('0')
         hints = getHint($renderStore.step)
@@ -199,6 +198,30 @@
         animationRef = requestAnimationFrame(animate);
     };
 
+
+    const updateDisabilities = (event) => {
+        const manageDisabilities = (detail, disability: DISABILITY_NAME) => {
+            if (detail.selectedIds.includes(disability)) {
+                if (DISABILITY_NAME.BLIND === disability) {
+                    updateBlind(true)
+                    redirect($page.params.lang, normalizeUrl($page.route.id, $page.params.lang))
+                }
+                if (DISABILITY_NAME.EPILEPSY === disability) {
+                    updateEpilepsy(true)
+                }
+            } else {
+                if (DISABILITY_NAME.BLIND === disability) {
+                    updateBlind(false)
+                    redirect($page.params.lang, normalizeUrl($page.route.id, $page.params.lang))
+                }
+                if (DISABILITY_NAME.EPILEPSY === disability) {
+                    updateEpilepsy(false)
+                }
+            }
+        }
+        manageDisabilities(event.detail, DISABILITY_NAME.BLIND)
+        manageDisabilities(event.detail, DISABILITY_NAME.EPILEPSY)
+    }
 </script>
 
 <style lang="css">
@@ -249,6 +272,15 @@
     select {
         width: 7rem !important;
     }
+
+    :global(.bx--list-box__menu-item, .bx--list-box__menu-item__option) {
+        height: auto;
+    }
+
+    :global(.bx--checkbox-label-text) {
+        display: block;
+    }
+
 
 </style>
 
@@ -301,7 +333,7 @@
     <Select
             id="language"
             inline
-            labelText="Langue"
+            labelText={$t('common.header.language')}
             bind:selected={selectedLanguageIndex}
             on:change={(e) => changeLangRedirect($page.route.id, e?.target?.value)}
             style="width: 10rem; margin-right: 2rem;"
@@ -314,9 +346,19 @@
 {#if $renderStore.step !== Step.SUMMARY}
     <Tile id="menu" style="position: sticky; top: 3rem; position: flex; flex-direction: row; z-index: 2000">
         <HeaderUtilities>
-            <!--        <Toggle labelText={$t('common.header.accessibility.title')} labelA="" labelB="" toggled={accessibilityMode}-->
-            <!--                on:change={() => {accessibilityMode = !accessibilityMode; setAccessibilityMode(accessibilityMode)}}/>-->
-            <SongComponent />
+            <MultiSelect
+                    disabled={!$renderStore.step}
+                    selectedIds={$animationStore.disabilities.map((data) => data.toString())}
+                    titleText={$t('common.header.accessibility.title')}
+                    label={$t('common.header.accessibility.placeholder')}
+                    items={[
+                        { id: DISABILITY_NAME.EPILEPSY, text: $t("common.header.accessibility.epilepsy") },
+                        { id: DISABILITY_NAME.BLIND, text: $t("common.header.accessibility.blind") }
+                    ]}
+                    on:select={updateDisabilities}
+            >
+            </MultiSelect>
+            <SongComponent/>
             <Slider
                     labelText={$t('common.header.volume.song')}
                     min={0}
@@ -425,4 +467,4 @@
 {/if}
 <SoundEffectComponent src="{base}/sound/heart_beat.mp3" postPlay={playHeartBeat}/>
 <SoundEffectComponent src="{base}/sound/heart_beat_fast.mp3" postPlay={playHeartBeatFast}/>
-<slot id="main-content" accessibilityMode={accessibilityMode}/>
+<slot id="main-content"/>
