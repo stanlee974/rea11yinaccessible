@@ -21,8 +21,8 @@
     import {onMount} from "svelte";
     import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
-    import {getAccessibilityMode} from "$lib/store/AccessibilityModeStore";
     import {page} from "$app/stores";
+    import {animationStore, DISABILITY_NAME} from "$lib/store/AnimationStore";
 
     onMount(() => {
         changeSource("/ost/step2.mp3")
@@ -83,7 +83,7 @@
     }
 
     const readLabel = (event: any) => {
-        if (!getAccessibilityMode()) {
+        if (!$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)) {
             const target = event.target;
             if (target.getAttribute("id") === 'lastName') {
                 console.log("nom")

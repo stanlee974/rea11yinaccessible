@@ -65,7 +65,6 @@
             b: ['b', 'v', 'g', 'h', 'n'],
             n: ['n', 'b', 'h', 'j', 'm']
         };
-console.log(originalKey, lastPressedKey)
         if (originalKey in frenchKeyboardNeighbors) {
             const neighbors = frenchKeyboardNeighbors[originalKey];
             if (lastPressedKey === originalKey ) {

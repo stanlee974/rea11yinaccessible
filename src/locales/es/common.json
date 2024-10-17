@@ -44,13 +44,16 @@
     },
     "audio": "Activa o desactiva la música ambiental. Debe ser activada manualmente antes de comenzar el juego de escape.",
     "hint": "Si estás atascado(a), tienes 2 pistas disponibles. Si no es suficiente, habrá una tercera pista disponible que te dará la solución.",
-    "language": "Elegir el idioma traducirá todo el contenido, incluidas las respuestas y los audios."
+    "language": "Elegir el idioma traducirá todo el contenido, incluidas las respuestas y los audios.",
+    "accessibility": "El modo de accesibilidad permite desactivar las animaciones que puedan causar dificultades relacionadas con ciertas discapacidades."
+
   },
   "header": {
     "accessibility": {
       "title": "Modo de Accesibilidad",
-      "on": "Activado",
-      "off": "Desactivado"
+      "placeholder": "Selecciona tus discapacidades",
+      "epilepsy": "Epilepsia",
+      "blind": "Ciego"
     },
     "hint": {
       "message": {

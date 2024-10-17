@@ -8,8 +8,9 @@
     import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
     import {onMount} from "svelte";
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
-    import {locale, redirect, setLocale, Step, t} from "$lib";
+    import {redirect, Step, t} from "$lib";
     import {page} from "$app/stores";
+    import {animationStore, DISABILITY_NAME} from "../../../../../lib/store/AnimationStore";
 
     let showScenario = true;
     let showEnigm = false;
@@ -52,14 +53,16 @@
     }
 
     const showOverlay = () => {
-        if (content) {
-            content.innerHTML = `<img src="${getDisturbedImage()}" alt="">`;
+        if (!$animationStore.disabilities.includes(DISABILITY_NAME.EPILEPSY)) {
+            if (content) {
+                content.innerHTML = `<img src="${getDisturbedImage()}" alt="">`;
+            }
+            if (overlay) {
+                overlay.style.display = 'flex';
+            }
+            const randomDelay = Math.random() * 2000 + 2000;
+            setTimeout(hideOverlay, randomDelay);
         }
-        if (overlay) {
-            overlay.style.display = 'flex';
-        }
-        const randomDelay = Math.random() * 2000 + 2000;
-        setTimeout(hideOverlay, randomDelay);
     }
 
     $: invalidEnigm1 = !new RegExp($t('shelterSearchCenterRoom.test.response.1'), 'i').test(enigm1);

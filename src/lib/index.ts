@@ -1,9 +1,9 @@
-import { t, locales, setLocale, locale } from "$lib/translations"
-import { goto } from "$app/navigation";
-import { base } from "$app/paths";
-import { renderStore, renderStoreSetData } from "$lib/store/inMemoryStore/RenderStore";
-import { get } from "svelte/store";
-import { getAccessibilityModeStoreQueryParam } from '$lib/store/AccessibilityModeStore';
+import {t, locales, setLocale, locale} from "$lib/translations"
+import {goto} from "$app/navigation";
+import {base} from "$app/paths";
+import {renderStore, renderStoreSetData} from "$lib/store/inMemoryStore/RenderStore";
+import {get} from "svelte/store";
+import {getAccessibilityModeStoreQueryParam} from "$lib/store/AnimationStore";
 
 export {t, locales, setLocale, locale}
 
@@ -22,12 +22,20 @@ export const enum Step {
 }
 
 export async function redirect(locale: string, path: string = "") {
-    await goto(`${base}/${locale}/${path}${getAccessibilityModeStoreQueryParam()}`)
+    if (path.startsWith("/")) {
+        await goto(`${base}${path}${getAccessibilityModeStoreQueryParam()}`)
+    } else {
+        await goto(`${base}/${locale}/${path}${getAccessibilityModeStoreQueryParam()}`)
+    }
 }
 
-export async function changeLangRedirect(id: string | null, lang: string) {
+export async function changeLangRedirect(id: string, lang: string) {
     await setLocale(lang)
     let renderData = get(renderStore)
     renderStoreSetData(t.get(`common.step.${renderData.step}`), t.get(`${renderData.step}.neon.title`), t.get(`${renderData.step}.neon.subtitle`))
-    await goto(base + id?.replace("[lang]", lang).replace("(escape)/", ""))
+    await goto(base + normalizeUrl(id, lang))
+}
+
+export function normalizeUrl(id: string, lang: string) {
+    return id?.replace("[lang]", lang).replace("(escape)/", "")
 }
