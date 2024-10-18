@@ -46,11 +46,10 @@
                 </div>
             </InlineNotification>
             <InlineNotification kind="warning" lowContrast hideCloseButton="true">
-                <strong slot="title" id="advice-blocked">{$t('intro.advice.blocked')}</strong>
+                <strong slot="title" id="advice-warning">{$t('intro.advice.warning.title')}</strong>
                 <div slot="subtitle">
-                    <UnorderedList aria-labelledby="advice-blocked" class="ms-4">
-                        <ListItem>{$t('intro.advice.hints.0')}</ListItem>
-                        <ListItem>{$t('intro.advice.hints.1')}</ListItem>
+                    <UnorderedList aria-labelledby="advice-warning" class="ms-4">
+                        <ListItem>{$t('intro.advice.warning.content')}</ListItem>
                     </UnorderedList>
                 </div>
             </InlineNotification>

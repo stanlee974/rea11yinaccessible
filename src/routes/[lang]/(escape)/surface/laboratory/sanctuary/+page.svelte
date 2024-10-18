@@ -55,6 +55,14 @@
         flex-direction: column !important;
         align-items: start !important;
     }
+    .half {
+        width: 49%;
+    }
+
+    .number {
+        border: white 1px solid;
+        padding: 0.3em;
+    }
 </style>
 
 <ModalComponent opened={showTransitionModal}
@@ -102,27 +110,33 @@
 {/if}
 <ModalComponent opened={showEnigm}
                 parentDoneAction={() => disableGoal = false}>
-    <Grid>
-        <Row>
-            <Column>
+    <div>
+        <div class="d-flex flew-row align-items-center">
+            <div class="half">
                 <div>
                     <ImageLoader
                             src="{base}/surface/laboratory/sanctuary/door.jpg"
                             alt="" fadeIn={true}/>
-                    <span>2</span>
-                    <p>{$t('sanctuary.scenario.modal.1.row.1')}</p>
-                    <p>{$t('sanctuary.scenario.modal.1.row.2')}</p>
                 </div>
-            </Column>
-            <Column>
-                <span>1</span>
-                <p>{$t('sanctuary.scenario.modal.1.row.3')}</p>
+            </div>
+            <div class="half m-3">
+                <span class="number">1</span>
+                <p class="mt-4">{$t('sanctuary.scenario.modal.1.row.3')}</p>
+            </div>
+        </div>
+        <div class="d-flex flew-row align-items-center">
+            <div class="half m-3">
+                <span class="number">2</span>
+                <p class="mt-4">{$t('sanctuary.scenario.modal.1.row.1')}</p>
+                <p class="mt-4">{$t('sanctuary.scenario.modal.1.row.2')}</p>
+            </div>
+            <div class="half">
                 <ImageLoader
                         src="{base}/surface/laboratory/sanctuary/last_item.jpg"
                         alt="" fadeIn={true}/>
-            </Column>
-        </Row>
-    </Grid>
+            </div>
+        </div>
+    </div>
 </ModalComponent>
 <Typewriter mode="cascade" disabled={disableGoal} on:done={() => setTimeout(() => showForm = true, 2000)}>
     <div>
