@@ -44,7 +44,8 @@
     },
     "audio": "Active ou désactive la musique ambiante. A activer manuellement avant de commencer l'escape game.",
     "hint": "Si tu es bloqué(e), tu disposes de 2 indices. Si ce n'est pas suffisant, un 3ème indice sera disponible et te donnera la solution.",
-    "language": "Le choix de la langue va traduire tout le contenu y compris les réponses et les audios."
+    "language": "Le choix de la langue va traduire tout le contenu y compris les réponses et les audios.",
+    "oxygen": "Surveille bien la jauge d'oxygène... Si elle est vide, l’aventure prendra fin."
   },
   "header": {
     "hint": {
@@ -126,5 +127,16 @@
     "sanctuary": "Troubles cognitifs | Police, Zoom, Alignement",
     "outro": "Epilogue",
     "summary": "Conclusion"
+  },
+  "gameOver": {
+    "modal": {
+      "1": {
+        "row": {
+          "1": "Le son aigu résonne dans l'air, signalant une alarmante réalité : il n'y a plus d'oxygène. Une panique sourde s'installe en toi, et tu sais que c'est la fin.",
+          "2": "Alors que tu cherches désespérément une solution, ta main glisse dans ta poche, et tu sens une petite bonbonne d'oxygène. Un souffle de soulagement te traverse ; c'est ta dernière chance. Avec détermination, tu décides de l'utiliser.",
+          "3": "Tu dévisses le capuchon et, après avoir pris une profonde inspiration, tu commences à inhaler cet air frais et revitalisant. C’est un moment crucial où chaque seconde compte, et tu sais que ta survie dépend de cette décision."
+        }
+      }
+    }
   }
 }

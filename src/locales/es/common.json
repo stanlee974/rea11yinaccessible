@@ -44,7 +44,8 @@
     },
     "audio": "Activa o desactiva la música ambiental. Debe ser activada manualmente antes de comenzar el juego de escape.",
     "hint": "Si estás atascado(a), tienes 2 pistas disponibles. Si no es suficiente, habrá una tercera pista disponible que te dará la solución.",
-    "language": "Elegir el idioma traducirá todo el contenido, incluidas las respuestas y los audios."
+    "language": "Elegir el idioma traducirá todo el contenido, incluidas las respuestas y los audios.",
+    "oxygen": "Vigila bien la barra de oxígeno... Si se vacía, la aventura termina."
   },
   "header": {
     "hint": {
@@ -126,5 +127,17 @@
     "sanctuary": "Problemas cognitivos | Fuente, Zoom, Alineación",
     "final": "Epílogo",
     "summary": "Conclusión"
+  },
+  "gameOver": {
+    "modal": {
+      "1": {
+        "row": {
+          "1": "El sonido agudo resuena en el aire, señalando una alarmante realidad: no hay más oxígeno. Una pánica sorda se apodera de ti, y sabes que este es el final.",
+          "2": "Mientras buscas desesperadamente una solución, tu mano se desliza en tu bolsillo y sientes un pequeño cilindro de oxígeno. Un soplo de alivio te atraviesa; es tu última oportunidad. Con determinación, decides usarlo.",
+          "3": "Desenroscas la tapa y, después de tomar una profunda respiración, comienzas a inhalar este aire fresco y revitalizante. Es un momento crucial donde cada segundo cuenta, y sabes que tu supervivencia depende de esta decisión."
+        }
+      }
+    }
   }
+
 }

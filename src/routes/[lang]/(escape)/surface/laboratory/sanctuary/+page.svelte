@@ -55,14 +55,7 @@
         flex-direction: column !important;
         align-items: start !important;
     }
-    .half {
-        width: 49%;
-    }
 
-    .number {
-        border: white 1px solid;
-        padding: 0.3em;
-    }
 </style>
 
 <ModalComponent opened={showTransitionModal}
@@ -121,14 +114,14 @@
             </div>
             <div class="half m-3">
                 <span class="number">1</span>
-                <p class="mt-4">{$t('sanctuary.scenario.modal.1.row.3')}</p>
+                <p class="mt-4">{$t('sanctuary.scenario.modal.1.row.1')}</p>
             </div>
         </div>
         <div class="d-flex flew-row align-items-center">
             <div class="half m-3">
                 <span class="number">2</span>
-                <p class="mt-4">{$t('sanctuary.scenario.modal.1.row.1')}</p>
                 <p class="mt-4">{$t('sanctuary.scenario.modal.1.row.2')}</p>
+                <p class="mt-4">{$t('sanctuary.scenario.modal.1.row.3')}</p>
             </div>
             <div class="half">
                 <ImageLoader

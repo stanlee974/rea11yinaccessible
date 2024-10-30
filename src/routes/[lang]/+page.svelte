@@ -1,20 +1,13 @@
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
-    import {
-        Button,
-        Checkbox,
-        Content,
-        InlineNotification,
-        ListItem,
-        UnorderedList
-    } from "carbon-components-svelte";
+    import {Button, Checkbox, Content, InlineNotification, ListItem, UnorderedList} from "carbon-components-svelte";
     import {PlayFilled} from "carbon-icons-svelte";
     import {redirect, setLocale, t} from "$lib";
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {onMount} from "svelte";
     import {page} from "$app/stores";
     import {animationStore, updateDisabilities} from "$lib/store/AnimationStore";
-    import {headerStore, closeAppTour} from "$lib/store/HeaderStore";
+    import {closeAppTour, headerStore} from "$lib/store/HeaderStore";
     import {driver} from "driver.js";
 
     let blind: boolean = false
@@ -36,6 +29,7 @@
             prevBtnText: $t("common.highlight.button.previous"),
             nextBtnText: $t("common.highlight.button.next"),
             doneBtnText: $t("common.highlight.button.done"),
+            allowClose: false,
             steps: [
                 {
                     element: '#hint',

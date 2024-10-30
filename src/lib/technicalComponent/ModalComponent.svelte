@@ -1,8 +1,7 @@
 <script lang="ts">
-    import {Modal,} from "carbon-components-svelte";
+    import {Modal} from "carbon-components-svelte";
     import {t} from "$lib";
     import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
-    import {onMount} from "svelte";
 
     export let opened = true;
     export let parentDoneAction: Function | undefined = undefined;
@@ -16,14 +15,7 @@
         }
     }
 
-    onMount(() => {
-        //FIXME manage getAccessibilityMode
-        // if ($accessibilityModeStore) {
-        //   onClose()
-        // }
-    })
 </script>
-<!--{#if !$accessibilityModeStore}-->
 <Modal id="currentModal" size="lg" preventCloseOnClickOutside passiveModal={!hasPrimaryButton} modalHeading={modalHeading}
        bind:open={opened}
        on:close={() => onClose()}
@@ -34,6 +26,3 @@
         <slot></slot>
     </div>
 </Modal>
-<!--{:else}-->
-<!--    <slot></slot>-->
-<!--{/if}-->

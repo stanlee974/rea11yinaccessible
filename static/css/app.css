@@ -162,3 +162,12 @@ button {
 #languageSelectContainer .bx--form-item, #soundOptionsContainer .bx--form-item {
 	justify-content: center;
 }
+
+.half {
+	width: 49%;
+}
+.number {
+	border: white 1px solid;
+	padding: 0.3em;
+}
+
