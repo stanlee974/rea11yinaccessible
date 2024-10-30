@@ -9,8 +9,9 @@ type Disabilities = {
 type animationModel = {
     disabilities: Disabilities,
     countdown: {
-        startTimestamp: Date
+        startTimestamp: number | undefined
         total: number
+        started: boolean
     }
 }
 
@@ -25,8 +26,9 @@ export const animationStore = persisted('animation', {
         epilepsy: false
     },
     countdown: {
-        startTimestamp: new Date(),
-        total: 3599999
+        startTimestamp: undefined,
+        total: 0,
+        started: false
     }
 } as animationModel, {
     storage: 'session', syncTabs: false
@@ -50,6 +52,31 @@ export const updateEpilepsy = (newEpilepsyValue: boolean) => {
             epilepsy: newEpilepsyValue
         }
     }))
+}
+
+export const initCountdown = () => {
+    animationStore.update((data) => ({
+        ...data, countdown: {
+            total: 3599999,
+            startTimestamp: new Date().getTime(),
+            started: true
+        }
+    }))
+}
+
+export const initExtraCountdown = () => {
+    animationStore.update((data) => ({
+        ...data, countdown: {
+            total: 1800000,
+            startTimestamp: new Date().getTime(),
+            started: true
+        }
+    }))
+}
+
+export const getCountdown = () => {
+    const countdown = get(animationStore).countdown
+    return (countdown.startTimestamp ?? 0) + countdown.total
 }
 
 export const getAccessibilityModeStoreQueryParam = () => {

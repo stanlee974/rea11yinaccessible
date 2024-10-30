@@ -9,18 +9,19 @@
     import {onMount} from "svelte";
     import LoadingComponent from "$lib/technicalComponent/LoadingComponent.svelte";
     import {locale, setLocale, Step, t} from "$lib";
-    import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
+    import {audioStore, changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {page} from "$app/stores";
     import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
     import Plyr from 'plyr';
-    import {getAccessibilityModeStoreQueryParam} from "$lib/store/AnimationStore";
-    import {audioStore} from "$lib/store/inMemoryStore/AudioStore";
+    import {getAccessibilityModeStoreQueryParam, initCountdown} from "$lib/store/AnimationStore";
     import {get} from "svelte/store";
     import {headerStore} from "$lib/store/HeaderStore";
+    import {driver} from "driver.js";
 
     let disableWriter = true
     let isWaiting = false
     let showButton = false
+    let showTour = false
     let showError = false
     let startButton = false
     let errorSound: HTMLAudioElement;
@@ -54,11 +55,26 @@
             }
         });
     })
-
+    const oxygenTour = driver({
+        popoverClass: "custom-theme",
+        showProgress: false,
+        allowClose: false,
+        showButtons: ["next"],
+        doneBtnText: $t("common.highlight.button.done"),
+        steps: [
+            {
+                element: '#oxygen',
+                popover: {title: $t("common.header.oxygen.title"), description: $t("common.highlight.oxygen")}
+            },
+        ],
+        onNextClick: (element) => {
+            showTour = true
+            initCountdown()
+            oxygenTour.destroy()
+        }
+    });
 </script>
 <style lang="css">
-    @import url(/css/glitch.css);
-
     #start-button-block {
         position: relative;
     }
@@ -82,6 +98,72 @@
         line-height: 1.25;
         letter-spacing: 0;
     }
+
+    :global(.driver-popover.custom-theme) {
+        background-color: #393939;
+        color: #FFFFFF;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-title) {
+        font-size: 20px;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-title),
+    :global(.driver-popover.custom-theme .driver-popover-description),
+    :global(.driver-popover.custom-theme .driver-popover-progress-text) {
+        color: #FFFFFF;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-description) {
+        font-size: 16px;
+    }
+
+    :global(.driver-popover.custom-theme button) {
+        flex: 1;
+        text-align: center;
+        background-color: #000 !important;
+        color: #ffffff;
+        border: 2px solid #000;
+        text-shadow: none;
+        font-size: 16px;
+        padding: 5px 8px;
+        border-radius: 6px;
+    }
+
+    :global(.driver-popover.custom-theme button:hover) {
+        background-color: #000;
+        color: #ffffff;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-navigation-btns) {
+        justify-content: space-between;
+        gap: 3px;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-close-btn),
+    :global(.driver-popover.custom-theme .driver-popover-close-btn:hover) {
+        color: #9b9b9b;
+        background-color: #393939;
+        border-color: #393939;
+        font-size: 2rem;
+
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-arrow-side-left.driver-popover-arrow) {
+        border-left-color: #393939;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-arrow-side-right.driver-popover-arrow) {
+        border-right-color: #393939;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-arrow-side-top.driver-popover-arrow) {
+        border-top-color: #393939;
+    }
+
+    :global(.driver-popover.custom-theme .driver-popover-arrow-side-bottom.driver-popover-arrow) {
+        border-bottom-color: #393939;
+    }
 </style>
 
 <div class="d-flex flex-column align-items-center mt-4">
@@ -90,32 +172,33 @@
         <div id="teaserPlayer" data-plyr-provider="youtube" data-plyr-embed-id="4EzZ4Na1rtk"></div>
     </div>
 </div>
-<ButtonComponent enabled={startButton} onclick={() => {disableWriter = false}}><span slot="content"
-                                                                                     class="d-flex flex-row align-items-center">{$t('waitingRoom.test.startButton')}
+<ButtonComponent enabled={startButton} onclick={() => {disableWriter = false; }}><span slot="content"
+                                                                                       class="d-flex flex-row align-items-center">{$t('waitingRoom.test.startButton')}
     <ContinueFilled class="ms-2"/></span></ButtonComponent>
 <Content id="scenario">
     <div class="container">
         <TypewriterComponent mode="scramble" disabled={disableWriter}>
             <h1>{$t('waitingRoom.welcome')}</h1>
         </TypewriterComponent>
-        <TypewriterComponent disabled={disableWriter} delay={3000} parentDoneAction={() => showButton = true}>
-            <div>
-                <div class="mb-4">
-                    <h2 class="mb-3">{$t('common.layout.title.scenario')}</h2>
-                    <p>{$t(`waitingRoom.scenario.row.1`)}</p>
-                    <p>{$t('waitingRoom.scenario.row.2')}</p>
-                    <p>{$t('waitingRoom.scenario.row.3')}</p>
-                </div>
-                <div class="mb-5">
-                    <h2 class="mb-3">{$t('common.layout.title.goal')}</h2>
-                    <p>{$t('waitingRoom.goal.row.1')}</p>
-                    <p>{$t('waitingRoom.goal.row.2')}</p>
-                    <p>{$t('waitingRoom.test.clickLink')} <a class="disabled-link"
-                                                             href="{base}/{$locale}/abri/entrance{getAccessibilityModeStoreQueryParam()}"
-                                                             on:click={() => loading()}>{$t('waitingRoom.test.here')}</a>
-                        {$t('waitingRoom.test.enter')}
-                    </p>
-                </div>
+        <TypewriterComponent disabled={disableWriter} waitReading continueButtonAction={() => {oxygenTour.drive()}}
+                             delay={3000} }>
+            <div class="mb-4">
+                <h2 class="mb-3">{$t('common.layout.title.scenario')}</h2>
+                <p>{$t(`waitingRoom.scenario.row.1`)}</p>
+                <p>{$t('waitingRoom.scenario.row.2')}</p>
+                <p>{$t('waitingRoom.scenario.row.3')}</p>
+            </div>
+        </TypewriterComponent>
+        <TypewriterComponent disabled={!showTour} parentDoneAction={() => showButton = true}>
+            <div class="mb-5">
+                <h2 class="mb-3">{$t('common.layout.title.goal')}</h2>
+                <p>{$t('waitingRoom.goal.row.1')}</p>
+                <p>{$t('waitingRoom.goal.row.2')}</p>
+                <p>{$t('waitingRoom.test.clickLink')} <a class="disabled-link"
+                                                         href="{base}/{$locale}/abri/entrance{getAccessibilityModeStoreQueryParam()}"
+                                                         on:click={() => loading()}>{$t('waitingRoom.test.here')}</a>
+                    {$t('waitingRoom.test.enter')}
+                </p>
             </div>
         </TypewriterComponent>
         <div id="start-button-block">
@@ -129,7 +212,7 @@
             {/if}
             {#if showError}
                 <div id="troll-block">
-                    <img src="{base}/troll.gif" alt="" aria-hidden={true}/>
+                    <img src="{base}/troll.gif" alt="" aria-hidden="true"/>
                     <ToastNotification
                             lowContrast
                             fullWidth

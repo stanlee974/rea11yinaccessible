@@ -26,14 +26,6 @@
 </script>
 
 <style lang="css">
-    .half {
-        width: 49%;
-    }
-
-    .number {
-        border: white 1px solid;
-        padding: 0.3em;
-    }
 
     @keyframes lights {
         0% {

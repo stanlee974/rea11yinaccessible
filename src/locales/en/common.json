@@ -44,7 +44,8 @@
     },
     "audio": "Turn the ambient music on or off. It must be activated manually before starting the escape game.",
     "hint": "If you are stuck, you have 2 hints available. If that's not enough, a third hint will be available and will give you the solution.",
-    "language": "Choosing the language will translate all content including responses and audio."
+    "language": "Choosing the language will translate all content including responses and audio.",
+    "oxygen": "Keep a close eye on the oxygen gauge... If it empties, the adventure ends."
   },
   "header": {
     "hint": {
@@ -126,5 +127,17 @@
     "sanctuary": "Cognitive impairments | Font, Zoom, Alignment",
     "final": "Epilogue",
     "summary": "Conclusion"
+  },
+  "gameOver": {
+    "modal": {
+      "1": {
+        "row": {
+          "1": "The sharp sound resonates in the air, signaling an alarming reality: there is no more oxygen. A dull panic settles in you, and you know that this is the end.",
+          "2": "As you desperately search for a solution, your hand slides into your pocket, and you feel a small oxygen tank. A breath of relief washes over you; this is your last chance. With determination, you decide to use it.",
+          "3": "You unscrew the cap and, after taking a deep breath, you begin to inhale this fresh, revitalizing air. It’s a crucial moment where every second counts, and you know that your survival depends on this decision."
+        }
+      }
+    }
   }
+
 }

@@ -20,10 +20,10 @@
     } from "carbon-components-svelte";
     import {base} from '$app/paths';
     import {onMount} from "svelte";
-    import {Idea, Cognitive, ViewOffFilled } from "carbon-icons-svelte";
+    import {Idea, Cognitive, ViewOffFilled} from "carbon-icons-svelte";
     import {changeLangRedirect, Step, t} from "$lib";
     import {hintLevelStore, increaseHintLevel, initHintLevelStore, resetLevelStore} from "$lib/store/HintLevelStore";
-    import {getCountdown, initCountdownStore, setCountdown} from "$lib/store/CountdownStore";
+    import {setCountdown} from "$lib/store/CountdownStore";
     import SoundEffectComponent from "$lib/technicalComponent/SoundEffectComponent.svelte";
     import {renderStore} from "$lib/store/inMemoryStore/RenderStore";
     import SongComponent from "$lib/technicalComponent/SongComponent.svelte";
@@ -32,7 +32,9 @@
     import {inject} from '@vercel/analytics'
     import {headerStore, updateSongVolume, updateSoundVolume} from "$lib/store/HeaderStore";
     import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
-    import { animationStore, updateBlind, updateEpilepsy} from "$lib/store/AnimationStore";
+    import {animationStore, updateBlind, updateEpilepsy, getCountdown} from "$lib/store/AnimationStore";
+    import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
+    import {initExtraCountdown} from "../../lib/store/AnimationStore";
 
     injectSpeedInsights()
     inject()
@@ -45,6 +47,7 @@
     let playHeartBeatFast: Function | undefined = undefined
 
     let isOpenHint: boolean = false
+    let isReborn: boolean = false
 
     let hints: { "1": string; "2": string, "3": string } = {"1": "", "2": "", "3": ""}
 
@@ -76,20 +79,40 @@
         hintLevelStore.subscribe((data) => {
             hintLevel = data
         })
-        time = initCountdownStore(COUNTDOWN_FROM)
-        storedTime = getCountdown();
-        if (storedTime && storedTime !== 0) {
-            remainingTime = storedTime ?? COUNTDOWN_FROM;
+        if ($animationStore.countdown.started) {
+            if (remainingTime > 0) {
+                oxygen = remainingTime / $animationStore.countdown.total * 100
+            } else {
+                oxygen = 0
+            }
         } else {
-            remainingTime = COUNTDOWN_FROM;
+            oxygen = 100
         }
-        time.subscribe((value: string) => {
-            setCountdown(Number(value));
-            oxygen = Number(value) * 100 / COUNTDOWN_FROM
-            style = `width: ${oxygen}%;color: black;`
-        });
-        animationRef = requestAnimationFrame(animate)
-
+        style = `width: ${oxygen}%;color: black;`
+        animationStore.subscribe((data) => {
+            if (data.countdown.started) {
+                const refreshOxygen = setInterval(() => {
+                    let background = "#74ccf4"
+                    remainingTime = getCountdown() - new Date().getTime()
+                    oxygen = remainingTime / $animationStore.countdown.total * 100
+                    if (remainingTime <= 0) {
+                        oxygen = 0
+                        if (isReborn) {
+                            clearInterval(refreshOxygen)
+                        } else {
+                            isReborn = true
+                        }
+                    }
+                    if (remainingTime <= 1800000) {
+                        background = "#f4a261"
+                    }
+                    if (remainingTime <= 600000) {
+                        background = "#e76f51"
+                    }
+                    style = `width: ${oxygen}%;color: black; background: ${background}`
+                }, 5000)
+            }
+        })
     })
 
     const getHint = (step: string) => {
@@ -164,12 +187,8 @@
     let animationRef: any;
     let latestStartTime: any;
 
-    const COUNTDOWN_FROM = 3599999;
-
-    let storedTime: number | null;
     let remainingTime: number | null;
 
-    let time: any;
     const animate = (timestamp: any) => {
         if (!latestStartTime) {
             latestStartTime = timestamp + remainingTime;
@@ -213,6 +232,8 @@
         left: 0;
         height: 100%;
         background: #74ccf4;
+        color: black;
+        width: 100%;
     }
 
     .gauge__tick {
@@ -305,12 +326,12 @@
         </Row>
         <div id="languageSelectContainer" class="d-flex flex-row justify-content-end">
             <Select
-                id="language"
-                inline
-                labelText={$t('common.header.language')}
-                bind:selected={selectedLanguageIndex}
-                on:change={(e) => changeLangRedirect($page.route.id, e?.target?.value)}
-                size="sm"
+                    id="language"
+                    inline
+                    labelText={$t('common.header.language')}
+                    bind:selected={selectedLanguageIndex}
+                    on:change={(e) => changeLangRedirect($page.route.id, e?.target?.value)}
+                    size="sm"
             >
                 <SelectItem value='fr' text='Français'/>
                 <SelectItem value='en' text='English'/>
@@ -348,7 +369,8 @@
                             on:input={(value) => {updateSoundVolume(value.detail)}}
                     />
                 </div>
-                <div class="gauge" aria-label={$t('common.header.oxygen.remaining', {oxygen: oxygen.toFixed(0)})}>
+                <div id="oxygen" class="gauge"
+                     aria-label={$t('common.header.oxygen.remaining', {oxygen: oxygen.toFixed(0)})}>
                     <div aria-hidden="true">
                         <div class="gauge__progress" {style}>{$t('common.header.oxygen.title')}</div>
                         <div class="gauge__tick" style="left: 0%;">
@@ -387,24 +409,24 @@
 
                 <div>
                     <Button id="disabilityEpilepsy"
-                        iconDescription={$t('intro.disability.epilepsy')}
-                        icon={Cognitive}
-                        isSelected={$animationStore.disabilities.epilepsy}
-                        kind="ghost"
-                        on:click={() => updateEpilepsy(!$animationStore.disabilities.epilepsy)}
+                            iconDescription={$t('intro.disability.epilepsy')}
+                            icon={Cognitive}
+                            isSelected={$animationStore.disabilities.epilepsy}
+                            kind="ghost"
+                            on:click={() => updateEpilepsy(!$animationStore.disabilities.epilepsy)}
                     />
                     <Button id="disabilityBlind"
-                        iconDescription={$t('intro.disability.blind')}
-                        icon={ViewOffFilled}
-                        isSelected={$animationStore.disabilities.blind}
-                        kind="ghost"
-                        on:click={() => updateBlind(!$animationStore.disabilities.blind)}
+                            iconDescription={$t('intro.disability.blind')}
+                            icon={ViewOffFilled}
+                            isSelected={$animationStore.disabilities.blind}
+                            kind="ghost"
+                            on:click={() => updateBlind(!$animationStore.disabilities.blind)}
                     />
                     <Button id="hint"
-                        iconDescription={$t("common.header.hint.tooltip")}
-                        icon={Idea}
-                        kind="ghost"
-                        on:click={() => isOpenHint = true}
+                            iconDescription={$t("common.header.hint.tooltip")}
+                            icon={Idea}
+                            kind="ghost"
+                            on:click={() => isOpenHint = true}
                     />
                 </div>
                 <Modal size="lg"
@@ -448,4 +470,48 @@
 {/if}
 <SoundEffectComponent src="{base}/sound/heart_beat.mp3" postPlay={playHeartBeat}/>
 <SoundEffectComponent src="{base}/sound/heart_beat_fast.mp3" postPlay={playHeartBeatFast}/>
+<ModalComponent
+        opened="{isReborn}"
+        parentDoneAction={() => {initExtraCountdown()}}>
+    <div>
+        <div class="d-flex flew-row align-items-center">
+            <div class="half">
+                <div>
+                    <ImageLoader
+                            src="{base}/gameOver/hopeless.jpg"
+                            alt="" fadeIn={true}/>
+                </div>
+            </div>
+            <div class="half m-3">
+                <span class="number">1</span>
+                <p class="mt-4">{$t('common.gameOver.modal.1.row.1')}</p>
+            </div>
+        </div>
+        <div class="d-flex flew-row align-items-center">
+
+            <div class="half m-3">
+                <span class="number">2</span>
+                <p class="mt-4">{$t('common.gameOver.modal.1.row.2')}</p>
+            </div>
+            <div class="half">
+                <ImageLoader
+                        src="{base}/gameOver/finish.jpg"
+                        alt="" fadeIn={true}/>
+            </div>
+        </div>
+        <div class="d-flex flew-row align-items-center">
+            <div class="half m-3">
+                <div>
+                    <ImageLoader
+                            src="{base}/gameOver/smell.jpg"
+                            alt="" fadeIn={true}/>
+                </div>
+            </div>
+            <div class="half m-3">
+                <span class="number">3</span>
+                <p class="mt-4">{$t('common.gameOver.modal.1.row.3')}</p>
+            </div>
+        </div>
+    </div>
+</ModalComponent>
 <slot id="main-content"/>

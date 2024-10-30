@@ -6,8 +6,7 @@
   import ButtonComponent from "$lib/technicalComponent/ButtonComponent.svelte";
   import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
   import {t} from "$lib";
-  import {headerStore} from "../store/HeaderStore";
-  import {animationStore, DISABILITY_NAME} from "../store/AnimationStore";
+  import {animationStore} from "../store/AnimationStore";
 
   export let disabled = false;
   export let mode: string = "cascade"
