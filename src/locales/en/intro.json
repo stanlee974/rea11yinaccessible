@@ -33,7 +33,9 @@
     }
   },
   "disability": {
-    "title": "Do you have any disabilities that require an adaptation of your experience?"
+    "title": "Do you have any disabilities that require an adaptation of your experience?",
+    "blind": "Take into account a visual impairment (e.g. remove unnecessary visual animation)”,",
+    "epilepsy": "Limit the risk of epilepsy (for example, limiting or adapting lighting effects, such as bright flashes and color changes)"
   },
   "button": {
     "start": "Start the game"

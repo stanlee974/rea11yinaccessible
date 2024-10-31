@@ -54,5 +54,5 @@
 </script>
 
 <Button id="song" iconDescription={$t('common.header.audio')} tooltipAlignment="start" kind="ghost"
-        icon={displayPlayButton ? PlayFilledAlt : PauseFilled}
-        on:click={() => toggle(displayPlayButton)} aria-pressed={displayPlayButton ? "false" : "true"}></Button>
+        icon={displayPlayButton ? PlayFilledAlt : PauseFilled} class="me-4"
+        on:click={() => toggle(displayPlayButton)} isSelected={!displayPlayButton}></Button>

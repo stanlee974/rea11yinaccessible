@@ -53,7 +53,7 @@
     }
 
     const showOverlay = () => {
-        if (!$animationStore.disabilities.includes(DISABILITY_NAME.EPILEPSY)) {
+        if (!$animationStore.disabilities.epilepsy) {
             if (content) {
                 content.innerHTML = `<img src="${getDisturbedImage()}" alt="">`;
             }

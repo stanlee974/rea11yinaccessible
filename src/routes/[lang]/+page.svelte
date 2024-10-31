@@ -2,10 +2,10 @@
     import "carbon-components-svelte/css/g90.css";
     import {
         Button,
+        Checkbox,
         Content,
         InlineNotification,
         ListItem,
-        SelectableTile,
         UnorderedList
     } from "carbon-components-svelte";
     import {PlayFilled} from "carbon-icons-svelte";
@@ -13,12 +13,12 @@
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {onMount} from "svelte";
     import {page} from "$app/stores";
-    import {updateBlind, updateEpilepsy} from "$lib/store/AnimationStore";
+    import {animationStore, updateDisabilities} from "$lib/store/AnimationStore";
+    import {headerStore, closeAppTour} from "$lib/store/HeaderStore";
     import {driver} from "driver.js";
-    import {animationStore, DISABILITY_NAME} from "../../lib/store/AnimationStore";
 
-    let blind = null
-    let epilepsy = null
+    let blind: boolean = false
+    let epilepsy: boolean = false
 
     onMount(() => {
         setLocale($page.params.lang)
@@ -26,8 +26,10 @@
         document.title = $t('common.step.intro') + " | really inaccessible"
         document.body.scrollIntoView()
         changeSource("/ost/intro.mp3")
-        blind = $animationStore.disabilities.includes(DISABILITY_NAME.BLIND)
-        epilepsy = $animationStore.disabilities.includes(DISABILITY_NAME.EPILEPSY)
+        animationStore.subscribe(({disabilities}) => {
+            blind = disabilities.blind
+            epilepsy = disabilities.epilepsy
+        });
         const driverObj = driver({
             popoverClass: "custom-theme",
             showProgress: false,
@@ -36,27 +38,37 @@
             doneBtnText: $t("common.highlight.button.done"),
             steps: [
                 {
-                    element: '#song',
-                    popover: {title: $t("common.header.audio"), description: $t("common.highlight.audio")}
-                },
-                {
                     element: '#hint',
                     popover: {title: $t("common.header.hint.tooltip"), description: $t("common.highlight.hint")}
+                },
+                {
+                    element: '#song',
+                    popover: {title: $t("common.header.audio"), description: $t("common.highlight.audio")}
                 },
                 {
                     element: '#language',
                     popover: {title: $t('common.header.language'), description: $t("common.highlight.language")}
                 },
                 {
-                    element: '#accessibility',
+                    element: '#disabilityBlind',
                     popover: {
-                        title: $t('common.header.accessibility.title'),
-                        description: $t("common.highlight.accessibility")
+                        title: $t('common.header.customization'),
+                        description: $t("intro.disability.blind")
+                    }
+                },
+                {
+                    element: '#disabilityEpilepsy',
+                    popover: {
+                        title: $t('common.header.customization'),
+                        description: $t("intro.disability.epilepsy")
                     }
                 }
-            ]
+            ],
+            onDestroyed : () => {
+                closeAppTour();
+            }
         });
-        if (!$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)) {
+        if (!$animationStore.disabilities.blind && !$headerStore.appTourIsDone) {
             driverObj.drive();
         }
     })
@@ -174,21 +186,28 @@
                 </div>
             </InlineNotification>
             <p>{$t('intro.disability.title')}</p>
-            <div role="group" class="d-flex">
+            <div role="group">
                 <div class="mx-3 my-2">
-                    <SelectableTile bind:selected={epilepsy}
-                                    on:click={() => updateEpilepsy(!epilepsy)}>{$t('common.header.accessibility.epilepsy')} </SelectableTile>
+                    <Checkbox bind:checked={epilepsy}
+                              labelText={$t('intro.disability.epilepsy')}
+                              value="true" />
                 </div>
                 <div class="mx-3 my-2">
-                    <SelectableTile bind:selected={blind}
-                                    on:click={() => updateBlind(!blind)}>{$t('common.header.accessibility.blind')}</SelectableTile>
+                    <Checkbox bind:checked={blind}
+                              labelText={$t('intro.disability.blind')}
+                              value="true" />
                 </div>
             </div>
         </div>
         <div class="d-flex flex-row justify-content-center p-3">
             <Button kind="primary" icon="{PlayFilled}"
                     on:click={() => {
+                updateDisabilities({
+                    blind,
+                    epilepsy
+                })
                 redirect($page.params.lang, "waitingroom")
             }}>{$t('intro.button.start')}</Button>
         </div>
+    </div>
 </Content>

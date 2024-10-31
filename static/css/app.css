@@ -32,7 +32,7 @@ body p, body li:not(.bx--tabs__nav-item, .bx--tabs__nav-link), .bx--modal-footer
 	position: relative !important;
 }
 
-.bx--inline-notification__details * {
+.bx--inline-notification__details *, .bx--checkbox-label-text {
 	font-size: 1.2rem !important;
 }
 
@@ -142,9 +142,23 @@ button {
 	background-color: rgb(22,22,22);
 	position: sticky;
 	top: 8.5rem;
-	position: flex;
+	display: flex;
 	flex-direction: row;
 	padding-bottom: 0.5rem;
 	padding-left:1rem;
-	padding-right: 1rem
+	padding-right: 1rem;
+	width: 100vw;
+}
+
+#menu {
+	position: sticky;
+	top: 3rem;
+	display: flex;
+	flex-direction: row;
+	z-index: 2000;
+	width: 100vw;
+}
+
+#languageSelectContainer .bx--form-item, #soundOptionsContainer .bx--form-item {
+	justify-content: center;
 }

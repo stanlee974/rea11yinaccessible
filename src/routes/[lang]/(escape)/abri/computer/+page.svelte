@@ -83,7 +83,7 @@
     }
 
     const readLabel = (event: any) => {
-        if (!$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)) {
+        if (!$animationStore.disabilities.blind) {
             const target = event.target;
             if (target.getAttribute("id") === 'lastName') {
                 console.log("nom")

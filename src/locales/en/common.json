@@ -44,17 +44,9 @@
     },
     "audio": "Turn the ambient music on or off. It must be activated manually before starting the escape game.",
     "hint": "If you are stuck, you have 2 hints available. If that's not enough, a third hint will be available and will give you the solution.",
-    "language": "Choosing the language will translate all content including responses and audio.",
-    "accessibility": "The accessibility mode allows disabling animations that may cause difficulties related to certain disabilities."
-
+    "language": "Choosing the language will translate all content including responses and audio."
   },
   "header": {
-    "accessibility": {
-      "title": "Accessibility Mode",
-      "placeholder": "Select your disabilities",
-      "epilepsy": "Epilepsy",
-      "blind": "Blind"
-    },
     "hint": {
       "message": {
         "title": "Hint #",
@@ -118,7 +110,8 @@
     "oxygen": {
       "title": "Oxygen",
       "remaining": "{{oxygen}}% oxygen remaining"
-    }
+    },
+    "customization": "Adaptación"
   },
   "step": {
     "intro": "Introduction",

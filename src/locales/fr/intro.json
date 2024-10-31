@@ -33,7 +33,9 @@
     }
   },
   "disability": {
-    "title": "As-tu des handicaps nécessitant une adaptation de ton expérience ?"
+    "title": "Souhaites-tu inclure des adaptations spécifiques pour :",
+    "blind": "Prendre en compte une déficience visuelle (par exemple, suppression d'animation visuelles inutiles)",
+    "epilepsy": "Limiter les risques d'épilepsie (par exemple, limitation ou adaptation des effets lumineux, comme les clignotements et changements de couleurs vifs)"
   },
   "button": {
     "start": "Débuter la partie"
