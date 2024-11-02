@@ -22,7 +22,7 @@
     import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {page} from "$app/stores";
-    import {animationStore, DISABILITY_NAME} from "$lib/store/AnimationStore";
+    import {animationStore} from "$lib/store/AnimationStore";
 
     onMount(() => {
         changeSource("/ost/step2.mp3")

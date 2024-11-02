@@ -10,7 +10,7 @@
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {redirect, Step, t} from "$lib";
     import {page} from "$app/stores";
-    import {animationStore, DISABILITY_NAME} from "../../../../../lib/store/AnimationStore";
+    import {animationStore} from "$lib/store/AnimationStore";
 
     let showScenario = true;
     let showEnigm = false;

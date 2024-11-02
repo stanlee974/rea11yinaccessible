@@ -1,6 +1,6 @@
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
-    import {Button, Column, Grid, ImageLoader, Row, Slider, ToastNotification, Content} from "carbon-components-svelte";
+    import {Button, Column, Content, Grid, ImageLoader, Row, Slider, ToastNotification} from "carbon-components-svelte";
     import {base} from '$app/paths';
     import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
     import ModalComponent from "$lib/technicalComponent/ModalComponent.svelte";
@@ -10,7 +10,7 @@
     import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
     import {changeSource} from "$lib/store/inMemoryStore/AudioStore";
     import {page} from "$app/stores";
-    import {animationStore, DISABILITY_NAME} from "$lib/store/AnimationStore";
+    import {animationStore} from "$lib/store/AnimationStore";
 
     onMount(() => {
         changeSource("/ost/step1.mp3")
