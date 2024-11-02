@@ -111,7 +111,7 @@
       "title": "Oxígeno",
       "remaining": "{{oxygen}}% oxígeno restante"
     },
-    "customization": "Customization"
+    "customization": "Adaptación" 
   },
   "step": {
     "intro": "Introducción",
