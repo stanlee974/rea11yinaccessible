@@ -35,7 +35,7 @@
   const doneAction = () => {
     isWriting = false
     hasNotStartedWriting = false
-    if (!$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)) {
+    if (!$animationStore.disabilities.blind) {
       keyboardSound.pause()
     }
     if (parentDoneAction !== undefined) {
@@ -44,7 +44,7 @@
   }
   
   $: if (!disabled) {
-    if ($animationStore.disabilities.includes(DISABILITY_NAME.BLIND)) {
+    if ($animationStore.disabilities.blind) {
       setTimeout(() => {
         window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"})
         doneAction()
@@ -62,7 +62,7 @@
     keyboardSound.volume = 0.3
     
     interval = setInterval(() => {
-      if (!$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)) {
+      if (!$animationStore.disabilities.blind) {
         if (!disabled && hasNotStartedWriting) {
           isWriting = true;
           keyboardSound.play()
@@ -76,7 +76,7 @@
 </script>
 
 <div style="text-indent: -9999px;" aria-hidden={true}> bind:this={keyboardSound}</div>
-{#if (!$animationStore.disabilities.includes(DISABILITY_NAME.BLIND))}
+{#if (!$animationStore.disabilities.blind)}
   <Typewriter
       mode={mode}
       disabled={disabled}

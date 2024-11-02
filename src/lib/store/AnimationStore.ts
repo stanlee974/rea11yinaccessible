@@ -1,8 +1,13 @@
 import {get} from "svelte/store";
 import {persisted} from 'svelte-persisted-store'
 
+type Disabilities = {
+    blind: boolean,
+    epilepsy: boolean
+}
+
 type animationModel = {
-    disabilities: DISABILITY_NAME[],
+    disabilities: Disabilities,
     countdown: {
         startTimestamp: Date
         total: number
@@ -13,8 +18,12 @@ export enum DISABILITY_NAME {
     BLIND = "blind",
     EPILEPSY = "epilepsy"
 }
+
 export const animationStore = persisted('animation', {
-    disabilities: [],
+    disabilities: {
+        blind: false,
+        epilepsy: false
+    },
     countdown: {
         startTimestamp: new Date(),
         total: 3599999
@@ -23,29 +32,34 @@ export const animationStore = persisted('animation', {
     storage: 'session', syncTabs: false
 })
 
-export const updateBlind = (checked: boolean) => {
-    updateDisabilities(DISABILITY_NAME.BLIND, checked)
+export const updateBlind = (newBlindValue: boolean) => {
+    animationStore.update((data) => ({
+        ...data,
+        disabilities: {
+            ...data.disabilities,
+            blind: newBlindValue
+        }
+    }))
 }
 
-export const updateEpilepsy = (checked: boolean) => {
-    updateDisabilities(DISABILITY_NAME.EPILEPSY, checked)
+export const updateEpilepsy = (newEpilepsyValue: boolean) => {
+    animationStore.update((data) => ({
+        ...data,
+        disabilities: {
+            ...data.disabilities,
+            epilepsy: newEpilepsyValue
+        }
+    }))
 }
 
 export const getAccessibilityModeStoreQueryParam = () => {
-    return get(animationStore).disabilities.includes(DISABILITY_NAME.BLIND) ? '?isA11yMode=true' : '';
+    return get(animationStore).disabilities.blind ? '?isA11yMode=true' : '';
 }
 
-const updateDisabilities = (id: DISABILITY_NAME, checked: boolean) => {
-    if (animationStore) {
-        let animationData = get(animationStore).disabilities
-        if (checked) {
-            if (!animationData.includes(id)) {
-                animationData.push(id)
-            }
-        } else {
-            animationData = animationData.filter((element) => element !== id)
-        }
-        animationStore.update((data) => ({...data, disabilities: animationData}))
-    }
+export const updateDisabilities = (newDisabilitiesValue: Disabilities) => {
+    animationStore.update((data) => ({
+        ...data,
+        disabilities: newDisabilitiesValue
+    }))
 }
 

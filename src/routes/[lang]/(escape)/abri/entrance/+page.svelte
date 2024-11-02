@@ -107,8 +107,8 @@
                         value={contrast}
                         step={1}
                         style="align-items: normal; margin-right: 2em"
-                        aria-hidden={$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)}
-                        disabled={$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)}
+                        aria-hidden={$animationStore.disabilities.blind}
+                        disabled={$animationStore.disabilities.blind}
                         on:input={(value) => {{contrast = value.detail}}}
                 />
                 <Column sm style="display: flex; flex-direction: column; text-align: center;">
@@ -153,8 +153,8 @@
                         maxLabel="100"
                         value={brightness}
                         step={1}
-                        aria-hidden={$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)}
-                        disabled={$animationStore.disabilities.includes(DISABILITY_NAME.BLIND)}
+                        aria-hidden={$animationStore.disabilities.blind}
+                        disabled={$animationStore.disabilities.blind}
                         style="align-items: normal; margin-left: 2rem"
                         on:input={(value) => {{brightness = value.detail}}}
                 />

@@ -33,7 +33,9 @@
     }
   },
   "disability": {
-    "title": "¿Tienes alguna discapacidad que requiera una adaptación de tu experiencia?"
+    "title": "¿Tienes alguna discapacidad que requiera una adaptación de tu experiencia?",
+    "blind": "Tener en cuenta una deficiencia visual (por ejemplo, suprimir animaciones visuales innecesarias)",
+    "epilepsy": "Limitar el riesgo de epilepsia (por ejemplo, limitando o adaptando los efectos de iluminación, como las luces intermitentes y los cambios bruscos de color)"
   },
   "button": {
     "start": "Comenzar el juego"
