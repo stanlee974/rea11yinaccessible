@@ -5,6 +5,7 @@
     import {setLocale, Step, t} from "$lib";
     import {onMount} from "svelte";
     import {page} from "$app/stores";
+    import {animationStore} from "$lib/store/AnimationStore";
 
     let currentStep = 0
     let steps: string[] = []
@@ -74,6 +75,12 @@
 
 <style lang="css">
     @import url(/css/neon.css);
+
+    .erase-effect :global(> main) {
+        -webkit-mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) var(--percent));
+        mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) var(--percent));
+    }
+
 </style>
 
 {#if $renderStore.title !== $t('common.step.outro')}
@@ -92,15 +99,20 @@
         {/each}
     </ProgressIndicator>
 {/if}
-<Content style="{$renderStore.step === Step.SURFACE_LABORATORY_SANCTUARY ? 'display: flex; flex-direction: column; align-items: start;' : ''}">
-    <div style="{$renderStore.step !== Step.SURFACE_LABORATORY_SANCTUARY ? 'display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;': ''}">
-        <Typewriter mode="scramble">
-            <div class="container">
-                <h1 style="display: flex; flex-direction: column"><span class="neon">{$renderStore.neon}</span> <span
-                        class="flux">{$renderStore.flux}</span></h1>
-            </div>
-        </Typewriter>
-    </div>
-    <br aria-hidden="true"/>
-    <slot />
-</Content>
+    <Content
+            style="{$renderStore.step === Step.SURFACE_LABORATORY_SANCTUARY ? 'display: flex; flex-direction: column; align-items: start;' : ''}">
+
+        <div style="{$renderStore.step !== Step.SURFACE_LABORATORY_SANCTUARY ? 'display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;': ''}">
+            <Typewriter mode="scramble">
+                <div class="container">
+                    <h1 style="display: flex; flex-direction: column"><span class="neon">{$renderStore.neon}</span>
+                        <span
+                                class="flux">{$renderStore.flux}</span></h1>
+                </div>
+            </Typewriter>
+        </div>
+        <br aria-hidden="true"/>
+        <div class="erase-effect" style="--percent: {$animationStore.disabilities.blind ? null : $animationStore.mask + '%'}">
+        <slot/>
+        </div>
+    </Content>

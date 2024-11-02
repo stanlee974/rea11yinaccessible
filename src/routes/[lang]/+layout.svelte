@@ -45,6 +45,7 @@
     let selectedLanguageIndex = $page.params.lang
     let playHeartBeat: Function | undefined = undefined
     let playHeartBeatFast: Function | undefined = undefined
+    let playWeakness: Function | undefined = undefined
 
     let isOpenHint: boolean = false
     let isReborn: boolean = false
@@ -55,6 +56,9 @@
     let oxygen: number = 100
     let style = ""
     let currentStep: string = $renderStore.step
+
+    let blindnessEffect: boolean = false
+
     onMount(() => {
         window.scrollTo(0, 0);
         document.title = $t('common.step.intro') + " | really inaccessible"
@@ -92,6 +96,9 @@
         animationStore.subscribe((data) => {
             if (data.countdown.started) {
                 const refreshOxygen = setInterval(() => {
+                    if (blindnessEffect) {
+                        blindnessEffect = false
+                    }
                     let background = "#74ccf4"
                     remainingTime = getCountdown() - new Date().getTime()
                     oxygen = remainingTime / $animationStore.countdown.total * 100
@@ -103,11 +110,32 @@
                             isReborn = true
                         }
                     }
+                    if (remainingTime <= 3200000 && remainingTime >= 3198999 ) {
+                        blindnessEffect = true
+                        playWeakness = () => { playWeakness = undefined}
+                    }
+                    if (remainingTime <= 2400000 && remainingTime >= 2398999) {
+                        blindnessEffect = true
+                        playWeakness = () => { playWeakness = undefined}
+                    }
                     if (remainingTime <= 1800000) {
                         background = "#f4a261"
+                        if (remainingTime >= 1798999) {
+                            blindnessEffect = true
+                            playWeakness = () => { playWeakness = undefined}
+
+                        }
+                    }
+                    if (remainingTime <= 1200000 && remainingTime >= 1198999) {
+                        blindnessEffect = true
+                        playWeakness = () => { playWeakness = undefined}
                     }
                     if (remainingTime <= 600000) {
                         background = "#e76f51"
+                        if (remainingTime >= 598999) {
+                            blindnessEffect = true
+                            playWeakness = () => { playWeakness = undefined}
+                        }
                     }
                     style = `width: ${oxygen}%;color: black; background: ${background}`
                 }, 5000)
@@ -273,6 +301,29 @@
 
     :global(.bx--checkbox-label-text) {
         display: block;
+    }
+
+    .asphyxia {
+        animation: blindnessEffect 1s ease-in-out;
+    }
+
+    @keyframes blindnessEffect {
+        0% {
+            -webkit-mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 0%);
+            mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 0%);
+        }
+        30% {
+            -webkit-mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 30%);
+            mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 30%);
+        }
+        50% {
+            -webkit-mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70%);
+            mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+        100% {
+            -webkit-mask-image: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%);
+            mask-image: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%);
+        }
     }
 
 </style>
@@ -470,10 +521,11 @@
 {/if}
 <SoundEffectComponent src="{base}/sound/heart_beat.mp3" postPlay={playHeartBeat}/>
 <SoundEffectComponent src="{base}/sound/heart_beat_fast.mp3" postPlay={playHeartBeatFast}/>
+<SoundEffectComponent src="{base}/sound/weakness.mp3" postPlay={playWeakness}/>
 <ModalComponent
         opened="{isReborn}"
         parentDoneAction={() => {initExtraCountdown()}}>
-    <div>
+    <div class="{!isReborn && !$animationStore.disabilities.epilepsy && !$animationStore.disabilities.blind && blindnessEffect ? 'asphyxia' : ''}">
         <div class="d-flex flew-row align-items-center">
             <div class="half">
                 <div>
@@ -514,4 +566,6 @@
         </div>
     </div>
 </ModalComponent>
+<div class="{ !isReborn && !$animationStore.disabilities.epilepsy && !$animationStore.disabilities.blind && blindnessEffect ? 'asphyxia' : ''}">
 <slot id="main-content"/>
+</div>
