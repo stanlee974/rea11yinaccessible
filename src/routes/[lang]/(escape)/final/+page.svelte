@@ -12,12 +12,14 @@
     import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
     import ButtonComponent from "$lib/technicalComponent/ButtonComponent.svelte";
     import {redirect} from "$lib";
-    import {adjustVolume, audioStore} from "../../../../lib/store/inMemoryStore/AudioStore";
+    import {adjustVolume} from "$lib/store/inMemoryStore/AudioStore";
+    import {getElapsedTime} from "$lib/store/AnimationStore";
 
     let showTransitionModal = true;
     let showTrapModal = false;
     let showScenario = true;
     let goToSummary = false;
+    const elapsedTime = getElapsedTime()
 
     onMount(() => {
         changeSource("/ost/stress.mp3")
@@ -185,7 +187,7 @@
 
     <div>
         <div class="container mb-5">
-            <span class="fin">{$t('outro.buttons.end')}</span>
+            <span class="fin">{$t('outro.buttons.end')} {elapsedTime}</span>
         </div>
         <ButtonComponent onclick={() => {
             adjustVolume(0);
