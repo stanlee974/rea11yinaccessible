@@ -80,6 +80,15 @@ export const getCountdown = () => {
     return (countdown.startTimestampReborn ?? countdown.startTimestamp ?? 0) + countdown.total
 }
 
+export const getElapsedTime = () => {
+    const countdown = get(animationStore).countdown
+    const diff = new Date().getTime() - (countdown.startTimestampReborn ?? countdown.startTimestamp ?? 0)
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    return `${hours}h:${minutes}m:${seconds}s`
+}
+
 export const getAccessibilityModeStoreQueryParam = () => {
     return get(animationStore).disabilities.blind ? '?isA11yMode=true' : '';
 }
