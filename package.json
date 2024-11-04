@@ -33,7 +33,7 @@
 		"@sveltejs/kit": "2.5.16",
 		"@sveltejs/vite-plugin-svelte": "3.1.1",
 		"carbon-components-svelte": "0.85.0",
-		"carbon-icons-svelte": "^12.10.0",
+		"carbon-icons-svelte": "^12.13.0",
 		"dyslexia": "1.0.1",
 		"plyr": "3.7.8",
 		"svelte": "4.2.19",
