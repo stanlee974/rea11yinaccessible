@@ -46,7 +46,7 @@
     }
 </style>
 <Content class="container">
-    <h1 class="mb-3">{$t('outro.conclusion.title')}</h1>
+    <h1 class="mt-5 mb-3">{$t('outro.conclusion.title')}</h1>
     <p class="mb-5">{$t("outro.conclusion.row.1")}</p>
     <Tile class="mb-3">
         <p>{$t("outro.conclusion.row.2_1")} <a href={getUsageUrl($page.params.lang)}
