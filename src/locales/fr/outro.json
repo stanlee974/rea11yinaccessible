@@ -99,7 +99,7 @@
               "1": {
                 "above": "Utiliser une solution qui permet de vérifier les données accessibles, comme :",
                 "label": "UUV",
-                "link": "https://orange-opensource.github.io/uuv/"
+                "link": "https://e2e-test-quest.github.io/uuv/"
               }
             },
             "advice": "Utiliser des descriptions alternatives pour les images et autres élements porteur d'informations. On doit respecter les standards ARIA (Accessible Rich Internet Applications). On doit structurer les pages avec des titres et des en-têtes pour faciliter la navigation. On doit concevoir des formulaires accessibles. On doit proposer des alternatives textuelles pour les contenus multimédias. On peut tester avec des lecteurs d'écran"
@@ -152,7 +152,7 @@
               "1": {
                 "above": "S'assurer que toutes les fonctionnalités sont accessibles via le clavier et que l'ordre de tabulation est logique, comme avec :",
                 "label": "UUV - navigation au clavier",
-                "link": "https://orange-opensource.github.io/uuv/docs/wordings/generated-wording-description/fr-generated-wording-description/#je-commence-une-navigation-au-clavier-depuis-le-haut-de-la-page"
+                "link": "https://e2e-test-quest.github.io/uuv/docs/wordings/generated-wording-description/fr-generated-wording-description/#je-commence-une-navigation-au-clavier-depuis-le-haut-de-la-page"
               }
             },
             "advice": "S'assurer que les boutons, les liens et les champs de formulaire sont suffisamment grands et espacés pour être facilement accessibles, réduire le nombre de mouvements nécessaires pour accomplir une tâche et éviter les actions complexes comme les glisser-déposer."

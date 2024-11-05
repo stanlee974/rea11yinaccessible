@@ -363,8 +363,8 @@
                     <HeaderNavItem href="https://accessibilite.numerique.gouv.fr/W3C" text="RGAA" target="_blank"/>
                 </HeaderNavMenu>
                 <HeaderNavMenu text={$t('common.layout.menu.uuv.title')}>
-                    <HeaderNavItem href="https://github.com/Orange-OpenSource/uuv" text="Github" target="_blank"/>
-                    <HeaderNavItem href="https://orange-opensource.github.io/uuv/" text="Documentation"
+                    <HeaderNavItem href="https://e2e-test-quest.github.io/uuv" text="Github" target="_blank"/>
+                    <HeaderNavItem href="https://e2e-test-quest.github.io/uuv/" text="Documentation"
                                    target="_blank"/>
                     <HeaderNavItem href="https://github.com/e2e-test-quest/kata-e2e-uuv"
                                    text={$t('common.layout.menu.uuv.kata')}

@@ -99,7 +99,7 @@
               "1": {
                 "above": "Use a solution that verifies accessible data, such as:",
                 "label": "UUV",
-                "link": "https://orange-opensource.github.io/uuv/"
+                "link": "https://e2e-test-quest.github.io/uuv/"
               }
             },
             "advice": "Use alternative descriptions for images and other information-bearing elements. Follow ARIA (Accessible Rich Internet Applications) standards. Structure pages with titles and headers to facilitate navigation. Design accessible forms. Provide text alternatives for multimedia content. Test with screen readers."
@@ -152,7 +152,7 @@
               "1": {
                 "above": "Ensure all features are accessible via the keyboard and that the tab order is logical, as with:",
                 "label": "UUV - Keyboard Navigation",
-                "link": "https://orange-opensource.github.io/uuv/docs/wordings/generated-wording-description/fr-generated-wording-description/#je-commence-une-navigation-au-clavier-depuis-le-haut-de-la-page"
+                "link": "https://e2e-test-quest.github.io/uuv/docs/wordings/generated-wording-description/fr-generated-wording-description/#je-commence-une-navigation-au-clavier-depuis-le-haut-de-la-page"
               }
             },
             "advice": "Ensure that buttons, links, and form fields are large enough and spaced out for easy access. Reduce the number of movements needed to complete a task and avoid complex actions like drag-and-drop."
