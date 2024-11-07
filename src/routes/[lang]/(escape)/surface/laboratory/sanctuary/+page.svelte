@@ -76,9 +76,9 @@
         </Row>
     </Grid>
 </ModalComponent>
-<Typewriter disabled={showScenario} mode="cascade"
-            on:done={() => setTimeout(() => showContinueButton = true, 2000)}>
-    <div style="display: flex; flex-direction: column; align-items: start">
+<div class="d-flex flex">
+    <Typewriter disabled={showScenario} mode="cascade"
+                on:done={() => setTimeout(() => showContinueButton = true, 2000)}>
         <div class="container mt-4 mb-5">
             <h2 class="mb-2">{$t('common.layout.title.scenario')}</h2>
             <p>{$t('sanctuary.scenario.row.1')}</p>
@@ -89,8 +89,8 @@
             <p>{$t('sanctuary.scenario.row.6')}</p>
             <p>{$t('sanctuary.scenario.row.7')}</p>
         </div>
-    </div>
-</Typewriter>
+    </Typewriter>
+</div>
 {#if showContinueButton}
     <Button kind="primary"
             style="padding-right: 2.5rem; padding-left: 2.5rem;"
@@ -131,15 +131,15 @@
         </div>
     </div>
 </ModalComponent>
-<Typewriter mode="cascade" disabled={disableGoal} on:done={() => setTimeout(() => showForm = true, 2000)}>
-    <div>
+<div class="d-flex flex">
+    <Typewriter mode="cascade" disabled={disableGoal} on:done={() => setTimeout(() => showForm = true, 2000)}>
         <div class="container mb-4">
             <h2 class="mb-2">{$t('common.layout.title.goal')}</h2>
             <p>{$t('sanctuary.goal.row.1')}</p>
             <p>{$t('sanctuary.goal.row.2')}.</p>
         </div>
-    </div>
-</Typewriter>
+    </Typewriter>
+</div>
 {#if showForm}
     <FluidForm style="width: 5000px; height: 5000px">
         <div style="width: 5000px; position: absolute; left: 2500px; top: 3400px; font-size: 300rem">
