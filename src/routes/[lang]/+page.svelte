@@ -137,7 +137,7 @@
 </style>
 <Content id="scenario">
     <div class="container">
-        <h1 lang="en" class="mb-4">{$t('intro.welcome')}</h1>
+        <h1 lang="en" class="my-4">{$t('intro.welcome')}</h1>
         <div class="mb-4">
             <h2 class="mb-1">{$t('intro.context.title')}</h2>
             <p>{$t('intro.context.welcome')}</p>
