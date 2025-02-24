@@ -36,7 +36,7 @@
 		"carbon-icons-svelte": "^12.13.0",
 		"dyslexia": "1.0.1",
 		"plyr": "3.7.8",
-		"svelte": "4.2.19",
+		"svelte": "5.20.4",
 		"svelte-check": "4.0.5",
 		"svelte-typewriter": "3.2.3",
 		"sveltekit-i18n": "2.4.2",
