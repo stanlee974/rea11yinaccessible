@@ -14,7 +14,7 @@ export const enum Step {
     ABRI_COMPUTER = "shelterComputerRoom",
     ABRI_SEARCHCENTER = "shelterSearchCenterRoom",
     SURFACE_ENTRANCE = "surfaceEntrance",
-    SURFACE_LABORATORY = "surfaceLaboratoryEntrance",
+    SURFACE_LABORATORY = "surfaceLaboratory",
     SURFACE_LABORATORY_AUDIOVISUALROOM = "audiovisualRoom",
     SURFACE_LABORATORY_SANCTUARY = "sanctuary",
     OUTRO = "outro",

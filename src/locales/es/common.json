@@ -31,7 +31,7 @@
       "shelterComputerRoom": "Sala de Control",
       "shelterSearchCenterRoom": "Sala de Puzzles",
       "surfaceEntrance": "Entrada del Laboratorio",
-      "surfaceLaboratoryEntrance": "El Laboratorio",
+      "surfaceLaboratory": "El Laboratorio",
       "audiovisualRoom": "Sala Audiovisual",
       "sanctuary": "El Santuario"
     }
@@ -82,7 +82,7 @@
           "2": "Las personas con discapacidad son más eficientes en este mundo.",
           "3": "Haz clic en el título 'Panel de control' y presiona la tecla 'tabulación' dos veces para seleccionar la cruz y luego presiona 'enter'."
         },
-        "surfaceLaboratoryEntrance": {
+        "surfaceLaboratory": {
           "1": "Haz zoom en la parte inferior izquierda, verás algo interesante. La transposición está en otra parte del mapa.",
           "2": "La transcripción en la parte inferior derecha representa las teclas de tu teclado en español.",
           "3": "Escribe la contraseña: tremors. Ten cuidado, debes presionar la misma tecla varias veces hasta que aparezca la letra correcta."
@@ -112,7 +112,7 @@
       "title": "Oxígeno",
       "remaining": "{{oxygen}}% oxígeno restante"
     },
-    "customization": "Adaptación" 
+    "customization": "Adaptación"
   },
   "step": {
     "intro": "Introducción",
@@ -122,7 +122,7 @@
     "shelterComputerRoom": "Problemas visuales | Ceguera",
     "shelterSearchCenterRoom": "Problemas cognitivos | Imágenes intrusivas",
     "surfaceEntrance": "Problemas motores | Temblores en el ratón",
-    "surfaceLaboratoryEntrance": "Problemas motores | Temblores en el teclado",
+    "surfaceLaboratory": "Problemas motores | Temblores en el teclado",
     "audiovisualRoom": "Problemas auditivos | Sordera",
     "sanctuary": "Problemas cognitivos | Fuente, Zoom, Alineación",
     "final": "Epílogo",

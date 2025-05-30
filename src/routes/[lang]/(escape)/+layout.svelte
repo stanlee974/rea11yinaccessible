@@ -18,7 +18,7 @@
             $t('common.layout.progressRoom.shelterMedicalRoom'),
             $t('common.layout.progressRoom.shelterSearchCenterRoom'),
             $t('common.layout.progressRoom.surfaceEntrance'),
-            $t('common.layout.progressRoom.surfaceLaboratoryEntrance'),
+            $t('common.layout.progressRoom.surfaceLaboratory'),
             $t('common.layout.progressRoom.audiovisualRoom'),
             $t('common.layout.progressRoom.sanctuary')
         ]
@@ -66,7 +66,7 @@
             $t('common.layout.progressRoom.shelterMedicalRoom'),
             $t('common.layout.progressRoom.shelterSearchCenterRoom'),
             $t('common.layout.progressRoom.surfaceEntrance'),
-            $t('common.layout.progressRoom.surfaceLaboratoryEntrance'),
+            $t('common.layout.progressRoom.surfaceLaboratory'),
             $t('common.layout.progressRoom.audiovisualRoom'),
             $t('common.layout.progressRoom.sanctuary')
         ]

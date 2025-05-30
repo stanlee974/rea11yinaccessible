@@ -31,7 +31,7 @@
       "shelterComputerRoom": "Salle de contrôle",
       "shelterSearchCenterRoom": "Salle des énigmes",
       "surfaceEntrance": "Entrée du laboratoire",
-      "surfaceLaboratoryEntrance": "Le laboratoire",
+      "surfaceLaboratory": "Le laboratoire",
       "audiovisualRoom": "Salle audiovisuelle",
       "sanctuary": "Le sanctuaire"
     }
@@ -82,7 +82,7 @@
           "2": "Les personnes avec un handicap sont plus performant dans ce monde",
           "3": "Clique sur le titre 'Tableau de contrôle' et clique 2 fois sur la touche 'tabulation' pour sélectionner la croix et click sur la touche 'entrée'"
         },
-        "surfaceLaboratoryEntrance": {
+        "surfaceLaboratory": {
           "1": "Zoome en bas à gauche, tu verras quelque chose d'intéressant. La transposition est ailleurs sur la carte",
           "2": "La transcription en bas à droite représente les touches de ton clavier français",
           "3": "tape le mot de passe : tremors. Attention, il faut que tu appuies plusieurs fois sur la même touche jusqu'à ce que la bonne lettre s'affiche"
@@ -122,7 +122,7 @@
     "shelterComputerRoom": "Troubles visuels | Aveugle",
     "shelterSearchCenterRoom": "Troubles cognitifs | Images intrusives",
     "surfaceEntrance": "Troubles moteurs | Tremblement souris",
-    "surfaceLaboratoryEntrance": "Troubles moteurs | Tremblement clavier",
+    "surfaceLaboratory": "Troubles moteurs | Tremblement clavier",
     "audiovisualRoom": "Troubles auditifs | Surdité",
     "sanctuary": "Troubles cognitifs | Police, Zoom, Alignement",
     "outro": "Epilogue",

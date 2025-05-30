@@ -31,7 +31,7 @@
       "shelterComputerRoom": "Control Room",
       "shelterSearchCenterRoom": "Puzzle Room",
       "surfaceEntrance": "Laboratory Entrance",
-      "surfaceLaboratoryEntrance": "The Laboratory",
+      "surfaceLaboratory": "The Laboratory",
       "audiovisualRoom": "Audio-Visual Room",
       "sanctuary": "The Sanctuary"
     }
@@ -82,7 +82,7 @@
           "2": "People with disabilities are more efficient in this world.",
           "3": "Click on the 'Control Panel' title and press the 'tab' key twice to select the cross, then click the 'enter' key."
         },
-        "surfaceLaboratoryEntrance": {
+        "surfaceLaboratory": {
           "1": "Zoom in on the bottom left, you'll see something interesting. The transcription is elsewhere on the map.",
           "2": "The transcription in the bottom right represents the keys on your Spanish keyboard.",
           "3": "Type the password: tremors. Be careful, you need to press the same key several times until the correct letter appears."
@@ -122,7 +122,7 @@
     "shelterComputerRoom": "Visual impairments | Blindness",
     "shelterSearchCenterRoom": "Cognitive impairments | Intrusive images",
     "surfaceEntrance": "Motor impairments | Mouse tremor",
-    "surfaceLaboratoryEntrance": "Motor impairments | Keyboard tremor",
+    "surfaceLaboratory": "Motor impairments | Keyboard tremor",
     "audiovisualRoom": "Hearing impairments | Deafness",
     "sanctuary": "Cognitive impairments | Font, Zoom, Alignment",
     "final": "Epilogue",

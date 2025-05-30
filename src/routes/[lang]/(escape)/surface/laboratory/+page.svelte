@@ -12,7 +12,7 @@
 
     onMount(() => {
         changeSource("/ost/step7.mp3")
-        renderStore.set(new RenderData($t('common.step.surfaceLaboratoryEntrance'), $t('surfaceLaboratory.neon.title'), $t('surfaceLaboratory.neon.subtitle'), Step.SURFACE_LABORATORY));
+        renderStore.set(new RenderData($t('common.step.surfaceLaboratory'), $t('surfaceLaboratory.neon.title'), $t('surfaceLaboratory.neon.subtitle'), Step.SURFACE_LABORATORY));
     })
 
     let showTransitionModal = true;
