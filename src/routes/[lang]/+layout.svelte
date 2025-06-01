@@ -145,20 +145,62 @@
 
     const getHint = (step: string) => {
         switch (step) {
+            case Step.FIRST_PLACE:
+                return {
+                    "1": $t(`common.header.hint.message.${Step.FIRST_PLACE}`)[0],
+                    "2": $t(`common.header.hint.message.${Step.FIRST_PLACE}`)[1],
+                    "3": $t(`common.header.hint.message.${Step.FIRST_PLACE}`)[2]
+                }
+            case Step.SECOND_PLACE:
+                return {
+                    "1": $t(`common.header.hint.message.${Step.SECOND_PLACE}`)[0],
+                    "2": $t(`common.header.hint.message.${Step.SECOND_PLACE}`)[1],
+                    "3": $t(`common.header.hint.message.${Step.SECOND_PLACE}`)[2]
+                }
+            case Step.THIRD_PLACE:
+                return {
+                    "1": $t(`common.header.hint.message.${Step.THIRD_PLACE}`)[0],
+                    "2": $t(`common.header.hint.message.${Step.THIRD_PLACE}`)[1],
+                    "3": $t(`common.header.hint.message.${Step.THIRD_PLACE}`)[2]
+                }
+            case Step.FOURTH_PLACE:
+                return {
+                    "1": $t(`common.header.hint.message.${Step.FOURTH_PLACE}`)[0],
+                    "2": $t(`common.header.hint.message.${Step.FOURTH_PLACE}`)[1],
+                    "3": $t(`common.header.hint.message.${Step.FOURTH_PLACE}`)[2]
+                }
+            case Step.FIFTH_PLACE:
+                return {
+                    "1": $t(`common.header.hint.message.${Step.FIFTH_PLACE}`)[0],
+                    "2": $t(`common.header.hint.message.${Step.FIFTH_PLACE}`)[1],
+                    "3": $t(`common.header.hint.message.${Step.FIFTH_PLACE}`)[2]
+                }
+            case Step.SIXTH_PLACE:
+                return {
+                    "1": $t(`common.header.hint.message.${Step.SIXTH_PLACE}`)[0],
+                    "2": $t(`common.header.hint.message.${Step.SIXTH_PLACE}`)[1],
+                    "3": $t(`common.header.hint.message.${Step.SIXTH_PLACE}`)[2]
+                }
+            case Step.SEVENTH_PLACE:
+                return {
+                    "1": $t(`common.header.hint.message.${Step.SEVENTH_PLACE}`)[0],
+                    "2": $t(`common.header.hint.message.${Step.SEVENTH_PLACE}`)[1],
+                    "3": $t(`common.header.hint.message.${Step.SEVENTH_PLACE}`)[2]
+                }
+            case Step.EIGHTH_PLACE:
+                return {
+                    "1": $t(`common.header.hint.message.${Step.EIGHTH_PLACE}`)[0],
+                    "2": $t(`common.header.hint.message.${Step.EIGHTH_PLACE}`)[1],
+                    "3": $t(`common.header.hint.message.${Step.EIGHTH_PLACE}`)[2]
+                }
+
+                //FIXME delete
             case Step.WAITING_ROOM:
                 return {
                     "1": $t(`common.header.hint.message.${Step.WAITING_ROOM}.1`),
                     "2": $t(`common.header.hint.message.${Step.WAITING_ROOM}.2`),
                     "3": $t(`common.header.hint.message.${Step.WAITING_ROOM}.3`)
                 }
-
-            case Step.ABRI_ENTRANCE:
-                return {
-                    "1": $t(`common.header.hint.message.${Step.ABRI_ENTRANCE}.1`),
-                    "2": $t(`common.header.hint.message.${Step.ABRI_ENTRANCE}.2`),
-                    "3": $t(`common.header.hint.message.${Step.ABRI_ENTRANCE}.3`)
-                }
-
             case Step.ABRI_COMPUTER:
                 return {
                     "1": $t(`common.header.hint.message.${Step.ABRI_COMPUTER}.1`),
@@ -530,24 +572,24 @@
             <div class="half">
                 <div>
                     <ImageLoader
-                            src="{base}/gameOver/hopeless.jpg"
+                            src="{base}/gameOver/eldoria/cloche.png"
                             alt="" fadeIn={true}/>
                 </div>
             </div>
             <div class="half m-3">
                 <span class="number">1</span>
-                <p class="mt-4">{$t('common.gameOver.modal.1.row.1')}</p>
+                <p class="mt-4">{$t('common.gameOver.modal.1.row')[0]}</p>
             </div>
         </div>
         <div class="d-flex flew-row align-items-center">
 
             <div class="half m-3">
                 <span class="number">2</span>
-                <p class="mt-4">{$t('common.gameOver.modal.1.row.2')}</p>
+                <p class="mt-4">{$t('common.gameOver.modal.1.row')[1]}</p>
             </div>
             <div class="half">
                 <ImageLoader
-                        src="{base}/gameOver/finish.jpg"
+                        src="{base}/gameOver/eldoria/cloche2.png"
                         alt="" fadeIn={true}/>
             </div>
         </div>
@@ -555,13 +597,14 @@
             <div class="half m-3">
                 <div>
                     <ImageLoader
-                            src="{base}/gameOver/smell.jpg"
+                            src="{base}/gameOver/eldoria/eldoria.png"
                             alt="" fadeIn={true}/>
                 </div>
             </div>
             <div class="half m-3">
                 <span class="number">3</span>
-                <p class="mt-4">{$t('common.gameOver.modal.1.row.3')}</p>
+                <p class="mt-4">{$t('common.gameOver.modal.1.row')[2]}</p>
+                <p class="mt-4">{$t('common.gameOver.modal.1.row')[3]}</p>
             </div>
         </div>
     </div>

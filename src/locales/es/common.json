@@ -26,7 +26,7 @@
       "goal": "Objetivo"
     },
     "progressRoom": {
-      "shelterEntrance": "Sala de Alteraciones",
+      "firstPlace": "Sala de Alteraciones",
       "shelterMedicalRoom": "Sala Médica",
       "shelterComputerRoom": "Sala de Control",
       "shelterSearchCenterRoom": "Sala de Puzzles",
@@ -45,7 +45,7 @@
     "audio": "Activa o desactiva la música ambiental. Debe ser activada manualmente antes de comenzar el juego de escape.",
     "hint": "Si estás atascado(a), tienes 2 pistas disponibles. Si no es suficiente, habrá una tercera pista disponible que te dará la solución.",
     "language": "Elegir el idioma traducirá todo el contenido, incluidas las respuestas y los audios.",
-    "oxygen": "Vigila bien la barra de oxígeno... Si se vacía, la aventura termina."
+    "oxygen": "Vigila bien la barra de oxígeno… Si se vacía, la aventura termina."
   },
   "header": {
     "hint": {
@@ -62,7 +62,7 @@
           "2": "La duodécima palabra desde el principio, sin contar la coma. Reemplazar d por b.",
           "3": "La palabra es byslexia."
         },
-        "shelterEntrance": {
+        "firstPlace": {
           "1": "La nota en la mesa puede ayudarte a encontrar la combinación, si no quieres probar todas las combinaciones. Usa el contraste y el brillo.",
           "2": "Ajusta el contraste a 74 y el brillo a 100.",
           "3": "El orden correcto es el cuarto, el tercero, el primero y el segundo."
@@ -117,7 +117,7 @@
   "step": {
     "intro": "Introducción",
     "waitingRoom": "Apertura",
-    "shelterEntrance": "Problemas visuales | Daltonismo",
+    "firstPlace": "Problemas visuales | Daltonismo",
     "shelterMedicalRoom": "Problemas cognitivos | Dislexia",
     "shelterComputerRoom": "Problemas visuales | Ceguera",
     "shelterSearchCenterRoom": "Problemas cognitivos | Imágenes intrusivas",

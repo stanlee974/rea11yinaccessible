@@ -26,7 +26,7 @@
       "goal": "Objective"
     },
     "progressRoom": {
-      "shelterEntrance": "Alterations Room",
+      "firstPlace": "Alterations Room",
       "shelterMedicalRoom": "Medical Room",
       "shelterComputerRoom": "Control Room",
       "shelterSearchCenterRoom": "Puzzle Room",
@@ -45,7 +45,7 @@
     "audio": "Turn the ambient music on or off. It must be activated manually before starting the escape game.",
     "hint": "If you are stuck, you have 2 hints available. If that's not enough, a third hint will be available and will give you the solution.",
     "language": "Choosing the language will translate all content including responses and audio.",
-    "oxygen": "Keep a close eye on the oxygen gauge... If it empties, the adventure ends."
+    "oxygen": "Keep a close eye on the oxygen gauge… If it empties, the adventure ends."
   },
   "header": {
     "hint": {
@@ -62,7 +62,7 @@
           "2": "The twelfth word from the beginning, not counting the comma. Replace 'd' with 'b'.",
           "3": "The word is byslexia."
         },
-        "shelterEntrance": {
+        "firstPlace": {
           "1": "The note on the table can help you find the combination if you don't want to try all combinations. Use contrast and brightness.",
           "2": "Set the contrast to 74 and brightness to 100.",
           "3": "The correct order is fourth, third, first, and second."
@@ -117,7 +117,7 @@
   "step": {
     "intro": "Introduction",
     "waitingRoom": "Opening",
-    "shelterEntrance": "Visual impairments | Color blindness",
+    "firstPlace": "Visual impairments | Color blindness",
     "shelterMedicalRoom": "Cognitive impairments | Dyslexia",
     "shelterComputerRoom": "Visual impairments | Blindness",
     "shelterSearchCenterRoom": "Cognitive impairments | Intrusive images",

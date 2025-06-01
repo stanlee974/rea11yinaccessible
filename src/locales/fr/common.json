@@ -26,6 +26,14 @@
       "goal": "Objectif"
     },
     "progressRoom": {
+      "firstPlace": "Forêt murmurante",
+      "secondPlace": "Pont des Mots Perdus",
+      "thirdPlace": "Archives Sombres",
+      "fourthPlace": "Murmure des Ombres",
+      "fifthPlace": "Fil de l’Invisible",
+      "sixthPlace": "Labyrinthe Glacial",
+      "seventhPlace": "Sanctuaire Échos",
+      "eighthPlace": "Archive Fracturée",
       "shelterEntrance": "Salle des altérations",
       "shelterMedicalRoom": "Salle médicale",
       "shelterComputerRoom": "Salle de contrôle",
@@ -45,7 +53,7 @@
     "audio": "Active ou désactive la musique ambiante. A activer manuellement avant de commencer l'escape game.",
     "hint": "Si tu es bloqué(e), tu disposes de 2 indices. Si ce n'est pas suffisant, un 3ème indice sera disponible et te donnera la solution.",
     "language": "Le choix de la langue va traduire tout le contenu y compris les réponses et les audios.",
-    "oxygen": "Surveille bien la jauge d'oxygène... Si elle est vide, l’aventure prendra fin."
+    "oxygen": "La Jauge d’Harmonie représente les dernières traces de compréhension magique entre les peuples d’Eldoria. Elle commence à 100%, mais diminue inexorablement à mesure que le mal progresse et que la Cloche reste brisée."
   },
   "header": {
     "hint": {
@@ -66,6 +74,48 @@
           "1": "La note sur la table peut t'aider à trouver la combinaison, si tu ne veux pas tester toutes les combinaisons. Utilise le contraste et la luminosité",
           "2": "Positionne le contraste à 74 et la luminosité à 100",
           "3": "Le bon ordre est le quatrième, le troisième, le premier et le deuxième"
+        },
+        "eldoria": {
+          "firstPlace": [
+            "L’or de l’aurore, le baiser d’un bouton, le chant de la mousse, le souffle du feu mourant (→ Jaune, Rose, Vert, Orange). Utilise le contraste et la luminosité pour les identifier",
+            "Positionne le contraste à 74 et la luminosité à 100",
+            "Le bon ordre est le quatrième, le troisième, le premier et le deuxième"
+          ],
+          "secondPlace": [
+            "Consulte les 4 notes sans exception, elles te seront utiles. Augmente le volume des sons, tu pourras entendre des choses",
+            "Ouvre les notes, clique sur Poursuivre et Tabule 2 fois pour commencer",
+            "Lorsque tu entends la zone de saisie, tape l'information correspondante et appuie sur tabulation. Fait de même pour les autres et lorsque tu entendras Soumettre, appuie sur la touche entrée"
+          ],
+          "thirdPlace": [
+            "Concentre toi sur les 2 dernières phrases avec les lettres qui bougent. Aide-toi des douze mots pour trouver le mot clé",
+            "Echo est un mot de référence. Utilise la dernière phrase pour en déduire le bon mot clé à partir du mot Echo.",
+            "Le mot est ombre"
+          ],
+          "fourthPlace": [
+            "Enigme 1 : Ce n’est pas juste le calme, mais un vide sonore annonçant un changement imminent, Enigme 2 : Cette faille discrète est le premier signe d’un déséquilibre qui pourrait tout faire basculer, Enigme 3 : Ce phénomène précède toujours le tremblement, un murmure corporel avant le chaos. L’or de l’aurore, le baiser d’un bouton, le chant de la mousse, le souffle du feu mourant (→ Jaune, Rose, Vert, Orange). Utilise le contraste et la luminosité pour les identifier",
+            "Enigme 1 : Ce calme profond précède souvent la tempête ou le moindre bruit, Enigme 2 : Elle court silencieusement dans la pierre, marquant une faiblesse dangereuse, Enigme 3 : Le son profond, presque imperceptible, semble résonner dans ton corps avant que la pierre ne bouge",
+            "Enigme 1 : C’est l’absence de tout son, le calme total autour de toi, Enigme 2 : C’est une fine ligne, parfois à peine visible, qui peut briser ce qui semblait solide, Enigme 3 : Tu sens une vibration légère dans l’air ou sous tes pieds, comme un souffle invisible"
+          ],
+          "fifthPlace": [
+            "Lorsque tu bouges la souris, ça tremblera moins que si tu restes sur place",
+            "Les personnes aveugle sont plus performants à cet épreuve",
+            "Clique sur le titre 'Alcôve' et clique 2 fois sur la touche 'tabulation' pour sélectionner la croix et click sur la touche 'entrée'"
+          ],
+          "sixthPlace": [
+            "Regarde en bas à gauche, tu verras quelque chose d'intéressant. La transposition est ailleurs sur la carte",
+            "La transcription en bas à droite représente les lettres de l'alphabet dans l'ordre",
+            "tape le mot de passe : tremblement. Attention, pour aller plus vite, il faut que tu appuies plusieurs fois sur la même touche jusqu'à trouver la bonne lettre."
+          ],
+          "seventhPlace": [
+            "En écoutant une bande son entièrement, tu activeras automatiquement une autre bande son avec un volume plus élevée",
+            "Augmente au maximum le son de ton ordinateur ou ta tablette",
+            "le mot de passe: résilience"
+          ],
+          "eighthPlace": [
+            "La page est très grande, n'hésite pas à dézoomer et à scroller pour trouver les libellés et les champs de saisies. Les réponses aux 2 champs sont dans le texte",
+            "Utiliser la touche 'Tabulation' peut s'avérer utile pour être assez proche des champs de saisies",
+            "Le seul élément capable d’unir plusieurs voix en une seule harmonie ? : Accord, Tu ne le vois pas, mais tu le sens. Il donne vie aux voix, rythme les gestes, unit les corps ? Souffle. Le bouton valider est à gauche de la page"
+          ]
         },
         "shelterSearchCenterRoom": {
           "1": "Enigme 1 : Chut !, Enigme 2 : Certains mots ont plusieurs sens, Enigme 3 : la différence peut être minime",
@@ -109,8 +159,8 @@
     "audio": "Musique de fond",
     "language": "Langue",
     "oxygen": {
-      "title": "Oxygène",
-      "remaining": "{{oxygen}}% d'oxygène restant"
+      "title": "Harmonie️",
+      "remaining": "{{oxygen}}% d'harmonie restant"
     },
     "customization": "Adaptation"
   },
@@ -126,17 +176,28 @@
     "audiovisualRoom": "Troubles auditifs | Surdité",
     "sanctuary": "Troubles cognitifs | Police, Zoom, Alignement",
     "outro": "Epilogue",
-    "summary": "Conclusion"
-  },
-  "gameOver": {
-    "modal": {
-      "1": {
-        "row": {
-          "1": "Le son aigu résonne dans l'air, signalant une alarmante réalité : il n'y a plus d'oxygène. Une panique sourde s'installe en toi, et tu sais que c'est la fin.",
-          "2": "Alors que tu cherches désespérément une solution, ta main glisse dans ta poche, et tu sens une petite bonbonne d'oxygène. Un souffle de soulagement te traverse ; c'est ta dernière chance. Avec détermination, tu décides de l'utiliser.",
-          "3": "Tu dévisses le capuchon et, après avoir pris une profonde inspiration, tu commences à inhaler cet air frais et revitalisant. C’est un moment crucial où chaque seconde compte, et tu sais que ta survie dépend de cette décision."
+    "summary": "Conclusion",
+    "eldoria": {
+      "firstPlace": "Troubles visuels | Daltonisme",
+      "secondPlace": "Troubles cognitifs | Dyslexie",
+      "thirdPlace": "Troubles visuels | Aveugle",
+      "fourthPlace": "Troubles cognitifs | Images intrusives",
+      "fifthPlace": "Troubles moteurs | Tremblement souris",
+      "sixthPlace": "Troubles moteurs | Tremblement clavier",
+      "seventhPlace": "Troubles auditifs | Surdité",
+      "eighthPlace": "Troubles cognitifs | Police, Zoom, Alignement"
+    }
+    },
+    "gameOver": {
+      "modal": {
+        "1": {
+          "row": [
+            "Le dernier éclat d’harmonie s’éteint. La Cloche des Mille Voix demeure muette, et avec elle, le lien entre les peuples se brise à jamais.",
+            "Un silence profond tombe sur Eldoria — non pas celui de la paix, mais celui de l’oubli. Tu es arrivé trop tard.",
+            "Alors que l’Harmonie s’éteint autour de toi, un souffle familier s’élève dans ton coeur — un souvenir, une promesse, une force que tu pensais perdue.",
+            "Ce dernier éclat de lumière vient de toi. Si tu trouves en toi le courage de continuer, peut-être l’écho des voix pourra-t-il résonner encore..."
+          ]
         }
       }
     }
   }
-}

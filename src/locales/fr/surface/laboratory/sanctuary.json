@@ -2,7 +2,7 @@
   "before": {
     "row": {
       "1": "La borne électronique émet un bip satisfaisant alors qu'une carte magnétique s'éjecte de son compartiment.",
-      "2": "Tu la saisis rapidement, mais ton triomphe est de courte durée. Des bruits de pas lourds et pressés se font entendre dans le couloir adjacent, se rapprochant dangereusement. Le cœur battant, tu réalises que les traqueurs ne sont plus très loin.",
+      "2": "Tu la saisis rapidement, mais ton triomphe est de courte durée. Des bruits de pas lourds et pressés se font entendre dans le couloir adjacent, se rapprochant dangereusement. Le coeur battant, tu réalises que les traqueurs ne sont plus très loin.",
       "3": "Sans perdre un instant, tu rebrousses chemin, courant silencieusement mais précipitamment vers la dernière aile disponible du refuge."
     }
   },
@@ -44,19 +44,19 @@
   "test": {
     "response": {
       "1": {
-        "firstName": "^Payet$",
-        "lastName": "^Rodrigue$"
+        "question1": "^Payet$",
+        "question2": "^Rodrigue$"
       },
       "2": {
-        "firstName": "^Tchoungui$",
-        "lastName": "^Diva$"
+        "question1": "^Tchoungui$",
+        "question2": "^Diva$"
       }
     },
     "buttons": {
-      "lastName": {
+      "question2": {
         "text": "Nom du biologiste"
       },
-      "firstName": {
+      "question1": {
         "text": "prénom du biologiste"
       },
       "submit": {

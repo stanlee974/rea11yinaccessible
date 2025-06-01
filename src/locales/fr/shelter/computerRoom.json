@@ -42,13 +42,13 @@
   "test": {
     "form": {
       "title": "Consulter les notes",
-      "lastName" : {
+      "question2": {
         "ariaLabel": "Nom de l'inventeur",
         "text": "Nom de l'inventeur",
         "placeholder": "Entrer un nom...",
         "error": "le nom est invalide"
       },
-      "firstName" : {
+      "question1": {
         "ariaLabel": "Prénom de l'inventeur",
         "text": "Prénom de l'inventeur",
         "placeholder": "Entrer un prénom...",

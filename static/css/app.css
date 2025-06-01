@@ -122,13 +122,14 @@ button {
 }
 
 .quote {
-	padding: 2.5rem;
-	line-height: 1.80rem;
+	padding: 3.5rem;
+	line-height: 3.5rem;
 	font-weight: bolder;
+	font-size: 2rem;
 	color: black;
 	width: 600px;
 	min-height: 150px;
-	font-family: 'Gaelle203Font', sans-serif;
+	font-family: 'Harjimed', sans-serif;
 	background: url(/old-paper-banner.png);
 	background-repeat: no-repeat;
   	background-size: cover;

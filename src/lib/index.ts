@@ -8,8 +8,16 @@ import {getAccessibilityModeStoreQueryParam} from "$lib/store/AnimationStore";
 export {t, locales, setLocale, locale}
 
 export const enum Step {
+    FIRST_PLACE = "eldoria.firstPlace",
+    SECOND_PLACE = "eldoria.secondPlace",
+    THIRD_PLACE = "eldoria.thirdPlace",
+    FOURTH_PLACE = "eldoria.fourthPlace",
+    FIFTH_PLACE = "eldoria.fifthPlace",
+    SIXTH_PLACE = "eldoria.sixthPlace",
+    SEVENTH_PLACE = "eldoria.seventhPlace",
+    EIGHTH_PLACE = "eldoria.eighthPlace",
+    NINTH_PLACE = "eldoria.ninthPlace",
     WAITING_ROOM = "waitingRoom",
-    ABRI_ENTRANCE = "shelterEntrance",
     ABRI_MEDICAL = "shelterMedicalRoom",
     ABRI_COMPUTER = "shelterComputerRoom",
     ABRI_SEARCHCENTER = "shelterSearchCenterRoom",

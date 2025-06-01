@@ -1,0 +1,74 @@
+{
+  "before": {
+    "row": [
+      "La dernière voix s’éteint dans un souffle. Tu as écouté avec patience, traversé le vacarme et le vide, et reconnu la force qu’on nomme résilience.",
+      "Mais une seule voix ne suffit pas.",
+      "Pour réveiller la Cloche des Mille Voix, il faut rassembler les échos éparpillés. Non plus les entendre… mais les retrouver."
+    ]
+  },
+  "neon": {
+    "title": "La tour des Échos silencieux",
+    "subtitle": "L’Archive Fracturée"
+  },
+  "scenario": {
+    "row": [
+      "Une antique machine s’ouvre devant toi. Une page immense, démesurée, s’étire dans toutes les directions.",
+      "Un tissu de mémoire étalé sur une toile sans bord.",
+      "Ce n’est pas un livre, mais une archive vivante, où chaque mot est un souffle ancien.",
+      "Deux vérités sont cachées là, disséminées dans ce dédale d’encre : des mots clés, oubliés, essentiels au rituel final.",
+      "Ils ne brillent pas. Ils ne t’appellent pas.",
+      "Mais ils t’attendent."
+
+    ],
+    "button": {
+      "continue": {
+        "text": "Continuer"
+      }
+    },
+    "modal": {
+      "1": {
+        "row": [
+          "Deux entailles creusées dans la pierre. Devant elles, une lumière vacille, comme si elle attendait d’être nommée.",
+          "Tu avances ta main. La page glisse sous tes doigts. Elle résiste à peine, comme si elle voulait que tu explores.",
+          "Fais défiler vers le haut, vers le bas, vers les côtés. Cherche dans les recoins. Agrandis, réduis. Perds-toi, recentre-toi. La vérité ne sera pas donnée. Elle doit être découverte, lentement, patiemment, comme un souvenir enfoui."
+        ]
+      }
+    }
+  },
+  "goal": {
+    "row": [
+      "Deux mots. Deux éclats de mémoire. Retrouve-les. Saisis-les. Et le rituel final pourra commencer.",
+      "Depuis la fracture de la Cloche, les voix ne s’accordent plus. Le monde parle sans s’entendre. ",
+      "Les mots se heurtent, se superposent, résonnent sans jamais former une mélodie. On a oublié comment écouter ensemble. ",
+      "Jadis, les anciens gravaient les sons dans la pierre. Ils disaient que chaque voix avait sa place, comme une note dans une grande harmonie.",
+      "Une seule voix, même forte, ne suffit pas à faire vibrer la Cloche. Il faut l’équilibre. La justesse. Il faut un accord.",
+      "Le Rituel exige plus que des mots : il demande une présence, un rythme, une respiration commune.",
+      "On dit que l’esprit du monde se réveille dans la respiration de ceux qui l’écoutent. Pas un cri. Pas un silence. Juste un souffle partagé.",
+      "Là où se rencontrent la parole, le geste et le silence, là naît la voix oubliée. Deux clés sont nécessaires pour la faire renaître. Deux souvenirs vivants. Retrouve-les."
+    ]
+  },
+  "test": {
+    "response": {
+      "1": {
+        "question1": "^Accord$",
+        "question2": "^Souffle$"
+      },
+      "2": {
+        "question1": "accord$",
+        "question2": "souffle$"
+      }
+    },
+    "buttons": {
+      "question1": {
+        "text": "Le seul élément capable d’unir plusieurs voix en une seule harmonie ?"
+      },
+      "question2": {
+        "text": "Tu ne le vois pas, mais tu le sens. Il donne vie aux voix, rythme les gestes, unit les corps ?"
+      },
+      "submit": {
+        "text": "Valider"
+      }
+    },
+    "error": "une des réponses est incorrecte."
+  }
+}

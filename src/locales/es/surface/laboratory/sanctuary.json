@@ -44,19 +44,19 @@
   "test": {
     "response": {
       "1": {
-        "firstName": "^Payet$",
-        "lastName": "^Rodrigue$"
+        "question1": "^Payet$",
+        "question2": "^Rodrigue$"
       },
       "2": {
-        "firstName": "^Tchoungui$",
-        "lastName": "^Diva$"
+        "question1": "^Tchoungui$",
+        "question2": "^Diva$"
       }
     },
     "buttons": {
-      "lastName": {
+      "question2": {
         "text": "Apellido del biólogo"
       },
-      "firstName": {
+      "question1": {
         "text": "Nombre del biólogo"
       },
       "submit": {

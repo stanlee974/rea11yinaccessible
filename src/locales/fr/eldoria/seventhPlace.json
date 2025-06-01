@@ -1,0 +1,58 @@
+{
+  "before": {
+    "row": [
+      "Dès que le dernier caractère s'affiche, le clavier se fige, la lumière vacille... et le silence devient total. Pas un craquement. Pas un souffle. Pas même le battement de ton propre coeur. Tout s’éteint dans un mutisme assourdissant.",
+      "Puis le sol se dérobe doucement sous tes pieds. Tu ne tombes pas. Tu glisses, lentement, comme porté par une force invisible. Une coulée de pierre te conduit vers un nouvel espace, presque sacré.",
+      "Lorsque tu t'arrêtes, une salle t'accueille. Circulaire. Menaçante dans sa sérénité. Les murs sont rugueux, comme figés dans le temps. Aucune onde sonore ne survit ici."
+    ]
+  },
+  "neon": {
+    "title": "Eldoria",
+    "subtitle": "Le Sanctuaire des Échos Muets"
+  },
+  "scenario": {
+    "row": [
+      "Au centre, un trône de pierre effrité, et devant lui, une table basse où sont disposés trois cônes de cristal noir, tournés vers toi comme des oreilles inversées.",
+      "Sur l’un d’eux, une pulsation faible se fait entendre. Puis une voix. Un extrait. Une phrase.",
+      "Mais le volume est à peine perceptible. Tu tends l’oreille. Tu devines plus que tu n’entends. Puis la voix s’efface. Le même extrait revient. Toujours le même...",
+      "Et soudain, une évidence silencieuse :"
+    ],
+    "modal": {
+      "1": {
+        "row": [
+          "« La même voix revient, d’abord à peine audible, puis plus claire, enfin presque trop forte. Trouve celle qui te parle vraiment — ni trop faible, ni trop forte, mais juste assez pour que tu l’entendes. »"
+        ]
+      }
+    }
+  },
+  "goal": {
+    "row": [
+      "Le mot ne sera pas forcément clair au premier passage. Il faudra écouter, ressentir, laisser les sons te toucher — Et choisir avec patience et précision ce que ton oreille décide d’entendre."
+    ]
+  },
+  "test": {
+    "response": "résilience$|resilience$",
+    "buttons": {
+      "deafHigh": {
+        "text": "Surdité élevée"
+      },
+      "deafMedium": {
+        "text": "Surdité moyennement élevée"
+      },
+      "deafLow": {
+        "text": "Surdité basse"
+      },
+      "deafVeryLow": {
+        "text": "Surdité très basse"
+      },
+      "keyword": {
+        "text": "Mot clé",
+        "placeholder": "Entrer le mot clé",
+        "error": "le mot clé est erroné"
+      },
+      "submit": {
+        "text": "Valider"
+      }
+    }
+  }
+}

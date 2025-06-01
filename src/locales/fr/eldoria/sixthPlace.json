@@ -1,0 +1,53 @@
+{
+  "before": {
+    "row": [
+      "Le clic a résonné comme un glas dans l’obscurité. Tout s’arrête.",
+      "Puis, lentement, un souffle glacé traverse la salle, plus mordant que le précédent. L'air semble se contracter. Ton souffle se condense en un nuage pâle, suspendu devant tes lèvres.",
+      "Un pan du mur se fissure dans un gémissement de pierre, révélant un couloir étroit où chaque pas semble voler un peu plus de ta chaleur."
+    ]
+  },
+  "neon": {
+    "title": "Eldoria",
+    "subtitle": "Le labyrinthe glacial"
+  },
+  "scenario": {
+    "row": [
+      "Tu avances lentement dans le Labyrinthe Glacial, un réseau tortueux de couloirs où l’air est si froid qu’il coupe ta respiration. Les murs de glace captent la moindre vibration, amplifiant chaque frisson qui parcourt ton corps. Le silence absolu est oppressant, brisé seulement par le craquement lointain de la glace.",
+      "Au bout du dédale, une lueur vacillante filtre à travers une fissure : une petite salle taillée dans la glace t’attend. Au centre, un ancien pupitre de pierre couvert de givre semble te défier.",
+      "Mais ici, même la simple action de taper un mot devient un défi. Le froid mordant engourdit tes doigts, tandis que le sol tremble faiblement sous tes pieds. Les lettres que tu presses sur ce clavier gravé dans la pierre dansent et changent, reflétant les secousses glacées de ce lieu."
+    ],
+    "modal": {
+      "1": {
+        "row": [
+          "Ton regard se pose sur la surface gelée et, en frottant doucement le givre du bout des doigts, un mot gravé sous la glace commence à apparaître : « tremblement »."
+        ]
+      }
+    }
+  },
+  "goal": {
+    "row": [
+      "Taper correctement le mot clé sur le clavier ancien gravé dans la pierre."
+    ]
+  },
+  "test": {
+    "response": "tremblement$",
+    "parchment": {
+      "row": {
+        "1": "le",
+        "2": "mot de passe",
+        "3": "est",
+        "4": "tremblement"
+      }
+    },
+    "buttons": {
+      "password": {
+        "text": "Mot de passe",
+        "placeholder": "Entrer le mot de passe",
+        "error": "Le mot de passe est erroné"
+      },
+      "submit": {
+        "text": "Valider"
+      }
+    }
+  }
+}

@@ -1,22 +1,23 @@
 <script lang="ts">
     import "carbon-components-svelte/css/g90.css";
     import "plyr/dist/plyr.css";
-    import {Button, Content, ToastNotification} from "carbon-components-svelte";
+    import { Button, Content, ToastNotification } from "carbon-components-svelte";
     import TypewriterComponent from "$lib/technicalComponent/TypewriterComponent.svelte";
-    import {base} from "$app/paths";
+    import { base } from "$app/paths";
     import ButtonComponent from "$lib/technicalComponent/ButtonComponent.svelte";
     import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
-    import {onMount} from "svelte";
+    import { onMount } from "svelte";
     import LoadingComponent from "$lib/technicalComponent/LoadingComponent.svelte";
-    import {locale, setLocale, Step, t} from "$lib";
-    import {audioStore, changeSource} from "$lib/store/inMemoryStore/AudioStore";
-    import {page} from "$app/stores";
-    import {RenderData, renderStore} from "$lib/store/inMemoryStore/RenderStore";
+    import { locale, setLocale, Step, t } from "$lib";
+    import { audioStore, changeSource } from "$lib/store/inMemoryStore/AudioStore";
+    import { page } from "$app/stores";
+    import { RenderData, renderStore } from "$lib/store/inMemoryStore/RenderStore";
     import Plyr from 'plyr';
-    import {getAccessibilityModeStoreQueryParam, initCountdown} from "$lib/store/AnimationStore";
-    import {get} from "svelte/store";
-    import {headerStore} from "$lib/store/HeaderStore";
-    import {driver} from "driver.js";
+    import { getAccessibilityModeStoreQueryParam, initCountdown } from "$lib/store/AnimationStore";
+    import { get } from "svelte/store";
+    import { headerStore } from "$lib/store/HeaderStore";
+    import { driver } from "driver.js";
+    import { ESCAPEGAME_KEY } from "../(escape)/eldoria/constant";
 
     let disableWriter = true
     let isWaiting = false
@@ -169,7 +170,7 @@
 <div class="d-flex flex-column align-items-center mt-4">
     <span class="mb-4" id="teaser-video-title">{$t('waitingRoom.playVideo')}</span>
     <div id="teaser-video-container">
-        <div id="teaserPlayer" data-plyr-provider="youtube" data-plyr-embed-id="4EzZ4Na1rtk"></div>
+        <div id="teaserPlayer" data-plyr-provider="youtube" data-plyr-embed-id="tYkSrr0ddwY"></div>
     </div>
 </div>
 <ButtonComponent enabled={startButton} onclick={() => {disableWriter = false; }}><span slot="content"
@@ -184,18 +185,19 @@
                              delay={3000} }>
             <div class="mb-4">
                 <h2 class="mb-3">{$t('common.layout.title.scenario')}</h2>
-                <p>{$t(`waitingRoom.scenario.row.1`)}</p>
-                <p>{$t('waitingRoom.scenario.row.2')}</p>
-                <p>{$t('waitingRoom.scenario.row.3')}</p>
+                {#each $t(`waitingRoom.scenario.row`) as row}
+                    <p>{row}</p>
+                {/each}
             </div>
         </TypewriterComponent>
         <TypewriterComponent disabled={!showTour} parentDoneAction={() => showButton = true}>
             <div class="mb-5">
                 <h2 class="mb-3">{$t('common.layout.title.goal')}</h2>
-                <p>{$t('waitingRoom.goal.row.1')}</p>
-                <p>{$t('waitingRoom.goal.row.2')}</p>
+                {#each $t(`waitingRoom.goal.row`) as row}
+                    <p>{row}</p>
+                {/each}
                 <p>{$t('waitingRoom.test.clickLink')} <a class="disabled-link"
-                                                         href="{base}/{$locale}/abri/entrance{getAccessibilityModeStoreQueryParam()}"
+                                                         href="{base}/{$locale}/{ESCAPEGAME_KEY}/firstPlace{getAccessibilityModeStoreQueryParam()}"
                                                          on:click={() => loading()}>{$t('waitingRoom.test.here')}</a>
                     {$t('waitingRoom.test.enter')}
                 </p>

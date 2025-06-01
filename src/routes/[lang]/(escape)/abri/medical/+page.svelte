@@ -57,7 +57,7 @@
 </script>
 
 <style>
-    @import url('https://fonts.cdnfonts.com/css/gaelle203font');
+    @import url('https://fonts.cdnfonts.com/css/harjimed');
 </style>
 
 <ModalComponent opened={open}

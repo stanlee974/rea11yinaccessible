@@ -1,0 +1,135 @@
+{
+  "neon": {
+    "title": "Analyse",
+    "subtitle": "focus accessibilité"
+  },
+  "conclusion": {
+    "title": "Conclusion",
+    "row": {
+      "1": "Merci d'avoir participé à l'aventure.",
+      "2_1": "Pour aller plus loin, tu peux consulter le",
+      "2_2": "lien suivant",
+      "2_3": "pour approfondir les usages du web des personnes en situation de handicap.",
+      "3": "Pour les personnes plus techniques, vous trouverez ci-dessous des conseils à appliquer pour améliorer les soucis rencontrés durant le jeu :"
+    },
+    "viewMore": "Voir plus",
+    "viewLess": "Voir moins",
+    "problem": "Difficulté :",
+    "advice": "Conseil :",
+    "visual": {
+      "title": "Trouble de la vision",
+      "1": {
+        "title": "Salle d'attente",
+        "disabilities": {
+          "1": {
+            "problem": "Le bouton lien n'a pas de style particulier. Cette erreur affecte les personnes qui utilisent la souris. Ceux qui naviguent au clavier ne sont pas impactés. On distingue donc qu'en fonction des usages, on peut être lésé, si on adresse pas les 2 modes de navigation.",
+            "advice": "Ne pas surcharger les styles si on ne maîtrise pas les impacts"
+          }
+        }
+      },
+      "2": {
+        "title": "Salle des altérations :",
+        "disabilities": {
+          "1": {
+            "title": "le daltonisme",
+            "problem": "Les boutons avaient tous la même couleur au départ. En altérant le contraste et la luminosité, les vraies couleurs se dévoilent. Le daltonisme est une déficience visuelle qui affecte la perception des couleurs",
+            "advice": "Le choix des couleurs est important dans une application. Utiliser des contrastes élevés et ne pas restituer les informations uniquement par la couleur. Tester son application avec des simulateurs de daltonisme."
+          }
+        }
+      },
+      "3": {
+        "title": "Salle de contrôle :",
+        "disabilities": {
+          "1": {
+            "title": "la cécité",
+            "problem": "L'écran était cassé, donc on ne pouvait pas utiliser nos yeux. Les personnes aveugles ne peuvent pas accéder aux informations présentées uniquement sous forme visuelle, comme les images, les graphiques ou les vidéos sans descriptions alternatives. Sans une structure de navigation bien pensée, les utilisateurs aveugles peuvent avoir des difficultés à se déplacer sur un site web ou une application. Les formulaires mal conçus peuvent être difficiles à comprendre et à remplir pour les personnes utilisant des lecteurs d'écran. es utilisateurs aveugles peuvent se perdre si les éléments interactifs (boutons, liens) ne sont pas clairement identifiés et décrits.",
+            "cta": {
+              "1": {
+                "above": "Utiliser une solution qui permet de vérifier les données accessibles, comme :",
+                "label": "UUV",
+                "link": "https://e2e-test-quest.github.io/uuv/"
+              }
+            },
+            "advice": "Utiliser des descriptions alternatives pour les images et autres élements porteur d'informations. On doit respecter les standards ARIA (Accessible Rich Internet Applications). On doit structurer les pages avec des titres et des en-têtes pour faciliter la navigation. On doit concevoir des formulaires accessibles. On doit proposer des alternatives textuelles pour les contenus multimédias. On peut tester avec des lecteurs d'écran"
+          }
+        }
+      },
+      "4": {
+        "title": "Le sanctuaire : ",
+        "disabilities": {
+          "1": {
+            "title": "désordre visuel",
+            "problem": "Les libellés étaient soit trop petits, soit trop grands, les champs de saisies étaient éloignées de leurs libellés, la page était trop grande",
+            "advice": "Agrandir les éléments interactifs et réorganiser de manière à simplifier la navigation. Utiliser des marges généreuses et des espaces vides pour réduire l'agitation visuelle et améliorer la lisibilité globale."
+          }
+        }
+      }
+    },
+    "cognitive": {
+      "title": "Trouble cognitif",
+      "1": {
+        "title": "Salle médicale : ",
+        "disabilities": {
+          "1": {
+            "title": "dyslexie",
+            "problem": "Les caractères changent sans interruption. Ce trouve visuo-attentionnelle perturbe l'analyse des mots et des textes, à cause d'un trouble de l'attention. Il peut provenir des polices non adaptées, du texte trop dense et non structuré, d'un manque de clarté visuelle (mauvais contraste ou mauvais fond ou une mise en palge encombrée), d'une navigation complexe (menus ou liens non intuitifs ou mal organisés)",
+            "advice": "Rendre les lettres plus distinctes et faciles à reconnaître en choisissant une police sans empattement comme Arial, Verdana. Utiliser des paragraphes courts et bien espacés, avec des interlignes généreux. Assurer un bon contraste entre le texte et le fond. Les arrière-plans clairs avec du texte foncé sont souvent les plus lisibles. Utiliser des titres, des sous-titres, des listes à puces et des numéros pour organiser le contenu. Préférer l'alignement à gauche du texte plutôt que la justification complète, qui peut créer des espacements irréguliers difficiles à suivre. Créer une structure de navigation claire et intuitive, avec des menus simples et des liens bien étiquetés."
+          }
+        }
+      },
+      "2": {
+        "title": "Salle des énigmes :",
+        "disabilities": {
+          "1": {
+            "title": "dyslexie",
+            "problem": "Des images venaient perturber notre lecture. Les éléments animés, clignotants ou en mouvement constant peuvent distraire et rendre difficile la concentration sur le contenu principal.",
+            "advice": "Limiter les animations, les images clignotantes et autres distractions qui peuvent gêner la concentration et la lecture."
+          }
+        }
+      }
+    },
+    "motor": {
+      "title": "Trouble de motricité",
+      "1": {
+        "title": "Entrée du laboratoire : ",
+        "disabilities": {
+          "1": {
+            "title": "Tremblement",
+            "problem": "La surface d'action représentée par la croix rouge est très petite. Les troubles moteurs occasionnent des difficultés lorsque les éléments d'interface sont trop petits ou rapprochés, lorsque les parcours utilisateur nécessitent des mouvements précis ou rapides, lorsque les interfaces ne sont pas compatibles avec des dispositifs comme les claviers alternatifs, les souris spécialisées.",
+            "cta": {
+              "1": {
+                "above": "S'assurer que toutes les fonctionnalités sont accessibles via le clavier et que l'ordre de tabulation est logique, comme avec :",
+                "label": "UUV - navigation au clavier",
+                "link": "https://e2e-test-quest.github.io/uuv/docs/wordings/generated-wording-description/fr-generated-wording-description/#je-commence-une-navigation-au-clavier-depuis-le-haut-de-la-page"
+              }
+            },
+            "advice": "S'assurer que les boutons, les liens et les champs de formulaire sont suffisamment grands et espacés pour être facilement accessibles, réduire le nombre de mouvements nécessaires pour accomplir une tâche et éviter les actions complexes comme les glisser-déposer."
+          }
+        }
+      },
+      "2": {
+        "title": "Le laboratoire : ",
+        "disabilities": {
+          "1": {
+            "title": "Tremblement",
+            "problem": "La salle est réfrigérée, donc on est sujette au tremblement. On a eu une difficulté à cibler les touches et on appuyait sur les touches avoisinantes. Les raccourcis claviers ne fonctionnaient pas également.",
+            "advice": "Recommander l'utilisation de claviers spécialisés avec des touches plus grandes et plus espacées, ou de claviers à l'écran avec des options de personnalisation. On peut également intégrer des options de dictée et de saisie vocale pour permettre aux utilisateurs de saisir du texte sans utiliser le clavier."
+          }
+        }
+      }
+    },
+    "hearing": {
+      "title": "Trouble auditif",
+      "1": {
+        "title": "La salle audiovisuelle : ",
+        "disabilities": {
+          "1": {
+            "title": "la surdité",
+            "problem": "Le volume sonore est extrêmement faible. La musique ambiante peut également perturber la concentration.",
+            "advice": "Fournir des sous-titres, des transcriptions textuelles, et des options de communication visuelle comme la langue des signes."
+          }
+        }
+      }
+    }
+  }
+}

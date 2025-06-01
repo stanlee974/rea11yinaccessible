@@ -1,0 +1,79 @@
+{
+  "before": {
+    "row": [
+      "Le dernier mot trouvé résonne dans les murs, comme s’il s’inscrivait dans la pierre elle-même. Une vibration parcourt le sol, puis le silence s’impose brusquement. Devant toi, un pan de mur se détache lentement, dévoilant un étroit couloir où la lumière semble hésiter à pénétrer.",
+      "Tu avances, guidé(e) uniquement par le souffle de l’air et le murmure de tes pas.",
+      "Puis, soudain, une ouverture. Une salle obscure s’étend devant toi, creusée à même la roche, baignée d’un clair-obscur mouvant."
+    ]
+  },
+  "neon": {
+    "title": "Eldoria",
+    "subtitle": "Le Murmure des Ombres"
+  },
+  "scenario": {
+    "row": [
+      "Trois lanternes suspendues oscillent au-dessus de piédestaux anciens. Leurs flammes projettent sur le mur d’étranges ombres qui semblent danser.",
+      "Ici, la lumière ne révèle rien. Ce sont les ombres qui détiennent la vérité."
+    ]
+  },
+  "goal": {
+    "row": [
+      "Regarde attentivement. Trouve la vérité cachée dans ces silhouettes fuyantes avant que l’obscurité ne s’épaississe, et que ce lieu ne se referme sur toi."
+    ],
+    "modal": {
+      "riddle": "Enigme",
+      "1": {
+        "title": "3 fiches à énigmes",
+        "row": {
+          "1": [
+            "Je naîs quand le son s’efface.",
+            "Je suis là, mais on m’oublie.",
+            "Je précède souvent la secousse et pourtant, je ne fais pas de bruit.",
+            "Que suis-je ?"
+          ],
+          "2": [
+            "Je suis fine comme un souffle, mais quand je m’ouvre, tout vacille.",
+            "Je parcours la roche sans un bruit, et là où je passe, l’équilibre se brise.",
+            "Que suis-je ?"
+          ],
+          "3": [
+            "Je fais vibrer la chair avant la pierre.",
+            "Je suis là quand ton pas ralentit.",
+            "Avant le cri, je suis le murmure.",
+            "Que suis-je ?"
+          ]
+        }
+      }
+    }
+  },
+  "test": {
+    "buttons": {
+      "enigm1": {
+        "text": "Réponse énigme 1",
+        "placeholder": "Saisir la réponse à l'enigme 1",
+        "error": "la réponse est erronée."
+      },
+      "enigm2": {
+        "text": "Réponse énigme 2",
+        "placeholder": "Saisir la réponse à l'enigme 2",
+        "error": "la réponse est erronée."
+      },
+      "enigm3": {
+        "text": "Réponse énigme 3",
+        "placeholder": "Saisir la réponse à l'enigme 3",
+        "error": "la réponse est erronée."
+      },
+      "hint": {
+        "text": "Consulter les énigmes"
+      },
+      "submit": {
+        "text": "Valider"
+      }
+    },
+    "response": {
+      "1": "silence$",
+      "2": "fissure$|rupture$|cassure$|séparation$|separation$|fente$|crevasse$",
+      "3": "frisson$"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "neon": {
+    "title": "L’Écho de Tous",
+    "subtitle": "Quand l'Inaudible Devint Lumière"
+  },
+  "modal": {
+    "1": {
+      "image": {
+        "1": {
+          "row": [
+            "Tu poses les deux mots clés sur l’autel d’encre, et soudain...  Les entailles s’illuminent d’un or doux, une vibration sourde traverse la dalle sous tes pieds."
+          ]
+        },
+        "2": {
+          "row": [
+            "Un message s’affiche, brillant comme un souffle d’espoir :",
+            "« Les voix oubliées se souviennent... La Cloche peut vibrer à nouveau. »",
+            "Mais au lieu d’un chant harmonieux, un silence glacial tombe."
+          ]
+        },
+        "3": {
+          "row": [
+            "Une voix ancienne, douce mais ferme, s’élève autour de toi :",
+            "« Tu as cherché à réunir les voix des royaumes, mais as-tu perçu celles qui ne parlent pas comme les autres ?",
+            "Les murmures perdus, les gestes invisibles, les rythmes brisés, et les mots qui dansent dans un ordre secret..."
+          ]
+        },
+        "4": {
+          "row": [
+            "Certains soufflent sans voix, d’autres parlent par le toucher, d’autres encore façonnent leurs pensées différemment.",
+            "Sans ouvrir ton coeur et ton esprit à toutes ces manières d’être entendu, la Cloche ne peut que sceller le silence. »"]
+        }
+      }
+    },
+    "2": {
+      "image": {
+        "1": {
+          "row": [
+            "Le Gardien Brisé apparaît alors, sa silhouette tremblante comme un souffle incertain :",
+            "« Tu pensais rassembler une symphonie, mais tu as créé un mutisme.",
+            "La vraie magie n’est pas seulement de parler fort, mais d’accueillir les silences, les gestes, les voix cassées,",
+            "pour que tous, quelles que soient leurs façons de s’exprimer, puissent être entendus. »"
+          ]
+        }
+      }
+    }
+  },
+  "epilogue": {
+    "title": "Epilogue",
+    "row": [
+      "Un dernier souffle résonne, grave et lumineux :",
+      "« Tant que chaque souffle, chaque geste, chaque rythme ne sera pas accueilli, la Cloche sonnera dans un vide sans écho. »",
+      "« Rien n’est figé dans les vents d’Eldoria. Le chemin vers l’harmonie se trace dans l’écoute patiente des murmures oubliés, dans l’accueil des gestes silencieux, et dans le respect des rythmes singuliers de chaque souffle.",
+      "Ouvre grand ton coeur, Héraut, car c’est en comprenant toutes les voix — même celles qui se font discrètes — que la véritable symphonie renaîtra, vibrant enfin au-delà du silence. »"
+    ]
+  },
+  "buttons": {
+    "summary": "Récapitulatif",
+    "end": "Fin de l'aventure en"
+  }
+}

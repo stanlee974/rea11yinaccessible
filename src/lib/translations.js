@@ -35,14 +35,6 @@ availableLocales.forEach((currentLocale) => {
     loaders.push(
         {
             locale: currentLocale,
-            key: 'shelterEntrance',
-            loader: async () => (await import(`../locales/${currentLocale}/shelter/entrance.json`)).default
-        }
-    )
-
-    loaders.push(
-        {
-            locale: currentLocale,
             key: 'shelterComputerRoom',
             loader: async () => (await import(`../locales/${currentLocale}/shelter/computerRoom.json`)).default
         }
@@ -102,13 +94,28 @@ availableLocales.forEach((currentLocale) => {
             loader: async () => (await import(`../locales/${currentLocale}/outro.json`)).default
         }
     )
+
+    const placeNames = [
+        'firstPlace', 'secondPlace', 'thirdPlace',
+        'fourthPlace', 'fifthPlace', 'sixthPlace',
+        'seventhPlace', 'eighthPlace', 'ninthPlace'
+    ];
+
+    placeNames.forEach(place => {
+        loaders.push({
+            locale: currentLocale,
+            key: `eldoria.${place}`,
+            loader: async () => (await import(`../locales/${currentLocale}/eldoria/${place}.json`)).default
+        });
+    });
 })
 
 const config = ({
     initLocale: 'fr',
     fallbackLocale: 'fr',
     loaders,
-    translations
+    translations,
+    preprocess: 'preserveArrays'
 });
 
 export const { t, loading, locales, locale, setLocale, loadTranslations } = new i18n(config);

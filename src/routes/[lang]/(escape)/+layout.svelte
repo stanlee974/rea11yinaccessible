@@ -13,22 +13,46 @@
     onMount(async () => {
         await setLocale($page.params.lang)
         steps = [
-            $t('common.layout.progressRoom.shelterEntrance'),
-            $t('common.layout.progressRoom.shelterComputerRoom'),
-            $t('common.layout.progressRoom.shelterMedicalRoom'),
-            $t('common.layout.progressRoom.shelterSearchCenterRoom'),
-            $t('common.layout.progressRoom.surfaceEntrance'),
-            $t('common.layout.progressRoom.surfaceLaboratory'),
-            $t('common.layout.progressRoom.audiovisualRoom'),
-            $t('common.layout.progressRoom.sanctuary')
+            $t('common.layout.progressRoom.firstPlace'),
+            $t('common.layout.progressRoom.secondPlace'),
+            $t('common.layout.progressRoom.thirdPlace'),
+            $t('common.layout.progressRoom.fourthPlace'),
+            $t('common.layout.progressRoom.fifthPlace'),
+            $t('common.layout.progressRoom.sixthPlace'),
+            $t('common.layout.progressRoom.seventhPlace'),
+            $t('common.layout.progressRoom.eighthPlace')
         ]
         renderStoreSetData(`common.step.${$renderStore.step}`, $t(`${$renderStore.step}.neon.title`), $t(`${$renderStore.step}.neon.subtitle`))
         renderStore.subscribe((value) => {
             document.title = t.get(`common.step.${value.step}`) + " | really inaccessible"
             switch (value.step) {
-                case Step.ABRI_ENTRANCE:
+                case Step.FIRST_PLACE:
                     currentStep = 0
                     break
+                case Step.SECOND_PLACE:
+                    currentStep = 1
+                    break
+                case Step.THIRD_PLACE:
+                    currentStep = 2
+                    break
+                case Step.FOURTH_PLACE:
+                    currentStep = 3;
+                    break;
+                case Step.FIFTH_PLACE:
+                    currentStep = 4;
+                    break;
+                case Step.SIXTH_PLACE:
+                    currentStep = 5;
+                    break;
+                case Step.SEVENTH_PLACE:
+                    currentStep = 6;
+                    break;
+                case Step.EIGHTH_PLACE:
+                    currentStep = 7;
+                    break;
+                case Step.NINTH_PLACE:
+                    currentStep = 8;
+                    break;
                 case Step.ABRI_COMPUTER:
                     currentStep = 1
                     break
@@ -61,14 +85,14 @@
 
     page.subscribe(async (data) => {
         steps = [
-            $t('common.layout.progressRoom.shelterEntrance'),
-            $t('common.layout.progressRoom.shelterComputerRoom'),
-            $t('common.layout.progressRoom.shelterMedicalRoom'),
-            $t('common.layout.progressRoom.shelterSearchCenterRoom'),
-            $t('common.layout.progressRoom.surfaceEntrance'),
-            $t('common.layout.progressRoom.surfaceLaboratory'),
-            $t('common.layout.progressRoom.audiovisualRoom'),
-            $t('common.layout.progressRoom.sanctuary')
+            $t('common.layout.progressRoom.firstPlace'),
+            $t('common.layout.progressRoom.secondPlace'),
+            $t('common.layout.progressRoom.thirdPlace'),
+            $t('common.layout.progressRoom.fourthPlace'),
+            $t('common.layout.progressRoom.fifthPlace'),
+            $t('common.layout.progressRoom.sixthPlace'),
+            $t('common.layout.progressRoom.seventhPlace'),
+            $t('common.layout.progressRoom.eighthPlace')
         ]
     })
 </script>
@@ -102,7 +126,7 @@
     <Content
             style="{$renderStore.step === Step.SURFACE_LABORATORY_SANCTUARY ? 'display: flex; flex-direction: column; align-items: start;' : ''}">
 
-        <div style="{$renderStore.step !== Step.SURFACE_LABORATORY_SANCTUARY ? 'display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;': ''}">
+        <div style="{$renderStore.step !== Step.SURFACE_LABORATORY_SANCTUARY && $renderStore.step !== Step.EIGHTH_PLACE ? 'display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;': ''}">
             <Typewriter mode="scramble">
                 <div class="container">
                     <h1 style="display: flex; flex-direction: column"><span class="neon">{$renderStore.neon}</span>

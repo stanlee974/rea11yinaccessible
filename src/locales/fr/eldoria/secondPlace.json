@@ -1,0 +1,96 @@
+{
+  "before": {
+    "row": [
+      "Lorsque les couleurs trouvent enfin leur juste harmonie, un déclic retentit dans les profondeurs de la forêt. La brume se lève lentement, révélant un sentier dissimulé derrière les feuillages.",
+      "Au bout de ce passage, se dessine un pont suspendu, vieux comme le monde, qui tangue au-dessus d’un gouffre insondable.",
+      "Les planches craquent sous le vent, certaines semblent manquer, d’autres vacillent. Mais une lumière bleutée court le long des cordes, comme une énergie oubliée ravivée par ton passage."
+    ]
+  },
+  "neon": {
+    "title": "Eldoria",
+    "subtitle": "Le Pont des Mots Perdus"
+  },
+  "scenario": {
+    "row": [
+      "Tu poses enfin le pied de l’autre côté du pont. Le silence est total, comme si le monde retenait son souffle. Devant toi, une structure de pierre érodée surgit des brumes : un ancien autel elfique, en forme de spirale, marqué par les siècles.",
+      "Des fragments de runes flottent autour du socle, comme suspendus dans le vide, et une voix résonne, plus claire cette fois, presque familière :",
+      "Tu as traversé les mots perdus. Maintenant, façonne-les. Ce qui doit être dit ne se lit pas — il se ressent, se devine… et se grave dans l’invisible.",
+      "Une tablette s’ouvre lentement, laissant apparaître plusieurs alcôves creuses. Elles brillent faiblement. Aucun symbole ne les nomme. Aucun indice visible. Mais chacune attend une intention… une réponse."
+
+    ]
+  },
+  "goal": {
+    "row": [
+      "Tu fais face à un ancien dispositif elfique, un formulaire mystique, conçu pour ne livrer ses secrets qu’à celles et ceux capables de lire au-delà du regard.",
+      "Les champs invisibles sont des réceptacles à mémoire : il te faudra deviner ce que chacun attend, sans indication ni ordre clair.",
+      "Peut-être un nom ? Un lieu oublié ? Une date gravée dans la pierre du passé ?",
+      "Pour éveiller la stèle des anciens, tu dois invoquer les fragments d’identité d’une âme oubliée. Chacun d’eux est scellé, invisible à l’oeil nu, mais sensible à la justesse de ta mémoire et à la vérité de ton geste."
+    ]
+  },
+  "hint": {
+    "title": "Indices disponibles",
+    "tabs": {
+      "title": [
+        "Navigation",
+        "Personnage",
+        "Document associé",
+        "Calendrier"
+      ],
+      "message": [
+        {
+          "list": [
+            "\uD83E\uDEB6 Naviguer entre les Sceaux :",
+            "➡\uFE0F (Tab) — Le Vent guide ta main vers le sceau suivant",
+            "⬅\uFE0F (Shift + Tab) — Retourne sur le seau",
+            "\uD83D\uDDDD Sceller l’Invocation :",
+            "⏎ (Entrée) — Valide ta réponse et invoque la stèle",
+            "\uD83D\uDCDC Forme temporelle des Anciens :",
+            "\uD83D\uDDD3 jj/mm/aaaa — Ainsi étaient marqués les jours dans les Tables du Temps"
+          ]
+        },
+        {
+          "alt": "Fragment de portrait terni d’un certain Elian Vorastel, né le 12 Janéthril 843 et a disparu le 3 Marsielle 897."
+        },
+        {
+          "alt": "Il est né le 12 Janéthril 843 et a disparu le 3 Marsielle 897."
+        },
+        {
+          "alt": "Calendrier Ancien : Janéthril, Febrissel, Marsielle, Avrelor, Mairos, Junoria, Juiloth, Aoutalis, Septelan, Octavial, Novendor, Decalor"
+        }
+      ]
+    }
+  },
+  "test": {
+    "form": {
+      "title": "Consulter les notes",
+      "lastName": {
+        "ariaLabel": "Nom de l'âme oublié",
+        "text": "Nom de l'âme oublié",
+        "placeholder": "Entrer un nom...",
+        "error": "le nom est invalide"
+      },
+      "firstName": {
+        "ariaLabel": "Prénom de l'âme oublié",
+        "text": "Prénom de l'âme oublié",
+        "placeholder": "Entrer un prénom...",
+        "error": "le prénom est invalide"
+      },
+      "birthday": {
+        "ariaLabel": "Date de naissance",
+        "text": "Date de naissance",
+        "placeholder": "Entrer une date...",
+        "error": "La date de naissance n'est pas au format attendu : dd/mm/aaaa"
+      },
+      "deathday": {
+        "ariaLabel": "Date de décès",
+        "text": "Date de décès",
+        "placeholder": "Entrer une date...",
+        "error": "La date de décès n'est pas au format attendu : dd/mm/aaaa"
+      },
+      "submit": {
+        "ariaLabel": "soumettre",
+        "text": "Soumettre la saisie"
+      }
+    }
+  }
+}

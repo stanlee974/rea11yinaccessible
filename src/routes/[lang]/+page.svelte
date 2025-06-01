@@ -155,11 +155,11 @@
         <div>
             <h2>{$t('intro.advice.info.title')}</h2>
             <InlineNotification kind="info" lowContrast hideCloseButton="true">
-                <strong slot="title" id="advice-immersive">{$t('intro.advice.info.content.0')}</strong>
+                <strong slot="title" id="advice-immersive">{$t('intro.advice.info.content')[0]}</strong>
                 <div slot="subtitle">
                     <UnorderedList aria-labelledby="advice-immersive" class="ms-4">
-                        <ListItem>{$t('intro.advice.info.content.1')}</ListItem>
-                        <ListItem>{$t('intro.advice.info.content.2')}</ListItem>
+                        <ListItem>{$t('intro.advice.info.content')[1]}</ListItem>
+                        <ListItem>{$t('intro.advice.info.content')[2]}</ListItem>
                     </UnorderedList>
                 </div>
             </InlineNotification>
