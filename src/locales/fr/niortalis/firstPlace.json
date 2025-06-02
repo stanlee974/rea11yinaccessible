@@ -1,0 +1,41 @@
+{
+  "before": {
+    "row": [
+      "Les portes anciennes de Niortalis s’ouvrent devant vous, dévoilant une galerie baignée d’une lumière étrange et changeante.",
+      "Cette salle est la première étape de votre quête : percevoir au-delà des apparences pour affronter les illusions magiques qui piègent les couleurs."
+    ]
+  },
+  "neon": {
+    "title": "Niortalis",
+    "subtitle": "La Salle des Illusions Chromatiques"
+  },
+  "scenario": {
+    "row": [
+      "Les vitraux enchantés projettent des teintes confuses, mêlant ombres et reflets en un spectacle trompeur.",
+      " Pour lever le sortilège, vous devez ajuster la lumière et le contraste afin de révéler les vraies couleurs cachées derrière l’illusion."
+    ]
+  },
+  "goal": {
+    "row": [
+      "Avec la jauge de luminosité, tu peux faire briller la pièce ou la plonger dans l’ombre. Trouve le juste éclat pour que les vraies couleurs se dévoilent à tes yeux.",
+      "La jauge de contraste te permet de jouer avec la différence entre clair et sombre, comme si tu faisais apparaître les détails cachés dans un tableau magique.",
+      "En combinant ces deux pouvoirs, tu feras disparaître les illusions et révéleras l’ordre secret des couleurs.",
+      "Trouve l’ordre exact des blocs colorés te permettra de libérer la rune magique et d’ouvrir la porte vers la prochaine épreuve."
+    ]
+  },
+  "test": {
+    "contrast": "Contraste",
+    "brightness": "Luminosité",
+    "buttons": {
+      "green": "Le Gardien de Moussier ne précède jamais le Souffle, mais prépare le sentier avant la Flamme Rouge.",
+      "orange": "La Braise d’Ignis ne s’éveille qu’après que le Gardien a murmuré son antique secret.",
+      "rose": "Ni l’aube ni le crépuscule, le souffle d’Élysia danse au cœur du cercle enchanté.",
+      "yellow": "La première lueur d’Orialis perce le voile des ténèbres, ouvrant la voie sacrée."
+    },
+    "error": {
+      "title": "Erreur",
+      "message": "La rune s’éteint, son éclat trahi l’erreur. Le secret des couleurs reste voilé, aventurier…",
+      "caption": "Réessaie, et que la magie guide ta perception."
+    }
+  }
+}

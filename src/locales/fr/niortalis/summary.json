@@ -19,7 +19,7 @@
     "visual": {
       "title": "Trouble de la vision",
       "1": {
-        "title": "Salle d'attente",
+        "title": "Salle d'attente :",
         "disabilities": {
           "1": {
             "problem": "Le bouton lien n'a pas de style particulier. Cette erreur affecte les personnes qui utilisent la souris. Ceux qui naviguent au clavier ne sont pas impactés. On distingue donc qu'en fonction des usages, on peut être lésé, si on adresse pas les 2 modes de navigation.",
@@ -28,7 +28,7 @@
         }
       },
       "2": {
-        "title": "Salle des altérations :",
+        "title": "La Salle des Illusions Chromatiques :",
         "disabilities": {
           "1": {
             "title": "le daltonisme",
@@ -38,11 +38,11 @@
         }
       },
       "3": {
-        "title": "Salle de contrôle :",
+        "title": "Crypte des Voiles Noirs :",
         "disabilities": {
           "1": {
             "title": "la cécité",
-            "problem": "L'écran était cassé, donc on ne pouvait pas utiliser nos yeux. Les personnes aveugles ne peuvent pas accéder aux informations présentées uniquement sous forme visuelle, comme les images, les graphiques ou les vidéos sans descriptions alternatives. Sans une structure de navigation bien pensée, les utilisateurs aveugles peuvent avoir des difficultés à se déplacer sur un site web ou une application. Les formulaires mal conçus peuvent être difficiles à comprendre et à remplir pour les personnes utilisant des lecteurs d'écran. es utilisateurs aveugles peuvent se perdre si les éléments interactifs (boutons, liens) ne sont pas clairement identifiés et décrits.",
+            "problem": "La salle était dans le noir total, donc on ne pouvait pas utiliser nos yeux. Les murmures font références aux lecteurs audios. Les personnes aveugles ne peuvent pas accéder aux informations présentées uniquement sous forme visuelle, comme les images, les graphiques ou les vidéos sans descriptions alternatives. Sans une structure de navigation bien pensée, les utilisateurs aveugles peuvent avoir des difficultés à se déplacer sur un site web ou une application. Les formulaires mal conçus peuvent être difficiles à comprendre et à remplir pour les personnes utilisant des lecteurs d'écran. es utilisateurs aveugles peuvent se perdre si les éléments interactifs (boutons, liens) ne sont pas clairement identifiés et décrits.",
             "cta": {
               "1": {
                 "above": "Utiliser une solution qui permet de vérifier les données accessibles, comme :",
@@ -55,7 +55,7 @@
         }
       },
       "4": {
-        "title": "Le sanctuaire : ",
+        "title": "La Salle du Labyrinthe Visuel :",
         "disabilities": {
           "1": {
             "title": "désordre visuel",
@@ -68,7 +68,7 @@
     "cognitive": {
       "title": "Trouble cognitif",
       "1": {
-        "title": "Salle médicale : ",
+        "title": "La Bibliothèque Fracturée :",
         "disabilities": {
           "1": {
             "title": "dyslexie",
@@ -78,7 +78,7 @@
         }
       },
       "2": {
-        "title": "Salle des énigmes :",
+        "title": "Le Hall des Distractions :",
         "disabilities": {
           "1": {
             "title": "dyslexie",
@@ -91,11 +91,11 @@
     "motor": {
       "title": "Trouble de motricité",
       "1": {
-        "title": "Entrée du laboratoire : ",
+        "title": "L’Atelier du Maître des Détours :",
         "disabilities": {
           "1": {
             "title": "Tremblement",
-            "problem": "La surface d'action représentée par la croix rouge est très petite. Les troubles moteurs occasionnent des difficultés lorsque les éléments d'interface sont trop petits ou rapprochés, lorsque les parcours utilisateur nécessitent des mouvements précis ou rapides, lorsque les interfaces ne sont pas compatibles avec des dispositifs comme les claviers alternatifs, les souris spécialisées.",
+            "problem": "La surface d'action représentée par le centre du fragment de lumière est très petite. Les troubles moteurs occasionnent des difficultés lorsque les éléments d'interface sont trop petits ou rapprochés, lorsque les parcours utilisateur nécessitent des mouvements précis ou rapides, lorsque les interfaces ne sont pas compatibles avec des dispositifs comme les claviers alternatifs, les souris spécialisées.",
             "cta": {
               "1": {
                 "above": "S'assurer que toutes les fonctionnalités sont accessibles via le clavier et que l'ordre de tabulation est logique, comme avec :",
@@ -108,11 +108,11 @@
         }
       },
       "2": {
-        "title": "Le laboratoire : ",
+        "title": "La Chambre Givrée :",
         "disabilities": {
           "1": {
             "title": "Tremblement",
-            "problem": "La salle est réfrigérée, donc on est sujette au tremblement. On a eu une difficulté à cibler les touches et on appuyait sur les touches avoisinantes. Les raccourcis claviers ne fonctionnaient pas également.",
+            "problem": "Le sortilège de glace nous a gelé les mains, donc nous a exposé au tremblement. On a eu une difficulté à cibler les touches et on appuyait sur les touches avoisinantes. Les raccourcis claviers ne fonctionnaient pas également.",
             "advice": "Recommander l'utilisation de claviers spécialisés avec des touches plus grandes et plus espacées, ou de claviers à l'écran avec des options de personnalisation. On peut également intégrer des options de dictée et de saisie vocale pour permettre aux utilisateurs de saisir du texte sans utiliser le clavier."
           }
         }
@@ -121,7 +121,7 @@
     "hearing": {
       "title": "Trouble auditif",
       "1": {
-        "title": "La salle audiovisuelle : ",
+        "title": "L’Auditorium des Échos Faibles :",
         "disabilities": {
           "1": {
             "title": "la surdité",

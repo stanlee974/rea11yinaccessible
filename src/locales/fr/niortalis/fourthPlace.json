@@ -1,0 +1,77 @@
+{
+  "before": {
+    "row": [
+      "Après avoir percé les mystères de la Bibliothèque Fracturée, une lumière vacillante t’attire plus loin.",
+      "Tu franchis une arche étincelante et pénètres dans le Hall des Distractions, où l’esprit est mis à l’épreuve."
+    ]
+  },
+  "neon": {
+    "title": "Niortalis",
+    "subtitle": "Le Hall des Distractions"
+  },
+  "scenario": {
+    "row": [
+      "Ici, les images surgissent sans cesse, brouillant ta concentration et défiant ta volonté.",
+      "Les illusions s’entrelacent autour de toi, cherchant à détourner ton regard et troubler ta pensée."
+    ]
+  },
+  "goal": {
+    "row": [
+      "Ignore les apparitions et concentre-toi pour résoudre les trois énigmes cachées dans ce tumulte.",
+      "Ta réussite dissipera les voiles du chaos et t’ouvrira le chemin vers la prochaine épreuve."
+    ],
+    "modal": {
+      "riddle": "Enigme",
+      "1": {
+        "title": "3 fiches à énigmes",
+        "row": {
+          "1": [
+            "Je suis l'absence qui parle, le vide où s'écoute,",
+            "Sans moi, le bruit règne en maître partout.",
+            "Qui suis-je ?"
+          ],
+          "2": [
+            "Sur le mur je danse, une blessure discrète,",
+            "Mince chemin qui laisse passer la lumière.",
+            "Que suis-je ?"
+          ],
+          "3": [
+            "Quand le vent glacé caresse ta peau,",
+            "Un tremblement court, léger comme un souffle.",
+            "Quel est ce frêle messager ?"
+          ]
+        }
+      }
+    }
+  },
+  "test": {
+    "buttons": {
+      "enigm1": {
+        "text": "Réponse énigme 1",
+        "placeholder": "Saisir la réponse à l'enigme 1",
+        "error": "la réponse est erronée."
+      },
+      "enigm2": {
+        "text": "Réponse énigme 2",
+        "placeholder": "Saisir la réponse à l'enigme 2",
+        "error": "la réponse est erronée."
+      },
+      "enigm3": {
+        "text": "Réponse énigme 3",
+        "placeholder": "Saisir la réponse à l'enigme 3",
+        "error": "la réponse est erronée."
+      },
+      "hint": {
+        "text": "Consulter les énigmes"
+      },
+      "submit": {
+        "text": "Valider"
+      }
+    },
+    "response": {
+      "1": "silence$",
+      "2": "fissure$|rupture$|cassure$|séparation$|separation$|fente$|crevasse$",
+      "3": "frisson$"
+    }
+  }
+}

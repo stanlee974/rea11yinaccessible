@@ -6,7 +6,7 @@
     import {page} from "$app/stores";
     import {onMount} from "svelte";
     // à mettre en store plutot
-    import { ESCAPEGAME_KEY } from "../(escape)/eldoria/constant";
+    import { ESCAPEGAME_KEY } from "../(escape)/niortalis/constant";
 
     onMount(() => {
         renderStore.set(new RenderData($t(`common.step.${Step.SUMMARY}`), "", "", Step.SUMMARY));

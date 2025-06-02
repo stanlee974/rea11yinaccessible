@@ -26,14 +26,14 @@
       "goal": "Objectif"
     },
     "progressRoom": {
-      "firstPlace": "Forêt murmurante",
-      "secondPlace": "Pont des Mots Perdus",
-      "thirdPlace": "Archives Sombres",
-      "fourthPlace": "Murmure des Ombres",
-      "fifthPlace": "Fil de l’Invisible",
-      "sixthPlace": "Labyrinthe Glacial",
-      "seventhPlace": "Sanctuaire Échos",
-      "eighthPlace": "Archive Fracturée",
+      "firstPlace": "Illusions Chromatiques",
+      "secondPlace": "Crypte des Voiles Noirs",
+      "thirdPlace": "Bibliothèque Fracturée",
+      "fourthPlace": "Hall des Distractions",
+      "fifthPlace": "Maître des Détours",
+      "sixthPlace": "Chambre Givrée",
+      "seventhPlace": "Échos Faibles",
+      "eighthPlace": "Labyrinthe Visuel",
       "shelterEntrance": "Salle des altérations",
       "shelterMedicalRoom": "Salle médicale",
       "shelterComputerRoom": "Salle de contrôle",
@@ -53,7 +53,7 @@
     "audio": "Active ou désactive la musique ambiante. A activer manuellement avant de commencer l'escape game.",
     "hint": "Si tu es bloqué(e), tu disposes de 2 indices. Si ce n'est pas suffisant, un 3ème indice sera disponible et te donnera la solution.",
     "language": "Le choix de la langue va traduire tout le contenu y compris les réponses et les audios.",
-    "oxygen": "La Jauge d’Harmonie représente les dernières traces de compréhension magique entre les peuples d’Eldoria. Elle commence à 100%, mais diminue inexorablement à mesure que le mal progresse et que la Cloche reste brisée."
+    "oxygen": "Regarde l’Œil de Clarté, cette lumière magique qui te guide. Elle représente ton énergie dans cette quête. Si la lumière s’éteint, ta mission échoue et Niortalis restera prisonnière de l’exclusion."
   },
   "header": {
     "hint": {
@@ -75,7 +75,7 @@
           "2": "Positionne le contraste à 74 et la luminosité à 100",
           "3": "Le bon ordre est le quatrième, le troisième, le premier et le deuxième"
         },
-        "eldoria": {
+        "niortalis": {
           "firstPlace": [
             "L’or de l’aurore, le baiser d’un bouton, le chant de la mousse, le souffle du feu mourant (→ Jaune, Rose, Vert, Orange). Utilise le contraste et la luminosité pour les identifier",
             "Positionne le contraste à 74 et la luminosité à 100",
@@ -92,9 +92,9 @@
             "Le mot est ombre"
           ],
           "fourthPlace": [
-            "Enigme 1 : Ce n’est pas juste le calme, mais un vide sonore annonçant un changement imminent, Enigme 2 : Cette faille discrète est le premier signe d’un déséquilibre qui pourrait tout faire basculer, Enigme 3 : Ce phénomène précède toujours le tremblement, un murmure corporel avant le chaos. L’or de l’aurore, le baiser d’un bouton, le chant de la mousse, le souffle du feu mourant (→ Jaune, Rose, Vert, Orange). Utilise le contraste et la luminosité pour les identifier",
-            "Enigme 1 : Ce calme profond précède souvent la tempête ou le moindre bruit, Enigme 2 : Elle court silencieusement dans la pierre, marquant une faiblesse dangereuse, Enigme 3 : Le son profond, presque imperceptible, semble résonner dans ton corps avant que la pierre ne bouge",
-            "Enigme 1 : C’est l’absence de tout son, le calme total autour de toi, Enigme 2 : C’est une fine ligne, parfois à peine visible, qui peut briser ce qui semblait solide, Enigme 3 : Tu sens une vibration légère dans l’air ou sous tes pieds, comme un souffle invisible"
+            "Enigme 1 : Ce n’est pas juste le calme, mais un vide sonore annonçant un changement imminent, Enigme 2 : Cette faille discrète est le premier signe d’un déséquilibre qui pourrait tout faire basculer, Enigme 3 : Ce phénomène précède toujours le tremblement, un murmure corporel avant le chaos",
+            "Enigme 1 : Ce calme profond précède souvent la tempête ou le moindre bruit, Enigme 2 : Elle court silencieusement dans la pierre, marquant une faiblesse dangereuse, Enigme 3 : Le son profond, presque imperceptible, semble résonner dans ton corps",
+            "Enigme 1 : C’est l’absence de tout son, le calme total autour de toi, Enigme 2 : C’est une fine ligne, parfois à peine visible, qui peut briser ce qui semblait solide, Enigme 3 : Tu sens une vibration légère dans l’air ou sous tes pieds, comme un souffle invisible qui fait vibrer tes poils"
           ],
           "fifthPlace": [
             "Lorsque tu bouges la souris, ça tremblera moins que si tu restes sur place",
@@ -159,7 +159,7 @@
     "audio": "Musique de fond",
     "language": "Langue",
     "oxygen": {
-      "title": "Harmonie️",
+      "title": "Éclat de lŒil",
       "remaining": "{{oxygen}}% d'harmonie restant"
     },
     "customization": "Adaptation"
@@ -177,7 +177,7 @@
     "sanctuary": "Troubles cognitifs | Police, Zoom, Alignement",
     "outro": "Epilogue",
     "summary": "Conclusion",
-    "eldoria": {
+    "niortalis": {
       "firstPlace": "Troubles visuels | Daltonisme",
       "secondPlace": "Troubles cognitifs | Dyslexie",
       "thirdPlace": "Troubles visuels | Aveugle",
@@ -192,10 +192,10 @@
       "modal": {
         "1": {
           "row": [
-            "Le dernier éclat d’harmonie s’éteint. La Cloche des Mille Voix demeure muette, et avec elle, le lien entre les peuples se brise à jamais.",
-            "Un silence profond tombe sur Eldoria — non pas celui de la paix, mais celui de l’oubli. Tu es arrivé trop tard.",
-            "Alors que l’Harmonie s’éteint autour de toi, un souffle familier s’élève dans ton coeur — un souvenir, une promesse, une force que tu pensais perdue.",
-            "Ce dernier éclat de lumière vient de toi. Si tu trouves en toi le courage de continuer, peut-être l’écho des voix pourra-t-il résonner encore..."
+            "L’Œil de Clarté vacille, son éclat faiblit sous le poids des ténèbres.",
+            "Pourtant, au cœur des ombres, une lueur fragile danse encore, comme un souffle de vie qui refuse de s’éteindre.",
+            "Soudain, cette étincelle s’enflamme, embrasant ton être d’une énergie nouvelle, puissante et secrète.",
+            "Ta quête est loin d’être achevée : la lumière renaît en toi, prête à briser l’obscurité. Avance, héros de Niortalis, le destin t’attend."
           ]
         }
       }

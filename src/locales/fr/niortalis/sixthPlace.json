@@ -1,0 +1,54 @@
+{
+  "before": {
+    "row": [
+      "Après avoir surmonté l’Atelier du Mage Tremblant, un courant froid t’attire vers une porte grinçante.",
+      "Tu pénètres dans La Chambre Givrée, où la magie vacille et le contrôle se défie.",
+      "Un frisson parcourt les pierres givrées, et les murs craquellent sous l’emprise du froid ancien de l'archimage Glacior, à l'éclat silencieux."
+    ]
+  },
+  "neon": {
+    "title": "Niortalis",
+    "subtitle": "La Chambre Givrée"
+  },
+  "scenario": {
+    "row": [
+      "Le sortilège de l'archimage s’abat sur toi : un froid mordant engourdit tes mains et fait trembler ton toucher.",
+      "Face à toi, un parchemin gravé de symboles anciens attend d’être déchiffré par le toucher seul.",
+      "à droite, un socle gelé s’illumine faiblement… il attend que tu y inscrives le mot que ton esprit a su déchiffrer malgré le froid.",
+      "Le silence se brise… une voix glacée résonne sans bouche ni souffle."
+    ],
+    "modal": {
+      "1": {
+        "row": [
+          "« Montre-moi que le froid ne fige pas ta volonté. Si tes doigts savent encore tracer la vérité, peut-être échapperas-tu à l’éternel givre. »"
+        ]
+      }
+    }
+  },
+  "goal": {
+    "row": [
+      "Taper correctement le mot clé sur le socle gelé."
+    ]
+  },
+  "test": {
+    "response": "tremblement$",
+    "parchment": {
+      "row": {
+        "1": "le",
+        "2": "mot de passe",
+        "3": "est",
+        "4": "tremblement"
+      }
+    },
+    "buttons": {
+      "password": {
+        "text": "Mot de passe",
+        "placeholder": "Entrer le mot de passe",
+        "error": "Le mot de passe est erroné"
+      },
+      "submit": {
+        "text": "Valider"
+      }
+    }
+  }
+}

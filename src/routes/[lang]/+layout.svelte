@@ -572,7 +572,7 @@
             <div class="half">
                 <div>
                     <ImageLoader
-                            src="{base}/gameOver/eldoria/cloche.png"
+                            src="{base}/gameOver/niortalis/cloche.png"
                             alt="" fadeIn={true}/>
                 </div>
             </div>
@@ -589,7 +589,7 @@
             </div>
             <div class="half">
                 <ImageLoader
-                        src="{base}/gameOver/eldoria/cloche2.png"
+                        src="{base}/gameOver/niortalis/cloche2.png"
                         alt="" fadeIn={true}/>
             </div>
         </div>
@@ -597,7 +597,7 @@
             <div class="half m-3">
                 <div>
                     <ImageLoader
-                            src="{base}/gameOver/eldoria/eldoria.png"
+                            src="{base}/gameOver/niortalis/niortalis.png"
                             alt="" fadeIn={true}/>
                 </div>
             </div>

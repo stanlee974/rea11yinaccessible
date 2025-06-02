@@ -1,0 +1,68 @@
+{
+  "before": {
+    "row": [
+      "Tu quittes l’Auditorium des Échos Faibles, guidé par un léger éclat au bout d’un couloir sinueux.",
+      "Une arche ornée de symboles ondulants s’ouvre devant toi, révélant la Salle du Labyrinthe Visuel.",
+      "Ici, les apparences se déforment, et chaque pas te plonge plus profondément dans un dédale d’illusions."
+    ]
+  },
+  "neon": {
+    "title": "Niortalis",
+    "subtitle": "La Salle du Labyrinthe Visuel"
+  },
+  "scenario": {
+    "row": [
+      "La salle s’étend à perte de vue, son plafond disparu dans une brume légère, brouillant tous tes repères.",
+      "Devant toi, deux entailles sculptées dans un bloc massif, perdues au milieu d’un espace désordonné et démesuré.",
+      "Tu devras scruter chaque recoin, naviguer avec patience pour déceler les failles et découvrir la vérité cachée."
+    ],
+    "button": {
+      "continue": {
+        "text": "Continuer"
+      }
+    },
+    "modal": {
+      "1": {
+        "row": [
+          "Deux entailles profondes s’ouvrent dans la pierre froide, gardiennes d’une lumière vacillante, comme un secret qui attend ton nom.",
+          "Ta main s’avance, effleurant une surface fragile qui cède sous ton toucher, invitant à l’exploration.",
+          "Au creux des entailles, tu découvres un parchemin ancien, fragile mais chargé de mystère.",
+          "Fais glisser, agrandir, réduire. Perds-toi dans les plis du labyrinthe, reviens sur tes pas. La vérité ne se livre pas d’un coup, elle s’éveille peu à peu, comme un vieux souvenir ressuscité.",
+          "Repère les champs dissimulés dans l’immensité, déchiffre leurs rôles malgré leur désordre, et saisis les informations justes, avec précision."
+        ]
+      }
+    }
+  },
+  "goal": {
+    "row": [
+      "L’harmonie qui naît quand plusieurs voix s’unissent crée une sensation d’équilibre et de paix intérieure.",
+      "Cette union subtile, semblable à une danse silencieuse, relie chaque note dans une mélodie cohérente.",
+      "Le mouvement de l’air, léger et invisible, porte avec lui l’énergie nécessaire pour insuffler la vie aux sons.",
+      "Sans cette respiration, la musique perdrait son dynamisme, et le silence deviendrait oppressant."
+    ]
+  },
+  "test": {
+    "response": {
+      "1": {
+        "question1": "^Accord$",
+        "question2": "^Souffle$"
+      },
+      "2": {
+        "question1": "accord$",
+        "question2": "souffle$"
+      }
+    },
+    "buttons": {
+      "question1": {
+        "text": "Le seul élément capable d’unir plusieurs voix en une seule harmonie ?"
+      },
+      "question2": {
+        "text": "Tu ne le vois pas, mais tu le sens. Il donne vie aux voix, rythme les gestes, unit les corps ?"
+      },
+      "submit": {
+        "text": "Valider"
+      }
+    },
+    "error": "une des réponses est incorrecte."
+  }
+}

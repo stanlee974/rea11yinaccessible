@@ -1,0 +1,57 @@
+{
+  "before": {
+    "row": [
+      "Tu quittes la salle où ta précision fut mise à rude épreuve, et un murmure sourd t’attire plus loin.",
+      "Une porte aux contours flous s’ouvre lentement, révélant l’Auditorium des Échos Faibles.",
+      "Dans cette salle, chaque son semble s’effacer, te défiant de prêter attention au moindre souffle."
+    ]
+  },
+  "neon": {
+    "title": "Niortalis",
+    "subtitle": "L’Auditorium des Échos Faibles"
+  },
+  "scenario": {
+    "row": [
+      "Plusieurs voix s’élèvent, chacune plus intense que la précédente, mais tu ne peux écouter qu’une à la fois."
+    ],
+    "modal": {
+      "1": {
+        "row": [
+          "« Le murmure s’élève, prêt à te révéler ses secrets. Saisis chaque nuance pour avancer. »"
+        ]
+      }
+    }
+  },
+  "goal": {
+    "row": [
+      "Écoute le murmure pour révéler le secret caché.",
+      "Saisis les indices subtils qui émergent à chaque intensité pour deviner le mot mystérieux.",
+      "Ton succès dissipera le silence et ouvrira la porte vers la prochaine épreuve."
+    ]
+  },
+  "test": {
+    "response": "résilience$|resilience$",
+    "buttons": {
+      "deafHigh": {
+        "text": "Surdité élevée"
+      },
+      "deafMedium": {
+        "text": "Surdité moyennement élevée"
+      },
+      "deafLow": {
+        "text": "Surdité basse"
+      },
+      "deafVeryLow": {
+        "text": "Surdité très basse"
+      },
+      "keyword": {
+        "text": "Mot clé",
+        "placeholder": "Entrer le mot clé",
+        "error": "le mot clé est erroné"
+      },
+      "submit": {
+        "text": "Valider"
+      }
+    }
+  }
+}

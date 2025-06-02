@@ -17,7 +17,7 @@
     import { get } from "svelte/store";
     import { headerStore } from "$lib/store/HeaderStore";
     import { driver } from "driver.js";
-    import { ESCAPEGAME_KEY } from "../(escape)/eldoria/constant";
+    import { ESCAPEGAME_KEY } from "../(escape)/niortalis/constant";
 
     let disableWriter = true
     let isWaiting = false

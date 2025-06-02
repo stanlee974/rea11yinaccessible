@@ -1,0 +1,46 @@
+{
+  "before": {
+    "row": [
+      "Après avoir triomphé de l'obscurité de la Crypte des Voiles Noirs, un murmure ancien t'appelle plus loin.",
+      "Un portail de livres éclatés s'ouvre devant toi, dévoilant la Bibliothèque Fracturée où le savoir vacille et se déforme."
+    ]
+  },
+  "neon": {
+    "title": "Niortalis",
+    "subtitle": "La Bibliothèque Fracturée"
+  },
+  "scenario": {
+    "row": [
+      "Dans cette bibliothèque où les mots se mélangent et se tordent, chaque page est un défi pour ton esprit.",
+      "Les lettres dansent et changent, brouillant le sens, et tu dois déchiffrer un mot secret au cœur du chaos.",
+      "Sur un pupitre solitaire, des mots vacillent à la lueur d’une flamme :",
+      "Ombre - Flamme - Écho - Voile - Sillage - Miroir - Brume - Sphère - Lueur - Envol - Enigme - Murmure"
+    ]
+  },
+  "goal": {
+    "row": [
+      "Trouve le mot de passe caché grâce aux lettres mouvantes.",
+      "Ta réussite apaisera les pages tourmentées et te permettra d’avancer dans ta quête."
+    ]
+  },
+  "test": {
+    "sentence": "Le vent porte un secret clair, sous le voile, la vérité éclaire. Cherche le reflet qui ne ment pas, c’est lui qui ouvre la voie.",
+    "button": {
+      "password": {
+        "label": "password",
+        "text": "Mot de passe",
+        "placeholder": "Entrer le mot de passe",
+        "error": "le mot de passe est erroné"
+      },
+      "submit": {
+        "text": "Valider"
+      }
+    },
+    "response": "miroir",
+    "error": {
+      "title": "Erreur",
+      "message": "Les lettres se rebellent encore, le mot secret reste hors de portée.",
+      "caption": "Essaie encore"
+    }
+  }
+}

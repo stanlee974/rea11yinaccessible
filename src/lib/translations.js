@@ -98,14 +98,15 @@ availableLocales.forEach((currentLocale) => {
     const placeNames = [
         'firstPlace', 'secondPlace', 'thirdPlace',
         'fourthPlace', 'fifthPlace', 'sixthPlace',
-        'seventhPlace', 'eighthPlace', 'ninthPlace'
+        'seventhPlace', 'eighthPlace', 'ninthPlace',
+        'summary'
     ];
 
     placeNames.forEach(place => {
         loaders.push({
             locale: currentLocale,
-            key: `eldoria.${place}`,
-            loader: async () => (await import(`../locales/${currentLocale}/eldoria/${place}.json`)).default
+            key: `niortalis.${place}`,
+            loader: async () => (await import(`../locales/${currentLocale}/niortalis/${place}.json`)).default
         });
     });
 })

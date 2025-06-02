@@ -1,0 +1,76 @@
+{
+  "neon": {
+    "title": "Niortalis",
+    "subtitle": "Quand l'Inaudible Devint Lumière"
+  },
+  "modal": {
+    "1": {
+      "image": {
+        "1": {
+          "row": [
+            "Alors que les dernières lignes du parchemin s’alignent et que le chaos s’apaise, un souffle ancien se lève.",
+            "L’Œil de Clarté vacille une dernière fois… car à présent, tu te tiens aux portes de l’oubli. Le Gardien t’attend."
+          ]
+        },
+        "2": {
+          "row": [
+            "L’air se fige.",
+            "Une silhouette drapée d’ombres émerge du néant, sans visage, sans âge.",
+            "Le Gardien de l’Oubli ne parle pas : son silence pèse plus lourd que mille malédictions.",
+            "Il n’est pas là pour t’arrêter… mais pour t’effacer."
+          ]
+        },
+        "3": {
+          "row": [
+            "Il projette vers toi les vestiges des épreuves passées : couleurs confondues, mots troublés, sons distordus…",
+            "Tu dois reconnaître, associer, et corriger.",
+            "Chaque erreur affaiblit la flamme de l’Œil de Clarté.",
+            "Souviens-toi.",
+            "L’oubli rôde là où la certitude vacille."
+          ]
+        },
+        "4": {
+          "row": [
+            "La salle tremble.",
+            "Des fragments de mémoire s’échappent autour de toi comme des éclats de lumière.",
+            "Mais tu tiens bon.",
+            "Chaque vérité retrouvée ranime l’Œil.",
+            "Le Gardien recule, lentement, comme si ton savoir rouvrait les portes qu’il avait scellées depuis des siècles."
+          ]
+        }
+      }
+    },
+    "2": {
+      "image": {
+        "1": {
+          "row": [
+            "D’un dernier éclat, l’Œil s’illumine entièrement.",
+            "Le Gardien s’incline et disparaît, emportant avec lui les brumes de l’oubli.",
+            "Niortalis respire à nouveau, libre et unifiée.",
+            "Tu n’es plus un simple apprenti.",
+            "Tu es désormais un Porteur de Clarté."
+          ]
+        }
+      }
+    }
+  },
+  "epilogue": {
+    "title": "Epilogue",
+    "row": [
+      "Le silence tombe, mais il n’est plus lourd. Il est plein… d’attente.",
+      "Une dernière voix s’élève. Pas celle du Gardien. Pas celle d’un Sage. La tienne.",
+      "Tu t'entends… mais tu n'avais jamais parlé.",
+      "L’univers autour de toi vacille.",
+      "Les murs de Niortalis s’effondrent doucement, révélant un décor bien plus familier : ton quotidien numérique.",
+      "Ce n'était pas un royaume… mais un miroir.",
+      "Chaque épreuve n'était qu'un reflet d'obstacles réels, vécus chaque jour par des millions d’êtres bien vivants.",
+      "Ce que tu as ressenti — frustration, confusion, exclusion — n’était qu’un fragment de leur réalité.",
+      "L’Œil de Clarté, ce n’était pas une relique : c’était ton regard.",
+      "Et maintenant qu’il est ouvert… que choisiras-tu de faire ?"
+    ]
+  },
+  "buttons": {
+    "summary": "Récapitulatif",
+    "end": "Fin de l'aventure en"
+  }
+}
