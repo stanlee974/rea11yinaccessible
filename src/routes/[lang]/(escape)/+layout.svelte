@@ -130,8 +130,7 @@
             <Typewriter mode="scramble">
                 <div class="container">
                     <h1 style="display: flex; flex-direction: column"><span class="neon">{$renderStore.neon}</span>
-                        <span
-                                class="flux">{$renderStore.flux}</span></h1>
+                        <span class="flux">{$renderStore.flux}</span></h1>
                 </div>
             </Typewriter>
         </div>
