@@ -572,7 +572,7 @@
             <div class="half">
                 <div>
                     <ImageLoader
-                            src="{base}/gameOver/niortalis/cloche.png"
+                            src="{base}/gameOver/niortalis/bright_eye.png"
                             alt="" fadeIn={true}/>
                 </div>
             </div>
@@ -589,7 +589,7 @@
             </div>
             <div class="half">
                 <ImageLoader
-                        src="{base}/gameOver/niortalis/cloche2.png"
+                        src="{base}/gameOver/niortalis/eye.png"
                         alt="" fadeIn={true}/>
             </div>
         </div>
@@ -597,7 +597,7 @@
             <div class="half m-3">
                 <div>
                     <ImageLoader
-                            src="{base}/gameOver/niortalis/niortalis.png"
+                            src="{base}/gameOver/niortalis/fired_eye.png"
                             alt="" fadeIn={true}/>
                 </div>
             </div>

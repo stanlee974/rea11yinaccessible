@@ -71,7 +71,7 @@
         <Row>
             <Column>
                 <ImageLoader
-                        src="{base}/{ESCAPEGAME_KEY}/fifthPlace/underground.png"
+                        src="{base}/{ESCAPEGAME_KEY}/fifthPlace/spirit2.png"
                         alt="" fadeIn={true}/>
             </Column>
             <Column>

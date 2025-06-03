@@ -118,17 +118,17 @@
                                 onEnded={() => showAudioMediumDeaf = true}></AudioComponent>
                 {#if showAudioMediumDeaf}
                     <AudioComponent id="deafMedium" name={$t(`${ESCAPEGAME_KEY}.seventhPlace.test.buttons.deafMedium.text`)}
-                                    src="{base}/surface/laboratory/audiovisual_room/{$page.params.lang}/nodeaf.mp3"
+                                    src="{base}/{ESCAPEGAME_KEY}/seventhPlace/{$page.params.lang}/nodeaf.mp3"
                                     volume={0.0020} onEnded={() => showAudioLowDeaf = true}></AudioComponent>
                 {/if}
                 {#if showAudioLowDeaf}
                     <AudioComponent id="deafLow" name={$t(`${ESCAPEGAME_KEY}.seventhPlace.test.buttons.deafLow.text`)}
-                                    src="{base}/surface/laboratory/audiovisual_room/{$page.params.lang}/nodeaf.mp3"
+                                    src="{base}/{ESCAPEGAME_KEY}/seventhPlace/{$page.params.lang}/nodeaf.mp3"
                                     volume={0.01} onEnded={() => showAudioVeryLowDeaf = true}></AudioComponent>
                 {/if}
                 {#if showAudioVeryLowDeaf}
                     <AudioComponent id="deafVeryLow" name={$t(`${ESCAPEGAME_KEY}.seventhPlace.test.buttons.deafVeryLow.text`)}
-                                    src="{base}/surface/laboratory/audiovisual_room/{$page.params.lang}/nodeaf.mp3"
+                                    src="{base}/{ESCAPEGAME_KEY}/seventhPlace/{$page.params.lang}/nodeaf.mp3"
                                     volume={0.1}></AudioComponent>
                 {/if}
             </Row>

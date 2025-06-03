@@ -158,7 +158,7 @@
         <Row>
             <Column>
                 <ImageLoader
-                        src="{base}/{ESCAPEGAME_KEY}/fourthPlace/lantern.png"
+                        src="{base}/{ESCAPEGAME_KEY}/fourthPlace/place.png"
                         alt="" fadeIn={true}/>
             </Column>
             <Column>

@@ -129,7 +129,8 @@
         <div style="{$renderStore.step !== Step.SURFACE_LABORATORY_SANCTUARY && $renderStore.step !== Step.EIGHTH_PLACE ? 'display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;': ''}">
             <Typewriter mode="scramble">
                 <div class="container">
-                    <h1 style="display: flex; flex-direction: column"><span class="neon">{$renderStore.neon}</span>
+                    <h1 style="display: flex; flex-direction: column">
+                        <span class="neon">{$renderStore.neon}</span>
                         <span class="flux">{$renderStore.flux}</span></h1>
                 </div>
             </Typewriter>

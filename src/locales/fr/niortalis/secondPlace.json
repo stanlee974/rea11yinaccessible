@@ -11,8 +11,8 @@
   },
   "scenario": {
     "row": [
-      "Dans cette crypte plongée dans l’obscurité totale, tu avances à tâtons, privé de ta vue.",
-      "Chaque geste est un défi, car les inscriptions sont invisibles, et seuls tes doigts doivent guider la magie.",
+      "Dans cette crypte plongée dans l’obscurité totale, tu avances à tâtons, privé(e) de ta vue.",
+      "Chaque geste est un défi, car les inscriptions sont invisibles, et seuls tes doigts peuvent te guider.",
       "Les murs murmurent d’antiques secrets, et l’air semble chargé de voix évanescentes, t’invitant à écouter attentivement.",
       "Le silence pesant est troublé par des murmures lointains, porteurs d’indices précieux pour ta quête.",
       "Ta concentration est ta seule lumière dans cette obscurité où chaque erreur pourrait sceller ton destin."
@@ -36,12 +36,9 @@
       "message": [
         {
           "list": [
-            "\uD83E\uDEB6 Naviguer entre les lignes :",
             "➡\uFE0F (Tab) — Tu passes à la ligne suivante",
             "⬅\uFE0F (Shift + Tab) — Tu passes à la ligne précédente",
-            "\uD83D\uDDDD Presse la rune sacrée :",
             "⏎ (Entrée) — pour sceller ton message et éveiller la magie",
-            "\uD83D\uDCDC Le Sceau du Temps :",
             "\uD83D\uDDD3 jj/mm/aaaa — Ainsi étaient marqués les jours dans les Tables du Temps"
           ]
         },

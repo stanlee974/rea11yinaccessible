@@ -141,7 +141,7 @@
         <Row>
             <Column>
                 <ImageLoader
-                        src="{base}/{ESCAPEGAME_KEY}/secondPlace/suspension_bridge.png" alt=""
+                        src="{base}/{ESCAPEGAME_KEY}/secondPlace/door.png" alt=""
                         fadeIn={true}/>
             </Column>
             <Column>

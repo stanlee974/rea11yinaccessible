@@ -120,7 +120,7 @@
             </div>
             <div class="half">
                 <ImageLoader
-                        src="{base}/{ESCAPEGAME_KEY}/ninthPlace/dalle.png"
+                        src="{base}/{ESCAPEGAME_KEY}/ninthPlace/guardian.png"
                         alt=""
                         fadeIn={true}/>
             </div>
@@ -164,7 +164,7 @@
             <Column>
                 <div class="glitch">
                     <ImageLoader
-                            src="{base}/{ESCAPEGAME_KEY}/ninthPlace/guardian.png"
+                            src="{base}/{ESCAPEGAME_KEY}/ninthPlace/death.png"
                             alt=""
                             fadeIn={true}/>
                 </div>

@@ -3,7 +3,7 @@
     "row": [
       "Alors que les mirages du Hall s’estompent, une brume argentée serpente jusqu’à tes pieds, guidant ton pas sans un mot.",
       "Tu suis un couloir ondulant, comme vivant, jusqu’à une salle où chaque pas semble déséquilibré.",
-      "Un rire léger, presque moqueur, t’accueille dans cette nouvelle épreuve : celle du mouvement trahi."
+      "Un rire léger, presque moqueur, t’accueille dans cette nouvelle épreuve."
     ]
   },
   "neon": {
@@ -13,13 +13,12 @@
   "scenario": {
     "row": [
       "Une présence invisible t’enveloppe, et soudain, chaque mouvement devient incertain, tremblant, comme détourné par une force capricieuse.",
-      "Le Maître des Détours, esprit joueur et farceur de Niortalis, altère ta coordination par un charme instable.",
-      "Tu dois viser avec justesse malgré ses rires étouffés et les secousses qu’il impose à ta main."
+      "Le Maître des Détours, esprit joueur et farceur de Niortalis, altère ta coordination par un charme instable."
     ],
     "modal": {
       "1": {
         "row": [
-          "Retranscris le mot sacré malgré les tremblements glacés qui entravent tes gestes."
+          "Tu dois viser avec justesse malgré ses rires étouffés et les secousses qu’il impose à ta main."
         ]
       }
     }

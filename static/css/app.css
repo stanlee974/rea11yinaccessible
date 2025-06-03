@@ -68,20 +68,11 @@ button {
 	src: url(fonts/Burtinomatic.ttf);
 }
 
-h1 {
-	background: url('wood-plaque.png') center center no-repeat;
-	background-size: 400px 270px;
-	width: 400px;
-	height: 270px;
-	padding-top: 22.5px !important;
-	margin-top: 10px !important;
-}
-
 .neon {
 	font-family: neon;
 	color: black;
 	font-size: 6vw;
-	line-height: 6vw;
+	line-height: 4.5vw;
 }
 
 .flux {

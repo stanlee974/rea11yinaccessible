@@ -24,17 +24,18 @@
     "modal": {
       "1": {
         "row": [
-          "Deux entailles profondes s’ouvrent dans la pierre froide, gardiennes d’une lumière vacillante, comme un secret qui attend ton nom.",
-          "Ta main s’avance, effleurant une surface fragile qui cède sous ton toucher, invitant à l’exploration.",
           "Au creux des entailles, tu découvres un parchemin ancien, fragile mais chargé de mystère.",
-          "Fais glisser, agrandir, réduire. Perds-toi dans les plis du labyrinthe, reviens sur tes pas. La vérité ne se livre pas d’un coup, elle s’éveille peu à peu, comme un vieux souvenir ressuscité.",
-          "Repère les champs dissimulés dans l’immensité, déchiffre leurs rôles malgré leur désordre, et saisis les informations justes, avec précision."
+          "Il ne s’ouvre pas comme un livre ordinaire. Il t’impose son propre rythme, ses règles oubliées.",
+          "Tu peux le déplacer, l’agrandir, le réduire… mais jamais tout lire d’un seul coup.",
+          "Certains éléments semblent perdus dans l’espace, d’autres camouflés, désordonnés, comme s’ils fuyaient le regard pressé.",
+          "Observe, explore, comprends : seuls deux mots sont justes. Deux clés dissimulées dans la toile du parchemin."
         ]
       }
     }
   },
   "goal": {
     "row": [
+      "Parmi ces éléments dispersés, un message plus profond attend d’être révélé.",
       "L’harmonie qui naît quand plusieurs voix s’unissent crée une sensation d’équilibre et de paix intérieure.",
       "Cette union subtile, semblable à une danse silencieuse, relie chaque note dans une mélodie cohérente.",
       "Le mouvement de l’air, léger et invisible, porte avec lui l’énergie nécessaire pour insuffler la vie aux sons.",

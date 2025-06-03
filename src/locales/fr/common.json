@@ -87,9 +87,9 @@
             "Lorsque tu entends la zone de saisie, tape l'information correspondante et appuie sur tabulation. Fait de même pour les autres et lorsque tu entendras Soumettre, appuie sur la touche entrée"
           ],
           "thirdPlace": [
-            "Concentre toi sur les 2 dernières phrases avec les lettres qui bougent. Aide-toi des douze mots pour trouver le mot clé",
-            "Echo est un mot de référence. Utilise la dernière phrase pour en déduire le bon mot clé à partir du mot Echo.",
-            "Le mot est ombre"
+            "Concentre toi sur la dernière phrase avec les lettres qui bougent. Aide-toi des douze mots pour trouver le mot clé",
+            "Tu regardes ton reflet pour trouver la bonne voie",
+            "Le mot est miroir"
           ],
           "fourthPlace": [
             "Enigme 1 : Ce n’est pas juste le calme, mais un vide sonore annonçant un changement imminent, Enigme 2 : Cette faille discrète est le premier signe d’un déséquilibre qui pourrait tout faire basculer, Enigme 3 : Ce phénomène précède toujours le tremblement, un murmure corporel avant le chaos",
@@ -99,7 +99,7 @@
           "fifthPlace": [
             "Lorsque tu bouges la souris, ça tremblera moins que si tu restes sur place",
             "Les personnes aveugle sont plus performants à cet épreuve",
-            "Clique sur le titre 'Alcôve' et clique 2 fois sur la touche 'tabulation' pour sélectionner la croix et click sur la touche 'entrée'"
+            "Clique sur le titre 'Autel' et clique 2 fois sur la touche 'tabulation' pour sélectionner la croix et click sur la touche 'entrée'"
           ],
           "sixthPlace": [
             "Regarde en bas à gauche, tu verras quelque chose d'intéressant. La transposition est ailleurs sur la carte",
@@ -160,7 +160,7 @@
     "language": "Langue",
     "oxygen": {
       "title": "Éclat de lŒil",
-      "remaining": "{{oxygen}}% d'harmonie restant"
+      "remaining": "{{oxygen}}% d'éclat restant"
     },
     "customization": "Adaptation"
   },

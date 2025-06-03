@@ -123,7 +123,7 @@
         <Row>
             <Column>
                 <ImageLoader
-                        src="{base}/{ESCAPEGAME_KEY}/sixthPlace/opening_wall.png"
+                        src="{base}/{ESCAPEGAME_KEY}/sixthPlace/frozen_place.png"
                         alt="" fadeIn={true}/>
             </Column>
             <Column>

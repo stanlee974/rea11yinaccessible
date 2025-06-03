@@ -170,7 +170,7 @@
 <div class="d-flex flex-column align-items-center mt-4">
     <span class="mb-4" id="teaser-video-title">{$t('waitingRoom.playVideo')}</span>
     <div id="teaser-video-container">
-        <div id="teaserPlayer" data-plyr-provider="youtube" data-plyr-embed-id="tYkSrr0ddwY"></div>
+        <div id="teaserPlayer" data-plyr-provider="youtube" data-plyr-embed-id="q1pU74PHJQI"></div>
     </div>
 </div>
 <ButtonComponent enabled={startButton} onclick={() => {disableWriter = false; }}><span slot="content"

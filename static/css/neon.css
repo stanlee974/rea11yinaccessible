@@ -10,13 +10,22 @@ body {
 
 @font-face {
 	font-family: neon;
-	src: url(fonts/Burtinomatic.ttf);
+	src: url(../../css/fonts/Burtinomatic.ttf);
 }
 
 .container {
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
+}
+
+h1 {
+	background: url('../../css/wood-plaque.png') center center no-repeat;
+	background-size: 400px 330px;
+	width: 400px;
+	height: 330px;
+	padding-top: 22.5px !important;
+	margin-top: 10px !important;
 }
 
 .neon {
@@ -27,7 +36,7 @@ body {
 
 .flux {
 	font-family: neon;
-	font-size: 3vw;
+	font-size: 2.5vw;
 	line-height: 3vw;
 }
 
