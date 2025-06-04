@@ -21,10 +21,11 @@ body {
 
 h1 {
 	background: url('/css/wood-plaque.png') center center no-repeat;
-	background-size: 400px 330px;
-	width: 400px;
-	height: 330px;
-	padding-top: 22.5px !important;
+	background-size: 427px 187px;
+	width: 427px;
+	height: 187px;
+	justify-content: center;
+	padding-top: 8.5px !important;
 	margin-top: 10px !important;
 }
 
