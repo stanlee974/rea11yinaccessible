@@ -23,12 +23,14 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"build:netlify": "ADAPTER=netlify vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "3.3.1",
+		"@sveltejs/adapter-netlify": "5.0.2",
 		"@sveltejs/adapter-vercel": "5.4.8",
 		"@sveltejs/kit": "2.5.16",
 		"@sveltejs/vite-plugin-svelte": "3.1.1",
