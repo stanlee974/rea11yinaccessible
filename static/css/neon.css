@@ -10,7 +10,7 @@ body {
 
 @font-face {
 	font-family: neon;
-	src: url(../../css/fonts/Burtinomatic.ttf);
+	src: url(/css/fonts/Burtinomatic.ttf);
 }
 
 .container {
@@ -20,7 +20,7 @@ body {
 }
 
 h1 {
-	background: url('../../css/wood-plaque.png') center center no-repeat;
+	background: url('/css/wood-plaque.png') center center no-repeat;
 	background-size: 400px 330px;
 	width: 400px;
 	height: 330px;
