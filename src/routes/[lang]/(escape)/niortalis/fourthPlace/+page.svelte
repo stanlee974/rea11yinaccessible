@@ -174,11 +174,7 @@
         <div class="container mb-3">
             <h2 class="mb-2">{$t('common.layout.title.scenario')}</h2>
             {#each $t(`${ESCAPEGAME_KEY}.fourthPlace.scenario.row`) as row, i}
-                {#if i === 0}
-                    <p>{row}</p>
-                {:else}
-                    <p>{dyslexia(row, {scrambleChance: 90})}</p>
-                {/if}
+                <p>{row}</p>
             {/each}
         </div>
     </div>

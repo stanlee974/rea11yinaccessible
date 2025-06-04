@@ -120,9 +120,6 @@
 </ModalComponent>
 <div class="d-flex flex">
     <Typewriter mode="cascade" disabled={disableGoal} on:done={() => setTimeout(() => showForm = true, 2000)}>
-        {#each $t(`${ESCAPEGAME_KEY}.eighthPlace.scenario.modal.1.row`) as row}
-            <p class="mt-4">{row}</p>
-        {/each}
         <div class="container mb-4">
             <h2 class="mb-2">{$t('common.layout.title.goal')}</h2>
             {#each $t(`${ESCAPEGAME_KEY}.eighthPlace.goal.row`) as row}
