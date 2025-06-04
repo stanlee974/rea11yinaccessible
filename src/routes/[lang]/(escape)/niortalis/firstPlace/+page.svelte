@@ -97,7 +97,7 @@
             <TypewriterComponent disabled={hideScenario} delay={3000} parentDoneAction={() => {hideGoal = false}}>
                 <h2 class="mb-1">{$t('common.layout.title.scenario')}</h2>
                 {#each $t(`${ESCAPEGAME_KEY}.firstPlace.scenario.row`) as row, i}
-                    <p class:quote={ i === 2 || i === 5} class:m-3={ i === 2 || i === 5 }>{row}</p>
+                    <p class:quote={ i === 3} class:m-3={ i === 3 }>{row}</p>
                 {/each}
             </TypewriterComponent>
         </div>

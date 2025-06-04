@@ -12,7 +12,9 @@
   "scenario": {
     "row": [
       "Les vitraux enchantés projettent des teintes confuses, mêlant ombres et reflets en un spectacle trompeur.",
-      " Pour lever le sortilège, tu dois ajuster la lumière et le contraste afin de révéler les vraies couleurs cachées derrière l’illusion."
+      "Pour lever le sortilège, tu dois ajuster la lumière et le contraste afin de révéler les vraies couleurs cachées derrière l’illusion.",
+      "Le parchemin déchiré, à l'arrière d'un des blocs te dévoile une séquence ancienne :",
+      "L’or de l’aurore, le baiser d’un bouton, le chant de la mousse, le souffle du feu mourant."
     ]
   },
   "goal": {

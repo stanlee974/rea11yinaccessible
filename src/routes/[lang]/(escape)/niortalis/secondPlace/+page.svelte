@@ -227,7 +227,9 @@
                            placeholder={$t(`${ESCAPEGAME_KEY}.secondPlace.test.form.lastName.placeholder`)}
                            required invalid={invalidNom}
                            invalidText={$t(`${ESCAPEGAME_KEY}.secondPlace.test.form.lastName.error`)}
-                           bind:value={nom}/>
+                           bind:value={nom}
+                           autocomplete="off"
+                />
                 <TextInput style="background-color: black; color: black" on:focus={readLabel}
                            id="firstName"
                            aria-label={$t(`${ESCAPEGAME_KEY}.secondPlace.test.form.firstName.ariaLabel`)}
@@ -235,7 +237,9 @@
                            placeholder={$t(`${ESCAPEGAME_KEY}.secondPlace.test.form.firstName.placeholder`)}
                            required invalid={invalidPrenom}
                            invalidText={$t(`${ESCAPEGAME_KEY}.secondPlace.test.form.firstName.error`)}
-                           bind:value={prenom}/>
+                           bind:value={prenom}
+                           autocomplete="off"
+                />
                 <TextInput style="background-color: black; color: black" on:focus={readLabel}
                            id="birthday"
                            aria-label={$t(`${ESCAPEGAME_KEY}.secondPlace.test.form.birthday.ariaLabel`)}
@@ -244,6 +248,7 @@
                            required
                            bind:value={naissance} invalid={invalidNaissance}
                            invalidText={$t(`${ESCAPEGAME_KEY}.secondPlace.test.form.birthday.error`)}
+                           autocomplete="off"
                 />
                 <TextInput style="background-color: black; color: black" on:focus={readLabel}
                            id="deathday"
@@ -252,7 +257,8 @@
                            placeholder={$t(`${ESCAPEGAME_KEY}.secondPlace.test.form.deathday.placeholder`)}
                            required bind:value={deces}
                            invalid={invalidDeces}
-                           invalidText={$t(`${ESCAPEGAME_KEY}.secondPlace.test.form.deathday.error`)}/>
+                           invalidText={$t(`${ESCAPEGAME_KEY}.secondPlace.test.form.deathday.error`)}
+                           autocomplete="off"/>
             </FluidForm>
             <Button id='submit' kind="primary" aria-label={$t(`${ESCAPEGAME_KEY}.secondPlace.test.form.submit.ariaLabel`)}
                     on:click={() => validateForm()} on:focus={readLabel}>
