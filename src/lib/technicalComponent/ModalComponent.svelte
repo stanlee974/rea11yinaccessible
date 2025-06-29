@@ -8,6 +8,7 @@
     export let modalHeading: string = "";
     export let direction: string = "row";
     export let hasPrimaryButton: boolean = true;
+    export let id: string = "currentModal";
 
     const onClose = () => {
         if (parentDoneAction !== undefined) {
@@ -16,7 +17,7 @@
     }
 
 </script>
-<Modal id="currentModal" size="lg" preventCloseOnClickOutside passiveModal={!hasPrimaryButton} modalHeading={modalHeading}
+<Modal id={id} size="lg" preventCloseOnClickOutside passiveModal={!hasPrimaryButton} modalHeading={modalHeading}
        bind:open={opened}
        on:close={() => onClose()}
        primaryButtonText="{$t('common.button.waiting')}"
