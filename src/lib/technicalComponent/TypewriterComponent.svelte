@@ -7,6 +7,7 @@
   import ContinueFilled from "carbon-icons-svelte/lib/ContinueFilled.svelte";
   import {t} from "$lib";
   import {animationStore} from "../store/AnimationStore";
+  import {headerStore} from "../store/HeaderStore";
 
   export let disabled = false;
   export let mode: string = "cascade"
@@ -41,7 +42,7 @@
       parentDoneAction()
     }
   }
-  
+
   $: if (!disabled) {
     if ($animationStore.disabilities.blind) {
       setTimeout(() => {
@@ -59,12 +60,13 @@
     keyboardSound = new Audio(base + "/sound/keyboard.mp3")
     keyboardSound.loop = true
     keyboardSound.volume = 0.3
-    
+
     interval = setInterval(() => {
       if (!$animationStore.disabilities.blind) {
         if (!disabled && hasNotStartedWriting) {
           isWriting = true;
           keyboardSound.play()
+          keyboardSound.volume = $headerStore.soundVolume / 100
         }
         if (isWriting) {
           window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"})

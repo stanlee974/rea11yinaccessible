@@ -138,6 +138,51 @@
         }
       }
     }
+  },
+  "nextStep": {
+    "message" : {
+      "title": "\uD83C\uDFAE Cheat code activated!",
+      "body": "Go to"
+    },
+    "shelterEntrance": {
+      "next" : "abri/computer",
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
+      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+    },
+    "shelterComputerRoom": {
+      "next" : "abri/medical",
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
+      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+    },
+    "shelterMedicalRoom": {
+      "next" : "abri/searchcenter",
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
+      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+    },
+    "shelterSearchCenterRoom": {
+      "next" : "surface/entrance",
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
+      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+    },
+    "surfaceEntrance":  {
+      "next" : "surface/laboratory",
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
+      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+    },
+    "surfaceLaboratory": {
+      "next" : "surface/laboratory/audiovisualroom",
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
+      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+    },
+    "audiovisualRoom":  {
+      "next" : "surface/laboratory/sanctuary",
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
+      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+    },
+    "sanctuary": {
+      "next" : "final",
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
+      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+    }
   }
-
 }
