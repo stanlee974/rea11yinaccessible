@@ -12,6 +12,7 @@
 
     let glitchInput: string[] = []
     let glitchCode: string[] = []
+    let glitchAvailableKeys: Set<string> = new Set<string>();
 
     let isKeyDownAttached: boolean = false
 
@@ -69,8 +70,10 @@
                 }
                 isKeyDownAttached = true;
                 glitchCode = glitchCodeConfig
+                glitchAvailableKeys = new Set(glitchCode)
             } else {
                 glitchCode = []
+                glitchAvailableKeys = new Set()
                 isKeyDownAttached = false;
                 window.removeEventListener('keydown', onKeyDown);
             }
@@ -101,10 +104,8 @@
     }
     const onKeyDown = (e: KeyboardEvent) => {
         const key = e.key;
-        if ($t(`common.nextStep.${$renderStore.step}.availablePressKeys`).includes(key)) {
-            {
-                register(key)
-            }
+        if (glitchAvailableKeys.has(key)) {
+            register(key)
         }
     }
     const goToNextPage = () => {
