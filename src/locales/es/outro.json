@@ -8,23 +8,23 @@
       "image": {
         "1": {
           "row": {
-            "1": "En el centro del santuario, el orbe brilla, iluminado por cristales luminiscentes. Descansa sobre un pedestal dorado, rodeado de grabados antiguos e inscripciones místicas. Te acercas con una mezcla de emoción y temor. El mecanismo se abre lentamente y tomas el orbe."
+            "1": "Tomas el orbe. Está caliente, vibrante. Lo rompes, convencido(a) de haber encontrado la clave para volver a ser normal. Ahí está la jeringa. Te inyectas el líquido plateado. Esperas. Respiras fuerte. Más fuerte. Quieres sentir algo. Quieres... cambiar."
           }
         },
         "2": {
           "row": {
-            "1": "Lo sacudes y te das cuenta de que no está vacío. Usas un pico metálico al pie del pedestal que parece destinado a este propósito. Cuando se rompe, una luz intensa llena la habitación antes de desvanecerse, revelando una jeringa metálica finamente decorada, llena de un líquido plateado."
+            "1": "Pero nada. Ninguna pérdida de sentido. Ninguna transformación. Solo... tu respiración. Cada vez más corta. Miras el indicador de oxígeno. Está bajando. Entras en pánico. Quieres huir. Quieres volver a empezar. Pero ya es demasiado tarde. Y allí, en un cuaderno viejo, medio quemado, una frase grabada con tinta negra:"
           }
         },
         "3": {
           "row": {
-            "1": "Te preparas para inyectarte el contenido de la jeringa. Tomas una respiración profunda, esperando que esta inyección te otorgue la discapacidad necesaria para escapar de los rastreadores. Sostienes la jeringa con una mano temblorosa, sintiendo el peso del momento. Vacías la dosis en tu vena aún caliente."
+            "1": "« No era tu cuerpo lo que debías transformar. Era tu mundo. »"
           }
         },
         "4": {
           "row": {
-            "1": "Después de la inyección, esperas ansiosamente que se manifiesten los efectos. Sin embargo, en lugar de sentir cambios físicos, comienzas a sentirte extrañamente normal.",
-            "2": "Un escalofrío de pánico te recorre. Buscas desesperadamente en los manuscritos antiguos que se encuentran en el santuario para entender qué salió mal. Una nota escondida en un rincón sombrío del santuario finalmente revela la verdad: la jeringa contenía un placebo."
+            "1": "El oxígeno se agota. Todo se vuelve borroso. Te arrodillas. Y en ese preciso momento, todo cambia. La sala se ilumina. El aire regresa. Pero tú no hiciste nada. Comprendes: el oxígeno nunca fue un recurso. Era el privilegio invisible.",
+            "2": "El de un mundo pensado para ti. Un mundo que siempre te dejó respirar, mientras otros se ahogaban en silencio. Y hoy, por primera vez… te has quedado sin aire."
           }
         }
       }
@@ -33,9 +33,9 @@
       "image": {
         "1": {
           "row": {
-            "1": "Se escuchan pasos pesados y voces enojadas en el pasillo, acercándose rápidamente. Los rastreadores, alertados por la luz intensa emitida por la ruptura del orbe, han encontrado su camino hacia el santuario.",
-            "2": "Buscas frenéticamente una salida de emergencia, pero es demasiado tarde. La puerta del santuario se abre bruscamente, dejando entrar a los rastreadores fuertemente armados.",
-            "3": "Los rastreadores, implacables y decididos, te rodean. Uno de ellos avanza y observa la jeringa vacía con una sonrisa siniestra. \"¿De verdad pensaste que podrías escapar de tu destino?\" dice con una voz helada."
+            "1": "La accesibilidad no es un extra. Es el oxígeno digital. Invisible. Esencial. Vital. La exclusión no lleva uniforme. Es suave. Educada. Codificada. Automática. Se desliza en frases como « Esto no está hecho para ti », « Solo tienes que adaptarte ». Y en cada silencio donde se aparta la mirada.",
+            "2": "No eras el objetivo. Eras el testigo. Y ahora… El verdadero juego comienza.",
+            "3": "Y esta vez… ya no puedes fingir que no lo sabes."
           }
         }
       }
@@ -44,11 +44,11 @@
   "epilogue": {
     "title": "Epílogo",
     "row": {
-      "1": "Los rastreadores te llevan fuera del santuario, a través de los oscuros y fríos pasillos del laboratorio secundario. Tus esperanzas de sobrevivir y curarte se disipan, reemplazadas por una sombría resignación.",
-      "2": "Al salir del laboratorio, echas un último vistazo al cielo, sabiendo que tu búsqueda de la inyección CaM-RuN-a11Y fue en vano.",
-      "3": "En la fría luz del día, eres conducido a un destino desconocido, tu destino sellado por los rastreadores. Tu aventura termina con una nota trágica, marcada por la revelación de que tu última esperanza era una ilusión.",
-      "4": "Sin embargo, este amargo final da paso a una profunda reflexión. Tu determinación, perspicacia y capacidad para superar desafíos inimaginables no se borran. Descubriste la fuerza de tu humanidad en un mundo roto, y esa fuerza continuará brillando, incluso en la adversidad.",
-      "5": "Mientras las puertas del laboratorio se cierran detrás de ti, sabes que, a pesar de todo, luchaste hasta el final. Tu historia, aunque trágica, es un testimonio de coraje y resiliencia en un mundo post-apocalíptico despiadado, donde la diferencia aún es una herejía."
+      "1": "Creías estar buscando una vía de escape. Pero lo que encontraste... fue la verdad.",
+      "2": "En este mundo, la exclusión no lleva uniforme. Es suave, educada, codificada, automática.",
+      "3": "Está en el « esto no está hecho para ti », en el « solo tienes que adaptarte », en cada minuto de silencio donde se aparta la mirada.",
+      "4": "No eras el héroe o la heroína. Eras el o la testigo.",
+      "5": "Ahora comienza el verdadero juego. Y esta vez, ya no puedes fingir que no lo sabes."
     }
   },
   "buttons": {
