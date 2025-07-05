@@ -108,7 +108,8 @@ const config = ({
     initLocale: 'fr',
     fallbackLocale: 'fr',
     loaders,
-    translations
+    translations,
+    preprocess: 'preserveArrays'
 });
 
 export const { t, loading, locales, locale, setLocale, loadTranslations } = new i18n(config);

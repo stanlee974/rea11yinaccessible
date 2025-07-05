@@ -2,13 +2,18 @@
     import {Content, ProgressIndicator, ProgressStep} from "carbon-components-svelte";
     import Typewriter from "svelte-typewriter";
     import {renderStore, renderStoreSetData} from "$lib/store/inMemoryStore/RenderStore";
-    import {setLocale, Step, t} from "$lib";
+    import {redirect, setLocale, Step, t} from "$lib";
     import {onMount} from "svelte";
     import {page} from "$app/stores";
     import {animationStore} from "$lib/store/AnimationStore";
 
     let currentStep = 0
     let steps: string[] = []
+
+    let glitchInput: string[] = []
+    let glitchCode: string[] = []
+
+    let isKeyDownAttached: boolean = false
 
     onMount(async () => {
         await setLocale($page.params.lang)
@@ -56,6 +61,19 @@
                 default:
                     break
             }
+            glitchInput = []
+            const glitchCodeConfig = $t(`common.nextStep.${value.step}.code`);
+            if (Array.isArray(glitchCodeConfig)) {
+                if (!isKeyDownAttached) {
+                    window.addEventListener('keydown', onKeyDown)
+                }
+                isKeyDownAttached = true;
+                glitchCode = glitchCodeConfig
+            } else {
+                glitchCode = []
+                isKeyDownAttached = false;
+                window.removeEventListener('keydown', onKeyDown);
+            }
         })
     })
 
@@ -71,6 +89,28 @@
             $t('common.layout.progressRoom.sanctuary')
         ]
     })
+
+    const register = (key: string) => {
+        glitchInput.push(key);
+        if (glitchInput.length > glitchCode.length) {
+            glitchInput.shift();
+        }
+        if (glitchCode.length > 0 && glitchInput && glitchInput.join() === glitchCode.join()) {
+            goToNextPage()
+        }
+    }
+    const onKeyDown = (e: KeyboardEvent) => {
+        const key = e.key;
+        if ($t(`common.nextStep.${$renderStore.step}.availablePressKeys`).includes(key)) {
+            {
+                register(key)
+            }
+        }
+    }
+    const goToNextPage = () => {
+        console.log('✨ Glitch code avec flèches validé !');
+        redirect($page.params.lang, $t(`common.nextStep.${$renderStore.step}.next`));
+    }
 </script>
 
 <style lang="css">
@@ -80,7 +120,6 @@
         -webkit-mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) var(--percent));
         mask-image: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) var(--percent));
     }
-
 </style>
 
 {#if $renderStore.title !== $t('common.step.outro')}
@@ -99,20 +138,20 @@
         {/each}
     </ProgressIndicator>
 {/if}
-    <Content
-            style="{$renderStore.step === Step.SURFACE_LABORATORY_SANCTUARY ? 'display: flex; flex-direction: column; align-items: start;' : ''}">
-
-        <div style="{$renderStore.step !== Step.SURFACE_LABORATORY_SANCTUARY ? 'display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;': ''}">
-            <Typewriter mode="scramble">
-                <div class="container">
-                    <h1 style="display: flex; flex-direction: column"><span class="neon">{$renderStore.neon}</span>
-                        <span
-                                class="flux">{$renderStore.flux}</span></h1>
-                </div>
-            </Typewriter>
-        </div>
-        <br aria-hidden="true"/>
-        <div class="erase-effect" style="--percent: {$animationStore.disabilities.blind ? null : $animationStore.mask + '%'}">
+<Content
+        style="{$renderStore.step === Step.SURFACE_LABORATORY_SANCTUARY ? 'display: flex; flex-direction: column; align-items: start;' : ''}">
+    <div style="{$renderStore.step !== Step.SURFACE_LABORATORY_SANCTUARY ? 'display: flex; flex-direction: column; margin-top: 2rem; align-items: center; justify-content: center;': ''}">
+        <Typewriter mode="scramble">
+            <div class="container">
+                <h1 style="display: flex; flex-direction: column"><span class="neon">{$renderStore.neon}</span>
+                    <span
+                            class="flux">{$renderStore.flux}</span></h1>
+            </div>
+        </Typewriter>
+    </div>
+    <br aria-hidden="true"/>
+    <div class="erase-effect"
+         style="--percent: {$animationStore.disabilities.blind ? null : $animationStore.mask + '%'}">
         <slot/>
-        </div>
-    </Content>
+    </div>
+</Content>
