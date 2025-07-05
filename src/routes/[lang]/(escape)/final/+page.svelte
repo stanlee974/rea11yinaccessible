@@ -14,6 +14,7 @@
     import {redirect} from "$lib";
     import {adjustVolume} from "$lib/store/inMemoryStore/AudioStore";
     import {getElapsedTime} from "$lib/store/AnimationStore";
+    import {updateSongVolume} from "$lib/store/HeaderStore";
 
     let showTransitionModal = true;
     let showTrapModal = false;
@@ -23,6 +24,7 @@
 
     onMount(() => {
         changeSource("/ost/stress.mp3")
+        updateSongVolume(70)
         renderStore.set(new RenderData($t('common.step.outro'), $t('outro.neon.title'), $t('outro.neon.subtitle'), Step.OUTRO));
     })
 </script>
@@ -94,14 +96,15 @@
 
 <ModalComponent opened={showTransitionModal} on:open
                 parentDoneAction={() => {
-                    changeSource("/ost/step10.mp3")
-                   showTrapModal = true
+                  changeSource("/ost/final.mp3")
+                  updateSongVolume(70)
+                  showTrapModal = true
                }}>
     <div>
         <div class="d-flex flew-row align-items-center">
             <div class="half">
                 <ImageLoader
-                        src="{base}/final/orbe.jpg"
+                        src="{base}/final/broken_orb.jpg"
                         alt=""
                         fadeIn={true}/>
             </div>
@@ -117,7 +120,7 @@
             </div>
             <div class="half">
                 <ImageLoader
-                        src="{base}/final/broken_orb.jpg"
+                        src="{base}/final/man_with_syringe.jpg"
                         alt=""
                         fadeIn={true}/>
             </div>
@@ -125,7 +128,7 @@
         <div class="d-flex flew-row align-items-center">
             <div class="half">
                 <ImageLoader
-                        src="{base}/final/man_with_syringe.jpg"
+                        src="{base}/final/man_reading_letter.jpg"
                         alt=""
                         fadeIn={true}/>
             </div>
@@ -142,7 +145,7 @@
             </div>
             <div class="half">
                 <ImageLoader
-                        src="{base}/final/man_reading_letter.jpg"
+                        src="{base}/final/man_running.jpg"
                         alt=""
                         fadeIn={true}/>
             </div>
@@ -158,7 +161,7 @@
             <Column>
                 <div class="glitch">
                     <ImageLoader
-                            src="{base}/final/guard.jpg"
+                            src="{base}/final/reality.jpeg"
                             alt=""
                             fadeIn={true}/>
                 </div>
@@ -171,7 +174,7 @@
         </Row>
     </Grid>
 </ModalComponent>
-<TypewriterComponent disabled={showScenario} parentDoneAction={() => goToSummary = true}>
+<TypewriterComponent intervalType={80} disableTypeSound={true} delay={1000} disabled={showScenario} parentDoneAction={() => goToSummary = true}>
     <div>
         <div class="container mb-4">
             <h2 class="mb-2">{$t('outro.epilogue.title')}</h2>

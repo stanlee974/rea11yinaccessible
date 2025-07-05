@@ -17,6 +17,9 @@
   export let continueButtonAction: Function | undefined = undefined
   export let buttonLabel: string | undefined = $t('common.button.waiting')
 
+  export let disableTypeSound: boolean = false
+  export let intervalType: number = 50
+
   let continuePressed: boolean = false
 
   let keyboardSound: HTMLAudioElement
@@ -57,13 +60,15 @@
   }
 
   onMount(() => {
-    keyboardSound = new Audio(base + "/sound/keyboard.mp3")
-    keyboardSound.loop = true
-    keyboardSound.volume = 0.3
+    if (!disableTypeSound) {
+      keyboardSound = new Audio(base + "/sound/keyboard.mp3")
+      keyboardSound.loop = true
+      keyboardSound.volume = 0.3
+    }
 
     interval = setInterval(() => {
       if (!$animationStore.disabilities.blind) {
-        if (!disabled && hasNotStartedWriting) {
+        if (!disableTypeSound && !disabled && hasNotStartedWriting) {
           isWriting = true;
           keyboardSound.play()
           keyboardSound.volume = $headerStore.soundVolume / 100
@@ -82,6 +87,7 @@
       mode={mode}
       disabled={disabled}
       delay={delay}
+      interval={intervalType}
       on:done={doneAction}>
       <slot></slot>
   </Typewriter>

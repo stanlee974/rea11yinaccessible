@@ -8,23 +8,23 @@
       "image": {
         "1": {
           "row": {
-            "1": "At the center of the sanctuary, the orb glows, illuminated by luminescent crystals. It rests on a golden pedestal, surrounded by ancient engravings and mystical inscriptions. You approach with a mix of excitement and fear. The mechanism slowly opens, and you grasp the orb."
+            "1": "You seize the orb. It's warm, vibrating. You break it, convinced you’ve found the key to your normality. The syringe is there. You inject the silvery liquid. You wait. You breathe heavily. Harder. You want to feel something. You want… to change."
           }
         },
         "2": {
           "row": {
-            "1": "You shake it and realize it's not empty. You use a metal pick at the foot of the pedestal that seems intended for this purpose. When it breaks, an intense light fills the room before fading, revealing a finely decorated metal syringe filled with a silvery liquid."
+            "1": "But nothing. No loss of sense. No transformation. Just... your breath. Getting shorter. You glance at the oxygen gauge. It's dropping. You panic. You want to run. You want to start over. But it's too late. And there, in an old half-burnt notebook, a phrase written in black ink:"
           }
         },
         "3": {
           "row": {
-            "1": "You prepare to inject the contents of the syringe. You take a deep breath, hoping that this injection will give you the disability needed to escape the trackers. You hold the syringe with a trembling hand, feeling the weight of the moment. You empty the dose into your still-warm vein."
+            "1": "\"It wasn't your body that needed to change. It was your world.\""
           }
         },
         "4": {
           "row": {
-            "1": "After the injection, you anxiously wait for the effects to manifest. However, instead of feeling physical changes, you begin to feel strangely normal.",
-            "2": "A chill of panic runs through you. You desperately search through the ancient manuscripts in the sanctuary to understand what went wrong. A note hidden in a shadowy corner of the sanctuary finally reveals the truth: the syringe contained a placebo."
+            "1": "The oxygen runs out. Everything blurs. You fall to your knees. And at that precise moment, everything changes. The room lights up. The air returns. But you did nothing. You understand: oxygen was never a resource. It was the invisible privilege.",
+            "2": "That of a world designed for you. A world that always let you breathe while others suffocated in silence. And today, for the first time… you ran out of air."
           }
         }
       }
@@ -33,9 +33,9 @@
       "image": {
         "1": {
           "row": {
-            "1": "Heavy footsteps and angry voices echo in the hallway, approaching quickly. The trackers, alerted by the intense light emitted from the orb's breaking, have found their way to the sanctuary.",
-            "2": "You frantically search for an escape route, but it's too late. The sanctuary door bursts open, letting in the heavily armed trackers.",
-            "3": "The trackers, ruthless and determined, surround you. One of them steps forward and examines the empty syringe with a sinister smile. \"Did you really think you could escape your fate?\" he says in a chilling voice."
+            "1": "Accessibility is not a bonus. It's digital oxygen. Invisible. Essential. Vital. Exclusion doesn't wear a uniform. It's soft. Polite. Coded. Automatic. It hides in 'This isn’t made for you', 'You just have to adapt.' And in every silence where eyes look away.",
+            "2": "You weren’t hunted. You were a witness. And now... the real game begins.",
+            "3": "And this time… you can’t pretend you don’t know."
           }
         }
       }
@@ -44,11 +44,11 @@
   "epilogue": {
     "title": "Epilogue",
     "row": {
-      "1": "The trackers lead you out of the sanctuary, through the dark and cold corridors of the secondary laboratory. Your hopes for survival and healing dissipate, replaced by a grim resignation.",
-      "2": "As you leave the laboratory, you take one last look at the sky, knowing that your quest for the CaM-RuN-a11Y injection was in vain.",
-      "3": "In the cold daylight, you are led to an unknown destination, your fate sealed by the trackers. Your adventure ends on a tragic note, marked by the revelation that your ultimate hope was an illusion.",
-      "4": "However, this bitter end gives way to deep reflection. Your determination, insight, and ability to overcome unimaginable challenges are not erased. You discovered the strength of your humanity in a broken world, and that strength will continue to shine, even in adversity.",
-      "5": "As the laboratory doors close behind you, you know that, despite everything, you fought until the end. Your story, though tragic, is a testament to courage and resilience in a ruthless post-apocalyptic world where difference is still heresy."
+      "1": "You thought you were looking for an escape. But what you found... is the truth.",
+      "2": "In this world, exclusion doesn't wear a uniform. It's soft, polite, coded, automatic.",
+      "3": "It’s in 'this wasn’t made for you', in 'you just have to adapt', in every minute of silence where people look away.",
+      "4": "You weren’t the hero. You were the witness.",
+      "5": "Now, the real game begins. And this time, you can’t pretend you don’t know."
     }
   },
   "buttons": {
