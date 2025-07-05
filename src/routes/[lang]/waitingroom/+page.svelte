@@ -38,17 +38,37 @@
         changeSource("/ost/opening.mp3")
         startButton = true
         const player = new Plyr('#teaserPlayer', {
-            "captions": {"active": "true", "language": $page.params.lang},
-            "volume": $headerStore.songVolume / 10
-        });
+            autoplay: false,
+            captions: { active: true, language: $page.params.lang ?? "fr" },
+            youtube: {
+                noCookie: true,
+                rel: 0,
+                showinfo: 0,
+                modestbranding: 1,
+            },});
+        player.source = {
+            type: 'video',
+            sources: [
+                {
+                    src: '4EzZ4Na1rtk',
+                    provider: 'youtube',
+                },
+            ],
+        }
         headerStore.subscribe((value) => {
             player.volume = value.songVolume / 10
         })
         const audioElement = get(audioStore);
-        player.on('play', (event) => {
+        player.on('play', () => {
             audioElement.pause()
+            if (!player.fullscreen.active) {
+                player.fullscreen.enter()
+            }
         });
-        player.on('pause', (event) => {
+        player.on('pause', () => {
+            if (player.fullscreen.active) {
+                player.fullscreen.exit()
+            }
             if ($headerStore.playSong) {
                 $audioStore.play()
                 $audioStore.volume = $headerStore.songVolume / 100
@@ -97,6 +117,10 @@
         font-weight: 400;
         line-height: 1.25;
         letter-spacing: 0;
+    }
+
+    :global(.plyr__progress) {
+        display: none;
     }
 
     :global(.driver-popover.custom-theme) {
@@ -169,7 +193,9 @@
 <div class="d-flex flex-column align-items-center mt-4">
     <span class="mb-4" id="teaser-video-title">{$t('waitingRoom.playVideo')}</span>
     <div id="teaser-video-container">
-        <div id="teaserPlayer" data-plyr-provider="youtube" data-plyr-embed-id="4EzZ4Na1rtk"></div>
+        <video
+                id="teaserPlayer"
+        >
     </div>
 </div>
 <ButtonComponent enabled={startButton} onclick={() => {disableWriter = false; }}><span slot="content"
