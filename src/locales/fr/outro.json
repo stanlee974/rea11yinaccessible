@@ -123,7 +123,7 @@
         "disabilities": {
           "1": {
             "title": "dyslexie",
-            "problem": "Les caractères changent sans interruption. Ce trouve visuo-attentionnelle perturbe l'analyse des mots et des textes, à cause d'un trouble de l'attention. Il peut provenir des polices non adaptées, du texte trop dense et non structuré, d'un manque de clarté visuelle (mauvais contraste ou mauvais fond ou une mise en palge encombrée), d'une navigation complexe (menus ou liens non intuitifs ou mal organisés)",
+            "problem": "Les caractères changent sans interruption. Ce trouve visuo-attentionnelle perturbe l'analyse des mots et des textes, à cause d'un trouble de l'attention. Il peut provenir des polices non adaptées, du texte trop dense et non structuré, d'un manque de clarté visuelle (mauvais contraste ou mauvais fond ou une mise en page encombrée), d'une navigation complexe (menus ou liens non intuitifs ou mal organisés)",
             "advice": "Rendre les lettres plus distinctes et faciles à reconnaître en choisissant une police sans empattement comme Arial, Verdana. Utiliser des paragraphes courts et bien espacés, avec des interlignes généreux. Assurer un bon contraste entre le texte et le fond. Les arrière-plans clairs avec du texte foncé sont souvent les plus lisibles. Utiliser des titres, des sous-titres, des listes à puces et des numéros pour organiser le contenu. Préférer l'alignement à gauche du texte plutôt que la justification complète, qui peut créer des espacements irréguliers difficiles à suivre. Créer une structure de navigation claire et intuitive, avec des menus simples et des liens bien étiquetés."
           }
         }

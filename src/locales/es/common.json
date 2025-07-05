@@ -146,43 +146,35 @@
     },
     "shelterEntrance": {
       "next" : "abri/computer",
-      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
-      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"]
     },
     "shelterComputerRoom": {
       "next" : "abri/medical",
-      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
-      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"]
     },
     "shelterMedicalRoom": {
       "next" : "abri/searchcenter",
-      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
-      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"]
     },
     "shelterSearchCenterRoom": {
       "next" : "surface/entrance",
-      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
-      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"]
     },
     "surfaceEntrance":  {
       "next" : "surface/laboratory",
-      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
-      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"]
     },
     "surfaceLaboratory": {
       "next" : "surface/laboratory/audiovisualroom",
-      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
-      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"]
     },
     "audiovisualRoom":  {
       "next" : "surface/laboratory/sanctuary",
-      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
-      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"]
     },
     "sanctuary": {
       "next" : "final",
-      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"],
-      "availablePressKeys" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+      "code" : ["Enter", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Enter"]
     }
   }
 
