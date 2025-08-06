@@ -3,11 +3,11 @@
   "advice": {
     "info": {
       "title": "Advices",
-      "content": [
-        "For a more immersive experience:",
-        "Use Firefox for faster animation playback. Enable background music in the top left if necessary. Turn your computer or tablet's volume to 100% and adjust the audio volume using the music volume bar.",
-        "Click F11 to enter full screen mode."
-      ]
+      "content": {
+        "0": "For a more immersive experience:",
+        "1": "Use Firefox for faster animation playback. Enable background music in the top left if necessary. Turn your computer or tablet's volume to 100% and adjust the audio volume using the music volume bar.",
+        "2": "Click F11 to enter full screen mode."
+      }
     },
     "warning": {
       "title": "Warning",

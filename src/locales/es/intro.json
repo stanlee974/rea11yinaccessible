@@ -3,11 +3,11 @@
   "advice": {
     "info": {
       "title": "Consejos",
-      "content": [
-        "Para una mayor inmersión:",
-        "Utiliza Firefox para una reproducción más rápida de las animaciones. Activa la música de fondo en la parte superior izquierda si es necesario. Sube el volumen de tu computadora o tableta al 100% y ajusta el volumen del audio con la barra de volumen de la música.",
-        "Haz clic en F11 para poner en pantalla completa."
-      ]
+      "content": {
+        "0": "Para una mayor inmersión:",
+        "1": "Utiliza Firefox para una reproducción más rápida de las animaciones. Activa la música de fondo en la parte superior izquierda si es necesario. Sube el volumen de tu computadora o tableta al 100% y ajusta el volumen del audio con la barra de volumen de la música.",
+        "2": "Haz clic en F11 para poner en pantalla completa."
+      }
     },
     "warning": {
       "title": "Advertencia",
